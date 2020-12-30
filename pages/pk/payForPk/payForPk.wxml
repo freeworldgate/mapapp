@@ -1,0 +1,120 @@
+<!--pages/pk/payForPk/payForPk.wxml-->
+
+<view class="css b-white" style="min-height:100vh">
+    <view class="css " >
+        <view class="rcs " style="height:{{top}}px"></view>
+        <view class="rbc" style="height:32px">
+            <view class="rcs" style="flex:1">
+              <view class="rcs pl-4vw pr-4vw" >
+
+                <view class="rcc h-32px " bindtap="back">
+                <image class="rcc h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
+                <!-- <view class="w-20"></view> -->
+                <!-- <view class="rcc fs-30 fw-700">捞人</view> -->
+                </view>
+
+              </view>
+            </view>
+            <view class="rcc fs-35 fw-700">购买卡点</view>
+            <view style="flex:1"></view>
+        
+        </view>
+        <view class="rcs " style="height:10px"></view>
+    </view>
+
+
+    <view class="css p-5vw">
+        <view class="ccc ">
+          <image class="w-150 h-150 br-150 box8" mode="aspectFill" src="{{imgUrl}}"></image>
+          <view class="h-20"></view>
+          <view class="rcc w-400">
+              <view class="rus line-1-center fs-35 fw-900">Sober</view>
+
+          </view>
+        </view>
+        <view class="h-30"></view>
+        <view class="rss p-30 b-48 br-10">
+            <view class="css"><view class="rcc"><image class="w-100 h-100" mode="aspectFit" src="/images/topic.png"></image></view></view>
+            <view class="w-20"></view>
+            <view class="css" style="flex:1">
+                <view class="rcs fs-30 fw-700 c-4"><view>可创建卡点10个</view></view>
+                <view class="rcs">
+                  <view class="rdc"><view class="fs-25 fw-300 c-3">支付金额 </view><view class="fs-25 fw-300 c-1">￥</view><view class="fs-35 fw-700 c-1">10</view></view>
+                </view>
+                
+            </view>
+
+        </view>
+        <view class="h-30"></view>
+        <view class="rbc">
+            <view class="cas b-48 br-20" style="width:29vw;height:23vw">
+              <image class="br-10" style="width:29vw;height:20vw" mode="aspectFill" src="{{imgUrl}}"></image>
+
+            </view>
+            <view class="cas b-48 br-20" style="width:29vw;height:23vw">
+              <image class="br-10" style="width:29vw;height:20vw" mode="aspectFill" src="{{imgUrl}}"></image>
+            </view>
+            <view class="cas b-48 br-20" style="width:29vw;height:23vw">
+              <image class="br-10" style="width:29vw;height:20vw" mode="aspectFill" src="{{imgUrl}}"></image>
+            </view>
+        </view>
+        <view class="h-50"></view>
+        <view class="css">
+            <view class="rcs fs-30 fw-700 c-4">温馨提示:</view>
+            <view class="rss pt-10 pb-10">
+                <view class="ccs fs-23 fw-400 c-3">1.</view>
+                <view class="rus fs-23 fw-400 c-3">我勒个去我勒个去我勒个去我勒个去我勒个去我勒个去我勒</view>
+            </view>
+            <view class="rss pt-10 pb-10">
+                <view class="ccs fs-23 fw-400 c-3">2.</view>
+                <view class="rus fs-23 fw-400 c-3">我勒个去我勒个去我勒个去我勒个去我勒个去我勒个去我勒我勒个去我勒个去我勒个去我勒个去我勒个去我勒个去我勒</view>
+            </view>
+            <view class="rss pt-10 pb-10">
+                <view class="ccs fs-23 fw-400 c-3">3.</view>
+                <view class="rus fs-23 fw-400 c-3">我勒个去我勒个去我勒个去我勒个去我勒个去我勒个去我勒</view>
+            </view>
+
+        </view>
+
+
+    </view>
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+<view class="ccc uploadButton">
+
+
+   
+  <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white">确定</view>
+
+  <view class="h-100"></view>
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,523 @@
+<!--pages/pk/singlePk/singlePk.wxml-->
+<view class="cbs z3 b-white"  style="min-height:100vh" >
+
+
+</view>
+<!-- //头部 -->
+<!-- //头部 -->
+<view hidden="{{!pageTag}}" class="css customBar z3 buildHead" >
+  <view class="rcs " style="height:{{top}}px"></view>
+  <view class="rcs " style="height:32px">
+
+      <view class="rcc h-32px ">
+          <image class="h-35 w-35" mode="aspectFit" src="/images/daka.png"></image>
+          <view class="fs-30 fw-700 c-word-6 f-shadow3">周边卡点</view>
+      </view>
+
+  </view>
+  <view class="rcs " style="height:{{20}}px"></view>
+</view>
+<!-- 按钮 -->
+<view hidden="{{!pageTag}}" class="ccc rightButton z3">
+
+    
+                <view class=" rcc ">
+                                    <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="myFollow">
+                                        <view class="rcc">
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/follow.png"></image>
+                                        </view>
+
+                                        </view>
+                </view>
+                <view class="h-70"></view>
+                <view class=" rcc ">
+                                    <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="myInvite">
+                                        <view class="rcc">
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
+                                        </view>
+
+                                        </view>
+                </view>
+                <view class="h-70"></view>
+                <view class=" rcc ">
+                                        <view class="w-90 h-90 br-90 rcc box8 b-white" bindtap="myPk" >
+                                            <view class="rcc ">
+                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/daka.png"></image>
+                                            </view>
+
+                                        </view>
+                </view>
+
+</view>
+<view hidden="{{!pageTag}}" class="ccc leftButton z3">
+                <view class=" rcc ">
+                                        <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="searchLocation">
+                                            <view class="rcc ">
+                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/search.png"></image>
+                                            </view>
+                                        </view>
+                </view>
+                <view class="h-70"></view>
+                <view class=" rcc ">
+                                    <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="userCenter">
+                                            <image wx:if="{{user}}" class="rcc w-80 h-80 br-80 border10-2" mode="aspectFill" src="{{user.imgUrl}}"></image>
+                                            <image wx:else class="rcc w-50 h-50 " mode="aspectFit" src="/images/user.png"></image>
+                                    
+                                    </view>
+                </view>
+
+</view>
+<!-- 距离 -->
+<view hidden="{{pks.length < 1}}" class="rcc z4" style="position: fixed;left:0;top:{{top}}px;width:100vw;height:32px">
+    <view class="rcc pl-40 pr-40 br-20 b-publish" style="height:32px">
+        <!-- <view></view> -->
+        <view class="c-white fs-25 fw-700">距离{{pks[current].userLengthStr}}</view>
+    </view>
+</view>
+<!-- 地图 -->
+<view hidden="{{!pageTag}}" class="userBack2 z1" style="width: 100vw; height: 100vh;" >
+    <map 
+        id="myMap"
+        style="width: 100vw; height: 100vh;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        circles="{{circles}}"
+        scale="{{scale}}"
+        include-points="{{includePoints}}"
+        show-location
+    ></map>
+
+
+</view>
+<view class="bottomPk css z3">
+     
+        <view class="css z3">
+            <swiper hidden="{{!pks || (pks.length < 1)}}" style="height:85vw" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" current="{{current}}" bindchange="changePk" >
+                <block wx:for="{{pks}}" wx:for-index="bindex" wx:for-item="pk" wx:key="postkey">
+                    <swiper-item  >
+ 
+                        <view class="cbs" style="height:85vw">
+                            <view></view>
+                            <view class="css" style="padding:2vw" >
+
+                                                    <view class="css b-white br-20" style="padding-left:4vw;padding-right:4vw" >
+
+                                                               
+
+                                                                <view class="css">
+                                                                    <view class="rbc b-line">
+                                                                        <view class="rcc">
+                                                                            <view class="w-1vw"></view>
+                                                                            <image class="rcc w-35 h-35 " src="/images/tag.png" mode="aspectFit"></image>
+                                                                            <view class="rcc fs-25 fw-300 c-10">{{pk.type.typeName}}</view>
+                                                                        </view>
+                                                                        <view class="rcc">
+                                                                            <!-- <view class="rcs ">
+                                                                                <image class="w-30 h-30" mode="aspectFit" src="/images/collection.png"></image>
+                                                                                <view class="w-10"></view>
+                                                                                <view class="rcc fs-25 fw-300 c-1">已收藏</view>                                                                            
+                                                                            </view> 
+                                                                            <view class="w-80"></view> -->
+                                                                            <navigator class="rcc pt-40 pb-40" hover-class="none" url="/pages/pk/timepage/timepage?pkId={{pk.pkId}}">
+                                                                                <image class="rcc w-35 h-35 " src="/images/topic.png" mode="aspectFit"></image>
+                                                                            </navigator>                                 
+                                                                        </view>
+                                                                    </view>
+                                                                   
+                                                                    <view class="h-20"></view>
+                                                                    <view class="rss " >
+                                                                        <view class="rus">
+                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}" mode="aspectFill"></image>
+                                                                            <!-- <view class="absolute cbs w-12vw h-12vw br-20" bindtap="updatePkPage" data-index="{{bindex}}" data-pkid="{{pk.pkId}}">
+                                                                                    <view class=""></view>
+                                                                                    <view class="rcc ">
+                                                                                        <view class="rcc h-30 w-10vw br-40 b-publish1 fs-18 fw-300 c-white">封面</view>
+                                                                                    </view>
+                                                                            </view> -->
+                                                                        </view>
+
+
+                                                                    
+                                                                        <view class="cas pl-3vw pr-3vw" style="flex:1">
+                                                                            <view class="css"><view class="rus line-1-start fs-35 fw-700">{{pk.name}}</view></view>
+                                                                            <view class="rcs pt-10" >
+                                                                                                    <!-- <view class="rcc fs-25 fw-300 c-word-6">·景区</view>
+                                                                                                    <view class="w-20"></view> -->
+                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.approved}}人到此打卡</view>
+                                                                                                    <view class="w-20"></view>
+                                                                                                    <view class="rcc pl-15 pr-15 fs-20 fw-300 b-tip br-10 " >
+                                                                                                        <image class="w-25 h-25" mode="aspectFit" src="/images/address.png"></image>
+                                                                                                        <view class="fs-25 c-4">打卡范围{{pk.type.range}}</view>
+                                                                                                    </view>           
+                                                                                              
+                                                                                            
+                                                                                        
+                                                                                                    
+                                                                            </view>
+
+                                                                        </view>
+                                                                                                    
+                                                                                                
+                                                                    </view> 
+                                                           
+                                                                    <view class="rss" style="padding-top:2.5vw">
+                                                                        <view class="ccs w-12vw"><view class="fs-30 fw-300">签名</view></view>
+                                                                        <view class="w-3vw"></view>
+                                                                        <view class="rbc-nowrap" style="flex:1">
+                                                                            <view class="css"  style="flex:1">
+                                                                                <view class="rus line-2-start fs-30 fw-300 c-4">{{pk.sign}}</view>
+                                                                            </view>
+                                                                            <view></view>
+                                                                        </view>
+                                                                    
+                                                                    
+                                                                    </view>
+                                                                    <view hidden="{{pk.topPost}}" class="h-3vw"></view>
+                                                                    <view hidden="{{!pk.topPost}}" class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
+                                                                        <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
+                                                                        <view class="w-3vw"></view>
+                                                                        <view class="rcs" style="flex:1">
+                                                                        
+                                                                            <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw">
+                                                                                <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
+                                                                                    <view class="rss">
+                                                                                        <view class="rcc"  style="height:16vw;width:16vw" >
+                                                                                            <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                        </view>
+                                                                                        <view  style="width:1vw"></view>
+                                                                                                                            
+                                                                                    </view>
+                                                                                </view>
+                                                                            </scroll-view>
+                                                                        
+                                                                        </view>
+                                                                    </view>
+                                                             
+                                                                    <view class="rss t-line " >
+                                                                        <view class="rcc w-12vw">
+                                                                            <image class="rcc w-35 h-35" mode="aspectFit" src="/images/address.png"></image>
+                                                                        </view>
+                                                                        <view class="w-3vw"></view>
+                                                                        <view class="rbc-nowrap" style="flex:1">
+                                                                            <view class="css"  style="flex:1">
+                                                                                <view class="rus line-1-start fs-25 fw-300 c-4">{{pk.address}}</view>
+                                                                            </view>
+                                                                            <view class="w-30 "></view>
+                                                                            <view class="rcc pt-40 pb-40">
+                                                                                    <view class="w-20 h-30 l-line"></view>    
+                                                                                    <view class="rcc border-locate pl-10 pr-10 pt-5 pb-5 br-10 " >
+                                                                                                            <image class="rcc w-25 h-25" mode="aspectFit" src="/images/way.png"></image>
+                                                                                                            <view class="w-10 "></view>
+                                                                                                            <view class="rcc fs-23 fs-300 c-4">距离 {{pk.userLengthStr}}</view>
+                                                                                    </view>
+                                                                            </view>
+                                                                        </view>
+                                                                    
+                                                                    
+                                                                    </view>
+                                                            
+                                                                </view>                                                           
+                                                            
+                                                    </view>                      
+                    
+                            </view> 
+
+                        </view>
+
+
+
+                    </swiper-item>
+                </block>
+            </swiper>
+
+            <view class="h-30"></view>
+
+        </view>
+
+
+</view>
+
+<view>
+
+
+
+    <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{dialog.visible!=true}}">
+        <view class="css b-white br-20"   >
+            <view class="cbs" style="flex:1">
+                <view class="rcc">
+                     <image class="w-300 h-300" mode="aspectFit" src="{{dialog.tipImg}}"></image>
+                </view>
+                
+                <view class="css">
+                    <view class="rcc fs-40 fw-700 c-tipColor pl-4vw pr-4vw line-3-center">{{dialog.title}}</view>
+                    <view class="h-20"></view>
+                    <view class="rcc-wrap fs-28 fw-400 c-3  pl-4vw pr-4vw  line-3-center">{{dialog.text}}</view> <view class="h-40"></view>
+                </view>
+                <view></view>
+                <view></view>
+                <view class="rcc pt-50 pb-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="dialog_confirm" >知道了</view>
+                </view>
+    
+            </view>
+
+
+        </view>
+        <!-- <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
+        </view> -->
+    </view>
+    <view class="rcc tipDialog " hidden="{{tipDialog.visible!=true}}">
+        <view class="ccc levelDialog_view">
+            <view class="rcc">
+                <image class="tipDialog_image" mode="aspectFit" src="/images/warn.png" wx:if="{{tipDialog.level==='warn'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/error.png" wx:elif="{{tipDialog.level==='error'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/info.png" wx:else></image>
+            </view>
+            <view style="height:30rpx"></view>
+            <view class="rcc levelDialog_text">{{tipDialog.message}}</view>
+        </view>
+    </view>
+    <view class="coverAll" hidden="{{operateDialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{operateDialog.visible!=true}}">
+        <view class="css b-white br-20"   >
+            <!-- <view class="rcc">
+                <view class="rcc absolute ">
+                    <image class="w-600 h-400" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                </view>
+            </view> -->
+            <view class="cbs" style="flex:1">
+                <view class="rcc">
+                    <image class="w-300 h-300" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                </view>
+                <view class="css">
+                    <view class="rcc fs-40 fw-700 c-tipColor pl-4vw pr-4vw line-3-center">{{operateDialog.title}}</view>
+                    <view class="h-20"></view>
+                    <view class="rcc-wrap fs-28 fw-400 c-3  pl-4vw pr-4vw  line-3-center">{{operateDialog.text}}</view> <view class="h-40"></view>
+                </view>
+
+                <view></view>
+                <view></view>
+
+                <view class="rcc ">
+                    <view class="rcc w-250 h-70 br-20 bTipColor fs-25 fw-400 c-white"  bindtap="operateDialog_confirm" >确定</view>
+                </view>
+                <view class="rcc p-30 fs-25 fw-400 c-3"  bindtap="operateDialog_cancel">知道了</view>
+    
+            </view>
+
+
+        </view>
+        <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
+        </view>
+    </view>
+
+    <view class="cac pageLoadingDialog " hidden="{{pageLoadingDialog.visible!=true}}">
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/load.gif"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+        <view></view>
+    </view>
+    <view class="cac pageLoadingDialog " hidden="{{pageLoadingDialogError.visible!=true}}">
+        <view></view>
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/errorpage.png"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+    </view>
+    <view catchtouchmove="return" class="coverAll999" hidden="{{labelLoadingDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="rcc labelLoadingDialog " hidden="{{labelLoadingDialog.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <image class="labelLoadingDialog_image" mode="aspectFill" src="/images/loading.gif"></image>
+            <view class="labelLoadingDialog_text">加载中</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogSuccess.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadsuccess.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载成功</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogError.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadfail.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载失败</view>
+        </view>
+    </view>
+    <view bindtap="_selectionDialog_hide" class="coverAll" hidden="{{selectionDialog.visible!=true}}"></view>
+    <view class="{{selectionDialog._selectionDialog_layout}}" hidden="{{selectionDialog.visible!=true}}">
+        <view class="css selectionDialog_BT " wx:if="{{selectionDialog.style===1||selectionDialog.style===5}}">
+            <view class="rcc selectionDialog_BT1_title">选项</view>
+            <view style="height:20rpx"></view>
+            <view class="rac">
+                <view bindtap="_selectDialog_choose" class="ccc" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="*idx1">
+                    <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                    <view style="height:20rpx"></view>
+                    <view class="selectionDialog_BT1_title">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="css selectionDialog_RL" wx:elif="{{selectionDialog.style===2||selectionDialog.style===3}}">
+            <view class="rcc selectionDialog_RL_title">选项</view>
+            <view bindtap="_selectDialog_choose" class="ccc selectionDialog_RL_item" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="*idx1">
+                <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                <view style="height:10rpx"></view>
+                <view class="selectionDialog_RL_title">{{item.name}}</view>
+            </view>
+        </view>
+        <view class="css selectionDialog_BT" wx:else>
+            <view class="rcs selectionDialog_BT2_title">选项</view>
+            <view bindtap="_selectDialog_choose" class="rcs selectionDialog_BT2_item" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="idx1">
+                <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                <view style="width:30rpx"></view>
+                <view class="selectionDialog_BT1_title">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="_editImageDialog_closeEdit" catchtouchmove="return" class="rcc coverAll" hidden="{{editImageDialog.visible!=true}}">
+    
+
+        <view catchtap="return" class="css pl-8vw pr-8vw z30 br-20  b-white"  style="width:70vw" >
+                <!-- <view class="rbc-nowrap">
+                    <view class="rcc">
+                        <image class="w-60 h-60 br-10" mode="aspectFit" src="{{user.imgUrl}}"></image>
+                    </view>
+                    <view class="w-20"></view>
+                    <view class="css" style="flex:1">
+                        <view class="rus line-1-start fs-30 fw-400 ">{{user.userName}}</view>
+                    </view>
+                    <view class="w-100"></view>
+                    <view class="ccc p-20 " bindtap="{{(editImageDialog.text && editImageDialog.images[0])?'_editImageDialog_confirm':''}}">
+                        <view  class="{{(editImageDialog.text && editImageDialog.images[0])?'rcc c-5 fs-25 fw-700':'rcc c-3-1 fs-25 fw-700'}}">确定</view>
+                    </view>
+                </view> -->
+                <!-- <view class="rbc">
+                    <view class="fs-30 fw-400 c-3">{{editImageDialog.images.length}} 张</view>
+                     <view class="fs-20 fw-400 c-3">还可输入{{editImageDialog.left}}个字</view>
+                </view> -->
+
+                <view class="rcc pt-50 pb-50 fs-30 fw-700">编辑内容</view>
+                <view class="css  ">
+
+                    
+                    <view class="css ">
+                        <textarea adjustPosition="true" bindinput="_editImageDialog_input" class="t19-1-edit"  style="height:20vw;width:70vw" cursorSpacing="50" fixed="true" maxlength="50" placeholder="{{editImageDialog._default_edit_text}}" value="{{editImageDialog.text}}"></textarea>
+                    </view>
+                    <view class="h-20"></view>
+                    <view class="rcc">
+                        <image class="br-10" mode="aspectFill" src="{{editImageDialog.images[0]}}" style="height:70vw;width:70vw" ></image>
+                    </view>
+
+                </view>
+
+                <view class="ccc pt-50 pb-50" bindtap="{{(editImageDialog.text && editImageDialog.images[0])?'_editImageDialog_confirm':''}}">
+                    <view  class="{{(editImageDialog.text && editImageDialog.images[0])?'rcc c-5 fs-25 fw-700':'rcc c-3-1 fs-25 fw-700'}}">确定</view>
+                </view>
+        </view>
+
+    
+    
+    </view>
+    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{editTextDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="css editTextDialog" hidden="{{editTextDialog.visible!=true}}">
+        <view class="css editTextDialog_view ">
+            <view class="rbc">
+                <view class="t19-13-1" style="padding-left:15rpx">{{editTextDialog.title}}</view>
+                <view class="rcc"></view>
+            </view>
+            <view class="rcc t19-2">
+                <textarea adjustPosition="true" bindinput="_editTextDialog_input" class=" t19-1-2" maxlength="{{editTextDialog.maxLength}}" placeholder="{{editTextDialog.placeholder}}" value="{{editTextDialog.text}}"></textarea>
+            </view>
+            <view class="rbc">
+                <view>
+                    <view class="t19-7-1" hidden="{{editTextDialog.maxLength>editTextDialog.text.length}}">内容已达最大长度!</view>
+                </view>
+                <view class="t19-6" style="padding-right:50rpx">{{editTextDialog.text.length}}/{{editTextDialog.maxLength}}</view>
+            </view>
+            <view style="height:20rpx"></view>
+            <view class="rac">
+                <view bindtap="_editTextDialog_close" class="rcc shortTextDialog_cancel" hoverClass="dialog_cancel_hoverClass">取消</view>
+                <view bindtap="_editTextDialog_confirm" class="rcc shortTextDialog_confirm" hoverClass="dialog_confirm_hoverClass">确定</view>
+            </view>
+            <view class="t7-5-2" style="height:35rpx"></view>
+        </view>
+    </view>
+    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{shortTextDialog.visible!=true}}"></view>
+    <view class="rcc shortTextDialog" hidden="{{shortTextDialog.visible!=true}}">
+        <view class="css shortTextDialog_view">
+            <view class="rcc shortTextDialog_title">{{shortTextDialog.title}}</view>
+            <view style="height:60rpx"></view>
+            <view class="css">
+                <input bindinput="_shortTextDialog_input" class="shortTextDialog_input" maxlength="{{shortTextDialog.maxLength}}" placeholder="点击输入最多{{shortTextDialog.maxLength}}位数字" value="{{shortTextDialog.text}}"></input>
+            </view>
+            <view style="height:60rpx"></view>
+            <view class="rac">
+                <view bindtap="_shortTextDialog_close" class="rcc shortTextDialog_cancel" hoverClass="dialog_cancel_hoverClass">取消</view>
+                <view bindtap="_shortTextDialog_confirm" class="rcc shortTextDialog_confirm" hoverClass="dialog_confirm_hoverClass" wx:if="{{shortTextDialog.text.length>0}}">确定</view>
+                <view class="rcc shortTextDialog_cancel" wx:else>确定</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="" catchtouchmove="return" class="cover104" hidden="{{editNumberDialog.visible!=true}}"></view>
+    <view class="rcc shortTextDialog" hidden="{{editNumberDialog.visible!=true}}">
+        <view class="css shortTextDialog_view">
+            <view class="rcc shortTextDialog_title">{{editNumberDialog.title}}</view>
+            <view style="height:60rpx"></view>
+            <view class="css">
+                <input bindinput="_editNumberDialog_input" class="createEditNumberDialog_input" maxlength="{{editNumberDialog.maxLength}}" placeholder="点击输入最多{{editNumberDialog.maxLength}}位数字" type="number" value="{{editNumberDialog.text}}"></input>
+            </view>
+            <view style="height:60rpx"></view>
+            <view class="rac">
+                <view bindtap="_editNumberDialog_close" class="rcc shortTextDialog_cancel">取消</view>
+                <view bindtap="_editNumberDialog_confirm" class="rcc shortTextDialog_confirm " hoverClass="dialog_confirm_hoverClass" wx:if="{{editNumberDialog.text.length>0}}">确定</view>
+                <view class="rcc  shortTextDialog_cancel" wx:else>确定</view>
+            </view>
+        </view>
+    </view>
+
+
+
+    <view bindtap="_showPkDialog_hide" catchtouchmove="return" class="coverAll-1 z2" hidden="{{showPkDialog.visible!=true}}" ></view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,286 @@
+<!--pages/pk/selectPker/selectPker.wxml-->
+<view class="css h-100vh b-white">
+
+    <view class="css">
+            <view style="height:{{top}}px"></view>
+            <view class="rcs pl-4vw pr-4vw" style="height:32px" bindtap="back">
+                <view class="rcc h-32px w-32px br-32px z102" bindtap="relaunch">
+                    <image class="w-45 h-45" mode="aspectFit" src="/images/left1.png"></image>
+                </view>
+                
+                <view class="rcs c-4">
+                    <view class="rcc fs-30 fw-400 ">激活主题</view>
+       
+
+                </view>
+                
+                
+            </view>
+    </view>
+
+    <view wx:if="{{pkActive}}" class="cas pr-8vw pl-8vw" style="flex:1">
+        <view class="ccc">
+            <image class="w-200 h-200" mode="aspectFit" src="{{icon1}}"></image>
+            <view class="rcc fs-40 fw-500 c-10">{{approveText}}</view>
+            <view class="rcc">
+                <view class="rcc fs-25 fw-400 c-3">已修改</view>
+                <view class="rcc fs-30 fw-400 c-10 p-10">{{pkActive.rejectTimes}}</view>
+                <view class="rcc fs-25 fw-400 c-3">次</view>
+                <view class="rcc fs-25 fw-400 c-3">,最多修改</view>
+                <view class="rcc fs-30 fw-400 c-10 p-10">{{pkActive.maxModifyTimes}}</view>
+                <view class="rcc fs-25 fw-400 c-3">次</view>
+            </view>
+        </view>
+        <view class="css p-30">
+            <view hidden="{{!pkActive.tip}}" class="rcc fs-30 fw-400 c-3 p-30">修改建议</view>
+            <view class="rus fs-30 fw-400 c-word-6 line-8-center">{{pkActive.tip}}</view>
+            
+        </view>
+        <view class="rcc">
+            <button wx:if="{{pkActive.statu.key === 1}}" class="rcc fs-30 fw-700 w-500 h-100 br-100 b-upload c-white message" bindtap="activeAgine" data-pkid="{{pkActive.pkId}}">重新验证</button> 
+            <button wx:else class="rcc fs-30 fw-700 w-500 h-100 br-100 b-48 c-3 message" >发布中</button> 
+        </view>
+                
+
+    
+    </view>
+    <view wx:else class="cbs pr-8vw pl-8vw  " style="flex:1" >
+        <view class="css">
+            <view class="h-50"></view>
+            <view class="rcc fs-40 fw-500 c-10">{{title}}</view>
+            <view class="h-50"></view>
+            <view class="css">
+                <input bindinput="inputActiveCode" class="createEditActiveNumberDialog_input" maxlength="100" placeholder="{{title1}}" ></input>
+            </view>
+ 
+        </view>
+        <view class="css">
+
+            <view class="css">
+                <view class="rus fs-30 fw-700 c-4 line-h80 ">温馨提示:</view>
+                <view class="rus line-5-start fs-25 fw-400 line-h50 c-4">{{tip1}}</view>
+                <view class="rus line-5-start fs-25 fw-400 line-h50 c-4">{{tip2}}</view>
+                <view class="rus line-5-start fs-25 fw-400 line-h50 c-4">{{tip3}}</view>
+
+            </view>
+            <view class="h-80"></view>
+
+
+
+
+
+
+
+        
+        </view>
+
+
+        <view class="rac">
+       
+            <view class="ccc p-30 b-48 br-20" >
+                <navigator class="ccc" url="{{link1Url}}" hover-class="none">
+                    <image class="w-150 h-150" mode="aspectFill" src="{{link1Icon}}"></image>
+                    <view class="h-20"></view>
+                    <view class="rcc fs-35 c-4 fw-700">{{link1Name}}</view>
+                </navigator>
+                
+            </view>
+            <view class="ccc  p-30 b-48 br-20">
+                <navigator class="ccc" url="{{link2Url}}" hover-class="none">
+                    <image class="w-150 h-150" mode="aspectFill" src="{{link2Icon}}"></image>
+                    <view class="h-20"></view>
+                    <view class="rcc fs-35 c-4 fw-700">{{link2Name}}</view>
+                </navigator>
+                
+            </view>
+            <!-- <view  hidden="{{!link3Name}}"  class="ccc">
+                <navigator class="ccc" url="{{link3Url}}" hover-class="none">
+                    <image class="w-100 h-100" mode="aspectFit" src="{{link3Icon}}"></image>
+                    <view class="h-10"></view>
+                    <view class="rcc fs-30 c-4">{{link3Name}}</view>
+                </navigator>
+                
+            </view> -->
+      
+        </view>
+
+
+
+
+        <view class="css">
+            <view class="h-30"></view>
+            <view class="css" >
+                <button wx:if="{{activeCode}}" class="rcc fs-30 fw-700 h-100 br-100 b-upload c-white message" bindtap="activePK">{{buttonName}}</button>         
+                <button wx:else class="rcc fs-30 fw-700 h-100 br-100 b-48 c-3 message" >{{buttonName}}</button>
+            </view>
+            <view class="h-100"></view>
+
+        </view>
+
+    </view>  
+
+
+
+
+
+</view>
+
+
+
+
+
+<view>
+    <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{dialog.visible!=true}}">
+        <view class="css b-white br-20" style="background-position: top;background-image: url({{dialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+  
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{dialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{dialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4 pl-4vw pr-4vw line-3-center">{{dialog.text}}</view>
+                
+                <view class="rcc pt-50 pb-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="dialog_confirm" >知道了</view>
+                </view>
+    
+            </view>
+
+        </view>
+        <!-- <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="dialog_confirm"></image>
+        </view> -->
+    </view>
+    <view class="rcc tipDialog " hidden="{{tipDialog.visible!=true}}">
+        <view class="ccc levelDialog_view">
+            <view class="rcc">
+                <image class="tipDialog_image" mode="aspectFit" src="/images/warn.png" wx:if="{{tipDialog.level==='warn'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/error.png" wx:elif="{{tipDialog.level==='error'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/info.png" wx:else></image>
+            </view>
+            <view style="height:30rpx"></view>
+            <view class="rcc levelDialog_text">{{tipDialog.message}}</view>
+        </view>
+    </view>
+    <view class="coverAll" hidden="{{operateDialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{operateDialog.visible!=true}}">
+        <view class="css b-white br-20"  style="background-position: center;background-image: url({{operateDialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{operateDialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4  pl-4vw pr-4vw  line-3-center">{{operateDialog.text}}</view>
+                
+                <view class="rcc pt-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="operateDialog_confirm" >确定</view>
+                </view>
+                <view class="rcc p-30 fs-25 fw-400 c-3-1 "  bindtap="operateDialog_cancel">知道了</view>
+    
+            </view>
+
+
+        </view>
+        <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
+        </view>
+    </view>
+
+
+
+
+    <view class="cac pageLoadingDialog " hidden="{{pageLoadingDialog.visible!=true}}">
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/load.gif"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+        <view></view>
+    </view>
+    <view class="cac pageLoadingDialog " hidden="{{pageLoadingDialogError.visible!=true}}">
+        <view></view>
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/errorpage.png"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+    </view>
+    <view catchtouchmove="return" class="coverAll99" hidden="{{labelLoadingDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="rcc labelLoadingDialog " hidden="{{labelLoadingDialog.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <image class="labelLoadingDialog_image" mode="aspectFill" src="/images/loading.gif"></image>
+            <view class="labelLoadingDialog_text">加载中</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogSuccess.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadsuccess.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载成功</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogError.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadfail.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载失败</view>
+        </view>
+    </view>
+    <view bindtap="_selectionDialog_hide" class="coverAll" hidden="{{selectionDialog.visible!=true}}"></view>
+    <view class="{{selectionDialog._selectionDialog_layout}}" hidden="{{selectionDialog.visible!=true}}">
+        <view class="css selectionDialog_BT " wx:if="{{selectionDialog.style===1||selectionDialog.style===5}}">
+            <view class="rcc selectionDialog_BT1_title">选项</view>
+            <view style="height:20rpx"></view>
+            <view class="rac">
+                <view bindtap="_selectDialog_choose" class="ccc" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="*idx1">
+                    <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                    <view style="height:20rpx"></view>
+                    <view class="selectionDialog_BT1_title">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="css selectionDialog_RL" wx:elif="{{selectionDialog.style===2||selectionDialog.style===3}}">
+            <view class="rcc selectionDialog_RL_title">选项</view>
+            <view bindtap="_selectDialog_choose" class="ccc selectionDialog_RL_item" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="*idx1">
+                <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                <view style="height:10rpx"></view>
+                <view class="selectionDialog_RL_title">{{item.name}}</view>
+            </view>
+        </view>
+        <view class="css selectionDialog_BT" wx:else>
+            <view class="rcs selectionDialog_BT2_title">选项</view>
+            <view bindtap="_selectDialog_choose" class="rcs selectionDialog_BT2_item" data-name="{{item.name}}" wx:for="{{selectionDialog.items}}" wx:key="idx1">
+                <image class="selectionDialog_item_image" mode="aspectFit" src="{{item.icon}}"></image>
+                <view style="width:30rpx"></view>
+                <view class="selectionDialog_BT1_title">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
