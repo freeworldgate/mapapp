@@ -580,7 +580,7 @@ Page({
 
 
       })
-      httpClient.send(request.url.hiddenPost, "GET", { postId: post.postId,pkId:pkId });
+      httpClient.send(request.url.removeFromHiddenPosts, "GET", { postId: post.postId });
     }, function () {});
 
 

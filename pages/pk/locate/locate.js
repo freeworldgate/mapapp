@@ -197,7 +197,7 @@ Page({
     login.getUser(function(user){
 
         wx.navigateTo({
-          url: '/pages/pk/followers/followers?userId='+user.userId,
+          url: '/pages/pk/userFinds/userFinds?userId='+user.userId,
         })
 
 

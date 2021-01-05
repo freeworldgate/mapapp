@@ -1062,6 +1062,9 @@ mw-200{
 .b-comment{
   background-image: linear-gradient(to right, #8bb7e0 , #95cfe4 );
 }
+.b-share-disable{
+  background-image: linear-gradient(to right, #ff8059f1 , #ff521df0 );
+}
 .b-share{
   background-image: linear-gradient(to right, #ff8059f1 , #ff521df0 );
   /* background-image: linear-gradient(to right, #ff7c40f1 , #f86926f0 ); */
@@ -1230,7 +1233,7 @@ mw-200{
 
 }
 .b-49{
-  background-color: rgba(235, 235, 235);
+  background-color: rgba(240, 240, 240);
 }
 .b-52{
   background-color: rgb(245, 245, 245);
@@ -1583,6 +1586,9 @@ mw-200{
   word-break:break-all;
   text-align: center;
 }
+.b-line1{
+  border-bottom: 1px solid rgb(0, 143, 36); 
+}
 .b-line{
     border-bottom: 0.2px solid rgba(99, 99, 99, 0.432); 
 }
@@ -1763,6 +1769,9 @@ mw-200{
 }
 .buildHead{
   background-image: linear-gradient(to bottom,#ffffffa2,#ffffff71,#ffffff3a,#ffffff00 );
+}
+.bottomBack{
+  background-image: linear-gradient(to top,#00000050,#00000000 );
 }
 .buildHead1{
   background-image: linear-gradient(to bottom,#00000050,#00000030,#00000010,#00000000 );
@@ -1945,7 +1954,11 @@ button::after {
   border:none;
   list-style: none;
  }
-
+ .b-user-card{
+   background-color: #ffffff;
+   /* background-image: radial-gradient(circle,#ffffff,#ffffff, #fffffff0); */
+  /* background-image: linear-gradient(to right, #a5a5a52f 100%, #a2a2a228 100%); */
+ }
 
 
 .triangle-left-white {

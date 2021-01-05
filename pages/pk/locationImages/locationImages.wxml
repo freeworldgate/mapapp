@@ -1,7 +1,7 @@
-<view class="css z3 b-white"  style="min-height:100vh">
-    <view  class="css" style="width: 100vw; height: 70vw" >
-        <image style="width: 100vw; height: 70vw" src="{{pkBackUrl}}" mode="aspectFill"></image>
-        <view class="absolute cbs" style="width: 100vw; height: 70vw" >
+<view class="css z3 b-48"  style="min-height:100vh">
+    <view  class="css" style="width: 100vw; height: 80vw" >
+        <image style="width: 100vw; height: 80vw" src="{{pkBackUrl}}" mode="aspectFill"></image>
+        <view class="absolute cbs" style="width: 100vw; height: 80vw" >
             <view></view>
             <view class="rbc p-20"  >
                 <view class="rcc">
@@ -13,10 +13,10 @@
     </view>
 
     <view class="css" wx:for="{{images}}" wx:for-index="bindex" wx:for-item="image" wx:key="postkey">
-        <view class="css" style="width: 100vw; height: 70vw" >
+        <view class="css" style="width: 100vw; height: 80vw" >
 
-            <image  style="width: 100vw; height: 70vw" src="{{image.imgUrl}}" mode="aspectFill"></image>
-            <view class="absolute cbs" style="width: 100vw; height: 70vw" >
+            <image  style="width: 100vw; height: 80vw" src="{{image.imgUrl}}" mode="aspectFill"></image>
+            <view class="absolute cbs" style="width: 100vw; height: 80vw" >
                 <view class="rbc p-20">
                     <view class="rcc">
                         <!-- <view hidden="{{user.userId != image.user.userId}}" class="rcc fs-30 fw-700 c-10 pl-20 pr-20 pt-10 pb-10 b-48 br-10" >{{image.statu.name}}</view>  -->
@@ -35,9 +35,9 @@
                         <view class="rus line-1-start fs-30 fw-650 c-white w-200 f-shadow3">{{image.user.userName}}</view>
                     </view>
                     <view class="rcc">
-                        <view hidden="{{user.userId != image.user.userId && user.userId != creator.userId}}" class="rcc fs-25 fw-400 c-1 pl-20 pr-20 pt-10 pb-10 b-white br-10">刪除</view>
+                        <view hidden="{{user.userId != image.user.userId && user.userId != creator.userId}}" class="rcc fs-25 fw-400 c-1 pl-20 pr-20 pt-10 pb-10 b-white br-10" bindtap="deleteImage" data-index="{{bindex}}" data-imageid="{{image.imageId}}">删除</view>
                         <view hidden="{{user.userId != creator.userId}}" class="w-30"></view>
-                        <view hidden="{{user.userId != creator.userId}}" class="rcc fs-25 fw-400 c-1  pl-20 pr-20 pt-10 pb-10  b-white br-10">设置为封面</view>
+                        <view hidden="{{user.userId != creator.userId}}" class="rcc fs-25 fw-400 c-1  pl-20 pr-20 pt-10 pb-10  b-white br-10" bindtap="setPkBack" data-index="{{bindex}}" data-image="{{image}}">设置为封面</view>
                     </view>
                     
 
@@ -49,18 +49,18 @@
         </view>
                 
     </view>
-    <view class="css h-300">
+    <view hidden="{{!nomore}}" class="css h-300">
         <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
     </view>
 
-    <view class="rcc">
+    <!-- <view class="rcc">
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U1</view>
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U2</view>
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U3</view>
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U4</view>
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U5</view>
         <view class="fs-25 fw-400 c-4 p-20" bindtap="setUser" data-user="U1">U6</view>
-    </view>
+    </view> -->
 
 
 </view>

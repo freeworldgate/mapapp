@@ -1,4 +1,4 @@
-// pages/pk/pk/pk.js
+
 var request = require('./../../../utils/request.js')
 var http = require('./../../../utils/http.js')
 var tip = require('./../../../utils/tipUtil.js')
@@ -41,11 +41,13 @@ Page({
             top: res.statusBarHeight + (res.titleBarHeight - 32) / 2
         })
     })
-    that.data.userId = options.userId;
-
+    that.setData({
+      targetUserId:options.targetUserId,
+      type:options.type
+    })
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("page", true);
-    httpClient.send(request.url.queryFansUsers, "GET", {targetId:that.data.userId});
+    httpClient.send(request.url.queryUserCardApplys, "GET", {targetUserId:options.targetUserId,type:options.type});
 
   },
   back:function(){
@@ -53,16 +55,22 @@ Page({
       delta: 0,
     })
   },
-  userCenter:function(res){
+  deletApply:function(res){
     var that = this;
-    var follower =  res.currentTarget.dataset.follower;
-
-    login.getUser(function(user){
-      wx.navigateTo({
-        url: '/pages/pk/userPublishPost/userPublishPost?userId='+follower.userId,
+    var applyId =  res.currentTarget.dataset.applyid;
+    var index =  res.currentTarget.dataset.index;
+    template.createOperateDialog(that).show("删除留言?", "删除留言?...", function () {
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function () {
+              that.data.applys.splice(index, 1); 
+              that.setData({
+                applys: that.data.applys,
+              })
       })
+      httpClient.send(request.url.deleteApply, "GET", {applyId:applyId });
+    }, function () {});
 
-    })
 
 
 
@@ -78,16 +86,15 @@ Page({
   nextPage: function () {
     var that = this;
     var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", false);
-    var user = wx.getStorageSync("user");
+    httpClient.setMode("label", true);
     httpClient.addHandler("success", function (data) {
-      var newPosts = that.data.images.concat(data);
+      var mapplys = that.data.applys.concat(data);
       that.setData({
-        images: newPosts,
+        applys: mapplys,
         page: that.data.page + 1
       })
     })
-    httpClient.send(request.url.nextFansUsers, "GET", { targetId:that.data.userId,page: that.data.page });
+    httpClient.send(request.url.nextUserCardApplys, "GET", { targetUserId:that.data.targetUserId,type:that.data.type,page: that.data.page });
 
     // wx.stopPullDownRefresh()
   },

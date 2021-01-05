@@ -1,10 +1,10 @@
-<view class="css b-49" style="min-height:100vh">
+<view class="css {{findUsers.length>0?'b-49':'b-white'}}" style="min-height:100vh">
 
 
 
     <view class="css z3">
             <view style="height:10vh"></view>
-            <swiper style="height:80vh" indicator-dots="true" autoplay="true" circular="true" >
+            <swiper wx:if="{{findUsers.length > 0}}" style="height:80vh" indicator-dots="true" autoplay="true" circular="true" >
                 <block wx:for="{{findUsers}}" wx:for-index="bindex" wx:for-item="findUser" wx:key="findKey">
                     <swiper-item  >
  
@@ -58,14 +58,14 @@
                                             <view class="rbc">
                                                 <view class="rcc b-48 br-10" style="width:27.5vw;height:23vw">
                                                     <image wx:if="{{findUser.img1}}" class="br-10" style="width:27.5vw;height:23vw" mode="aspectFill" src="{{findUser.img1}}"></image>
-                                                    <image wx:else class="w-40 h-40" mode="aspectFit" src="/images/pic1.png"></image>
+                                                    <image wx:else style="width:23vw;height:23vw" mode="aspectFit" src="{{emptyImage}}"></image>
                                                 </view>
                                                 <view class="rcc b-48 br-10" style="width:27.5vw;height:23vw">
                                                     <image wx:if="{{findUser.img2}}" class="br-10" style="width:27.5vw;height:23vw" mode="aspectFill" src="{{findUser.img2}}"></image>
-                                                    <image wx:else class="w-40 h-40" mode="aspectFit" src="/images/pic1.png"></image>                                                </view>
+                                                    <image wx:else style="width:23vw;height:23vw" mode="aspectFit" src="{{emptyImage}}"></image>                                                </view>
                                                 <view class="rcc b-48 br-10" style="width:27.5vw;height:23vw">
                                                     <image wx:if="{{findUser.img3}}" class="br-10" style="width:27.5vw;height:23vw" mode="aspectFill" src="{{findUser.img3}}"></image>
-                                                    <image wx:else class="w-40 h-40" mode="aspectFit" src="/images/pic1.png"></image>                                                </view>
+                                                    <image wx:else style="width:23vw;height:23vw" mode="aspectFit" src="{{emptyImage}}"></image>                                                </view>
                                             </view>
                                             </view>
                         
@@ -126,6 +126,10 @@
                     </swiper-item>
                 </block>
             </swiper>
+            <view wx:else class="ccc" style="height:80vh">
+                <image class="rcc w-400 h-400" src="{{emptyUrl}}" mode="aspectFit"></image>
+                <view class="rcc fs-30 fw-300 c-3">此处暂无打捞信息</view>
+            </view>
             <view style="height:10vh"></view>
 
 
@@ -194,7 +198,16 @@
 
 
 </view>
+<view class="ccc uploadButton">
+  <view class="rcc  p-20">
+    <view class="rcc fs-25 fw-300 c-3">遇见不撩</view>
+    <image class="w-35 h-35 pl-10 pr-10" mode="aspectFit" src="/images/shank.png"></image>
+    <view class="rcc fs-25 fw-300 c-3">卡点互捞</view>
+  </view>
+  
 
+
+</view>
 
 
 

@@ -24,9 +24,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    text:"",
     left:200,
-    imgs:new Array(),
+    maxLength:200,
+    imgs:[],
 
 
   },
@@ -87,14 +88,15 @@ Page({
   },
 
   _input:function(res){
+    var that = this;
     var value = res.detail.value;
-    if (value.length > 200) {
+    if (value.length > that.data.maxLength) {
       showTip("内容超出长度");
       // return;
     }
     this.setData({
       'text': value,
-      'left':200 - value.length
+      'left':that.data.maxLength - value.length
     })
 
   },
@@ -111,8 +113,9 @@ Page({
 
   _add:function () {
     var that = this;
+    var num = 9-that.data.imgs.length
     wx.chooseImage({
-      count: 9,
+      count: num,
       sizeType: ['compressed', 'original'],
       sourceType: ['album', 'camera'],
       success(res) {

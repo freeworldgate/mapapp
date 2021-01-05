@@ -1,6 +1,6 @@
- var host = 'https://www.211shopper.com'; 
+//  var host = 'https://www.211shopper.com'; 
 // var host = 'http://192.168.2.245:8080'; 
-// var host = 'http://192.168.43.67:8080'; 
+var host = 'http://192.168.43.67:8080'; 
 
 // 上传图片接口 
 var uploadUrl = 'https://oss.211shopper.com'; 
@@ -273,10 +273,17 @@ var url = {
         clearUserFind:`${host}/pk/clearUserFind`,
         queryUserCard:`${host}/pk/queryUserCard`,
         setUserCard:`${host}/pk/setUserCard`,
-        
         userCardApply:`${host}/pk/userCardApply`,
-
-
+        queryUserCardApplys:`${host}/pk/queryUserCardApplys`,
+        nextUserCardApplys:`${host}/pk/nextUserCardApplys`,
+        queryMyFinds:`${host}/pk/queryMyFinds`,
+        nextMyFinds:`${host}/pk/nextMyFinds`,
+        queryActiveTips:`${host}/pk/queryActiveTips`,
+        deletePkImages:`${host}/pk/deletePkImages`,
+        setPkBack:`${host}/pk/setPkBack`,
+        agreePkImage:`${host}/pk/agreePkImage`,
+        removeFromHiddenPosts:`${host}/pk/removeFromHiddenPosts`,
+        deleteApply:`${host}/pk/deleteApply`,
 
 
 

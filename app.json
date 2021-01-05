@@ -13,6 +13,7 @@
 
     "pages/manage/approveFind/approveFind",
 
+    "pages/pk/userCardApply/userCardApply",
 
     
     "pages/pk/payForPk/payForPk",
@@ -20,6 +21,7 @@
     
     "pages/pk/userFind/userFind",
     "pages/pk/editText/editText",
+    "pages/pk/editTag/editTag",
     "pages/pk/findSomeOne/findSomeOne",
     "pages/pk/userCard/userCard",
     "pages/pk/build/build",
@@ -30,22 +32,20 @@
     "pages/pk/userPk/userPk",
 
     "pages/pk/userPublishPost/userPublishPost",
-    "pages/pk/userPublishPk/userPublishPk",
+ 
 
 
-    "pages/pk/showInfo/showInfo",
+    "pages/pk/userFinds/userFinds",
     "pages/pk/invite/invite",
     "pages/pk/showLocation/showLocation",
     "pages/pk/locationImages/locationImages",
     "pages/pk/locationApprovingImages/locationApprovingImages",
-    "pages/pk/singlepost/singlepost",
+
 
     "pages/pk/drawImg/drawImg",
     "pages/pk/drawPost/drawPost",
     "pages/pk/uploadImgs/uploadImgs",
 
-
-    "pages/pk/selectPker/selectPker",
     "pages/pk/userHome/userHome",
     "pages/pk/timepage/timepage",
     "pages/pk/hiddentimepage/hiddentimepage",

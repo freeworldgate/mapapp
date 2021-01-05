@@ -133,5 +133,27 @@ Page({
       url: '/pages/pk/locate/locate',
     })
 
-  }
+  },
+  agree:function(res){
+    var that = this;
+    var imageId =  res.currentTarget.dataset.imageid;
+    var index =  res.currentTarget.dataset.index;
+
+    template.createOperateDialog(that).show("审核通过?", "审核通过?...", function () {
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function () {
+              that.data.images.splice(index, 1); 
+              that.setData({
+                images: that.data.images,
+              })
+      })
+      httpClient.send(request.url.agreePkImage, "GET", { pkId: that.data.pkId,imageId:imageId });
+    }, function () {});
+
+
+
+
+
+  },
 })

@@ -133,5 +133,56 @@ Page({
       url: '/pages/pk/locate/locate',
     })
 
+  },
+  deleteImage:function(res){
+    var that = this;
+    var imageId =  res.currentTarget.dataset.imageid;
+    var index =  res.currentTarget.dataset.index;
+
+    template.createOperateDialog(that).show("删除卡点图片?", "删除卡点图片?...", function () {
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function () {
+              that.data.images.splice(index, 1); 
+              that.setData({
+                images: that.data.images,
+              })
+      })
+      httpClient.send(request.url.deletePkImages, "GET", { pkId: that.data.pkId,imageId:imageId });
+    }, function () {});
+
+
+
+
+
+  },
+  setPkBack:function(res){
+    var that = this;
+    var image =  res.currentTarget.dataset.image;
+    var index =  res.currentTarget.dataset.index;
+
+    template.createOperateDialog(that).show("设置为卡点背景?", "设置为卡点背景?...", function () {
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function () {
+              that.setData({
+                pkBackUrl:image.imgUrl
+              })
+              var pages = getCurrentPages();
+              var prevPage = pages[pages.length - 2];  //上一个页面
+              prevPage.setData({
+                "pk.backUrl": image.imgUrl
+              });
+              wx.navigateBack({
+                delta: 0,
+              })
+      })
+      httpClient.send(request.url.setPkBack, "GET", { pkId: that.data.pkId,imageId:image.imageId });
+    }, function () {});
+
+
+
+
+
   }
 })

@@ -9,11 +9,7 @@
     </view>
 
 
-    <view class="css z3 ">
-    
-
-
-
+    <view wx:if="{{posts&&posts.length>0}}" class="css z3 ">
 
         <view class="css" wx:for="{{posts}}" wx:for-index="bindex" wx:for-item="post" wx:key="postkey">
             <view class="css pl-3vw pr-3vw">
@@ -114,7 +110,12 @@
             <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
         </view>
     </view> 
-
+    <view wx:else class="ccc "  style="flex:1">
+        <view class="rcc">
+            <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
+        </view>
+        <view class="fs-30 fw-300 c-3">暂无卡贴</view>
+    </view>
 
 
 

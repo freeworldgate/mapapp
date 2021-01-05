@@ -11,6 +11,7 @@ var inviteReq = require('./../../../utils/invite.js')
 var userInvite = require('./../../../utils/userInvite.js')
 var upload = require('./../../../utils/uploadFile.js')
 var template = require('./../../../template/template.js')
+const tipUtil = require('./../../../utils/tipUtil.js')
 
 
 Page({
@@ -32,7 +33,10 @@ Page({
 
 
     pks: [],
-    user:{}
+    user:{},
+    sign: "欢迎打卡君!",
+    type:"",
+
   },
 
   /**
@@ -85,16 +89,50 @@ Page({
 
   },
   //
+  editType:function(){
+    var that = this;
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: '/pages/pk/editTag/editTag?type='+that.data.type
+      })
+    })
+
+
+  },
+  editSign:function(){
+    var that = this;
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: '/pages/pk/editText/editText?scene=editSign&text='+that.data.sign
+      })
+    })
+
+
+  },
   confirmBuild:function () {
 
     var that = this;
+    
+    if(!that.data.sign ||that.data.sign.length===0 ){
+      tipUtil.showContentTip("签名不能为空!");
+      return;
+    }
+    if(!that.data.type ||that.data.type.length===0 ){
+      tipUtil.showContentTip("类型标签不能为空!");
+      return;
+    }
+    if(!that.data.backUrl ||that.data.backUrl.length===0 ){
+      tipUtil.showContentTip("背景图不能为空!");
+      return;
+    }
+
     var postEntity = {
       latitude:that.data.latitude, 
       longitude: that.data.longitude,
       name:that.data.name, 
       address: that.data.address,
-      sign: "欢迎打卡君!",
-      type: "t01",
+      sign: that.data.sign,
+      type: that.data.type,
       backUrl:that.data.backUrl
     }
     var httpClient = template.createHttpClient(that);

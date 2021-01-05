@@ -198,4 +198,42 @@ Page({
 
 
   },
+  inPk:function(res){
+    var pkId = res.currentTarget.dataset.pkid;
+    wx.navigateTo({
+      url: '/pages/pk/timepage/timepage?pkId='+pkId,
+    })
+   
+
+
+  },
+  userCardApply:function(res){
+    var that = this;
+
+    var type = res.currentTarget.dataset.type;
+    var targetId = res.currentTarget.dataset.targetid;
+
+    login.getUser(function(user){
+      if(user.userId === targetId){
+          wx.navigateTo({
+            url: '/pages/pk/userCardApply/userCardApply?targetUserId='+targetId + "&type=" + type,
+          })
+      }
+      else
+      {
+        template.createOperateDialog(that).show("仅用户自身可见?", "仅用户自身可见...", function () {
+        }, function () {});
+    
+      }
+    })
+
+
+
+
+
+
+  }
+
+
+
 })

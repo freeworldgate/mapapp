@@ -7,14 +7,13 @@
 
 </view>
 <!-- //头部 -->
-<!-- //头部 -->
 <view class="css customBar z3 buildHead" >
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 
       <view class="rcc h-32px ">
-          <image class="h-40 w-40" mode="aspectFit" src="/images/locate.png"></image>
-          <view class="fs-30 fw-700 c-4">{{mode===0?'搜索卡点':'创建卡点'}}</view>
+          <image class="h-40 w-40" mode="aspectFit" src="/images/daka.png"></image>
+          <view class="fs-30 fw-700 c-word-6 f-shadow3">{{mode===0?'搜索卡点':'创建卡点'}}</view>
       </view>
 
   </view>
@@ -120,7 +119,7 @@
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
                                                                             <view class="css"  style="flex:1">
-                                                                                <view class="rus line-2-start fs-30 fw-300 c-4">{{pk.sign}}</view>
+                                                                                <view class="rus line-2-start fs-30 fw-300 ">{{pk.sign}}</view>
                                                                             </view>
                                                                             <view></view>
                                                                         </view>
@@ -128,57 +127,29 @@
                                                                     
                                                                     </view>
                                                                     <view class="h-1vw"></view>
-                                                                    <view wx:if="{{pk.topPost}}" class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
+                                                                    <view class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
                                                                         <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
                                                                         <view class="w-3vw"></view>
-                                                                        <view class="rcs" style="flex:1">
-                                                                        
-                                                                            <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw;height:16vw">
-                                                                                <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
-                                                                                    <view class="rss">
-                                                                                        <view class="rcc"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                        <view class="css t-line" style="flex:1">
+                                                                            <view class="h-20"></view>
+                                                                            <view class="rcs ">
+                                                                                
+                                                                                <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw;height:16vw">
+                                                                                    <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
+                                                                                        <view class="rss">
+                                                                                            <view class="rcc"  style="height:16vw;width:16vw" >
+                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                            </view>
+                                                                                            <view  style="width:1vw"></view>
+                                                                                                                                
                                                                                         </view>
-                                                                                        <view  style="width:1vw"></view>
-                                                                                                                            
                                                                                     </view>
-                                                                                </view>
-                                                                            </scroll-view>
-                                                                        
+                                                                                </scroll-view>
+                                                                            
+                                                                            </view>
                                                                         </view>
                                                                     </view>
-                                                                    <view wx:else class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
-                                                                        <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
-                                                                        <view class="w-3vw"></view>
-                                                                        <view class="rcs" style="flex:1">
-                                                                        
-                                                                            <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw;height:16vw">
-                                                                                    <view class="rss">
-                                                                                        <view class="rcc br-10 b-48"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:6vw;width:6vw" mode="aspectFit" src="/images/pic1.png" ></image>
-                                                                                        </view>
-                                                                                        <view  style="width:1vw"></view>
-                                                                                        <view class="rcc br-10 b-48"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:6vw;width:6vw" mode="aspectFit" src="/images/pic1.png" ></image>
-                                                                                        </view>
-                                                                                        <view  style="width:1vw"></view>
-                                                                                        <view class="rcc br-10 b-48"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:6vw;width:6vw" mode="aspectFit" src="/images/pic1.png" ></image>
-                                                                                        </view>
-                                                                                        <view  style="width:1vw"></view>                                                                               
-                                                                                        <view class="rcc br-10 b-48"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:6vw;width:6vw" mode="aspectFit" src="/images/pic1.png" ></image>
-                                                                                        </view>
-                                                                                        <view  style="width:1vw"></view>
-                                                                                  
-
-
-                                                                                    </view>
-                                                                  
-                                                                            </scroll-view>
-                                                                        
-                                                                        </view>
-                                                                    </view>
+                                         
                                                              
                                                                     <view class="rss t-line " >
                                                                         <view class="rcc w-12vw">
@@ -232,7 +203,10 @@
             <view class="rcc">
               <view class="css" style="flex:1" bindtap="selectImg">
                 <image wx:if="{{backUrl}}" class="w-80 h-80 br-10 box8" mode="aspectFill" src="{{backUrl}}"></image>
-                <image wx:else class="w-80 h-80 br-10 box8" mode="aspectFill" src="{{user.imgUrl}}"></image>
+                <view wx:else class="rcc w-80 h-80 br-10 box8 b-48">
+                    <image class="w-80 h-80" mode="aspectFit" src="{{emptyImage}}"></image>
+                </view>
+                
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
@@ -246,19 +220,21 @@
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
-        <view class="rbc-nowrap pt-20 pb-20">
+        <view class="rbc-nowrap pt-20 pb-20" bindtap="editSign">
             <view class="rcs w-300 fs-30 fw-400">签名</view>
-            <view class="rcs">
-              <view class="css">
-                <view class="rus fs-30 fw-300 c-4 line-1-start">欢迎打卡君!</view>
+   
+            <view class="rcc">
+              <view class="css" style="flex:1">
+                <view class="rus fs-30 fw-300 c-4 line-1-start">{{sign}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
-        <view class="rbc-nowrap pt-20 pb-20">
+
+        <view class="rbc-nowrap pt-20 pb-20" bindtap="editType">
             <view class="rcs w-300 fs-30 fw-400">类型</view>
             <view class="rcs">
-              <view></view>
+                <view class="rcc fs-30 fw-300 c-4">{{type}}</view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
@@ -278,7 +254,8 @@
     </view>    
     <view class="h-50"></view>     
     <view class="rcc ">
-                            <view class="rcc b-share w-500 h-100 br-100 box8" bindtap="confirmBuild">
+
+                            <view class="rcc {{(sign&&type&&backUrl)?'b-share':'b-share-disable'}} w-500 h-100 br-100 box8" bindtap="confirmBuild">
                                 <view  class="rcc message1 w-500 h-100 br-100 z20">
                                     <view class="rcc ">
                                         <image class="rcc w-40 h-40 " mode="aspectFit" src="/images/publish.png"></image>

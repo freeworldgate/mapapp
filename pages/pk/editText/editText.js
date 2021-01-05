@@ -48,7 +48,23 @@ Page({
           placeholder:'遇到ta的场景'
       })
     }
+    else if(scene == 'editSign')
+    {
+      that.setData({
+        title:'签名',
+        desc:'卡点签名',
+        scene:scene,
+        maxLength:200,
+        left:200,
+        text:text,
+        placeholder:'欢迎打卡君...'
+      })
+    }
+    else
+    {
 
+    }
+    
 
 
 
@@ -76,6 +92,13 @@ Page({
         'findUser.text': that.data.text
       });
     }
+    else if(that.data.scene==='editSign')
+    {
+      prevPage.setData({
+        sign: that.data.text
+      });
+    }
+    else{}
 
     wx.navigateBack({
       delta: 0,

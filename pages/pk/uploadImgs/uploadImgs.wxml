@@ -10,7 +10,7 @@
     </view>
     <view class="css pr-3vw pl-3vw">
         <view class="css p-20 " >
-            <textarea adjustPosition="true" bindinput="_input" class=" h-150 fs-35 fw-400" cursorSpacing="50" fixed="true" maxlength="120" placeholder="编辑留言..." value="{{text}}"></textarea>
+            <textarea adjustPosition="true" bindinput="_input" class=" h-150 fs-35 fw-400" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="说点什么..." value="{{text}}"></textarea>
         </view>
         <view class="rbc p-20 t-line">
             <view class="fs-25 fw-400 c-word-6">第23次打卡</view>
@@ -96,7 +96,7 @@
 <view class="ccc uploadButton">
     <!-- <view hidden="{{imgs.length === 9}}" class="p-50 fs-30 fw-400 c-1">只能选择9张图片</view> -->
 
-    <view wx:if="{{imgs.length >0 && text}}" class="rcc fs-30 fw-700 w-500 h-100 br-100 b-upload c-white" bindtap="upload">立即上传</view>
+    <view wx:if="{{imgs.length>0 && 10>imgs.length && text}}" class="rcc fs-30 fw-700 w-500 h-100 br-100 b-upload c-white" bindtap="upload">立即上传</view>
     <view wx:else class="rcc fs-30 fw-700 w-500 h-100 br-100 b-40 c-4" >立即上传</view>
 
     <view class="h-50"></view>

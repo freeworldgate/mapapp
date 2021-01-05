@@ -24,7 +24,7 @@
                 <view class=" rcc ">
                                     <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="myFollow">
                                         <view class="rcc">
-                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/follow.png"></image>
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/yu.png"></image>
                                         </view>
 
                                         </view>
@@ -33,7 +33,7 @@
                 <view class=" rcc ">
                                     <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="myInvite">
                                         <view class="rcc">
-                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/care.png"></image>
                                         </view>
 
                                         </view>
@@ -42,7 +42,7 @@
                 <view class=" rcc ">
                                         <view class="w-90 h-90 br-90 rcc box8 b-white" bindtap="myPk" >
                                             <view class="rcc ">
-                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/daka.png"></image>
+                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
                                             </view>
 
                                         </view>
@@ -166,7 +166,7 @@
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
                                                                             <view class="css"  style="flex:1">
-                                                                                <view class="rus line-2-start fs-30 fw-300 c-4">{{pk.sign}}</view>
+                                                                                <view class="rus line-2-start fs-30 fw-300">{{pk.sign}}</view>
                                                                             </view>
                                                                             <view></view>
                                                                         </view>
@@ -177,20 +177,23 @@
                                                                     <view hidden="{{!pk.topPost}}" class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
                                                                         <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
                                                                         <view class="w-3vw"></view>
-                                                                        <view class="rcs" style="flex:1">
-                                                                        
-                                                                            <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw">
-                                                                                <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
-                                                                                    <view class="rss">
-                                                                                        <view class="rcc"  style="height:16vw;width:16vw" >
-                                                                                            <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                        <view class="css t-line" style="flex:1">
+                                                                            <view class="h-20"></view>
+                                                                            <view class="rcs ">
+                                                                                
+                                                                                <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:67vw;height:16vw">
+                                                                                    <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
+                                                                                        <view class="rss">
+                                                                                            <view class="rcc"  style="height:16vw;width:16vw" >
+                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                            </view>
+                                                                                            <view  style="width:1vw"></view>
+                                                                                                                                
                                                                                         </view>
-                                                                                        <view  style="width:1vw"></view>
-                                                                                                                            
                                                                                     </view>
-                                                                                </view>
-                                                                            </scroll-view>
-                                                                        
+                                                                                </scroll-view>
+                                                                            
+                                                                            </view>
                                                                         </view>
                                                                     </view>
                                                              
