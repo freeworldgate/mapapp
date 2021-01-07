@@ -39,8 +39,21 @@
         <view class="rcs " style="height:10px"></view>
     </view>
 </view>
-<view class="rbc bottomBar1 z4">
-    <view></view>
+
+<view class="rcc bottomBar1 z4">
+
+<view class="rcc">
+    <view wx:if="{{creator.userId === user.userId}}" class=" rcc" >
+        <view class="rcc br-20 b-publish w-400 h-100 fs-30 fw-700 c-white" bindtap="uploadGroupCode" >上传群名片</view>
+    </view>
+    <view wx:else class=" rcc">
+        <view class="rcc br-20 b-white w-400 h-100 fs-30 fw-700 c-4" bindtap="saveImg" data-url="{{imgUrl}}">保存到相册</view>
+    </view>
+</view>
+</view>
+
+<!-- <view class="rcc bottomBar1 z4">
+
     <view class="rcc">
         <view wx:if="{{creator.userId === user.userId}}" class=" rcc" >
             <view  class=" w-100 h-100 br-100 rcc box100 b-share" bindtap="uploadGroupCode" >
@@ -57,7 +70,7 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->
 <view>
     <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
     <view class="css dialogTip" hidden="{{dialog.visible!=true}}">

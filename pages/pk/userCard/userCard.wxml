@@ -60,6 +60,21 @@
 
                     </view>
                 </view>
+                <view class="rbc pl-3vw pr-3vw pt-10">
+                    <view class="rcc">
+                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="/images/unlock.png" ></image>
+                        <view class="fs-30 fw-400 c-4">350</view>
+               
+                    </view>
+                    <view class="rcc">
+                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
+                        <view class="w-10"></view>
+                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
+                        <view class="w-10"></view>
+                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
+                    </view>
+
+                </view>
             </view>
             <view class="rcc">
                 <view hidden="{{!(userApply.lock && userCard)}}" class="rcc br-20 b-white w-400 h-100 fs-30 fw-700 c-4" bindtap="save">保存到相册</view>

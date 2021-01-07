@@ -1773,6 +1773,9 @@ mw-200{
 .bottomBack{
   background-image: linear-gradient(to top,#00000036,#00000000 );
 }
+.bottomBack1{
+  background-image: linear-gradient(to top,#00000042,#00000000 );
+}
 .buildHead1{
   background-image: linear-gradient(to bottom,#00000050,#00000030,#00000010,#00000000 );
 }
