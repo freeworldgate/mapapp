@@ -75,6 +75,23 @@ Page({
 
 
   },
+  changeLock:function(res){
+    var that = this;
+    var apply =  res.currentTarget.dataset.apply;
+    var index =  res.currentTarget.dataset.index;
+    template.createOperateDialog(that).show(apply.lock?"禁止?":"解锁?", apply.lock?"禁止?":"解锁?", function () {
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function () {
+          var lock = "applys["+index+"].lock" 
+        that.setData({
+          [lock]:!apply.lock
+        })
+      })
+      httpClient.send(request.url.changeLock, "GET", {applyId:apply.applyId });
+    }, function () {});
+
+  },
   onReachBottom:function(){
     if(!this.data.nomore)
     {

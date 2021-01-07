@@ -23,8 +23,8 @@
                             </view>
                             <view class="rcc">
                                 <view style="width: 10vw"></view>
-                                <view wx:if="{{target.userId===user.userId}}" class="rcc h-60 pl-20 pr-20 c-4 border-locate br-10  fs-25 fw-300"  bindtap="uploadImg">替换</view>
-                                <view wx:else class="rcc h-60 pl-20 pr-20 c-4 border-locate br-10  fs-25 fw-300"  bindtap="apply">解锁</view>
+                                <view wx:if="{{target.userId===user.userId}}" class="rcc h-60 w-150  c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
+                                <view wx:else class="rcc h-60 w-150  c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="apply">解锁</view>
 
                             </view>
 
@@ -35,16 +35,16 @@
                         <image wx:if="{{userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard}}" ></image>
                         <image wx:else class="" style="width:90vw;height:90vw " mode="aspectFit" src="{{emptyImage}}" ></image>
 
-                        <view hidden="{{(target.userId===user.userId) || target.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
+                        <view hidden="{{(target.userId===user.userId) || userApply.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
                             <image class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/lockCard.png" ></image>
                         </view>
                     </view>
                     <view class="css p-3vw">
         
                         <view class="rbc pt-20 pb-20">
-                            <view class="rcc p-10 fs-28 fw-300 c-4"  style="flex:1" bindtap="userCardApply" data-type="0" data-targetid="{{target.userId}}">想认识{{target.userId===user.userId?'我':'Ta'}}的人(19)</view>
+                            <view class="rcc p-10 fs-28 fw-400 c-4 "  style="flex:1" bindtap="userCardApply" data-type="0" data-targetid="{{target.userId}}">想认识{{target.userId===user.userId?'我':'Ta'}}的人(19)</view>
                             <view class="w-5 l-line" style="height:3vw"></view>  
-                            <view class="rcc p-10 fs-28 fw-300 c-4" style="flex:1" bindtap="userCardApply" data-type="1" data-targetid="{{target.userId}}">{{target.userId===user.userId?'我':'Ta'}}想认识的人(23)</view>
+                            <view class="rcc p-10 fs-28 fw-400 c-4 " style="flex:1" bindtap="userCardApply" data-type="1" data-targetid="{{target.userId}}">{{target.userId===user.userId?'我':'Ta'}}想认识的人(23)</view>
                             
                         </view>
                         <view style="height:3vw"></view>
@@ -62,7 +62,7 @@
                 </view>
             </view>
             <view class="rcc">
-                <view hidden="{{!(!target.lock && userCard)}}" class="rcc br-20 b-publish w-400 h-100 fs-30 fw-700 c-white" bindtap="save">保存到相册</view>
+                <view hidden="{{!(userApply.lock && userCard)}}" class="rcc br-20 b-white w-400 h-100 fs-30 fw-700 c-4" bindtap="save">保存到相册</view>
             </view>
 </view>
 

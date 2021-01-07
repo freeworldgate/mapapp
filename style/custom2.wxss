@@ -1233,7 +1233,7 @@ mw-200{
 
 }
 .b-49{
-  background-color: rgba(240, 240, 240);
+  background-color: rgba(245, 245, 245);
 }
 .b-52{
   background-color: rgb(245, 245, 245);
@@ -1771,7 +1771,7 @@ mw-200{
   background-image: linear-gradient(to bottom,#ffffffa2,#ffffff71,#ffffff3a,#ffffff00 );
 }
 .bottomBack{
-  background-image: linear-gradient(to top,#00000050,#00000000 );
+  background-image: linear-gradient(to top,#00000036,#00000000 );
 }
 .buildHead1{
   background-image: linear-gradient(to bottom,#00000050,#00000030,#00000010,#00000000 );

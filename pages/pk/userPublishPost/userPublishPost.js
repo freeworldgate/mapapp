@@ -69,25 +69,30 @@ Page({
   uploadImg:function(){
     var that = this;
 
+    template.createOperateDialog(that).show("上传背景图?", "修改背景图?...", function () {
   
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed', 'original'],
-      sourceType: ['album'],
-      success(res) {
-        var files = res.tempFilePaths;
-        template.uploadImages3("PK-User-Back", files,that, function(urls){
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed', 'original'],
+        sourceType: ['album'],
+        success(res) {
+          var files = res.tempFilePaths;
+          template.uploadImages3("PK-User-Back", files,that, function(urls){
+  
+              that.setData({
+                imgUrl:urls[0],
+              })
+  
+  
+          }, function(){});
+  
+  
+        },
+      })
+  
+  
+    }, function () {});
 
-            that.setData({
-              imgUrl:urls[0],
-            })
-
-
-        }, function(){});
-
-
-      },
-    })
 
 
   },

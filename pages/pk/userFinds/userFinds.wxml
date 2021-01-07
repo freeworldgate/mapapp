@@ -1,6 +1,6 @@
 <!--pages/pk/userPk/userPk.wxml-->
 
-<view class="css b-49" style="min-height:100vh">
+<view class="css {{findUsers.length > 0?'b-49':'b-white'}}" style="min-height:100vh">
 
 
 
@@ -116,12 +116,12 @@
     <view class="rcc">
         <image class="h-300 w-300" mode="aspectFit" src="{{emptyImage}}" ></image>
     </view>
-    <view class="fs-30 fw-400 c-3">暂无卡点</view>
+    <view class="fs-30 fw-400 c-3">暂无打捞信息</view>
 
 </view>
 
 </view>
-<view class="css customBar b-49 z2">
+<view class="css customBar {{findUsers.length > 0?'b-49':'b-white'}} z2">
 <view class="rcs " style="height:{{top}}px"></view>
 <view class="rcs " style="height:32px">
 

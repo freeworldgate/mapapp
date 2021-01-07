@@ -42,15 +42,15 @@
 
                 </view>
                 
-                <view class="rus line-5-center fs-30 fw-400 pb-100 pt-100" style="flex:1">{{apply.text}}</view>
+                <view class="rus line-5-center fs-30 fw-700 pb-100 pt-100 c-4" style="flex:1">{{apply.text}}</view>
                 <view class="rbc">
                     <view class="rcc">
                         <view class="rcc pl-20 pr-20 pt-10 pb-10 br-10 b-48">
-                            <view class="rcc "><image class="rcc w-30 h-30" src="/images/topic.png" mode="aspectFit"></image></view>
+                            <view class="rcc "><image class="rcc w-30 h-30" src="{{apply.lock?'/images/unlock.png':'/images/lock.png'}} " mode="aspectFit"></image></view>
                             <view class="rcc fs-25 fw-300" >{{apply.lock?'已解锁':'未解锁'}}</view>
                         </view>
                         <view class="w-20"></view>
-                        <navigator  class="rcc " hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.user.userId}}">
+                        <navigator  class="rcc " hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
                                         <view class="rcc">
                                             <view class="rcc">
                                                 <image class="w-40 h-40" mode="aspectFit" src="/images/hiscard.png"></image>
@@ -60,10 +60,15 @@
                     </view>
 
                     <view class="rcc">
-                        <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700" bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
+                        <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700  f-shadow3 " bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
                         <view class="w-20"></view>
-                        <view wx:if="{{!apply.lock}}" class="rcc h-50 w-120 b-red c-white br-10  fs-25 fw-700" >解锁</view>
-                        <view wx:else class="rcc h-50 w-120 b-red c-white br-10  fs-25 fw-700" >禁止</view>
+
+
+                        <view class="rcc" bindtap="changeLock" data-apply="{{apply}}" data-index="{{bindex}}">
+                            <view wx:if="{{!apply.lock}}" class="rcc h-50 w-120 b-red c-white br-10  fs-25 fw-700" >解锁</view>
+                            <view wx:else class="rcc h-50 w-120 border-locate c-word-6 f-shadow3 br-10  fs-25 fw-700" >禁止</view>
+                        </view>
+
 
 
                     </view>

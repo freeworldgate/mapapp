@@ -85,11 +85,11 @@ Page({
         template.createEditTextDialog(that).show("想认识Ta", "编辑留言...","", 120,function(text){
           var httpClient = template.createHttpClient(that);
           httpClient.setMode("label", true);
-          httpClient.addHandler("success", function () {
-            that.setData({
-              userApply:{applyer:user,text:text},
-            })
-          },function(){});
+          // httpClient.addHandler("success", function () {
+          //   that.setData({
+          //     userApply:{applyer:user,text:text},
+          //   })
+          // },function(){});
           httpClient.send(request.url.userCardApply, "GET", { text:text,targetId:that.data.userId});  
         });
     })

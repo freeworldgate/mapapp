@@ -125,6 +125,13 @@ Page({
       tipUtil.showContentTip("背景图不能为空!");
       return;
     }
+    if(that.data.length > that.data.maxLength*1000)
+    {
+      tipUtil.showContentTip("仅能创建"+that.data.maxLength+"公里范围内的卡点!");
+      return;
+
+    }
+
 
     var postEntity = {
       latitude:that.data.latitude, 
@@ -137,6 +144,18 @@ Page({
     }
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
+    httpClient.addHandler("pay", function () {
+        
+      template.createOperateDialog(that).show("余额不足?", "余额不足?...", function () {
+          wx.navigateTo({
+            url: '/pages/pk/payForPk/payForPk',
+          })
+      }, function () {});
+
+
+    })
+
+
     httpClient.send(request.url.buildPk, "POST", postEntity);
 
 

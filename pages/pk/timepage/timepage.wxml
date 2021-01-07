@@ -26,7 +26,7 @@
                 </view>
                 <view class="rbc-nowrap p-30">
                     
-                    <view class="rus line-1-start fs-30 fw-500 c-white f-shadow3" style="flex:1">{{pk.sign}}</view>
+                    <view class="rus line-1-start fs-30 fw-500 c-white" style="flex:1">{{pk.sign}}</view>
                     <view class="rcc ">
                         <view class="w-50"></view>
                         <view class="rcc" bindtap="pkImage">

@@ -265,6 +265,7 @@ var url = {
         saveUserPkFind:`${host}/pk/saveUserPkFind`,
         startUserPkFind:`${host}/pk/startUserPkFind`,
         payForTime:`${host}/pk/payForTime`,
+        payForPk:`${host}/pk/payForPk`,
         giveUpUserPkFind:`${host}/pk/giveUpUserPkFind`,
         queryApprovingFinds:`${host}/pk/queryApprovingFinds`,
         nextApprovingFinds:`${host}/pk/nextApprovingFinds`,
@@ -284,10 +285,8 @@ var url = {
         agreePkImage:`${host}/pk/agreePkImage`,
         removeFromHiddenPosts:`${host}/pk/removeFromHiddenPosts`,
         deleteApply:`${host}/pk/deleteApply`,
-
-
-
-
+        changeLock:`${host}/pk/changeLock`,
+        changeSign:`${host}/pk/changeSign`,
 
 
 

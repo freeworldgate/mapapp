@@ -20,7 +20,7 @@ Page({
    */
   data: {
     imgUrl:'https://oss.211shopper.com/dir2/wx-1606375746086.jpg',
-    timeLength:['1 天','2 天','3 天','4 天','5 天','6 天','7 天','8 天','9 天']
+    timeLength:['1 天','2 天','3 天','4 天','5 天','6 天','7 天','8 天','9 天','10 天','11 天','12 天','13 天','14 天','15 天','16 天','17 天','18 天','19 天','20 天','21 天','22 天','23 天','24 天','25 天','26 天','27 天','28 天','29 天','30 天']
   },
 
   /**
@@ -131,6 +131,12 @@ Page({
     var that = this;
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
+    httpClient.addHandler("success", function (time) {
+      that.data.findUser.statu = null;
+      that.setData({
+        findUser:that.data.findUser
+      })
+    })
     httpClient.send(request.url.giveUpUserPkFind, "GET", {pkId:that.data.findUser.pkId});
 
   },
@@ -182,10 +188,7 @@ Page({
   create:function(){
     var that = this;
     that.setData({
-
         'findUser.exist':true
-
-
     })
 
 

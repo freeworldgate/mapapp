@@ -192,7 +192,7 @@
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength === 0 || findUser.text.length===0)?'b-48 c-3':'b-red c-white'}} " bindtap="{{(findUser.findLength === 0 || findUser.text.length===0)?'':'startFind'}}">开捞</view>
           
           <view class="rcc pt-20">
-              <view class="rcc h-70 fs-25 fw-400 c-word-6 " bindtap="clearUserFind">清除</view>
+              <view class="rcc h-70 fs-25 fw-400 c-word-6 " ></view>
               <!-- <view class="w-50"></view> -->
               <!-- <view class="rcc h-70 fs-25 fw-400 c-word-6 " bindtap="saveFind">保存</view> -->
           </view>

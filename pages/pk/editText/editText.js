@@ -37,13 +37,14 @@ Page({
     })
     var scene = options.scene;
     var text = options.text;
+
     if(scene == 'findUser'){
       that.setData({
           title:'打捞场景',
           desc:'场景描述',
           scene:scene,
           maxLength:200,
-          left:200,
+          left:text?200-text.length:200,
           text:text,
           placeholder:'遇到ta的场景'
       })
@@ -55,7 +56,21 @@ Page({
         desc:'卡点签名',
         scene:scene,
         maxLength:200,
-        left:200,
+        left:text?200-text.length:200,
+        text:text,
+        placeholder:'欢迎打卡君...'
+      })
+    }
+    else if(scene == 'changeSign')
+    {
+      that.data.index = options.index;
+      that.data.pkId = options.pkId;
+      that.setData({
+        title:'修改签名',
+        desc:'卡点签名',
+        scene:scene,
+        maxLength:200,
+        left:text?200-text.length:200,
         text:text,
         placeholder:'欢迎打卡君...'
       })
@@ -98,11 +113,29 @@ Page({
         sign: that.data.text
       });
     }
-    else{}
+    else if(that.data.scene==='changeSign')
+    {
 
-    wx.navigateBack({
-      delta: 0,
-    })
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("label", true);
+      httpClient.addHandler("success", function (pagePks) {
+          var newSign = "pks["+that.data.index+"].sign"
+          prevPage.setData({
+            [newSign]:that.data.text
+          })
+          wx.navigateBack({
+            delta: 0,
+          })
+      })
+      httpClient.send(request.url.changeSign, "GET", {sign:that.data.text,pkId:that.data.pkId});
+    }
+    else{}
+    if(that.data.scene!='changeSign'){
+      wx.navigateBack({
+        delta: 0,
+      })
+    }
+
 
   }
 })

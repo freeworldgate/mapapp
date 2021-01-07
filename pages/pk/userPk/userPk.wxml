@@ -1,6 +1,6 @@
 <!--pages/pk/userPk/userPk.wxml-->
 
-<view class="css b-49" style="min-height:100vh">
+<view class="css {{pks.length > 0?'b-49':'b-white'}}" style="min-height:100vh">
 
 
 
@@ -81,19 +81,19 @@
                                                                                                 
                                                                     </view> 
                                                            
-                                                                    <view class="rss" style="padding-top:2.5vw">
+                                                                    <view class="rss" style="padding-top:3.5vw">
                                                                         <view class="ccs w-12vw"><view class="fs-30 fw-300">签名</view></view>
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
-                                                                            <view class="css"  style="flex:1">
+                                                                            <navigator class="css" hover-class="none"  style="flex:1" url="/pages/pk/editText/editText?scene=changeSign&text={{pk.sign}}&index={{bindex}}&pkId={{pk.pkId}}">
                                                                                 <view class="rus line-2-start fs-30 fw-300">{{pk.sign}}</view>
-                                                                            </view>
+                                                                            </navigator>
                                                                             <view></view>
                                                                         </view>
                                                                     
                                                                     
                                                                     </view>
-                                                                    <view class="h-1vw"></view>
+                                                                    <view class="h-2vw"></view>
                                                                     <view class="rss " style="padding-top:2.5vw;padding-bottom:2.5vw">
                                                                         <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
                                                                         <view class="w-3vw"></view>
@@ -105,7 +105,7 @@
                                                                                     <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
                                                                                         <view class="rss">
                                                                                             <view class="rcc"  style="height:16vw;width:16vw" >
-                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}?x-oss-process=image/resize,w_300,m_lfit" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
                                                                                             </view>
                                                                                             <view  style="width:1vw"></view>
                                                                                                                                 
@@ -478,7 +478,7 @@
     </view>
 
 </view>
-<view class="css customBar b-49 z2">
+<view class="css customBar {{pks.length > 0?'b-49':'b-white'}} z2">
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 

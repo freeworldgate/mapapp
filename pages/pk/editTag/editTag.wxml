@@ -55,7 +55,7 @@
 
             </view>
 
-            <view class="rcc fs-35 fw-700">类型标签</view>
+            <view class="rcc fs-35 fw-700">卡点类型</view>
             <view class="rcc" style="flex:1">
             </view>
         

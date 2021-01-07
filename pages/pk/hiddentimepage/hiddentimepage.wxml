@@ -1,15 +1,15 @@
-<view class="css z3 b-48"  style="min-height:100vh">
+<view class="css z3 {{posts.length > 0?'b-48':'b-white'}}"  style="min-height:100vh">
 
 
-    <view class="css">
-      <view class="rcs " style="height:{{top}}px"></view>
-      <view class="rcs " style="height:32px">
-      </view>
-      <view class="rcs " style="height:20px"></view>
-    </view>
 
 
     <view wx:if="{{posts&&posts.length>0}}" class="css z3 ">
+        <view class="css">
+            <view class="rcs " style="height:{{top}}px"></view>
+            <view class="rcs " style="height:32px">
+            </view>
+            <view class="rcs " style="height:20px"></view>
+        </view>
 
         <view class="css" wx:for="{{posts}}" wx:for-index="bindex" wx:for-item="post" wx:key="postkey">
             <view class="css pl-3vw pr-3vw">
@@ -110,7 +110,7 @@
             <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
         </view>
     </view> 
-    <view wx:else class="ccc "  style="flex:1">
+    <view wx:else class="ccc"  style="flex:1">
         <view class="rcc">
             <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
         </view>
@@ -126,7 +126,7 @@
 
 
 <!-- //头部 -->
-<view class="css b-line customCenterBar z3 b-48" >
+<view class="css b-line customCenterBar z3 {{posts.length > 0?'b-48':'b-white'}}" >
         <view class="rcs " style="height:{{top}}px"></view>
         <view class="rbc" style="height:32px">
             <view class="rcs" style="flex:1">
