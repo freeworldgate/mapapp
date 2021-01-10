@@ -32,7 +32,7 @@
                         <view class="rcc">
                             <view class="rcc h-60 w-60 br-60 b-white box8"><image class="rcc w-50 h-50 br-50" src="{{image.user.imgUrl}}" mode="aspectFill"></image></view>
                             <view class="w-20"></view>
-                            <view class="rus line-1-start fs-30 fw-650 c-white w-200 f-shadow3">{{image.user.userName}}</view>
+                            <view class="rus line-1-start fs-30 fw-650 c-white w-200">{{image.user.userName}}</view>
                         </view>
                         <view class="rcc">
                             <view hidden="{{user.userId != image.user.userId && user.userId != creator.userId}}" class="rcc fs-25 fw-400 c-1 pl-20 pr-20 pt-10 pb-10 b-white br-10" bindtap="deleteImage" data-index="{{bindex}}" data-imageid="{{image.imageId}}">删除</view>

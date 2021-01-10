@@ -7,9 +7,12 @@
             <view class="rcc">
                 <view class="rcc">
                     <navigator  wx:if="{{user.userId === creator.userId}}" class="rcc h-70 w-200 b-48 br-10 " hover-class="none" url="/pages/pk/followers/followers?userId={{creator.userId}}">
-                        <image class="w-30 h-30" mode="aspectFit" src="/images/follow.png"></image>
-                        <view class="w-10"></view>
-                        <view class="fs-28 fw-300">关注</view>
+                        <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/follow.png"></image> -->
+                        <!-- <view class="w-10"></view> -->
+                        <view class="fs-25 fw-400">关注</view>
+                        <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
+                        <view class="fs-25 fw-400">350</view>
+                  
                     </navigator>
                     <view wx:else class="rcc h-70 w-200 {{followStatu?'b-48 border10':'b-red'}} br-10"  bindtap="{{followStatu?'cancelFollow':'follow'}}" data-targetid="{{creator.userId}}">
                         <view class="rcc {{followStatu?'c-1':'c-white'}} fs-28 fw-300">{{followStatu?'已关注':'关注'}}</view>
@@ -21,9 +24,11 @@
                 </view>
                 <view class="w-20"></view>
                 <navigator  class="rcc h-70 w-200 b-48 br-10 "  hover-class="none" url="/pages/pk/fans/fans?userId={{creator.userId}}">
-                        <image class="w-30 h-30" mode="aspectFit" src="/images/topic.png"></image>
-                        <view class="w-10"></view>                        
-                        <view class="rcc  fs-28 fw-300">粉丝</view>
+                        <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/fans.png"></image> -->
+                        <!-- <view class="w-10"></view>                         -->
+                        <view class="fs-25 fw-400">粉丝</view>
+                        <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
+                        <view class="fs-25 fw-400">390</view>
                 </navigator>
 
 
@@ -40,9 +45,9 @@
                 
                 <view class="ccc" bindtap="userCardApply" data-type="0" data-targetid="{{creator.userId}}">
                     <view class="rcc h-40">
-                        <image class="w-25 h-25" mode="aspectFit" src="/images/collect.png"></image>
-                        <view class="w-5"></view>
-                        <view class="rcc fs-25 fw-300 c-4">223</view>
+                        <image class="w-25 h-25" mode="aspectFit" src="/images/hands.png"></image>
+                        <view class="w-10"></view>
+                        <view class="rcc fs-25 fw-400">223</view>
                     </view>
                     <view class="h-10"></view>
                     <view class="fs-20 fw-300 c-4">想认识{{user.userId===creator.userId?"我":"Ta"}}的人</view>
@@ -52,9 +57,9 @@
                     <view class="rcc h-40">
                         <!-- <image class="rcc w-40 h-40 pt-5" src="/images/shank.png" mode="aspectFit"></image> -->
                         <!-- <view class="w-10"></view> -->
-                        <image class="w-25 h-25" mode="aspectFit" src="/images/collect.png"></image>
-                        <view class="w-5"></view>
-                        <view class="rcc fs-25 fw-300 c-4">567</view>
+                        <image class="w-25 h-25" mode="aspectFit" src="/images/sayHello.png"></image>
+                        <view class="w-10"></view>
+                        <view class="rcc fs-25 fw-400">567</view>
                     </view>
                     <view class="h-10"></view>
                     <view class="fs-20 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}想认识的人</view>
@@ -67,8 +72,8 @@
                     <view class="ccc">
                         <view class="rcc h-40">
                             <image class="w-25 h-25" mode="aspectFit" src="/images/hiscard.png"></image>
-                            <view class="w-5"></view>
-                            <view class="rcc fs-25 fw-300 c-4">567</view>
+                            <view class="w-10"></view>
+                            <view class="rcc fs-25 fw-400">567</view>
                         </view>
                         <view class="h-10"></view>
                         <view class="fs-20 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的名片</view>

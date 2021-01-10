@@ -23,8 +23,8 @@
                             </view>
                             <view class="rcc">
                                 <view style="width: 10vw"></view>
-                                <view wx:if="{{target.userId===user.userId}}" class="rcc h-60 w-150  c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
-                                <view wx:else class="rcc h-60 w-150  c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="apply">解锁</view>
+                                <view wx:if="{{target.userId===user.userId}}" class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
+                                <view wx:else class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="apply">解锁</view>
 
                             </view>
 
@@ -60,10 +60,13 @@
 
                     </view>
                 </view>
-                <view class="rbc pl-3vw pr-3vw pt-10">
+                <view class="rbc pl-3vw pr-3vw pt-20">
                     <view class="rcc">
-                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="/images/unlock.png" ></image>
-                        <view class="fs-30 fw-400 c-4">350</view>
+                        <image class="rcc w-30 h-30" mode="aspectFit" src="/images/unlock.png" ></image>
+                        <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
+                        <view class="fs-25 fw-400 c-4">已解锁</view>
+                        <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
+                        <view class="fs-25 fw-400 c-4">350</view>
                
                     </view>
                     <view class="rcc">

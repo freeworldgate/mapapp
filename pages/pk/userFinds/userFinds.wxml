@@ -18,8 +18,13 @@
 
                     <view class="css b-white br-20 pt-20 pb-20" style="padding-left:4vw;padding-right:4vw" >
                             <navigator class="rbc-nowrap pt-20 pb-20 " hover-class="none" url="/pages/pk/userFind/userFind?pkId={{findUser.pkId}}"> 
-                                <view class="rcs w-300 fs-30 fw-300">状态</view>
+                                <view class="rcs fs-30 fw-300">状态</view>
                                 <view class="rcc">
+                                    <view hidden="{{findUser.statu.key!=2}}" class="rcc">
+                                        <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">已打捞{{findUser.timeExpire}}</view>
+                                    </view>
+                                    <view class="w-20"></view>
+
                                     <view class="rus fs-30 fw-400 c-1">{{findUser.statu.name}}</view>
                                     <view class="rcc w-30 h-30">
                                         <view class="w-15 h-15 br-15 b-5"></view>

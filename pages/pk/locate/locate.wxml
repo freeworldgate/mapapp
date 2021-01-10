@@ -94,7 +94,7 @@
 <view  hidden="{{!pageTag}}" class="bottomPk css z3 bottomBack1">
      
         <view class="css z3">
-            <swiper wx:if="{{!(!pks || (pks.length < 1))}}"  style="height:85vw" indicator-dots="{{indicatorDots}}" circular="{{circular}}" vertical="{{vertical}}" current="{{current}}" bindchange="changePk" >
+            <swiper wx:if="{{!(!pks || (pks.length < 1))}}"  style="height:85vw" indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" vertical="{{vertical}}" current="{{current}}" bindchange="changePk" >
                 <block wx:for="{{pks}}" wx:for-index="bindex" wx:for-item="pk" wx:key="postkey">
                     <swiper-item  >
  
@@ -288,7 +288,7 @@
                 </view>
             </view>
 
-            <view class="h-50"></view>
+            <view class="h-30"></view>
         </view>
 
 

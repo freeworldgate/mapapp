@@ -27,7 +27,7 @@
     <view class="css pr-3vw pl-3vw">
         <view class="rcs pt-30 pb-30 fs-28 fw-400 c-3">{{desc}}</view>
         <view class="css p-30 b-48 " >
-            <textarea adjustPosition="true" bindinput="_input" class=" h-300 fs-30 fw-700 c-4" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="{{placeholder}}" value="{{text}}"></textarea>
+            <textarea adjustPosition="true" bindinput="_input" class=" h-300 fs-30 fw-400 c-4" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="{{placeholder}}" value="{{text}}"></textarea>
         </view>
         <view class="rbc pt-20 pb-20">
             <view></view>

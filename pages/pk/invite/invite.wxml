@@ -72,7 +72,7 @@
                                                                 </view> 
                                                        
                                                                 <view class="rss" style="padding-top:3.5vw">
-                                                                    <view class="ccs w-12vw"><view class="fs-30 fw-300">签名</view></view>
+                                                                    <view class="ccs w-12vw"><view class="fs-30 fw-300 c-4">签名</view></view>
                                                                     <view class="w-3vw"></view>
                                                                     <view class="rbc-nowrap" style="flex:1">
                                                                         <view class="css"  style="flex:1">
@@ -85,7 +85,7 @@
                                                                 </view>
                                                                 <view class="h-2vw"></view>
                                                                 <view class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
-                                                                        <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
+                                                                        <view class="rcc w-12vw"><view class="rcc fs-30 fw-300 c-4">卡册</view></view>
                                                                         <view class="w-3vw"></view>
                                                                         <view class="css t-line" style="flex:1">
                                                                             <view class="h-20"></view>

@@ -14,7 +14,7 @@
 
               </view>
             </view>
-            <view class="rcc fs-35 fw-700">捞人</view>
+            <view class="rcc fs-35 fw-700">我的捞人卡</view>
             <view style="flex:1"></view>
         
         </view>
@@ -23,11 +23,11 @@
 
     <view wx:if="{{findUser.exist}}" class="css pl-6vw pr-6vw">
         <view class="ccc h-200">
-            <view wx:if="{{findUser.statu.key===2}}" class="ccc  p-30 br-20 b-48">
+            <!-- <view wx:if="{{findUser.statu.key===2}}" class="ccc  p-30 br-20 b-48">
                   <view class="fs-40 fw-700 c-red">{{findUser.timeExpire}}</view>
                   <view class="fs-25 fw-400 c-word-6">已打捞时间</view>
-            </view>
-            <view wx:else class="rcc">
+            </view> -->
+            <view class="rcc">
                 <view class="h-200 w-300 "  style="background-position: center;background-image: url({{createFindUserImage}});background-repeat: no-repeat;background-size: auto 130%;"></view>
                 <!-- <image class="w-150 h-150" mode="aspectFit" src="{{createFindUserImage}}"></image> -->
             </view>
@@ -38,10 +38,14 @@
 
         <view class="h-20"></view>
         <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs w-300 fs-30 fw-700">状态</view>
+            <view class="rcs fs-30 fw-700">状态</view>
          
             <view class="rcc">
-          
+              <view hidden="{{findUser.statu.key!=2}}" class="rcc">
+                    <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">已打捞{{findUser.timeExpire}}</view>
+              </view>
+              <view class="w-20"></view>
+                
               <view wx:if="{{!findUser.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
               <view wx:else class="rus fs-30 fw-400 c-1">{{findUser.statu.name}}</view>
               <view class="rcc w-30 h-30">
@@ -116,16 +120,16 @@
 
             <view class="rcc" bindtap="uploadImgs">
               <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img3?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img3?findUser.img3:emptyImage}}"></image>
+                <image class="{{findUser.img3?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img3?findUser.img3:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
               </view>
               
               <view class="w-10"></view>
               <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img2?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img2?findUser.img2:emptyImage}}"></image>
+                <image class="{{findUser.img2?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img2?findUser.img2:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
               </view>
               <view class="w-10"></view>
               <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img1?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img1?findUser.img1:emptyImage}}"></image>
+                <image class="{{findUser.img1?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img1?findUser.img1:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
               </view>
               
               <view class="rcc w-10"></view>

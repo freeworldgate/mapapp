@@ -273,13 +273,19 @@ Page({
 
   },
   onHide:function(){
-
+    var that = this;
+    that.setData({
+      autoplay:false
+    })
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     var that = this;
+    that.setData({
+      autoplay:true
+    })
     var user = wx.getStorageSync('user');
     if(!that.data.user)
     {
@@ -462,7 +468,7 @@ Page({
       scale:pk.type.scale,
       current:current
     })
-    that.updateDistance();
+    // that.updateDistance();
   },
 
   seeLocation:function(res){

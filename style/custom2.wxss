@@ -376,6 +376,9 @@
 .mr-7{
   margin-right: 7rpx;
 }
+.ml-10{
+  margin-left: 10rpx;
+}
 .mr-10{
   margin-right: 10rpx;
 }
@@ -1240,6 +1243,9 @@ mw-200{
 }
 .b-noactive{
   background-color: rgb(187, 187, 187);
+}
+.b-gray{
+  background-color: gray;
 }
 .b-green{
   background-color: green;
