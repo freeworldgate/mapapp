@@ -287,7 +287,8 @@ var url = {
         deleteApply:`${host}/pk/deleteApply`,
         changeLock:`${host}/pk/changeLock`,
         changeSign:`${host}/pk/changeSign`,
-
+        querySingleFind:`${host}/pk/querySingleFind`,
+        
 
 
         searchPk:`${host}/pk/searchPk`, 

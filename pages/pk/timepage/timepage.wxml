@@ -81,7 +81,7 @@
                                                     <image class="w-30 h-30" mode="aspectFit" src="/images/daka1.png"></image>
                                                     <view class="w-10"></view>
                                                     <view class="rcc fs-30 c-4">{{pk.approved}}</view>
-                                                    <view class="rcc fs-23 c-4">人到此打卡</view>
+                                                    <view class="rcc fs-23 c-4">次到此打卡</view>
                                                 </view>
                                         
                                         </view>
@@ -93,6 +93,7 @@
                                             </view>
                                         </view>
                                         <view class="h-20"></view>
+                                       
                                         <view class="rbc">
                                             <view class="rcc">
                                                                 <view class="rcc pl-20 pr-20 br-10 b-48">
@@ -116,36 +117,38 @@
                                                                     </view>      
                                                                 </view>
                                             </view>
-
                                             <view class="rbc" style="flex:1">
                                                 <view></view>
-                                                <view class="ccc" hover-class="none" bindtap="groupCode">
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/group1.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">交友</view>
-                                                </view>
-                                              
-                                                <view class="ccc" hover-class="none" bindtap="findSomeOne" data-pk="{{pk}}" >
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/find.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">捞人</view>
-                                                </view>
-                                              
                                                 <view class="ccc" bindtap="drawPkCode" data-pk="{{pk}}">
                                                     <view class="rcc h-50">
                                                         <image class="rcc w-40 h-40" src="/images/ercode.png" mode="aspectFit"></image>
                                                     </view>
                                                     <view class="rcc fs-25 fw-300">画报</view>
                                                 </view>
+                                                <view class="ccc" hover-class="none" bindtap="groupCode">
+                                                    <view class="rcc h-50">
+                                                        <image class="rcc w-40 h-40" src="/images/group1.png" mode="aspectFit"></image>
+                                                    </view>
+                                                    <view class="rcc fs-25 fw-300">交友</view>
+                                                </view>
+                                                <view class="ccc" hover-class="none" bindtap="findSomeOne" data-pk="{{pk}}" >
+                                                    <view class="rcc h-50">
+                                                        <image class="rcc w-40 h-40" src="/images/find.png" mode="aspectFit"></image>
+                                                    </view>
+                                                    <view class="rcc fs-25 fw-300">捞人</view>
+                                                </view>
+
+
+                                              
+
+                                              
+
                                                     <!-- <navigator class="rcc h-70 w-70 br-70 b-white box8" url="/pages/pk/message/message?pkId={{pk.pkId}}"><image class="rcc w-40 h-40" src="/images/group1.png" mode="aspectFit"></image></navigator>
                                                     <view class="w-50"></view>
                                                     <view class="rcc h-70 w-70 br-70 b-white box8"><image class="rcc w-40 h-40" src="/images/find.png" mode="aspectFit"></image></view>
                                                     <view class="w-50"></view>
                                                     <view class="rcc h-70 w-70 br-70 b-white box8"><image class="rcc w-45 h-45" src="/images/ercode.png" mode="aspectFit"></image></view> -->
                                             </view>
-                                        
                                         </view>
                  
         </view>

@@ -96,11 +96,32 @@
       
 
         </view>
+        <view class="h-40"></view>
+        <view class="b-48 h-10"></view>
+        <view class="rcs p-30">
+            <view class="rcc">
+                <view class="fs-30 fw-700 ">99</view>
+                <view class="w-10"></view>
+                <view class="fs-25 fw-300 c-4">收藏</view>
+            </view>
+            <view class="w-40"></view>
+            <view class="rcc">
+                <view class="fs-30 fw-700 ">99</view>
+                <view class="w-10"></view>
+                <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的卡点</view>
+            </view>
+            <view class="w-40"></view>
+            <view class="rcc">
+                <view class="fs-30 fw-700 ">900</view>
+                <view class="w-10"></view>
+                <view class="fs-25 fw-300 c-4">次打卡</view>
+            </view>
+        </view>
 
 
 <!-- 
         <view class="h-80 b-line"></view> -->
-        <view class="h-80"></view>
+        <!-- <view class="h-40"></view> -->
 
 
 

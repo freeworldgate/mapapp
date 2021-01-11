@@ -23,6 +23,7 @@
     "pages/pk/editText/editText",
     "pages/pk/editTag/editTag",
     "pages/pk/findSomeOne/findSomeOne",
+    "pages/pk/findCard/findCard",
     "pages/pk/userCard/userCard",
     "pages/pk/build/build",
     "pages/pk/home/home",
