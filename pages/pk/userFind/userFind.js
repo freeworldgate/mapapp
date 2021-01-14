@@ -134,10 +134,11 @@ Page({
     httpClient.addHandler("success", function (time) {
       that.data.findUser.statu = null;
       that.setData({
-        findUser:that.data.findUser
+        findUser:that.data.findUser,
+        leftTime:time
       })
     })
-    httpClient.send(request.url.giveUpUserPkFind, "GET", {pkId:that.data.findUser.pkId});
+    httpClient.send(request.url.giveUpUserPkFind, "GET", {pkId:that.data.pk.pkId});
 
   },
   startFind:function(){
@@ -152,7 +153,7 @@ Page({
     },function(){});
     })
     httpClient.send(request.url.startUserPkFind, "POST", {
-      pkId:that.data.findUser.pkId,
+      pkId:that.data.pk.pkId,
       text:that.data.findUser.text,
       img1:that.data.findUser.img1,
       img2:that.data.findUser.img2,
@@ -167,7 +168,7 @@ Page({
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
     httpClient.send(request.url.saveUserPkFind, "POST", {
-      pkId:that.data.findUser.pkId,
+      pkId:that.data.pk.pkId,
       text:that.data.findUser.text,
       img1:that.data.findUser.img1,
       img2:that.data.findUser.img2,
@@ -181,14 +182,14 @@ Page({
     var that = this;
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
-    httpClient.send(request.url.clearUserFind, "GET", {pkId:that.data.findUser.pkId});
+    httpClient.send(request.url.clearUserFind, "GET", {pkId:that.data.pk.pkId});
 
 
   },
   create:function(){
     var that = this;
     that.setData({
-        'findUser.exist':true
+        'findUser':{}
     })
 
 

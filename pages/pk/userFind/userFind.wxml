@@ -14,14 +14,14 @@
 
               </view>
             </view>
-            <view class="rcc fs-35 fw-700">我的捞人卡</view>
+            <view class="rcc fs-35 fw-700">捞人卡</view>
             <view style="flex:1"></view>
         
         </view>
         <view class="rcs " style="height:10px"></view>
     </view>
 
-    <view wx:if="{{findUser.exist}}" class="css pl-6vw pr-6vw">
+    <view wx:if="{{findUser}}" class="css pl-6vw pr-6vw">
         <view class="ccc h-200">
             <!-- <view wx:if="{{findUser.statu.key===2}}" class="ccc  p-30 br-20 b-48">
                   <view class="fs-40 fw-700 c-red">{{findUser.timeExpire}}</view>
@@ -60,12 +60,12 @@
          
             <view class="rcc fs-30 fw-400 c-4 ">{{findUser.startTime}}~{{findUser.endTime}}</view>
         </view>
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="showPk" data-pk="{{findUser.pk}}"> 
+        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="showPk" data-pk="{{pk}}"> 
             <view class="rcs w-300 fs-30 fw-700">卡点</view>
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">{{findUser.pkName}}</view>
+                <view class="rus fs-30 fw-400 c-4  line-1-start">{{pk.name}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
@@ -75,7 +75,7 @@
             <view class="rcs ">
               <view class="rcs fs-30 fw-700">打捞时长</view>
               <view class="w-20"></view>
-              <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">剩余{{findUser.leftTime}}</view>
+              <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">剩余{{leftTime}}</view>
             </view>
             
 
@@ -167,7 +167,7 @@
 
 <view class="ccc uploadButton">
   <!-- 没创建 -->
-  <view hidden="{{!findUser.exist}}" class="css">
+  <view hidden="{{!findUser}}" class="css">
     <!-- <view wx:if="{{!findUser.statu}}" class="ccc">
       <view wx:if="{{findUser.findLength === 0 || findUser.text.length===0}}" class="rcc fs-30 fw-700 w-300 h-80 br-80 b-48 c-3">保存</view>
       <view wx:else class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="saveFind">保存</view>
@@ -193,12 +193,10 @@
 
       </view>
       <view wx:else class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength === 0 || findUser.text.length===0)?'b-48 c-3':'b-red c-white'}} " bindtap="{{(findUser.findLength === 0 || findUser.text.length===0)?'':'startFind'}}">开捞</view>
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength>0 && findUser.text && findUser.img1)?'b-red c-white':'b-48 c-3'}} " bindtap="{{(findUser.findLength>0 && findUser.text && findUser.img1)?'startFind':''}}">开捞</view>
           
           <view class="rcc pt-20">
               <view class="rcc h-70 fs-25 fw-400 c-word-6 " ></view>
-              <!-- <view class="w-50"></view> -->
-              <!-- <view class="rcc h-70 fs-25 fw-400 c-word-6 " bindtap="saveFind">保存</view> -->
           </view>
       </view>
 

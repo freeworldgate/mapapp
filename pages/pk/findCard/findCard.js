@@ -90,9 +90,10 @@ Page({
     var that = this;
     var findId = res.target.dataset.findid;
     var url = res.target.dataset.url;
+    var pkName = res.target.dataset.pkname;
     return {
-        title: '捞人卡' ,
-        desc: "from",
+      title: '遇见不撩 卡点互捞 @ ' + pkName ,
+      desc: pkName,
         imageUrl:url,
         path: '/pages/pk/findCard/findCard?findId=' + findId,
     }

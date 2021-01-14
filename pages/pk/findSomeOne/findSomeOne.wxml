@@ -149,7 +149,7 @@
                                                 
                                                 <view class="cas" style="flex:1">
                                                     <view class="css"> 
-                                                        <view class="rus line-1-start fs-30 fw-700" >{{findUser.user.userName}}</view>
+                                                        <view class="rus line-1-start fs-30 fw-650" >{{findUser.user.userName}}</view>
                                                     </view>
                                                 </view>
                                                 <view  class="rcc " >
@@ -303,7 +303,7 @@
         
         </view>
         <view class="rcc">
-            <!-- <navigator class=" rcc" hover-class="none" url="/pages/manage/approveFind/approveFind">
+            <navigator class=" rcc" hover-class="none" url="/pages/manage/approveFind/approveFind">
                                     <view  class=" w-100 h-100 br-100 rcc box100 b-white" >
                                         <view class="rcc ">
                                             <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
@@ -311,7 +311,7 @@
 
                                     </view>
             </navigator>
-            <view class="w-70"></view> -->
+            <view class="w-70"></view>
 
             <navigator class=" rcc" hover-class="none" url="/pages/pk/userFind/userFind?pkId={{pkId}}">
                                     <view  class=" w-100 h-100 br-100 rcc box100 b-white" >

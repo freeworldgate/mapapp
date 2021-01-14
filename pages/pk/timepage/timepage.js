@@ -445,7 +445,7 @@ Page({
     var that = this;
     login.getUser(function(){
       wx.navigateTo({
-        url: "/pages/pk/message/message?pkId=" + that.data.pk.pkId,
+        url: "/pages/pk/groupCard/groupCard?pkId=" + that.data.pk.pkId,
       })
     })
 

@@ -1785,6 +1785,9 @@ mw-200{
 .buildHead1{
   background-image: linear-gradient(to bottom,#00000050,#00000030,#00000010,#00000000 );
 }
+.buildHead2{
+  background-image: linear-gradient(to top,#00000050,#00000030,#00000010,#00000000 );
+}
 .userFeet{
   position: fixed;
   background-image: linear-gradient(to bottom,#00000050,#00000010,#00000010,#00000010,#00000010 );
