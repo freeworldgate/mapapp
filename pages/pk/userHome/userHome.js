@@ -192,26 +192,7 @@ Page({
     })
   
   },
-  viewPk:function(res)
-  {
-    var that = this;
-    var pkid = res.currentTarget.dataset.pkid;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
 
-    httpClient.addHandler("group", function (link) {
-
-        template.createOperateDialog(that).show(link.castV2,link.castV3,function(){
-          wx.navigateTo({
-            url: link.castV1,
-          })
-
-      },function(){});
-    })
-
-    httpClient.send(request.url.viewPk, "GET",{pkId:pkid});   
-
-  },
   groupCode:function(res) {
     var that = this;
     var pkId = res.currentTarget.dataset.pkid;

@@ -48,7 +48,7 @@
                                                                     <view class="h-20"></view>
                                                                     <view class="rss " >
                                                                         <view class="rus">
-                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}" mode="aspectFill"></image>
+                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}?x-oss-process=image/resize,w_200,m_lfit" mode="aspectFill"></image>
                                                                             <!-- <view class="absolute cbs w-12vw h-12vw br-20" bindtap="updatePkPage" data-index="{{bindex}}" data-pk="{{pk}}">
                                                                                     <view class=""></view>
                                                                                     <view class="rcc ">

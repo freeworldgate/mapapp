@@ -127,6 +127,16 @@ Page({
     })
   
 
+  },
+  userGroup:function(res)
+  {
+      var that = this;
+      var pkId = res.currentTarget.dataset.pkid;
+      login.getUser(function(user){
+        wx.navigateTo({
+          url: '/pages/pk/editUserGroup/editUserGroup?pkId' + pkId,
+        })
+      })
   }
 
 })

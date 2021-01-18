@@ -279,54 +279,7 @@ Page({
 
   },
   
-  viewPk:function(res)
-  {
-    var that = this;
-    var pkid = res.currentTarget.dataset.pkid;
-    var index =  res.currentTarget.dataset.index;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.addHandler("approve", function (link) {
 
-        template.createOperateDialog(that).show(link.castV2,link.castV3,function(){
-          wx.navigateTo({
-            url: link.castV1,
-          })
-
-      },function(){});
-    })
-    
-    httpClient.addHandler("doApprove", function (link) {
-
-      template.createOperateDialog(that).show(link.castV2,link.castV3,function(){
-          //发布主题:
-          var httpClient = template.createHttpClient(that);
-          httpClient.setMode("label", true);
-          httpClient.send(request.url.publishPk, "GET",{pkId:pkid});  
-          wx.setStorageSync('update', true);
-
-    },function(){});
-  })
-
-
-    httpClient.addHandler("group", function (link) {
-
-        template.createOperateDialog(that).show(link.castV2,link.castV3,function(){
-          wx.navigateTo({
-            url: link.castV1,
-          })
-      },function(){});
-    })
-    httpClient.addHandler("message", function (link) {
-
-      template.createOperateDialog(that).show(link.castV2,link.castV3,function(){
-        that.approverMessage(pkid,index);
-
-    },function(){});
-    })
-    httpClient.send(request.url.viewPk, "GET",{pkId:pkid});   
-
-  },
   groupCode:function(res) {
     var that = this;
     var pkId = res.currentTarget.dataset.pkid;

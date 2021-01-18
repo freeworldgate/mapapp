@@ -217,50 +217,6 @@ Page({
 
 
   },
-  checkUserPost:function(){
-    var that = this;
-  
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.addHandler("createPost", function () {that.createPost();})
-    httpClient.addHandler("pay", function (pay) {
-      //支付购买激活
-      template.createPayDialog(that).show(pay,function(single){
-          that.createPay(single);
-      },function(all){
-        that.createPay(all);
-      });
-
-
-
-
-
-    })
-    httpClient.addHandler("userPost", function (post) {
-      template.createSinglePostDialog(that).show(post, function (newPost) {
-        if(that.data.posts[0].postId === newPost.postId){
-          that.data.posts.splice(0, 1, newPost);
-        }
-        else{
-          that.data.posts.splice(0, 0, newPost);
-        }
-        that.setData({
-          posts: that.data.posts
-        })
-      });
-
-    })
-    httpClient.addHandler("uploadImgs", function (tip) {
-      template.createOperateDialog(that).show(tip.castV2,tip.castV3,function(){
-        that.uploadImgs();
-
-      },function(){});
-        
-
-    })
-    
-    httpClient.send(request.url.checkUserPost, "GET",{pkId: that.data.pkId,});
-  },
 
 
 
@@ -451,7 +407,19 @@ Page({
 
 
   },
+  userSort:function(res)
+  {
+    var that = this;
+    var pkId = res.currentTarget.dataset.pkid;
+    login.getUser(function(user){
+        wx.navigateTo({
+            url: '/pages/pk/userSort/userSort?pkId='+pkId,
+        })
+    })
 
+
+
+  },
   onTimeTask:function () {
     var that = this;
     if(that.data.isApprove && that.data.posts && that.data.user)
@@ -664,6 +632,8 @@ Page({
   findSomeOne:function(res){
       var that = this;
       var pk = res.currentTarget.dataset.pk;
+      wx.removeStorageSync('findPk')
+      wx.setStorageSync('findPk', pk)
       login.getUser(function(user){
         wx.navigateTo({
           url: '/pages/pk/findSomeOne/findSomeOne?pkId='+pk.pkId,

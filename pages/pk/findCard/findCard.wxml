@@ -23,26 +23,18 @@
                             <view class="rus line-1-start fs-30 fw-650" >{{findUser.user.userName}}</view>
                         </view>
                     </view>
-                    <view  class="rcc " >
-                        <view class="rcc">
-                            <view class="rcc">
-                                <image class="w-40 h-40" mode="aspectFit" src="/images/comment.png"></image>
-                            </view>
-                        </view>
-                    </view>              
-                    <view class="w-70"></view>      
                     <button open-type="share" class="rcc b-white message" style="width:50rpx;height:50rpx" data-findid="{{findUser.findId}}" data-pkname="{{findUser.pkName}}" data-url="{{findUser.img1?findUser.img1:findUser.user.imgUrl}}">
                                                     <view class="rcc ">
-                                                        <image class="rcc w-40 h-40 " mode="aspectFit" src="/images/share1.png"></image>
+                                                        <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/share1.png"></image>
                                                     </view>
-                    </button>          
+                    </button>                
                     <view class="w-70"></view>         
                     <navigator  class="rcc " hover-class="none" url="/pages/pk/userCard/userCard?userId={{findUser.user.userId}}">
-                        <view class="rcc">
-                            <view class="rcc">
-                                <image class="w-40 h-40" mode="aspectFit" src="/images/hiscard.png"></image>
-                            </view>
-                        </view>
+                                                    <view class="rcc">
+                                                        <view class="rcc">
+                                                            <image class="w-50 h-50" mode="aspectFit" src="/images/card.png"></image>
+                                                        </view>
+                                                    </view>
                     </navigator>    
 
             </view>
@@ -55,7 +47,7 @@
                     <!-- </view> -->
 
                 </view>
-                <view wx:if="{{findUser.findUser.img2&&findUser.img3}}" class="css">
+                <view wx:if="{{findUser.img1&&findUser.img2&&findUser.img3}}" class="css">
                     <swiper style="height:60vw;width:84vw" indicator-dots="true" autoplay="true" circular="true" >
                        
                           <swiper-item >
@@ -175,12 +167,12 @@
 
 </view>
 
-<view class="css customCenterBar z3  {{findUser?'b-48':'b-white'}}" >
+<view class="css customCenterBar z3" >
         <view class="rcs " style="height:{{top}}px"></view>
         <view class="rbc" style="height:32px">
             <view class="rcs" style="flex:1">
                 <view class="w-4vw"></view>
-                <view class="rcc h-32px w-32px br-32px b-white" bindtap="relaunch">
+                <view class="rcc h-32px w-32px br-32px " bindtap="relaunch">
              
                     <image class="h-40 w-40" mode="aspectFit" src="/images/home.png"></image>
                     <!-- <view class="w-10"></view>

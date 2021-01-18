@@ -102,7 +102,7 @@
             <view class="rcc">
                 <view class="fs-30 fw-700 ">99</view>
                 <view class="w-10"></view>
-                <view class="fs-25 fw-300 c-4">收藏</view>
+                <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的收藏</view>
             </view>
             <view class="w-40"></view>
             <view class="rcc">

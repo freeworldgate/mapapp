@@ -25,6 +25,7 @@
     "pages/pk/findSomeOne/findSomeOne",
     "pages/pk/findCard/findCard",
     "pages/pk/userCard/userCard",
+    "pages/pk/editUserGroup/editUserGroup",
     "pages/pk/build/build",
     "pages/pk/home/home",
     "pages/pk/singleLocation/singleLocation",
@@ -34,7 +35,7 @@
 
     "pages/pk/userPublishPost/userPublishPost",
     "pages/pk/groupCard/groupCard",
-
+    "pages/pk/userSort/userSort",
 
     "pages/pk/userFinds/userFinds",
     "pages/pk/invite/invite",

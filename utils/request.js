@@ -1,6 +1,6 @@
- var host = 'https://www.211shopper.com'; 
+//  var host = 'https://www.211shopper.com'; 
 // var host = 'http://192.168.2.245:8080'; 
-// var host = 'http://192.168.43.67:8080'; 
+var host = 'http://192.168.43.67:8080'; 
 
 // 上传图片接口 
 var uploadUrl = 'https://oss.211shopper.com'; 
@@ -288,8 +288,9 @@ var url = {
         changeLock:`${host}/pk/changeLock`,
         changeSign:`${host}/pk/changeSign`,
         querySingleFind:`${host}/pk/querySingleFind`,
+        queryPkSorts:`${host}/pk/queryPkSorts`,
+        nextPkSorts:`${host}/pk/nextPkSorts`,
         
-
 
         searchPk:`${host}/pk/searchPk`, 
         buildPk:`${host}/pk/buildPk`, 

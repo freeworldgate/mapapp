@@ -1900,6 +1900,14 @@ mw-200{
   right: 3vw;
 }
 
+.bottomBar12{
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: auto;
+  /* background-color: rgb(255, 255, 255); */
+}
 /* .customBack{
   background-image: linear-gradient(to right, #79c9ff 0%, #44a4fd 100%);
 } */

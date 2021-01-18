@@ -11,8 +11,49 @@
             
             <view class="css pl-5vw pr-5vw">
                 <view class="css b-white br-20 p-3vw" >
-             
-                    <view class="rbc pt-20 pb-20">
+                    <view class="css pb-20">
+                        <view class="rus line-1-start fs-35 fw-700">文鼎交友群</view>
+                    </view>
+                    
+                    <view class="rus line-3-start fs-28 fw-300 c-4">二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无</view>
+                    
+                    <view class="rss pt-30 pb-30">
+                        <view class="rcc w-120 h-160 b-48">
+                            <image class=" w-120 h-160 " src="{{userCard}}" mode="aspectFill"></image>
+                        </view>
+                        <view class="rac" style="flex:1">
+                            <view class="ccc">
+                                <view class="rcc">
+                                    <view class="rus fs-40 fw-700 line-h50">43</view>
+                                    <view class="rus fs-30 fw-700 pt-10">人</view>
+                                </view>
+                                <view class="h-10"></view>
+                                <view class="rcc fs-30 fw-400  c-4">成员</view>
+                            </view>
+
+                            <view class="ccc">
+                                <image class="rcc w-50 h-50 br-10 " src="{{target.imgUrl}}" mode="aspectFill"></image>
+                                <view class="h-10"></view>
+                                <view class="rcc fs-30 fw-400  c-4">群主</view>
+                            </view>
+
+                            <!-- <view class="ccc">
+                                <view class="rcc">
+                                    <view class="rus fs-40 fw-700 line-h50">43</view>
+                                    <view class="rus fs-30 fw-700 pt-10">米</view>
+                                </view>
+                                <view class="h-10"></view>
+                                <view class="rcc fs-30 fw-400  c-4">我的距离</view>
+                            </view> -->
+
+                        </view>
+
+
+
+                    </view>
+                    
+                    
+                    <!-- <view class="rbc pt-20 pb-20">
                         <view class="fs-30 fw-300 c-4">群名片</view>
                         <view class="rcc">
                             <image class="rcc w-120 h-90 " src="{{userCard}}?x-oss-process=image/rotate,270" mode="aspectFill"></image>
@@ -21,52 +62,29 @@
                     </view>
 
                     <view class="rbc-nowrap pt-20 pb-20" >
-                        <view class="rcs w-200 fs-30 fw-400  c-4">群名称</view>
-                        <view style="flex:1"></view>
-           
-                            <view class="rcc">
-                                <view class="css">
-                                    <view class="rus fs-30 fw-300 line-1-start" style="max-width:400rpx">文鼎交友群</view>
-                                </view>
-                                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-                            </view>
-                        
-
-                    </view>
-
-                    <view class="rbc-nowrap pt-20 pb-20" >
-                        <view class="rcs fs-30 fw-400 c-4">群简介</view>
-                       
-                        <view class="rcc">
-                        <view class="css">
-                            <view class="rus fs-30 fw-300 line-1-start" style="max-width:400rpx">二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无二维若翁无</view>
-                        </view>
-                        <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-                        </view>
-                    </view>
-
-                    <view class="rbc pt-20 pb-20">
-                        <view class="fs-30 fw-300 c-4">群主</view>
-                        <view class="rcc">
-                            <image class="rcc w-50 h-50 br-50 " src="{{target.imgUrl}}" mode="aspectFill"></image>
-                            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-    
-                        </view>
-                    </view>
-
-                    <view class="rbc-nowrap pt-20 pb-40 b-line" >
                         <view class="rcs fs-30 fw-400  c-4">成员</view>
             
                         <view class="rcc">
-                            <view class="rus fs-30 fw-300">43</view>
+                            <view class="rus fs-30 fw-300">43人</view>
 
                             <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
                         </view>
                     </view>
+
+                    <view class="rbc pt-20 pb-40 b-line">
+                        <view class="fs-30 fw-300 c-4">群主</view>
+                        <view class="rcc">
+                            <image class="rcc w-50 h-50 br-10 " src="{{target.imgUrl}}" mode="aspectFill"></image>
+                            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+    
+                        </view>
+                    </view> -->
+
+
                    
-                    <view class="css">
+                    <view class="css t-line">
                             <view class="h-3vw"></view>
-                            <view class="rbc pt-20 pb-20">
+                            <view class="rbc">
                         
                                 <view class="rcc">
                                             <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
@@ -75,7 +93,7 @@
                                             <view class="w-10"></view>
                                             <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
                                 </view>
-                                <image class="rcc w-40 h-40 " src="/images/eye.png" mode="aspectFit"></image>
+                                <view class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  >解锁</view>
                             </view>
                     </view>
 
@@ -120,10 +138,38 @@
  
 
 </view>
-<view class="css bottomBar11 z3">
-    <view class="rcc">
-        <view class="rcc br-20 b-publish w-400 h-100 fs-30 fw-700 c-white" bindtap="save">创建群组</view>
+
+<view class="css bottomBar12 z3 b-black " >
+    <view class="css pl-5vw pr-5vw">
+        <view class="h-20"></view>
+        <view class="rbc ">
+            <view class="rcc">
+                <view class="ccc">
+                                    <view class="rcc">
+                                        <view class="rus fs-30 fw-700 line-h40 c-white">43</view>
+                                        <view class="rus fs-25 fw-700 pt-5 c-white">米</view>
+                                    </view>
+                                 
+                                    <view class="rcc fs-25 fw-300  c-white">我的距离</view>
+                </view>
+                <view class="w-70"></view>
+                <view class="ccc">
+                                    <view class="rcc">
+                                        <view class="rus fs-30 fw-700 line-h40 c-white">43</view>
+                                        <view class="rus fs-25 fw-700 pt-5 c-white">米</view>
+                                    </view>
+                              
+                                    <view class="rcc fs-25 fw-300 c-white">有效距离</view>
+                </view>
+            </view>
+
+            <view class="rcc">
+                <view class="rcc br-20 w-200 h-80 fs-25 fw-300 b-white" bindtap="userGroup" data-pkid="{{pkId}}">我的群组</view>
+            </view>
+        </view>
+        <view class="h-20"></view>
     </view>
+
 </view>
 
 <!-- //头部 -->
@@ -137,7 +183,7 @@
                     <view class="w-4vw"></view>
                     <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
                     <view class="w-4vw"></view>
-                    <view class="rcc fs-35 fw-700">群</view>
+                    <view class="rcc fs-35 fw-700">卡点交友</view>
                 </view>
 
             </view>

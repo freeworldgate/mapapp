@@ -121,7 +121,7 @@
                                                                             </view> 
                                                                             <view class="w-80"></view> -->
                                                                             <navigator class="rcc pt-40 pb-40" hover-class="none" url="/pages/pk/timepage/timepage?pkId={{pk.pkId}}">
-                                                                                <image class="rcc w-35 h-35 " src="/images/topic.png" mode="aspectFit"></image>
+                                                                                <image class="rcc w-35 h-35 " src="/images/more.png" mode="aspectFit"></image>
                                                                             </navigator>                                 
                                                                         </view>
                                                                     </view>
@@ -129,7 +129,7 @@
                                                                     <view class="h-20"></view>
                                                                     <view class="rss " >
                                                                         <view class="rus">
-                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}" mode="aspectFill"></image>
+                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}?x-oss-process=image/resize,w_200,m_lfit" mode="aspectFill"></image>
                                                                             <!-- <view class="absolute cbs w-12vw h-12vw br-20" bindtap="updatePkPage" data-index="{{bindex}}" data-pkid="{{pk.pkId}}">
                                                                                     <view class=""></view>
                                                                                     <view class="rcc ">
@@ -186,7 +186,7 @@
                                                                                     <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
                                                                                         <view class="rss">
                                                                                             <view class="rcc"  style="height:16vw;width:16vw" >
-                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}?x-oss-process=image/resize,w_300,m_lfit" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
                                                                                             </view>
                                                                                             <view  style="width:1vw"></view>
                                                                                                                                 
