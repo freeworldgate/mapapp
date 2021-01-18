@@ -75,6 +75,30 @@ Page({
         placeholder:'欢迎打卡君...'
       })
     }
+    else if(scene == 'groupName')
+    {
+      that.setData({
+        title:'群名称',
+        desc:'设置群名称',
+        scene:scene,
+        maxLength:200,
+        left:text?200-text.length:200,
+        text:text,
+        placeholder:'群名称...'
+      })
+    }
+    else if(scene == 'groupDesc')
+    {
+      that.setData({
+        title:'群简介',
+        desc:'设置群简介',
+        scene:scene,
+        maxLength:200,
+        left:text?200-text.length:200,
+        text:text,
+        placeholder:'群简介...'
+      })
+    }
     else
     {
 
@@ -111,6 +135,18 @@ Page({
     {
       prevPage.setData({
         sign: that.data.text
+      });
+    }
+    else if(that.data.scene==='groupName')
+    {
+      prevPage.setData({
+        "userGroup.groupName": that.data.text
+      });
+    }
+    else if(that.data.scene==='groupDesc')
+    {
+      prevPage.setData({
+        "userGroup.groupDesc": that.data.text
       });
     }
     else if(that.data.scene==='changeSign')

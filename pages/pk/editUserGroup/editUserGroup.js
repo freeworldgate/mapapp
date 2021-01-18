@@ -19,8 +19,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrl:'https://oss.211shopper.com/dir2/wx-1606375746086.jpg',
-    timeLength:['1 天','2 天','3 天','4 天','5 天','6 天','7 天','8 天','9 天','10 天','11 天','12 天','13 天','14 天','15 天','16 天','17 天','18 天','19 天','20 天','21 天','22 天','23 天','24 天','25 天','26 天','27 天','28 天','29 天','30 天']
+    userGroup:{}
   },
 
   /**
@@ -40,49 +39,51 @@ Page({
     })
     that.queryUserFind(options.pkId,"page");
   },
-  editText:function(){
+  
+  editName:function(){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
-    {
-      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
-      },function(){});
-      return;
-    }
-
-    if(that.data.findUser.text){
+    if(that.data.userGroup.groupName){
       wx.navigateTo({
-        url: '/pages/pk/editText/editText?scene=findUser&text='+that.data.findUser.text
+        url: '/pages/pk/editText/editText?scene=groupName&text='+that.data.userGroup.groupName
       })
     }
     else
     {
       wx.navigateTo({
-        url: '/pages/pk/editText/editText?scene=findUser&text='
+        url: '/pages/pk/editText/editText?scene=groupName&text='
       })
     }
 
 
   },
+  editDesc:function(){
+    var that = this;
+    if(that.data.userGroup.groupDesc){
+      wx.navigateTo({
+        url: '/pages/pk/editText/editText?scene=groupDesc&text='+that.data.userGroup.groupDesc
+      })
+    }
+    else
+    {
+      wx.navigateTo({
+        url: '/pages/pk/editText/editText?scene=groupDesc&text='
+      })
+    }
 
+
+  },
   uploadImgs:function(){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
-    {
-      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
-      },function(){});
-      return;
-    }
+
     wx.chooseImage({
-      count: 3,
+      count: 1,
       sizeType: ['compressed', 'original'],
       sourceType: ['album'],
       success(res) {
         var files = res.tempFilePaths;
         template.uploadImages3("PK-User-Back", files,that, function(urls){
             that.setData({
-              'findUser.img1':urls[0]?urls[0]:'',
-              'findUser.img2':urls[1]?urls[1]:'',
-              'findUser.img3':urls[2]?urls[2]:'',
+              'userGroup.groupCard':urls[0]?urls[0]:'',
             })
         }, function(){});
       },

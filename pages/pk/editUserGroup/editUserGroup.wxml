@@ -57,30 +57,31 @@
           
 
             <view class="rcc" bindtap="uploadImgs">
- 
-              <view class="rcc w-90 h-120 br-10 b-48">
+
+              <view class="rcc w-90 h-120 b-48">
+                    <image class="w-90 h-120 " mode="aspectFill" src="{{userGroup.groupCard}}"></image>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
         
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
+        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editName"> 
             <view class="rcs w-300 fs-30 fw-700">群名称</view>
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">骄傲是的哈看脸时代可拉伸的卡拉上课了哈时空来电has考虑到哈时空来电哈萨克良好的卡拉生地会考拉萨的卢卡斯</view>
+                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.groupName}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
         
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
+        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editDesc"> 
             <view class="rcs w-300 fs-30 fw-700">群简介</view>
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">骄傲是的哈看脸时代可拉伸的卡拉上课了哈时空来电has考虑到哈时空来电哈萨克良好的卡拉生地会考拉萨的卢卡斯</view>
+                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.groupDesc}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
