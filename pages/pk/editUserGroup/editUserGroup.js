@@ -37,12 +37,66 @@ Page({
     that.setData({
       pkId:options.pkId
     })
-    that.queryUserFind(options.pkId,"page");
+
+
+    that.queryUserLength(options.pkId);
+    that.queryUserGroup(options.pkId);
+
   },
-  
+  queryUserLength:function(pkId){
+    var that = this;
+    locationUtil.getLocation(function(latitude,longitude){
+      var httpClient = template.createHttpClient(that);
+      httpClient.setMode("", false);
+      httpClient.addHandler("length", function (pk) {
+        var distance = locationUtil.getDistance(latitude,longitude,pk.latitude,pk.longitude);
+        that.setData({
+          myLength:distance,
+          myLengthStr:distance<1?distance*1000:distance,
+          range:pk.typeRange,
+          rangeStr:pk.typeRange<1000?pk.typeRange:(pk.typeRange/1000.0).toFixed(1),
+        })
+      })
+      httpClient.send(request.url.queryGroupLength, "GET", {pkId:pkId});
+
+    })
+
+  },
+  queryUserGroup:function(pkId){
+    var that = this;
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("page", true);
+    httpClient.addHandler("userGroup", function (userGroup) {
+      var distance = locationUtil.getDistance(latitude,longitude,userGroup.latitude,userGroup.longitude);
+      that.setData({
+        myLength:distance,
+        userGroup:userGroup
+      })
+    })
+    httpClient.send(request.url.queryUserGroup, "GET", {pkId:pkId});
+  },
+  cancelGroup:function(){
+    var that = this;
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("label", true);
+    httpClient.send(request.url.cancelGroup, "GET", {pkId:that.data.pkId});
+  },
+
+
   editName:function(){
     var that = this;
-    if(that.data.userGroup.groupName){
+    if(that.data.userGroup.statu)
+    {
+      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
+      },function(){});
+      return;
+    }
+
+
+
+
+
+    if(that.data.userGroup&&that.data.userGroup.groupName){
       wx.navigateTo({
         url: '/pages/pk/editText/editText?scene=groupName&text='+that.data.userGroup.groupName
       })
@@ -58,7 +112,13 @@ Page({
   },
   editDesc:function(){
     var that = this;
-    if(that.data.userGroup.groupDesc){
+    if(that.data.userGroup.statu)
+    {
+      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
+      },function(){});
+      return;
+    }
+    if(that.data.userGroup&&that.data.userGroup.groupDesc){
       wx.navigateTo({
         url: '/pages/pk/editText/editText?scene=groupDesc&text='+that.data.userGroup.groupDesc
       })
@@ -74,7 +134,12 @@ Page({
   },
   uploadImgs:function(){
     var that = this;
-
+    if(that.data.userGroup.statu)
+    {
+      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
+      },function(){});
+      return;
+    }
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed', 'original'],
@@ -91,110 +156,34 @@ Page({
 
 
   },
-  showPk:function(res){
-    var that = this;
-    var pk = res.currentTarget.dataset.pk;
-    wx.setStorageSync('locationShow', pk)
-    locationUtil.getLocation(function(latitude,longitude){
 
-      var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
-      that.setData({
-        length:parseFloat(distance*1000),
-        lengthStr:distance<1?distance*1000:distance
-      })
-    })
-    wx.navigateTo({
-      url: '/pages/pk/showLocation/showLocation',
-    })
-
-  },
-  bindPickerChange:function(e){
+  uploadGroup:function(){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
+    if(that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
       return;
     }
-
-
-    that.setData({
-      'findUser.findLength': parseInt(e.detail.value)+1
-    })
-  },
-  queryUserFind:function(pkId,tag){
-    var that = this;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode(tag, true);
-    httpClient.send(request.url.queryUserFind, "GET", { pkId:pkId});
-  },
-  giveUpUserPkFind:function(){
-    var that = this;
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
-    httpClient.addHandler("success", function (time) {
-      that.data.findUser.statu = null;
-      that.setData({
-        findUser:that.data.findUser,
-        leftTime:time
-      })
-    })
-    httpClient.send(request.url.giveUpUserPkFind, "GET", {pkId:that.data.pk.pkId});
-
-  },
-  startFind:function(){
-    var that = this;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.addHandler("timePay", function (time) {
+    httpClient.addHandler("groupPay", function () {
       template.createOperateDialog(that).show("提示","时间不足," + "剩余可打捞时间"+time,function(){
         wx.navigateTo({
           url: '/pages/pk/payForTime/payForTime',
         })
     },function(){});
     })
-    httpClient.send(request.url.startUserPkFind, "POST", {
-      pkId:that.data.pk.pkId,
-      text:that.data.findUser.text,
-      img1:that.data.findUser.img1,
-      img2:that.data.findUser.img2,
-      img3:that.data.findUser.img3,
-      findLength:that.data.findUser.findLength,
+    httpClient.send(request.url.createGroup, "GET", {
+      pkId:that.data.pkId,
+      groupName:that.data.userGroup.groupName,
+      groupDesc:that.data.userGroup.groupDesc,
+      url:that.data.userGroup.groupCard,
     });
 
 
   },
-  saveFind:function(){
-    var that = this;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.send(request.url.saveUserPkFind, "POST", {
-      pkId:that.data.pk.pkId,
-      text:that.data.findUser.text,
-      img1:that.data.findUser.img1,
-      img2:that.data.findUser.img2,
-      img3:that.data.findUser.img3,
-      findLength:that.data.findUser.findLength,
-    });
 
-
-  },
-  clearUserFind:function(){
-    var that = this;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.send(request.url.clearUserFind, "GET", {pkId:that.data.pk.pkId});
-
-
-  },
-  create:function(){
-    var that = this;
-    that.setData({
-        'findUser':{}
-    })
-
-
-  }
   
 
 

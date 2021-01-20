@@ -1,4 +1,3 @@
-
 <view class="css b-white" style="min-height:100vh">
     <view class="css " >
         <view class="rcs " style="height:{{top}}px"></view>
@@ -32,16 +31,17 @@
 
         <view class="h-20"></view>
         <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs fs-30 fw-700">状态</view>
+            <view class="rcs">
+                <view class="rcs fs-30 fw-700">状态</view>
+
+            </view>
+            
          
             <view class="rcc">
-              <view hidden="{{findUser.statu.key!=2}}" class="rcc">
-                    <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">已打捞{{findUser.timeExpire}}</view>
-              </view>
-              <view class="w-20"></view>
+       
                 
-              <view wx:if="{{!findUser.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
-              <view wx:else class="rus fs-30 fw-400 c-1">{{findUser.statu.name}}</view>
+              <view wx:if="{{!userGroup || !userGroup.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
+              <view wx:else class="rus fs-30 fw-400 c-1">{{userGroup.statu.name}}</view>
               <view class="rcc w-30 h-30">
                 <view class="w-15 h-15 br-15 b-5"></view>
               </view>
@@ -50,16 +50,19 @@
             </view>
         </view>
 
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="css">
+        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="uploadImgs"> 
+            <view class="rcs">
               <view class="rcs fs-30 fw-700">群名片</view>
+              <view class="w-20"></view>
+              <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">更新时间{{userGroup.lastUpdateTime}}</view>
             </view>  
           
 
-            <view class="rcc" bindtap="uploadImgs">
+            <view class="rcc" >
 
               <view class="rcc w-90 h-120 b-48">
-                    <image class="w-90 h-120 " mode="aspectFill" src="{{userGroup.groupCard}}"></image>
+                    <image wx:if="{{userGroup.groupCard}}" class="w-90 h-120 " mode="aspectFill" src="{{userGroup.groupCard}}"></image>
+                    <image wx:else class="w-70 h-70 " mode="aspectFit" src="/images/usercard.png"></image>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
@@ -70,7 +73,7 @@
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.groupName}}</view>
+                <view class="rus fs-30 fw-400 {{userGroup.groupName?'c-4':'c-3'}} line-1-start">{{userGroup.groupName?userGroup.groupName:'编辑群名称'}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
@@ -81,7 +84,7 @@
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.groupDesc}}</view>
+                <view class="rus fs-30 fw-400 {{userGroup.groupDesc?'c-4':'c-3'}} line-1-start">{{userGroup.groupDesc?userGroup.groupDesc:'编辑群简介'}}</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
@@ -92,29 +95,28 @@
             <view class="w-50"></view>
             <view class="rcc">
               <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">43人</view>
+                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.members?userGroup.members:0}}人</view>
               </view>
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
         <view class="h-5vw"></view>
         <view class="rac p-5vw">
-            <view class="ccc">
+            <view hidden="{{!myLengthStr}}" class="ccc" >
                                     <view class="rcc">
-                                        <view class="rus fs-35 fw-700 line-h40">43</view>
-                                        <view class="rus fs-25 fw-700 pt-5">米</view>
+                                        <view class="rus fs-35 fw-700 line-h40">{{myLengthStr}}</view>
+                                        <view class="rus fs-25 fw-700 pt-5">{{(myLength*1000 < 1000)?"米":"公里"}}</view>
                                     </view>
-                                 
                                     <view class="rcc fs-30 fw-300  c-3">我的距离</view>
             </view>
     
-            <view class="ccc">
+            <view hidden="{{!rangeStr}}" class="ccc">
                                     <view class="rcc">
-                                        <view class="rus fs-35 fw-700 line-h40">43</view>
-                                        <view class="rus fs-25 fw-700 pt-5">米</view>
+                                        <view class="rus fs-35 fw-700 line-h40">{{rangeStr}}</view>
+                                        <view class="rus fs-25 fw-700 pt-5">{{(range < 1000)?"米":"公里"}}</view>
                                     </view>
                               
-                                    <view class="rcc fs-30 fw-300  c-3">有效距离</view>
+                                    <view class="rcc fs-30 fw-300  c-3">有效范围</view>
             </view>
 
         </view>
@@ -131,25 +133,18 @@
 
 <view class="ccc uploadButton">
   <!-- 没创建 -->
-  <view hidden="{{!findUser}}" class="css">
+  <view class="css">
 
-      <view wx:if="{{findUser.statu && findUser.statu.key===3}}" class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="clearUserFind">清除</view>
-          <view class="rcc h-70 fs-25 fw-400 c-word-6 "></view>
+      <view wx:if="{{userGroup.statu && userGroup.statu.key===1}}" class="ccc">
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="update">更新群组</view>
       </view>
-      <view wx:elif="{{findUser.statu && (findUser.statu.key===2 || findUser.statu.key===1)}}" class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-48 c-4" bindtap="giveUpUserPkFind">终止打捞</view>
-          <view class="rcc h-70 fs-25 fw-400 c-word-6 "> </view>
-
+      <view wx:elif="{{userGroup.statu && userGroup.statu.key===0}}" class="ccc" bindtap="cancelGroup">
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-publish c-white ">取消</view>
       </view>
       <view wx:else class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength>0 && findUser.text && findUser.img1)?'b-red c-white':'b-48 c-3'}} " bindtap="{{(findUser.findLength>0 && findUser.text && findUser.img1)?'startFind':''}}">开捞</view>
-          
-          <view class="rcc pt-20">
-              <view class="rcc h-70 fs-25 fw-400 c-word-6 " ></view>
-          </view>
+        <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{userGroup.groupCard&&userGroup.groupName&&userGroup.groupDesc?'b-red c-white':'b-48 c-4'}}" bindtap="{{(userGroup.groupCard&&userGroup.groupName&&userGroup.groupDesc)?'uploadGroup':''}}">发布</view>
       </view>
-
+      <view class="h-100"></view>
 
   </view>
 

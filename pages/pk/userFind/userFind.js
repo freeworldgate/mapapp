@@ -42,7 +42,7 @@ Page({
   },
   editText:function(){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
+    if(that.data.findUser.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -66,7 +66,7 @@ Page({
 
   uploadImgs:function(){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
+    if(that.data.findUser.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -109,7 +109,7 @@ Page({
   },
   bindPickerChange:function(e){
     var that = this;
-    if(that.data.findUser.statu && (that.data.findUser.statu.key === 1||that.data.findUser.statu.key === 2||that.data.findUser.statu.key === 3))
+    if(that.data.findUser.statu )
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});

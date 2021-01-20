@@ -46,10 +46,8 @@ Page({
 
 
     var userId = options.userId;   
+    that.data.targetUserId = userId;
 
-    that.setData({
-      userId:userId
-    })
 
 
     var httpClient = template.createHttpClient(that);
@@ -90,7 +88,7 @@ Page({
           //     userApply:{applyer:user,text:text},
           //   })
           // },function(){});
-          httpClient.send(request.url.userCardApply, "GET", { text:text,targetId:that.data.userId});  
+          httpClient.send(request.url.userCardApply, "GET", { text:text,targetId:that.data.targetUserId});  
         });
     })
 
@@ -98,10 +96,18 @@ Page({
 
 
   },
+  onShow:function(){
+    var that = this;
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("", true);
+    httpClient.send(request.url.queryUserCard, "GET", {targetId:that.data.targetUserId});
+    
+
+  },
   uploadImg:function(){
     var that = this;
     login.getUser(function(user){
-       if(user.userId === that.data.userId)
+       if(user.userId === that.data.targetUserId)
        {
           wx.chooseImage({
             count: 1,
@@ -113,11 +119,6 @@ Page({
                 
                 var httpClient = template.createHttpClient(that);
                 httpClient.setMode("label", true);
-                httpClient.addHandler("success", function () {
-                  that.setData({
-                    userCard:urls[0],
-                  })
-                },function(){});
                 httpClient.send(request.url.setUserCard, "GET", { userCard:urls[0]});  
               }, function(){});
             },

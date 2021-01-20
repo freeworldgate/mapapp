@@ -9,7 +9,7 @@
                                 
                                             <view class="rcc">
                                                 <view class="rcc pr-10 pt-20 pb-20">
-                                                    <image class="rcc w-60 h-60 br-60 " src="{{target.imgUrl}}" mode="aspectFill"></image>
+                                                    <image class="rcc w-60 h-60 br-60 " src="{{userCard.user.imgUrl}}" mode="aspectFill"></image>
                                                 </view>
                                             </view> 
                                 
@@ -18,12 +18,12 @@
                         
                             <view class="cas" style="flex:1">
                                 <view class="css"> 
-                                    <view class="rus line-1-start fs-30 fw-700 c-4" >{{target.userName}}</view>
+                                    <view class="rus line-1-start fs-30 fw-700 c-4" >{{userCard.user.userName}}</view>
                                 </view>
                             </view>
                             <view class="rcc">
                                 <view style="width: 10vw"></view>
-                                <view wx:if="{{target.userId===user.userId}}" class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
+                                <view wx:if="{{userCard.user.userId===user.userId}}" class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
                                 <view wx:else class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="apply">解锁</view>
 
                             </view>
@@ -32,19 +32,19 @@
         
                     <!-- //图片 -->
                     <view class="rcc" style="width:90vw;height:90vw">
-                        <image wx:if="{{userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard}}" ></image>
+                        <image wx:if="{{userCard.userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard.userCard}}" ></image>
                         <image wx:else class="" style="width:90vw;height:90vw " mode="aspectFit" src="{{emptyImage}}" ></image>
 
-                        <view hidden="{{(target.userId===user.userId) || userApply.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
+                        <view hidden="{{(userCard.user.userId===user.userId) || userApply.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
                             <image class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/lockCard.png" ></image>
                         </view>
                     </view>
                     <view class="css p-3vw">
         
                         <view class="rbc pt-20 pb-20">
-                            <view class="rcc p-10 fs-28 fw-400 c-4 "  style="flex:1" bindtap="userCardApply" data-type="0" data-targetid="{{target.userId}}">想认识{{target.userId===user.userId?'我':'Ta'}}的人(19)</view>
+                            <view class="rcc p-10 fs-28 fw-400 c-4 "  style="flex:1" bindtap="userCardApply" data-type="0" data-targetid="{{userCard.user.userId}}">想认识{{userCard.user.userId===user.userId?'我':'Ta'}}的人({{userCard.likeMe}})</view>
                             <view class="w-5 l-line" style="height:3vw"></view>  
-                            <view class="rcc p-10 fs-28 fw-400 c-4 " style="flex:1" bindtap="userCardApply" data-type="1" data-targetid="{{target.userId}}">{{target.userId===user.userId?'我':'Ta'}}想认识的人(23)</view>
+                            <view class="rcc p-10 fs-28 fw-400 c-4 " style="flex:1" bindtap="userCardApply" data-type="1" data-targetid="{{userCard.user.userId}}">{{userCard.user.userId===user.userId?'我':'Ta'}}想认识的人({{userCard.meLike}})</view>
                             
                         </view>
                         <view style="height:3vw"></view>
@@ -66,15 +66,15 @@
                         <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
                         <view class="fs-25 fw-400 c-4">已解锁</view>
                         <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
-                        <view class="fs-25 fw-400 c-4">350</view>
+                        <view class="fs-25 fw-400 c-4">{{userCard.unLock}}</view>
                
                     </view>
                     <view class="rcc">
-                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
-                        <view class="w-10"></view>
-                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
-                        <view class="w-10"></view>
-                        <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{user.imgUrl}}" ></image>
+                        <image hidden="{{!userCard.member3}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member3.imgUrl}}" ></image>
+                        <view  hidden="{{!userCard.member2}}" class="w-10"></view>
+                        <image hidden="{{!userCard.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member2.imgUrl}}" ></image>
+                        <view  hidden="{{!userCard.member1}}" class="w-10"></view>
+                        <image hidden="{{!userCard.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member1.imgUrl}}" ></image>
                     </view>
 
                 </view>

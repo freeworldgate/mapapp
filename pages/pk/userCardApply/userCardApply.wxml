@@ -8,8 +8,8 @@
     <view class="rcs " style="height:20px"></view>
   </view>
   <view wx:if="{{applys && applys.length>0}}" class="css">
-    <view class="css" wx:for="{{applys}}" wx:for-index="bindex" wx:for-item="apply" wx:key="postkey">
-        <view wx:if="{{type === '0'}}" class="css pl-3vw pr-3vw pb-20">
+    <block wx:for="{{applys}}" wx:for-index="bindex" wx:for-item="apply" wx:key="postkey">
+        <view wx:if="{{type === '0'}}" class="css pl-3vw pr-3vw">
             <view class="css b-white br-20 p-3vw">
                 <view class="rbc" >
                                 <view class="rcc ">
@@ -53,15 +53,15 @@
                         <navigator  class="rcc " hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
                                         <view class="rcc">
                                             <view class="rcc">
-                                                <image class="w-40 h-40" mode="aspectFit" src="/images/hiscard.png"></image>
+                                                <image class="w-60 h-60" mode="aspectFit" src="/images/card.png"></image>
                                             </view>
                                         </view>
                         </navigator> 
                     </view>
 
                     <view class="rcc">
-                        <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700  f-shadow3 " bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
-                        <view class="w-20"></view>
+                        <!-- <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700  f-shadow3 " bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
+                        <view class="w-20"></view> -->
 
 
                         <view class="rcc" bindtap="changeLock" data-apply="{{apply}}" data-index="{{bindex}}">
@@ -107,7 +107,7 @@
                         <navigator  class="rcc" hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
                                         <view class="rcc">
                                             <view class="rcc">
-                                                <image class="w-40 h-40" mode="aspectFit" src="/images/hiscard.png"></image>
+                                                <image class="w-60 h-60" mode="aspectFit" src="/images/card.png"></image>
                                             </view>
                                     
                                         </view>
@@ -134,8 +134,9 @@
 
 
         </view>
+        <view class="h-20"></view>
         
-    </view>
+    </block>
     <view class="css h-300">
         <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
     </view>

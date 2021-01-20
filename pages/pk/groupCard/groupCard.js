@@ -44,18 +44,14 @@ Page({
         })
     })
 
-
-    var userId = options.userId;   
-    login.getUser(function(user){
-      userId = user.userId
-      that.setData({
-        userId:userId
-      })
+    // that.data.pkId = options.pkId;   
+    that.setData({
+      pkId:options.pkId
     })
 
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("page", true);
-    httpClient.send(request.url.queryUserCard, "GET", {targetId:userId});
+    httpClient.send(request.url.queryPkGroups, "GET", {pkId:options.pkId});
     
   },
 
@@ -134,7 +130,7 @@ Page({
       var pkId = res.currentTarget.dataset.pkid;
       login.getUser(function(user){
         wx.navigateTo({
-          url: '/pages/pk/editUserGroup/editUserGroup?pkId' + pkId,
+          url: '/pages/pk/editUserGroup/editUserGroup?pkId=' + pkId,
         })
       })
   }
