@@ -23,8 +23,18 @@
                             </view>
                             <view class="rcc">
                                 <view style="width: 10vw"></view>
-                                <view wx:if="{{userCard.user.userId===user.userId}}" class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="uploadImg">{{userCard?'更新名片':'更新名片'}}</view>
-                                <view wx:else class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"  bindtap="apply">解锁</view>
+                                <view wx:if="{{userCard.user.userId===user.userId}}" class="rcc" bindtap="uploadImg">
+                                    <image class="w-40 h-40" mode="aspectFit" src="/images/upload.png" ></image>
+                                    <view class="w-10"></view>
+                                    <view class="fs-25 fw-400">上传</view>
+                                </view>
+                                <view wx:else class="rcc" bindtap="apply">
+                                    <image class="w-40 h-40" mode="aspectFit" src="/images/unlock.png" ></image>
+                                    <view class="w-10"></view>
+                                    <view class="fs-25 fw-400">解锁</view>
+                                </view>
+
+                                
 
                             </view>
 
@@ -33,7 +43,7 @@
                     <!-- //图片 -->
                     <view class="rcc" style="width:90vw;height:90vw">
                         <image wx:if="{{userCard.userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard.userCard}}" ></image>
-                        <image wx:else class="" style="width:90vw;height:90vw " mode="aspectFit" src="{{emptyImage}}" ></image>
+                        <image wx:else class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/img.png" ></image>
 
                         <view hidden="{{(userCard.user.userId===user.userId) || userApply.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
                             <image class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/lockCard.png" ></image>

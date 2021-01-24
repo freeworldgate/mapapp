@@ -33,7 +33,8 @@
         <view class="rbc-nowrap pt-30 pb-30 b-line"> 
             <view class="rcs">
                 <view class="rcs fs-30 fw-700">状态</view>
-
+                <view class="w-20"></view>
+                <view class="rcs fs-23 fw-300 c-1 pl-10 pr-10 pb-5 pt-5 b-48 br-10">{{userGroup.tip}}</view>
             </view>
             
          
@@ -67,27 +68,37 @@
               <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
             </view>
         </view>
-        
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editName"> 
-            <view class="rcs w-300 fs-30 fw-700">群名称</view>
+
+
+        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editName">
+            <view class="rcs fs-30 fw-700">群名称</view>
             <view class="w-50"></view>
-            <view class="rcc">
-              <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 {{userGroup.groupName?'c-4':'c-3'}} line-1-start">{{userGroup.groupName?userGroup.groupName:'编辑群名称'}}</view>
-              </view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+            <view class="rbc-nowrap" style="flex:1" >
+                                    <view></view>
+                                    <view class="css">
+                                        <view class="rus fs-30 fw-400 {{userGroup.groupName?'c-4':'c-3'}} line-1-start">{{userGroup.groupName?userGroup.groupName:'编辑群名称'}}</view>
+                                    </view>
+                                    
             </view>
+            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+
         </view>
+
+
         
         <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editDesc"> 
-            <view class="rcs w-300 fs-30 fw-700">群简介</view>
+            <view class="rcs fs-30 fw-700">群简介</view>
             <view class="w-50"></view>
-            <view class="rcc">
-              <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 {{userGroup.groupDesc?'c-4':'c-3'}} line-1-start">{{userGroup.groupDesc?userGroup.groupDesc:'编辑群简介'}}</view>
-              </view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+            <view class="rbc-nowrap" style="flex:1" >
+                                    <view></view>
+                                    <view class="css">
+                                        <view class="rus fs-30 fw-400 {{userGroup.groupDesc?'c-4':'c-3'}} line-1-start">{{userGroup.groupDesc?userGroup.groupDesc:'编辑群简介'}}</view>
+                                    </view>
+                                    
             </view>
+            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+
+          
         </view>
         
         <view class="rbc-nowrap pt-30 pb-30 b-line"> 
@@ -137,6 +148,9 @@
 
       <view wx:if="{{userGroup.statu && userGroup.statu.key===1}}" class="ccc">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="update">更新群组</view>
+      </view>
+      <view wx:elif="{{userGroup.statu && userGroup.statu.key===2}}" class="ccc">
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-48 c-3" bindtap="">更新群组</view>
       </view>
       <view wx:elif="{{userGroup.statu && userGroup.statu.key===0}}" class="ccc" bindtap="cancelGroup">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-publish c-white ">取消</view>

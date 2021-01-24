@@ -64,7 +64,7 @@
                                                                             <view class="rcs pt-10" >
                                                                                                     <!-- <view class="rcc fs-25 fw-300 c-word-6">·景区</view>
                                                                                                     <view class="w-20"></view> -->
-                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.approved}}人到此打卡</view>
+                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.pkDynamic.totalUsers}}人到此打卡</view>
                                                                                                     <view class="w-20"></view>
                                                                                                     <view class="rcc pl-15 pr-15 fs-20 fw-300 b-tip br-10 " >
                                                                                                         <image class="w-25 h-25" mode="aspectFit" src="/images/address.png"></image>

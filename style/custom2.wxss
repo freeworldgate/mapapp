@@ -25,7 +25,10 @@
   text-shadow: 0px 0px 1px rgb(155, 155, 155);
 }
 .f-shadow3{
-  text-shadow: 0px 1px 2px rgb(202, 202, 202);
+  text-shadow: 0px 1px 1px rgb(202, 202, 202);
+}
+.f-shadow4{
+  text-shadow: 0px 1px 1px rgb(143, 143, 143);
 }
 .f-shadow1{
   text-shadow: 2px 2px 2px rgb(161, 161, 161);
@@ -362,6 +365,7 @@
 .p-1-5vw{padding: 1.5vw;}
 .p-2vw{padding: 2vw;}
 .p-3vw{padding: 3vw;}
+.p-4vw{padding: 4vw;}
 .p-5vw{padding: 5vw;}
 .p-6vw{padding: 6vw;}
 
@@ -1342,6 +1346,9 @@ mw-200{
 .border10{
   border: 1px solid #ff8800; 
 }
+.border10-3{
+  border: 2px solid rgb(255, 255, 255); 
+}
 .border10-2{
   border: 1px solid rgb(255, 255, 255); 
 }
@@ -1929,6 +1936,14 @@ mw-200{
   width: 100%;
   height: auto;
   background-color: rgba(28, 28, 28, 0.953);
+  /* background-color: rgb(255, 255, 255); */
+}
+.bottomBar1-1{
+  position: fixed;
+  left: 0;
+  bottom: 0rpx;
+  width: 100vw;
+  height: auto;
   /* background-color: rgb(255, 255, 255); */
 }
 .bottomBar1{
@@ -2723,7 +2738,11 @@ button::after {
   left: 0;
   bottom: 0;
 }
-
+.pageback{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
 
 
 

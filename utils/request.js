@@ -1,6 +1,6 @@
 //  var host = 'https://www.211shopper.com'; 
-// var host = 'http://192.168.2.245:8080'; 
-var host = 'http://192.168.43.67:8080'; 
+var host = 'http://192.168.2.245:8080'; 
+// var host = 'http://192.168.43.67:8080'; 
 
 // 上传图片接口 
 var uploadUrl = 'https://oss.211shopper.com'; 
@@ -67,10 +67,7 @@ var url = {
         nextComplain: `${host}/pk/nextComplain`, 
          
         approvedComplain: `${host}/pk/approvedComplain`, 
-    
-        queryApproveInfo1: `${host}/pk/queryApproveInfo1`, 
-        queryApproveInfo2: `${host}/pk/queryApproveInfo2`, 
-        queryApproveInfo3: `${host}/pk/queryApproveInfo3`, 
+
         queryHomePage: `${host}/pk/queryHomePage`, 
         
         nextHomePage: `${host}/pk/nextHomePage`, 
@@ -94,15 +91,14 @@ var url = {
      
 
 
-        setApprover: `${host}/pk/setApprover`, 
         setApproveInfo: `${host}/pk/setApproveInfo`, 
-        queryApprovingPost: `${host}/pk/queryApprovingPost`, 
+   
         doApprove: `${host}/pk/doApprove`, 
         rejectApprove: `${host}/pk/rejectApprove`, 
         rejectApprovingPost: `${host}/pk/rejectApprovingPost`, 
         
         queryAllTips: `${host}/pk/queryAllTips`, 
-        queryApprovedPost: `${host}/pk/queryApprovedPost`, 
+   
         queryMoreApprovingPost: `${host}/pk/queryMoreApprovingPost`, 
         queryMoreApprovedPost: `${host}/pk/queryMoreApprovedPost`, 
         publishApproveMessage: `${host}/pk/publishApproveMessage`, 
@@ -125,17 +121,17 @@ var url = {
         viewPk: `${host}/pk/viewPk`,  
         
         postStatu: `${host}/pk/postStatu`,      
-        isPostApproved: `${host}/pk/isPostApproved`,     
+
         goApproving: `${host}/pk/goApproving`,    
         
-        editSelfComment: `${host}/pk/editSelfComment`, 
+    
         queryGroupCode: `${host}/pk/queryGroupCode`, 
         uploadGroupCode: `${host}/pk/uploadGroupCode`, 
         setApproveUser: `${host}/pk/setApproveUser`, 
  
         removeApproveUser: `${host}/pk/removeApproveUser`, 
         approve: `${host}/pk/approve`, 
-        setComment: `${host}/pk/setComment`, 
+  
         querySort: `${host}/pk/querySort`, 
         checkUserPost: `${host}/pk/checkUserPost`, 
         
@@ -277,8 +273,7 @@ var url = {
         userCardApply:`${host}/pk/userCardApply`,
         queryUserCardApplys:`${host}/pk/queryUserCardApplys`,
         nextUserCardApplys:`${host}/pk/nextUserCardApplys`,
-        queryMyFinds:`${host}/pk/queryMyFinds`,
-        nextMyFinds:`${host}/pk/nextMyFinds`,
+
         queryActiveTips:`${host}/pk/queryActiveTips`,
         deletePkImages:`${host}/pk/deletePkImages`,
         setPkBack:`${host}/pk/setPkBack`,
@@ -293,17 +288,23 @@ var url = {
         queryPkGroups:`${host}/pk/queryPkGroups`,
         queryUserGroup:`${host}/pk/queryUserGroup`,
         createGroup:`${host}/pk/createGroup`,
-        
         queryGroupLength:`${host}/pk/queryGroupLength`,
-        
+        updateGroup:`${host}/pk/updateGroup`,
         cancelGroup:`${host}/pk/cancelGroup`,
-
         searchPk:`${host}/pk/searchPk`, 
         buildPk:`${host}/pk/buildPk`, 
         
         queryLengthTime:`${host}/pk/queryLengthTime`, 
-
-
+        queryMyFinds:`${host}/pk/queryMyFinds`,
+        nextMyFinds:`${host}/pk/nextMyFinds`,
+        queryMyGroups:`${host}/pk/queryMyGroups`,
+        nextMyGroups:`${host}/pk/nextMyGroups`,
+        queryMyUnlockGroups:`${host}/pk/queryMyUnlockGroups`,
+        queryMyUnlockPkGroups:`${host}/pk/queryMyUnlockPkGroups`,
+        nextMyUnlockGroups:`${host}/pk/nextMyUnlockGroups`,
+        nextMyUnlockPkGroups:`${host}/pk/nextMyUnlockPkGroups`,
+        unLockGroup:`${host}/pk/unLockGroup`,
+        
 
         setPkTips:`${host}/pk/setPkTips`,
 

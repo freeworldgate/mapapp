@@ -35,7 +35,7 @@ Page({
     })
     var findId = options.findId;
     var httpClient = template.createHttpClient(that);
-    httpClient.setMode("page", true);
+    httpClient.setMode("page", false);
     httpClient.send(request.url.querySingleFind, "GET", { findId: findId});
 
 
@@ -82,7 +82,19 @@ Page({
   onReachBottom: function () {
 
   },
+  userCard:function(res){
+    var that = this;
+    var userId = res.currentTarget.dataset.userid;
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: '/pages/pk/userCard/userCard?userId='+userId,
+      })
 
+
+    })
+
+
+  },
   /**
    * 用户点击右上角分享
    */

@@ -73,7 +73,7 @@
                                                                         <view class="rcc">
 
                                                                             <navigator class="rcc pt-40 pb-40" hover-class="none" url="/pages/pk/timepage/timepage?pkId={{pk.pkId}}">
-                                                                                <image class="rcc w-35 h-35 " src="/images/topic.png" mode="aspectFit"></image>
+                                                                                <image class="rcc w-35 h-35 " src="/images/more.png" mode="aspectFit"></image>
                                                                             </navigator>                                 
                                                                         </view>
                                                                     </view>
@@ -97,7 +97,7 @@
                                                                             <view class="rcs pt-10" >
                                                                                                     <!-- <view class="rcc fs-25 fw-300 c-word-6">·景区</view>
                                                                                                     <view class="w-20"></view> -->
-                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.approved}}人到此打卡</view>
+                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.pkDynamic.totalUsers}}人到此打卡</view>
                                                                                                     <view class="w-20"></view>
                                                                                                     <view class="rcc pl-15 pr-15 fs-20 fw-300 b-tip br-10 " >
                                                                                                         <image class="w-25 h-25" mode="aspectFit" src="/images/address.png"></image>
@@ -204,7 +204,7 @@
               <view class="css" style="flex:1" bindtap="selectImg">
                 <image wx:if="{{backUrl}}" class="w-80 h-80 br-10 box8" mode="aspectFill" src="{{backUrl}}"></image>
                 <view wx:else class="rcc w-80 h-80 br-10 box8 b-48">
-                    <image class="w-80 h-80" mode="aspectFit" src="{{emptyImage}}"></image>
+                    <image class="w-80 h-80" mode="aspectFit" src="/images/img.png"></image>
                 </view>
                 
               </view>
@@ -223,7 +223,7 @@
         <view class="rbc-nowrap pt-20 pb-20" bindtap="editSign">
             <view class="rcs w-300 fs-30 fw-400">签名</view>
    
-            <view class="rcc">
+            <view class="rus">
               <view class="css" style="flex:1">
                 <view class="rus fs-30 fw-300 c-4 line-1-start">{{sign}}</view>
               </view>

@@ -42,14 +42,14 @@ Page({
   },
   editText:function(){
     var that = this;
-    if(that.data.findUser.statu)
+    if(that.data.findUser&&that.data.findUser.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
       return;
     }
 
-    if(that.data.findUser.text){
+    if(that.data.findUser&&that.data.findUser.text){
       wx.navigateTo({
         url: '/pages/pk/editText/editText?scene=findUser&text='+that.data.findUser.text
       })
@@ -66,7 +66,7 @@ Page({
 
   uploadImgs:function(){
     var that = this;
-    if(that.data.findUser.statu)
+    if(that.data.findUser&&that.data.findUser.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -94,14 +94,13 @@ Page({
     var that = this;
     var pk = res.currentTarget.dataset.pk;
     wx.setStorageSync('locationShow', pk)
-    locationUtil.getLocation(function(latitude,longitude){
-
-      var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
-      that.setData({
-        length:parseFloat(distance*1000),
-        lengthStr:distance<1?distance*1000:distance
-      })
-    })
+    // locationUtil.getLocation(function(latitude,longitude){
+    //   var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
+    //   that.setData({
+    //     length:parseFloat(distance*1000),
+    //     lengthStr:distance<1?distance*1000:distance
+    //   })
+    // })
     wx.navigateTo({
       url: '/pages/pk/showLocation/showLocation',
     })
@@ -109,14 +108,12 @@ Page({
   },
   bindPickerChange:function(e){
     var that = this;
-    if(that.data.findUser.statu )
+    if(that.data.findUser&&that.data.findUser.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
       return;
     }
-
-
     that.setData({
       'findUser.findLength': parseInt(e.detail.value)+1
     })

@@ -85,7 +85,7 @@ Page({
 
   editName:function(){
     var that = this;
-    if(that.data.userGroup.statu)
+    if(that.data.userGroup&&that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -112,7 +112,7 @@ Page({
   },
   editDesc:function(){
     var that = this;
-    if(that.data.userGroup.statu)
+    if(that.data.userGroup&&that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -134,7 +134,7 @@ Page({
   },
   uploadImgs:function(){
     var that = this;
-    if(that.data.userGroup.statu)
+    if(that.data.userGroup&&that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -159,7 +159,7 @@ Page({
 
   uploadGroup:function(){
     var that = this;
-    if(that.data.userGroup.statu)
+    if(that.data.userGroup&&that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
       },function(){});
@@ -168,7 +168,7 @@ Page({
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
     httpClient.addHandler("groupPay", function () {
-      template.createOperateDialog(that).show("提示","时间不足," + "剩余可打捞时间"+time,function(){
+      template.createOperateDialog(that).show("提示","可用群组卡不足",function(){
         wx.navigateTo({
           url: '/pages/pk/payForTime/payForTime',
         })
@@ -184,7 +184,35 @@ Page({
 
   },
 
-  
+  update:function(){
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed', 'original'],
+      sourceType: ['album'],
+      success(res) {
+        var files = res.tempFilePaths;
+        template.uploadImages3("PK-Update-Group", files,that, function(urls){
+
+          var httpClient = template.createHttpClient(that);
+          httpClient.setMode("label", true);
+          httpClient.addHandler("success", function () {
+              that.setData({
+                'userGroup.groupCard':urls[0],
+              })
+          })
+          httpClient.send(request.url.updateGroup, "GET", {pkId:that.data.pkId,groupCard:urls[0]});
+
+
+
+          
+
+        }, function(){});
+      },
+    })
+
+
+  }
 
 
 

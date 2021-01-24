@@ -1,7 +1,7 @@
-<view class="css b-48" style="min-height:100vh" >
+<view class="css {{(pkGroups&&pkGroups.length>0)?'b-48':'b-white'}}" style="min-height:100vh" >
 
             
-            <view class="css pl-5vw pr-5vw">
+            <view wx:if="{{pkGroups&&pkGroups.length>0}}" class="css pl-5vw pr-5vw">
                 <view class="css " >
                     <view class="rcs " style="height:{{top}}px"></view>
                     <view class="rus" style="height:32px">
@@ -13,6 +13,11 @@
                 </view>
                 <block wx:for="{{pkGroups}}" wx:for-index="bindex" wx:for-item="pkGroup" wx:key="findKey">
                     <view class="css b-white br-20 p-3vw" >
+                        <view class="rcs">
+                            <image class="h-40 w-40" mode="aspectFit" src="/images/groupCode.png"></image>
+                            <view class="w-20"></view>
+                            <view class="rus fs-23 fw-400 c-4">更新时间 {{pkGroup.lastUpdateTime}}</view>
+                        </view>
                         <view class="css pb-20 pt-20">
                             <view class="rus line-1-start fs-35 fw-700">{{pkGroup.groupName}}</view>
                         </view>
@@ -20,8 +25,15 @@
                         <view class="rus line-3-start fs-28 fw-300 c-4">{{pkGroup.groupDesc}}</view>
                         <view class="css pt-30 pb-30">
                             <view class="rss ">
-                                <view class="rcc w-120 h-160 b-48">
-                                    <image class=" w-120 h-160 " src="{{pkGroup.groupCard}}" mode="aspectFill"></image>
+                                <view class="rcc w-120 h-160 {{pkGroup.queryerMemberEntity?'b-48':'b-white'}}">
+                                    <view  wx:if="{{pkGroup.user.userId === user.userId}}" class="rcc">
+                                        <image class=" w-120 h-160 " src="{{pkGroup.groupCard}}" mode="aspectFill"></image>
+                                    </view>
+                                    <view wx:else class="rcc">
+                                        <image wx:if="{{pkGroup.queryerMemberEntity}}" class=" w-120 h-160 " src="{{pkGroup.groupCard}}" mode="aspectFill"></image>
+                                        <image wx:else class=" w-120 h-120 " src="/images/lockCard.png" mode="aspectFit"></image>
+                                    </view>
+
                                 </view>
                                 <view class="rac" style="flex:1">
                                     <view class="ccc">
@@ -53,7 +65,7 @@
 
 
                             </view>
-                            <view class="rus fs-23 fw-400 c-4">更新时间 {{pkGroup.lastUpdateTime}}</view>
+                            
 
                         </view>
 
@@ -69,7 +81,16 @@
                                                 <view class="w-10"></view>
                                                 <image hidden="{{!pkGroup.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.member2.imgUrl}}" ></image>
                                     </view>
-                                    <view class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700">解锁</view>
+                                    <view wx:if="{{pkGroup.user.userId != user.userId}}" class="rcc h-60" bindtap="{{!pkGroup.queryerMemberEntity?'unLock':''}}" data-groupid="{{pkGroup.groupId}}" data-index="{{bindex}}">
+                                        <image class="w-30 h-30" mode="aspectFit" src="/images/unlock.png" ></image>
+                                        <view class="w-10"></view>
+                                        <view wx:if="{{!pkGroup.queryerMemberEntity}}" class="rcc fs-25 fw-300" >解锁</view>
+                                        <view wx:else class="rcc fs-25 fw-300">已解锁</view>
+                                    </view>
+                                    <view wx:else class="rcc h-60">
+                                        <view class="rcc fs-25 fw-300">我的群组</view>
+                                    </view>
+
                                 </view>
                         </view>
                     </view>
@@ -78,36 +99,55 @@
                 <view class="h-150"></view>
             </view>
            
- 
+            <view wx:else class="ccc" style="height:100vh">
+                <image class="rcc w-400 h-400" src="{{emptyData}}" mode="aspectFit"></image>
+                <view class="rcc fs-30 fw-300 c-3">此处暂无群组信息</view>
+            </view>
 
 </view>
 
-<view class="css bottomBar12 z3 b-group " >
+<view class="css bottomBar12 z3 b-black " >
     <view class="css pl-5vw pr-5vw">
         <view class="h-20"></view>
         <view class="rbc ">
-            <view class="rcc">
-                <view class="ccc">
-                                    <view class="rcc">
-                                        <view class="rus fs-30 fw-700 line-h40 c-white">43</view>
-                                        <view class="rus fs-25 fw-700 pt-5 c-white">米</view>
-                                    </view>
-                                 
-                                    <view class="rcc fs-25 fw-300  c-white">我的距离</view>
-                </view>
-                <view class="w-70"></view>
-                <view class="ccc">
-                                    <view class="rcc">
-                                        <view class="rus fs-30 fw-700 line-h40 c-white">43</view>
-                                        <view class="rus fs-25 fw-700 pt-5 c-white">米</view>
-                                    </view>
-                              
-                                    <view class="rcc fs-25 fw-300 c-white">有效距离</view>
-                </view>
-            </view>
+            <view class="rbc" style="flex:1">
+                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{lengthStr}}</view>
+                                            <view class="rus fs-20 fw-700 pt-5 c-white">{{(length < 1000)?"米":"公里"}}</view>
+                                        </view>
+                                    
+                                        <view class="rcc fs-22 fw-300 c-white">我的距离</view>
+                    </view>
 
+                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{pk.type.rangeValue}}</view>
+                                            <view class="rus fs-20 fw-700 pt-5 c-white">{{pk.type.rangeLength<1000?'米':'公里'}}</view>
+                                        </view>
+                                
+                                        <view class="rcc fs-22 fw-300 c-white">有效距离</view>
+                    </view>
+                    <navigator class="ccc" hover-class="none" url="/pages/pk/userSort/userSort?pkId={{pkId}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{postTimes}}</view>
+                                            <view class="rus fs-20 fw-700 pt-5 c-white">次</view>
+                                        </view>
+                                
+                                        <view class="rcc fs-22 fw-300 c-white">我的打卡</view>
+                    </navigator>
+                    <navigator class="ccc" hover-class="none" url="/pages/pk/groupCardList/groupCardList?pkId={{pkId}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{unLockGroups}}</view>
+                                            <view class="rus fs-20 fw-700 pt-5 c-white">次</view>
+                                        </view>
+                                
+                                        <view class="rcc fs-22 fw-300 c-white">已解锁</view>
+                    </navigator>
+            </view>
+            <view class="w-50"></view>
             <view class="rcc">
-                <view class="rcc br-20 w-200 h-80 fs-25 fw-300 c-white border10-2" bindtap="userGroup" data-pkid="{{pkId}}">我的群组</view>
+                <view class="rcc br-20 pl-20 pr-20 pt-10 pb-10 fs-25 fw-300 c-white border10-2" bindtap="userGroup" data-pkid="{{pkId}}">我的群组</view>
             </view>
         </view>
         <view class="h-20"></view>
@@ -116,28 +156,27 @@
 </view>
 
 <!-- //头部 -->
-
-<!-- //头部 -->
-<view class="css  customCenterBar z3 b-48" >
-        <view class="rcs " style="height:{{top}}px"></view>
-        <view class="rbc" style="height:32px">
-            <view class="rcs" style="flex:1">
-                <view class="rcc h-32px" bindtap="back">
-                    <view class="w-4vw"></view>
-                    <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
-                    <view class="w-4vw"></view>
-                    <view class="rcc fs-35 fw-700">卡点交友</view>
-                </view>
-
+<view class="css customCenterBar z3 {{pkGroups.length>0?'b-48':'b-white'}}" >
+    <view class="rcs " style="height:{{top}}px"></view>
+    <view class="rbc" style="height:32px">
+        <view class="rcs" style="flex:1">
+            <view class="rcc h-32px" bindtap="back">
+                <view class="w-4vw"></view>
+                <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
+                <view class="w-4vw"></view>
             </view>
 
-            <view class="rcc" style="flex:1">
-            </view>
-        
         </view>
-        <view class="rcs " style="height:10px"></view>
+        <view class="rcc">
+            <view class="rcc fs-35 fw-700 c-4-1">交友</view>
+        </view>
+        
+        <view class="rcc" style="flex:1">
+        </view>
+    
+    </view>
+    <view class="rcs " style="height:10px"></view>
 </view>
-
 
 
 

@@ -3,6 +3,7 @@ var request = require('./../../../utils/request.js')
 var http = require('./../../../utils/http.js')
 var tip = require('./../../../utils/tipUtil.js')
 var login = require('./../../../utils/loginUtil.js')
+var locationUtil = require('./../../../utils/locationUtil.js')
 var route = require('./../../../utils/route.js')
 var redirect = require('./../../../utils/redirect.js')
 var uuid = require('./../../../utils/uuid.js')
@@ -29,7 +30,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrl:'https://oss.211shopper.com/dir2/wx-1606375746086.jpg'
+    imgUrl:'https://oss.211shopper.com/dir2/wx-1606375746086.jpg',
+    pkGroups:[]
   },
 
   /**
@@ -45,8 +47,19 @@ Page({
     })
 
     // that.data.pkId = options.pkId;   
+    var groupPk = wx.getStorageSync('groupPk');
+    wx.removeStorageSync('groupPk');
     that.setData({
-      pkId:options.pkId
+      pkId:options.pkId,
+      pk:groupPk
+    })
+
+    locationUtil.getLocation(function(latitude,longitude){
+      var distance = locationUtil.getDistance(latitude,longitude,groupPk.latitude,groupPk.longitude);
+      that.setData({
+        length:parseFloat(distance*1000),
+        lengthStr:distance<1?distance*1000:distance
+      })
     })
 
     var httpClient = template.createHttpClient(that);
@@ -54,7 +67,32 @@ Page({
     httpClient.send(request.url.queryPkGroups, "GET", {pkId:options.pkId});
     
   },
-
+  unLock:function(res){
+    var that = this;
+    var groupId = res.currentTarget.dataset.groupid;
+    var index = res.currentTarget.dataset.index;
+    locationUtil.getLocation(function(latitude,longitude){
+        var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
+        if(distance*1000 > that.data.pk.type.rangeLength)
+        {
+            template.createOperateDialog(that).show("你距离卡点距离超出解锁范围", "你距离卡点距离超出解锁范围...", function () {
+            }, function () {});
+            return;
+        }
+        else
+        {
+          var httpClient = template.createHttpClient(that);
+          httpClient.setMode("label", true);
+          httpClient.addHandler("success", function (data) {
+            var key = "pkGroups["+index+"].queryerMemberEntity";
+            that.setData({
+              [key] : data,
+            });
+          });
+          httpClient.send(request.url.unLockGroup, "GET", { groupId:groupId});  
+        }
+    })
+  },
   userCardApply:function(res){
     var that = this;
 
@@ -74,7 +112,16 @@ Page({
       }
     })
   },
+  showLocation:function(res){
+    var that = this;
+    var pk = res.currentTarget.dataset.pk;
+    wx.setStorageSync('locationShow', pk)
 
+    wx.navigateTo({
+      url: '/pages/pk/showLocation/showLocation',
+    })
+
+  },
 
   apply:function(){
     var that = this;

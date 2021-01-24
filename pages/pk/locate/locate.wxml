@@ -23,6 +23,15 @@
 
     
                 <view class=" rcc ">
+                                    <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="unlockGroup">
+                                        <view class="rcc">
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/unlock.png"></image>
+                                        </view>
+
+                                        </view>
+                </view>
+                <view class="h-70"></view>
+                <view class=" rcc ">
                                     <view  class=" w-90 h-90 br-90 rcc box8 b-white" bindtap="myFollow">
                                         <view class="rcc">
                                             <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/yu.png"></image>
@@ -51,6 +60,14 @@
 
 </view>
 <view hidden="{{!pageTag || (!pks || (pks.length < 1))}}" class="ccc leftButton z3">
+                <view class=" rcc ">
+                                        <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="myGroups">
+                                            <view class="rcc ">
+                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/card.png"></image>
+                                            </view>
+                                        </view>
+                </view>
+                <view class="h-70"></view>
                 <view class=" rcc ">
                                         <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="searchLocation">
                                             <view class="rcc ">
@@ -106,7 +123,7 @@
 
                                                                
 
-                                                                <view class="css">
+                                                        <view class="css">
                                                                     <view class="rbc b-line">
                                                                         <view class="rcc">
                                                                             <view class="w-1vw"></view>
@@ -114,12 +131,7 @@
                                                                             <view class="rcc fs-25 fw-300 c-10">{{pk.type.typeName}}</view>
                                                                         </view>
                                                                         <view class="rcc">
-                                                                            <!-- <view class="rcs ">
-                                                                                <image class="w-30 h-30" mode="aspectFit" src="/images/collection.png"></image>
-                                                                                <view class="w-10"></view>
-                                                                                <view class="rcc fs-25 fw-300 c-1">已收藏</view>                                                                            
-                                                                            </view> 
-                                                                            <view class="w-80"></view> -->
+
                                                                             <navigator class="rcc pt-40 pb-40" hover-class="none" url="/pages/pk/timepage/timepage?pkId={{pk.pkId}}">
                                                                                 <image class="rcc w-35 h-35 " src="/images/more.png" mode="aspectFit"></image>
                                                                             </navigator>                                 
@@ -129,7 +141,7 @@
                                                                     <view class="h-20"></view>
                                                                     <view class="rss " >
                                                                         <view class="rus">
-                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}?x-oss-process=image/resize,w_200,m_lfit" mode="aspectFill"></image>
+                                                                            <image class="rcc w-12vw h-12vw br-10 box8 " src="{{pk.backUrl}}" mode="aspectFill"></image>
                                                                             <!-- <view class="absolute cbs w-12vw h-12vw br-20" bindtap="updatePkPage" data-index="{{bindex}}" data-pkid="{{pk.pkId}}">
                                                                                     <view class=""></view>
                                                                                     <view class="rcc ">
@@ -145,11 +157,11 @@
                                                                             <view class="rcs pt-10" >
                                                                                                     <!-- <view class="rcc fs-25 fw-300 c-word-6">·景区</view>
                                                                                                     <view class="w-20"></view> -->
-                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.approved}}人到此打卡</view>
+                                                                                                    <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.pkDynamic.totalUsers}}人到此打卡</view>
                                                                                                     <view class="w-20"></view>
                                                                                                     <view class="rcc pl-15 pr-15 fs-20 fw-300 b-tip br-10 " >
                                                                                                         <image class="w-25 h-25" mode="aspectFit" src="/images/address.png"></image>
-                                                                                                        <view class="fs-25 c-4">打卡范围{{pk.type.range}}</view>
+                                                                                                        <view class="fs-25 c-4">{{pk.type.range}}范围可打卡</view>
                                                                                                     </view>           
                                                                                               
                                                                                             
@@ -167,15 +179,15 @@
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
                                                                             <view class="css"  style="flex:1">
-                                                                                <view class="rus line-2-start fs-30 fw-300">{{pk.sign}}</view>
+                                                                                <view class="rus line-1-start fs-30 fw-300 ">{{pk.sign}}</view>
                                                                             </view>
                                                                             <view></view>
                                                                         </view>
                                                                     
                                                                     
                                                                     </view>
-                                                                    <view hidden="{{pk.topPost}}" class="h-3vw"></view>
-                                                                    <view hidden="{{!pk.topPost}}" class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
+                                                                    <view class="h-1vw"></view>
+                                                                    <view class="rss" style="padding-top:2.5vw;padding-bottom:2.5vw">
                                                                         <view class="rcc w-12vw"><view class="rcc fs-30 fw-300">卡册</view></view>
                                                                         <view class="w-3vw"></view>
                                                                         <view class="css t-line" style="flex:1">
@@ -186,7 +198,7 @@
                                                                                     <view class="css" style="display:inline-block" wx:for="{{pk.topPost.postImages}}" wx:for-index="sindex" wx:for-item="img" wx:key="postkey">
                                                                                         <view class="rss">
                                                                                             <view class="rcc"  style="height:16vw;width:16vw" >
-                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}?x-oss-process=image/resize,w_300,m_lfit" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
+                                                                                                <image class="br-10" style="height:16vw;width:16vw" mode="aspectFill" src="{{img.imgUrl}}" bindtap="showImg" data-index="{{sindex}}" data-imgs="{{pk.imgs}}"></image>
                                                                                             </view>
                                                                                             <view  style="width:1vw"></view>
                                                                                                                                 
@@ -197,6 +209,7 @@
                                                                             </view>
                                                                         </view>
                                                                     </view>
+                                         
                                                              
                                                                     <view class="rss t-line " >
                                                                         <view class="rcc w-12vw">
@@ -213,7 +226,7 @@
                                                                                     <view class="rcc border-locate pl-10 pr-10 pt-5 pb-5 br-10 " >
                                                                                                             <image class="rcc w-25 h-25" mode="aspectFit" src="/images/way.png"></image>
                                                                                                             <view class="w-10 "></view>
-                                                                                                            <view class="rcc fs-23 fs-300 c-4">距离 {{pk.userLengthStr}}</view>
+                                                                                                            <view class="rcc fs-23 fs-300 c-4">距离{{pk.userLengthStr}}</view>
                                                                                     </view>
                                                                             </view>
                                                                         </view>
@@ -221,7 +234,8 @@
                                                                     
                                                                     </view>
                                                             
-                                                                </view>                                                           
+                                                        </view>
+                                                                                                                     
                                                             
                                                     </view>                      
                     

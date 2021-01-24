@@ -11,7 +11,7 @@
                         <!-- <view class="w-10"></view> -->
                         <view class="fs-25 fw-400">关注</view>
                         <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
-                        <view class="fs-25 fw-400">350</view>
+                        <view class="fs-25 fw-400">{{userDynamic.follow}}</view>
                   
                     </navigator>
                     <view wx:else class="rcc h-70 w-200 {{followStatu?'b-48 border10':'b-red'}} br-10"  bindtap="{{followStatu?'cancelFollow':'follow'}}" data-targetid="{{creator.userId}}">
@@ -28,7 +28,7 @@
                         <!-- <view class="w-10"></view>                         -->
                         <view class="fs-25 fw-400">粉丝</view>
                         <view class="w-10 h-10 br-10 b-gray ml-10 mr-10"></view>
-                        <view class="fs-25 fw-400">390</view>
+                        <view class="fs-25 fw-400">{{userDynamic.fans}}</view>
                 </navigator>
 
 
@@ -47,7 +47,7 @@
                     <view class="rcc h-40">
                         <image class="w-25 h-25" mode="aspectFit" src="/images/hands.png"></image>
                         <view class="w-10"></view>
-                        <view class="rcc fs-25 fw-400">223</view>
+                        <view class="rcc fs-25 fw-400">{{userCard.likeMe}}</view>
                     </view>
                     <view class="h-10"></view>
                     <view class="fs-20 fw-300 c-4">想认识{{user.userId===creator.userId?"我":"Ta"}}的人</view>
@@ -59,7 +59,7 @@
                         <!-- <view class="w-10"></view> -->
                         <image class="w-25 h-25" mode="aspectFit" src="/images/sayHello.png"></image>
                         <view class="w-10"></view>
-                        <view class="rcc fs-25 fw-400">567</view>
+                        <view class="rcc fs-25 fw-400">{{userCard.meLike}}</view>
                     </view>
                     <view class="h-10"></view>
                     <view class="fs-20 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}想认识的人</view>
@@ -73,7 +73,7 @@
                         <view class="rcc h-40">
                             <image class="w-25 h-25" mode="aspectFit" src="/images/hiscard.png"></image>
                             <view class="w-10"></view>
-                            <view class="rcc fs-25 fw-400">567</view>
+                            <view class="rcc fs-25 fw-400">{{userCard.unLock}}</view>
                         </view>
                         <view class="h-10"></view>
                         <view class="fs-20 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的名片</view>
@@ -100,19 +100,19 @@
         <view class="b-48 h-10"></view>
         <view class="rcs p-30">
             <view class="rcc">
-                <view class="fs-30 fw-700 ">99</view>
+                <view class="fs-30 fw-700 ">{{userDynamic.collectTimes}}</view>
                 <view class="w-10"></view>
                 <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的收藏</view>
             </view>
             <view class="w-40"></view>
             <view class="rcc">
-                <view class="fs-30 fw-700 ">99</view>
+                <view class="fs-30 fw-700 ">{{userDynamic.pkTimes}}</view>
                 <view class="w-10"></view>
                 <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的卡点</view>
             </view>
             <view class="w-40"></view>
             <view class="rcc">
-                <view class="fs-30 fw-700 ">900</view>
+                <view class="fs-30 fw-700 ">{{userDynamic.postTimes}}</view>
                 <view class="w-10"></view>
                 <view class="fs-25 fw-300 c-4">次打卡</view>
             </view>

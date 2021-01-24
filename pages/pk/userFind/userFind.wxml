@@ -1,5 +1,5 @@
 
-<view class="css b-white" style="min-height:100vh">
+<view class="css b-black" style="min-height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; ">
     <view class="css " >
         <view class="rcs " style="height:{{top}}px"></view>
         <view class="rbc" style="height:32px">
@@ -7,141 +7,152 @@
               <view class="rcs pl-4vw pr-4vw" >
 
                 <view class="rcc h-32px " bindtap="back">
-                <image class="rcc h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
+                <image class="rcc h-30 w-30" mode="aspectFit" src="/images/back1.png"></image>
                 <!-- <view class="w-20"></view> -->
                 <!-- <view class="rcc fs-30 fw-700">捞人</view> -->
                 </view>
 
               </view>
             </view>
-            <view class="rcc fs-35 fw-700">捞人卡</view>
+            <view class="rcc fs-35 fw-700 c-white">捞人卡</view>
             <view style="flex:1"></view>
         
         </view>
         <view class="rcs " style="height:10px"></view>
     </view>
 
-    <view wx:if="{{findUser}}" class="css pl-6vw pr-6vw">
-        <view class="ccc h-200">
-            <!-- <view wx:if="{{findUser.statu.key===2}}" class="ccc  p-30 br-20 b-48">
-                  <view class="fs-40 fw-700 c-red">{{findUser.timeExpire}}</view>
-                  <view class="fs-25 fw-400 c-word-6">已打捞时间</view>
-            </view> -->
-            <view class="rcc">
-                <view class="h-200 w-300 "  style="background-position: center;background-image: url({{createFindUserImage}});background-repeat: no-repeat;background-size: auto 130%;"></view>
-                <!-- <image class="w-150 h-150" mode="aspectFit" src="{{createFindUserImage}}"></image> -->
+    <view class="css pl-3vw pr-3vw">
+        <view class="rbc pl-50 pr-50 pt-100 pb-100">
+            <view class="ccc">
+                <view class="rcc fs-30 fw-700 c-white">5次</view>
+                <view class="fs-25 fw-300 c-white">已打捞次数</view>
             </view>
-
-        </view>
-
-
-
-        <view class="h-20"></view>
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs fs-30 fw-700">状态</view>
-         
-            <view class="rcc">
-              <view hidden="{{findUser.statu.key!=2}}" class="rcc">
-                    <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">已打捞{{findUser.timeExpire}}</view>
-              </view>
-              <view class="w-20"></view>
-                
-              <view wx:if="{{!findUser.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
-              <view wx:else class="rus fs-30 fw-400 c-1">{{findUser.statu.name}}</view>
-              <view class="rcc w-30 h-30">
-                <view class="w-15 h-15 br-15 b-5"></view>
-              </view>
-              
-              <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image> -->
+            <view class="ccc">
+                <view class="rcc fs-30 fw-700 c-white">3天</view>
+                <view class="fs-25 fw-300 c-white">已打捞时间</view>
+            </view>
+            <view class="ccc">
+                <view class="rcc fs-30 fw-700 c-white">{{leftTime?leftTime:0}}</view>
+                <view class="fs-25 fw-300 c-white">剩余时间</view>
             </view>
         </view>
-        <view hidden="{{!findUser.startTime||!findUser.endTime}}" class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs w-300 fs-30 fw-700">时间</view>
-         
-            <view class="rcc fs-30 fw-400 c-4 ">{{findUser.startTime}}~{{findUser.endTime}}</view>
-        </view>
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="showPk" data-pk="{{pk}}"> 
-            <view class="rcs w-300 fs-30 fw-700">卡点</view>
-            <view class="w-50"></view>
-            <view class="rcc">
-              <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">{{pk.name}}</view>
-              </view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-            </view>
-        </view>
-        <view class="css pt-30 pb-30 b-line">
-          <view class="rbc-nowrap "> 
-            <view class="rcs ">
-              <view class="rcs fs-30 fw-700">打捞时长</view>
-              <view class="w-20"></view>
-              <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">剩余{{leftTime}}</view>
-            </view>
+
+
+
+        <view class="css pl-5vw pr-5vw pt-30 pb-30 b-white br-20">
+
+
+
+            <view class="rbc-nowrap pt-30 pb-30 "> 
+                <view class="rcs fs-30 fw-700">状态</view>
             
-
-            <picker class="rcc" bindchange="bindPickerChange" value="{{index}}" range="{{timeLength}}">
-              <view class="rcc">
-                  <view wx:if="{{findUser.findLength===0}}" class="rus fs-30 fw-300 c-4">设置</view>
-                  <view wx:else class="rus fs-30 fw-300 c-4">{{findUser.findLength}}天</view>   
-                  <view class="w-10"></view>
-                  <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-              </view>
-
-            </picker>
-          </view>
-        </view>
-
-        <view class="css pt-30 pb-30 b-line">
-          <view class="rbc-nowrap "> 
-            <view class="rcs w-300 fs-30 fw-700">场景描述</view>
-            <view class="rcc" bindtap="editText">
-                <!-- <view class="w-30"></view>
-                <image class="w-30 h-30" mode="aspectFit" src="/images/reject.png"></image> -->
                 <view class="rcc">
-                    <view wx:if="{{findUser.text}}" class="rus fs-30 fw-300 c-4">修改</view>
-                    <view wx:else class="rus fs-30 fw-300 c-4">编辑</view>   
-                    <view class="w-10"></view>
-                    <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                <view hidden="{{findUser.statu.key!=2}}" class="rcc">
+                        <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">已打捞{{findUser.timeExpire}}</view>
+                </view>
+                <view class="w-20"></view>
+                    
+                <view wx:if="{{!findUser.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
+                <view wx:else class="rus fs-30 fw-400 c-1">{{findUser.statu.name}}</view>
+                <view class="rcc w-30 h-30">
+                    <view class="w-15 h-15 br-15 b-5"></view>
+                </view>
+                
+                <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image> -->
                 </view>
             </view>
-          </view>
-          <view hidden="{{!findUser.text}}" class="h-20"></view>
-          <view hidden="{{!findUser.text}}" class="css b-48 p-20">
-            <view class="rus  line-3-start fs-30 fw-400 c-4">{{findUser.text}}</view>
-          </view>
-
-        </view>
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="css">
-              <view class="rcs fs-30 fw-700">图片</view>
-              <view class="rcs fs-23 fw-300">最多选择三张图片</view>
-            </view>  
-          
-
-            <view class="rcc" bindtap="uploadImgs">
-              <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img3?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img3?findUser.img3:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
-              </view>
-              
-              <view class="w-10"></view>
-              <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img2?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img2?findUser.img2:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
-              </view>
-              <view class="w-10"></view>
-              <view class="rcc w-100 h-100 br-10 b-48">
-                <image class="{{findUser.img1?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img1?findUser.img1:emptyImage}}?x-oss-process=image/resize,w_300,m_lfit"></image>
-              </view>
-              
-              <view class="rcc w-10"></view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+            <view hidden="{{!findUser.startTime||!findUser.endTime}}" class="rbc-nowrap pt-30 pb-30"> 
+                <view class="rcs  fs-30 fw-700">时间</view>
+            
+                <view class="rcc fs-30 fw-400 c-4 ">{{findUser.startTime}}~{{findUser.endTime}}</view>
             </view>
+            <view class="rbc-nowrap pt-30 pb-30" bindtap="showPk" data-pk="{{pk}}"> 
+                <view class="rcs fs-30 fw-700">卡点</view>
+                <view class="w-50"></view>
+                <view class="rcc">
+                <view class="css" style="flex:1">
+                    <view class="rus fs-30 fw-400 c-4  line-1-start">{{pk.name}}</view>
+                </view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                </view>
+            </view>
+            <picker class="css pt-30 pb-30" bindchange="bindPickerChange" value="{{index}}" range="{{timeLength}}">
+                <view class="rbc-nowrap "> 
+                    <view class="rcs ">
+                    <view class="rcs fs-30 fw-700">打捞时长</view>
+                    <!-- <view class="w-20"></view>
+                    <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">剩余{{leftTime}}</view> -->
+                    </view>
+                    
+
+                    <view class="rcc" >
+                    <view class="rcc">
+                        <view wx:if="{{findUser.findLength===0}}" class="rus fs-30 fw-300 c-4">设置</view>
+                        <view wx:else class="rus fs-30 fw-300 c-4">{{findUser.findLength}}天</view>   
+                        <view class="w-10"></view>
+                        <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                    </view>
+
+                    </view>
+                </view>
+            </picker>
+
+            <view class="css pt-30 pb-30"  bindtap="editText">
+                <view class="rbc-nowrap" > 
+                                <view class="rcs fs-30 fw-700">场景描述</view>
+                                <view class="w-100"></view>
+                                <view class="rbc-nowrap" style="flex:1" >
+                                    <view></view>
+                                    <view class="css">
+                                        <view wx:if="{{findUser.text}}" class="rus fs-30 fw-400 c-4  line-1-start">{{findUser.text}}</view>
+                                        <view wx:else class="rus fs-30 fw-300 c-4">编辑</view>
+                                    </view>
+                                    
+                                </view>
+                                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                </view>
+   
+
+            </view>
+
+
+
+
+
+
+
+
+            <view class="rbc-nowrap pt-30 pb-30" bindtap="uploadImgs"> 
+                <view class="css">
+                <view class="rcs fs-30 fw-700">图片</view>
+                <view class="rcs fs-23 fw-300">最多选择三张图片</view>
+                </view>  
+            
+
+                <view class="rcc" >
+                <view class="rcc w-100 h-100 br-10">
+                    <image class="{{findUser.img3?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img3?findUser.img3:'/images/img.png'}}{{findUser.img3?'?x-oss-process=image/resize,w_300,m_lfit':''}}"></image>
+                </view>
+                
+                <view class="w-10"></view>
+                <view class="rcc w-100 h-100 br-10">
+                    <image class="{{findUser.img2?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img2?findUser.img2:'/images/img.png'}}{{findUser.img2?'?x-oss-process=image/resize,w_300,m_lfit':''}}"></image>
+                </view>
+                <view class="w-10"></view>
+                <view class="rcc w-100 h-100 br-10">
+                    <image class="{{findUser.img1?'w-100 h-100 br-10':'w-100 h-100'}}" mode="aspectFill" src="{{findUser.img1?findUser.img1:'/images/img.png'}}{{findUser.img1?'?x-oss-process=image/resize,w_300,m_lfit':''}}"></image>
+                </view>
+                
+                <view class="rcc w-10"></view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                </view>
+            </view>
+
         </view>
-
-
 
 
     </view>
-    <view wx:else class="cac" style="flex:1">
+    <!-- <view wx:else class="cac" style="flex:1">
         
         <view class="ccc">
           <image class="w-400 h-400" mode="aspectFit" src="{{createFindUserImage}}"></image>
@@ -149,7 +160,7 @@
           <view class="rcc fs-60 fw-700 c-3" bindtap="create">+</view>
         </view>
         <view></view>
-    </view>
+    </view> -->
 
 
 
@@ -167,33 +178,19 @@
 
 <view class="ccc uploadButton">
   <!-- 没创建 -->
-  <view hidden="{{!findUser}}" class="css">
-    <!-- <view wx:if="{{!findUser.statu}}" class="ccc">
-      <view wx:if="{{findUser.findLength === 0 || findUser.text.length===0}}" class="rcc fs-30 fw-700 w-300 h-80 br-80 b-48 c-3">保存</view>
-      <view wx:else class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="saveFind">保存</view>
-      <view class="p-20 fs-25 fw-400 c-word-6 "></view>
-    </view> -->
-    <!-- <view wx:else class="rcc "> -->
-      <!-- <view wx:if="{{findUser.statu.key===0}}" class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength === 0 || findUser.text.length===0)?'b-48 c-3':'b-red c-white'}} " bindtap="{{(findUser.findLength === 0 || findUser.text.length===0)?'':'startFind'}}">开捞</view>
-          
-          <view class="rcc pt-20">
-              <view class="rcc h-70 fs-25 fw-400 c-word-6 " bindtap="clearUserFind">清除</view>
-              <view class="w-50"></view>
-              <view class="rcc h-70 fs-25 fw-400 c-word-6 " bindtap="saveFind">保存</view>
-          </view>
-      </view> -->
+  <view class="css">
+
       <view wx:if="{{findUser.statu && findUser.statu.key===3}}" class="ccc">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="clearUserFind">清除</view>
           <view class="rcc h-70 fs-25 fw-400 c-word-6 "></view>
       </view>
       <view wx:elif="{{findUser.statu && (findUser.statu.key===2 || findUser.statu.key===1)}}" class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-48 c-4" bindtap="giveUpUserPkFind">终止打捞</view>
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-white c-4" bindtap="giveUpUserPkFind">终止打捞</view>
           <view class="rcc h-70 fs-25 fw-400 c-word-6 "> </view>
 
       </view>
       <view wx:else class="ccc">
-          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength>0 && findUser.text && findUser.img1)?'b-red c-white':'b-48 c-3'}} " bindtap="{{(findUser.findLength>0 && findUser.text && findUser.img1)?'startFind':''}}">开捞</view>
+          <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength>0 && findUser.text && findUser.img1)?'b-red c-white':'b-white c-3'}} " bindtap="{{(findUser.findLength>0 && findUser.text && findUser.img1)?'startFind':''}}">开捞</view>
           
           <view class="rcc pt-20">
               <view class="rcc h-70 fs-25 fw-400 c-word-6 " ></view>
@@ -207,9 +204,9 @@
 
   <view class="rcc h-20 fs-30 fw-300 c-3"></view>
   <view class="rcc  p-20">
-    <view class="rcc fs-25 fw-300 c-3">遇见不撩</view>
+    <view class="rcc fs-25 fw-300 c-white">遇见不撩</view>
     <image class="w-35 h-35 pl-10 pr-10" mode="aspectFit" src="/images/shank.png"></image>
-    <view class="rcc fs-25 fw-300 c-3">卡点互捞</view>
+    <view class="rcc fs-25 fw-300 c-white">卡点互捞</view>
   </view>
   
 

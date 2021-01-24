@@ -1,4 +1,4 @@
-<view class="css b-48"  style="min-height:100vh">
+<view class="css {{applys.length>0?'b-48':'b-white'}}"  style="min-height:100vh">
   <view class="css" >
     <view class="rcs " style="height:{{top}}px"></view>
     <view class="rcs " style="height:32px">
@@ -154,7 +154,7 @@
 </view>
 
 <!-- //头部 -->
-<view class="css b-line customCenterBar z3 b-48" >
+<view class="css b-line customCenterBar z3 {{applys.length>0?'b-48':'b-white'}}" >
         <view class="rcs " style="height:{{top}}px"></view>
         <view class="rbc" style="height:32px">
             <view class="rcs" style="flex:1">

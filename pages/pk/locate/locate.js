@@ -482,5 +482,21 @@ Page({
 
 
   },
+  myGroups:function(){
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: '/pages/pk/userGroups/userGroups',
+      })
+    })
+  },
+  unlockGroup:function()
+  {
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: '/pages/pk/groupCardList/groupCardList',
+      })
+
+    })
+  }
 
 })

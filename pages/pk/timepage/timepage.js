@@ -205,7 +205,16 @@ Page({
 
 
   },
+  goUser:function(res){
+    var userId = res.currentTarget.dataset.userid;
+    login.getUser(function(user)
+    {
+        wx.navigateTo({
+          url: "/pages/pk/userPublishPost/userPublishPost?userId="+userId,
+        })
+    })
 
+  },
   drawPkCode:function(res){
     var that = this;
     var pk = res.currentTarget.dataset.pk;
@@ -400,6 +409,7 @@ Page({
   groupCode:function(){
     var that = this;
     login.getUser(function(){
+      wx.setStorageSync('groupPk', that.data.pk)
       wx.navigateTo({
         url: "/pages/pk/groupCard/groupCard?pkId=" + that.data.pk.pkId,
       })
