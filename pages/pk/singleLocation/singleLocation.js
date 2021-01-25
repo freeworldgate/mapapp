@@ -59,25 +59,36 @@ Page({
     })
  
     that.setData({
-      latitude:options.latitude,
+      latitude: options.latitude,
       longitude: options.longitude,
-      name:options.name,
+      name: options.name,
       address: options.address,
-      city:options.city
+      city: options.city
     })
-    that.queryLocation("page");
+    that.queryLocation("page",options.latitude,options.longitude,options.name);
     
-
-
-
-
-
   },
-  queryLocation:function (tab) {
+  queryLocation:function (tab,latitude,longitude,name) {
     var that = this;
     var httpClient = template.createHttpClient(that);
     httpClient.setMode(tab, true);
-    httpClient.send(request.url.searchPk, "GET", { latitude:that.data.latitude, longitude: that.data.longitude,name: that.data.name});
+    httpClient.addHandler("success", function (res) {
+
+        that.setData({
+          maxLength:res.maxLength,
+          markers:res.markers,
+          circles:res.circles,
+          scale:res.scale,
+          latitude:res.latitude,
+          longitude:res.longitude,
+          pk:res.pk,
+        })
+
+
+    })
+
+
+    httpClient.send(request.url.searchPk, "GET", { latitude:latitude, longitude: longitude,name: name});
 
 
   },

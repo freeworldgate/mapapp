@@ -1,8 +1,6 @@
 <view class="css b-white" style="min-height:100vh" >
 
-            
-            <view wx:if="{{pkGroups&&pkGroups.length>0}}" class="css pl-5vw pr-5vw">
-                <view class="css " >
+            <view class="css " >
                     <view class="rcs " style="height:{{top}}px"></view>
                     <view class="rus" style="height:32px">
                         <view class="rus">
@@ -10,7 +8,43 @@
                         <view class="w-300"></view>
                     </view>
                     <view class="rcs " style="height:10px"></view>
-                </view>
+            </view>   
+            <view class="rbc p-50 z3">
+                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-30 fw-700 line-h40 c-white">{{lengthStr}}</view>
+                                            <view class="rus fs-25 fw-700 pt-5 c-white">{{(length < 1000)?"米":"公里"}}</view>
+                                        </view>
+                                        <view class="rcc fs-25 fw-300 c-white">我的距离</view>
+                    </view>
+
+                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-30 fw-700 line-h40 c-white">{{pk.type.rangeValue}}</view>
+                                            <view class="rus fs-25 fw-700 pt-5 c-white">{{pk.type.rangeLength<1000?'米':'公里'}}</view>
+                                        </view>
+                                        <view class="rcc fs-25 fw-300 c-white">有效距离</view>
+                    </view>
+                    <navigator class="ccc" hover-class="none" url="/pages/pk/userSort/userSort?pkId={{pkId}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-30 fw-700 line-h40 c-white">{{postTimes}}</view>
+                                            <view class="rus fs-25 fw-700 pt-5 c-white">次</view>
+                                        </view>
+                                        <view class="rcc fs-25 fw-300 c-white">我的打卡</view>
+                    </navigator>
+                    <navigator class="ccc" hover-class="none" url="/pages/pk/groupCardList/groupCardList?pkId={{pkId}}">
+                                        <view class="rcc">
+                                            <view class="rus fs-30 fw-700 line-h40 c-white">{{unLockGroups}}</view>
+                                            <view class="rus fs-25 fw-700 pt-5 c-white">次</view>
+                                        </view>
+                                        <view class="rcc fs-25 fw-300 c-white">已解锁</view>
+                    </navigator>
+            </view>  
+
+
+
+            <view class="css pl-5vw pr-5vw">
+
                 <block wx:for="{{pkGroups}}" wx:for-index="bindex" wx:for-item="pkGroup" wx:key="findKey">
                     <view class="css b-white br-20 p-3vw z3" >
                         <view class="rcs pt-20 pb-10">
@@ -99,15 +133,51 @@
                 <view class="h-150"></view>
             </view>
            
-            <view wx:else class="ccc" style="height:100vh">
+            <!-- <view wx:else class="ccc" style="height:100vh">
                 <image class="rcc w-400 h-400" src="{{emptyData}}" mode="aspectFit"></image>
                 <view class="rcc fs-30 fw-300 c-3">此处暂无群组信息</view>
-            </view>
+            </view> -->
 
 </view>
 <view class="pageback z2 b-black"  style="width:100vw;height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; "></view>
 
-<view class="css bottomBar12 z3 b-black " >
+
+
+<view class="rbc bottomBar1 z4 ">
+    <view class="rss ">
+
+    
+    
+    
+    </view>
+    <view class="rcc">
+        <!-- <navigator class="rcc pb-30" hover-class="none" url="/pages/manage/approveFind/approveFind">
+                                <view  class=" w-100 h-100 br-100 rcc box100 b-white" >
+                                    <view class="rcc ">
+                                        <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
+                                    </view>
+
+                                </view>
+        </navigator>
+        <view class="w-70"></view> -->
+
+        <navigator class="rcc pb-30" hover-class="none" url="/pages/pk/userFind/userFind?pkId={{pkId}}">
+                                <view  class=" w-100 h-100 br-20 rcc box100 b-white" >
+                                    <view class="rcc ">
+                                        <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/group1.png"></image>
+                                    </view>
+
+                                </view>
+        </navigator>
+    </view>
+
+
+
+
+</view>
+
+
+<!-- <view class="css bottomBar12 z3 b-black " >
     <view class="css pl-5vw pr-5vw">
         <view class="h-20"></view>
         <view class="rbc ">
@@ -154,7 +224,7 @@
         <view class="h-20"></view>
     </view>
 
-</view>
+</view> -->
 
 <!-- //头部 -->
 <view class="css customCenterBar z3" >

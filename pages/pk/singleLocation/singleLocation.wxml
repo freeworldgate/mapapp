@@ -189,7 +189,7 @@
         <view wx:else class="ccc w-100vw">
             <view class="rcc w-500 h-100 br-20 b-publish c-white fs-30 fw-700" bindtap="buildLocation">创建卡点</view>
         
-          <view class="h-30"></view>
+            <view class="h-50"></view>
         </view>
 
 
@@ -255,17 +255,13 @@
     <view class="h-50"></view>     
     <view class="rcc ">
 
-                            <view class="rcc {{(sign&&type&&backUrl)?'b-share':'b-share-disable'}} w-500 h-100 br-100 box8" bindtap="confirmBuild">
-                                <view  class="rcc message1 w-500 h-100 br-100 z20">
-                                    <view class="rcc ">
-                                        <image class="rcc w-40 h-40 " mode="aspectFit" src="/images/publish.png"></image>
-                                    </view>
-                                    <view class="w-20"></view>
+                            <view class="rcc {{(sign&&type&&backUrl)?'b-share':'b-share-disable'}} w-500 h-100 br-20 box8" bindtap="confirmBuild">
+                                <view  class="rcc w-500 h-100 br-20 z20">
+                    
                                     <view class="rcc fs-30 fw-400 c-white ">确定</view>
                                 </view>
                             </view>
-    </view>
-                        
+    </view>            
 
 </view>
 
