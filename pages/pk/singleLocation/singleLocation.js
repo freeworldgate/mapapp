@@ -62,7 +62,8 @@ Page({
       latitude:options.latitude,
       longitude: options.longitude,
       name:options.name,
-      address: options.address
+      address: options.address,
+      city:options.city
     })
     that.queryLocation("page");
     
@@ -138,6 +139,7 @@ Page({
       longitude: that.data.longitude,
       name:that.data.name, 
       address: that.data.address,
+      city:that.data.city,
       sign: that.data.sign,
       type: that.data.type,
       backUrl:that.data.backUrl

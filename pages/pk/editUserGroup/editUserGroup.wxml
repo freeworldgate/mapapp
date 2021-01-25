@@ -1,4 +1,4 @@
-<view class="css b-white" style="min-height:100vh">
+<view class="css b-black" style="min-height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; ">
     <view class="css " >
         <view class="rcs " style="height:{{top}}px"></view>
         <view class="rbc" style="height:32px">
@@ -6,113 +6,133 @@
               <view class="rcs pl-4vw pr-4vw" >
 
                 <view class="rcc h-32px " bindtap="back">
-                <image class="rcc h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
-                <!-- <view class="w-20"></view> -->
-                <!-- <view class="rcc fs-30 fw-700">捞人</view> -->
+                <image class="rcc h-30 w-30" mode="aspectFit" src="/images/back1.png"></image>
+        
                 </view>
 
               </view>
             </view>
-            <view class="rcc fs-35 fw-700">我的群组</view>
+            <view class="rcc fs-35 fw-700 c-white">我的群组</view>
             <view style="flex:1"></view>
         
         </view>
         <view class="rcs " style="height:10px"></view>
     </view>
 
-    <view class="css pl-6vw pr-6vw">
-        <view class="ccc h-200">
+    <view class="css pl-3vw pr-3vw">
 
-            <view class="rcc">
-                <view class="h-200 w-300 "  style="background-position: center;background-image: url({{createFindUserImage}});background-repeat: no-repeat;background-size: auto 130%;"></view>
+        <view class="rac pl-50 pr-50 pt-50 pb-50">
+            <view  class="ccc" >
+                                    <view class="rcc">
+                                        <view class="rus fs-35 fw-700 line-h40 c-white">{{myLengthStr}}</view>
+                                        <view class="rus fs-25 fw-700 pt-5 c-white">{{(myLength*1000 < 1000)?"米":"公里"}}</view>
+                                    </view>
+                                    <view class="rcc fs-30 fw-300 c-white">我的距离</view>
             </view>
-
+            <view  class="ccc">
+                                    <view class="rcc">
+                                        <view class="rus fs-35 fw-700 line-h40 c-white">{{rangeStr}}</view>
+                                        <view class="rus fs-25 fw-700 pt-5 c-white">{{(range < 1000)?"米":"公里"}}</view>
+                                    </view>
+                                    <view class="rcc fs-30 fw-300 c-white">有效范围</view>
+            </view>
         </view>
 
-        <view class="h-20"></view>
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs">
-                <view class="rcs fs-30 fw-700">状态</view>
-                <view class="w-20"></view>
-                <view class="rcs fs-23 fw-300 c-1 pl-10 pr-10 pb-5 pt-5 b-48 br-10">{{userGroup.tip}}</view>
-            </view>
-            
-         
-            <view class="rcc">
-       
+
+        <view class="css pl-5vw pr-5vw pt-30 pb-30 b-white br-20">
+            <view class="rbc-nowrap pt-30 pb-30"> 
+                <view class="rcs">
+                    <view class="rcs fs-30 fw-700">状态</view>
+                    <view class="w-20"></view>
+                    <view class="rcs fs-23 fw-300 c-1 pl-10 pr-10 pb-5 pt-5 b-48 br-10">{{userGroup.tip}}</view>
+                </view>
                 
-              <view wx:if="{{!userGroup || !userGroup.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
-              <view wx:else class="rus fs-30 fw-400 c-1">{{userGroup.statu.name}}</view>
-              <view class="rcc w-30 h-30">
-                <view class="w-15 h-15 br-15 b-5"></view>
-              </view>
-              
-              <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image> -->
-            </view>
-        </view>
-
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="uploadImgs"> 
-            <view class="rcs">
-              <view class="rcs fs-30 fw-700">群名片</view>
-              <view class="w-20"></view>
-              <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">更新时间{{userGroup.lastUpdateTime}}</view>
-            </view>  
-          
-
-            <view class="rcc" >
-
-              <view class="rcc w-90 h-120 b-48">
-                    <image wx:if="{{userGroup.groupCard}}" class="w-90 h-120 " mode="aspectFill" src="{{userGroup.groupCard}}"></image>
-                    <image wx:else class="w-70 h-70 " mode="aspectFit" src="/images/usercard.png"></image>
-              </view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-            </view>
-        </view>
-
-
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editName">
-            <view class="rcs fs-30 fw-700">群名称</view>
-            <view class="w-50"></view>
-            <view class="rbc-nowrap" style="flex:1" >
-                                    <view></view>
-                                    <view class="css">
-                                        <view class="rus fs-30 fw-400 {{userGroup.groupName?'c-4':'c-3'}} line-1-start">{{userGroup.groupName?userGroup.groupName:'编辑群名称'}}</view>
-                                    </view>
-                                    
-            </view>
-            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
-
-        </view>
-
-
+            
+                <view class="rcc">
         
-        <view class="rbc-nowrap pt-30 pb-30 b-line" bindtap="editDesc"> 
-            <view class="rcs fs-30 fw-700">群简介</view>
-            <view class="w-50"></view>
-            <view class="rbc-nowrap" style="flex:1" >
-                                    <view></view>
-                                    <view class="css">
-                                        <view class="rus fs-30 fw-400 {{userGroup.groupDesc?'c-4':'c-3'}} line-1-start">{{userGroup.groupDesc?userGroup.groupDesc:'编辑群简介'}}</view>
-                                    </view>
-                                    
+                    
+                <view wx:if="{{!userGroup || !userGroup.statu}}" class="rus fs-30 fw-400 c-1">编辑</view>
+                <view wx:else class="rus fs-30 fw-400 c-1">{{userGroup.statu.name}}</view>
+                <view class="rcc w-30 h-30">
+                    <view class="w-15 h-15 br-15 b-5"></view>
+                </view>
+                
+                <!-- <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image> -->
+                </view>
             </view>
-            <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+            <view class="rbc-nowrap pt-30 pb-30" bindtap="uploadImgs"> 
+                <view class="rcs">
+                <view class="rcs fs-30 fw-700">群名片</view>
+                <view class="w-20"></view>
+                <view class="rcs fs-23 fw-300 c-3 pl-10 pr-10 pb-5 pt-5 b-48 br-10">更新时间{{userGroup.lastUpdateTime}}</view>
+                </view>  
+            
 
-          
-        </view>
-        
-        <view class="rbc-nowrap pt-30 pb-30 b-line"> 
-            <view class="rcs w-300 fs-30 fw-700">成员</view>
-            <view class="w-50"></view>
-            <view class="rcc">
-              <view class="css" style="flex:1">
-                <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.members?userGroup.members:0}}人</view>
-              </view>
-              <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                <view class="rcc" >
+
+                <view class="rcc w-90 h-120 b-48">
+                        <image wx:if="{{userGroup.groupCard}}" class="w-90 h-120 " mode="aspectFill" src="{{userGroup.groupCard}}"></image>
+                        <image wx:else class="w-70 h-70 " mode="aspectFit" src="/images/usercard.png"></image>
+                </view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                </view>
+            </view>
+            <view class="rbc-nowrap pt-30 pb-30" bindtap="editName">
+                <view class="rcs fs-30 fw-700">群名称</view>
+                <view class="w-50"></view>
+                <view class="rbc-nowrap" style="flex:1" >
+                                        <view></view>
+                                        <view class="css">
+                                            <view class="rus fs-30 fw-400 {{userGroup.groupName?'c-4':'c-3'}} line-1-start">{{userGroup.groupName?userGroup.groupName:'编辑群名称'}}</view>
+                                        </view>
+                                        
+                </view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+
+            </view>
+            <view class="rbc-nowrap pt-30 pb-30" bindtap="editDesc"> 
+                <view class="rcs fs-30 fw-700">群简介</view>
+                <view class="w-50"></view>
+                <view class="rbc-nowrap" style="flex:1" >
+                                        <view></view>
+                                        <view class="css">
+                                            <view class="rus fs-30 fw-400 {{userGroup.groupDesc?'c-4':'c-3'}} line-1-start">{{userGroup.groupDesc?userGroup.groupDesc:'编辑群简介'}}</view>
+                                        </view>
+                                        
+                </view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+
+            
+            </view>
+            <view class="rbc-nowrap pt-30 pb-30"> 
+                <view class="rcs w-300 fs-30 fw-700">成员</view>
+                <view class="w-50"></view>
+                <view class="rcc">
+                <view class="css" style="flex:1">
+                    <view class="rus fs-30 fw-400 c-4  line-1-start">{{userGroup.members?userGroup.members:0}}人</view>
+                </view>
+                <image class="w-30 h-30" mode="aspectFit" src="/images/more.png"></image>
+                </view>
             </view>
         </view>
-        <view class="h-5vw"></view>
-        <view class="rac p-5vw">
+        <view class="css p-3vw">
+            <view class="rcs fs-30 fw-700 c-white">温馨提示:</view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">1.</view>
+                <view class="rus fs-23 fw-300 c-white">黑洞是现代广义相对论中，存在于宇宙空间中的一种天体。黑洞的引力极其强脱的天体”。</view>
+            </view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">2.</view>
+                <view class="rus fs-25 fw-300 c-white">1916年，德国天文学家卡尔·史瓦西通过计算得到了爱因斯坦场方程的一个真空解，这个解表明，为“黑洞”。</view>
+            </view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">3.</view>
+                <view class="rus fs-23 fw-300 c-white">黑洞无法直接观测，但可以借由间接方式得知其存在与质量，并且观测到它对其他事物的影响。。</view>
+            </view>
+        </view>
+
+
+        <!-- <view class="rac p-5vw">
             <view hidden="{{!myLengthStr}}" class="ccc" >
                                     <view class="rcc">
                                         <view class="rus fs-35 fw-700 line-h40">{{myLengthStr}}</view>
@@ -130,8 +150,8 @@
                                     <view class="rcc fs-30 fw-300  c-3">有效范围</view>
             </view>
 
-        </view>
-        <view class="h-5vw"></view>
+        </view> -->
+
 
 
 

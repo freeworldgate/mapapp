@@ -60,6 +60,7 @@ Page({
         latitude:latitude,
         longitude:longitude
       })
+    
       that.queryInvites("page",latitude,longitude);
     });
 
@@ -298,7 +299,7 @@ Page({
       console.log(location)  //得到你刚刚选择的地址信息
       if(location){
         wx.navigateTo({
-          url: '/pages/pk/singleLocation/singleLocation?latitude='+location.latitude+"&longitude="+location.longitude+"&name="+location.name+"&address="+location.address,
+          url: '/pages/pk/singleLocation/singleLocation?latitude='+location.latitude+"&longitude="+location.longitude+"&name="+location.name+"&address="+location.address+"&city="+location.city,
         })
         that.data.choose = false;
       }

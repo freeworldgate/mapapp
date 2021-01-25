@@ -22,7 +22,7 @@
     </view>
 
     <view class="css pl-3vw pr-3vw">
-        <view class="rbc pl-50 pr-50 pt-100 pb-100">
+        <view class="rbc pl-50 pr-50 pt-50 pb-50">
             <view class="ccc">
                 <view class="rcc fs-30 fw-700 c-white">5次</view>
                 <view class="fs-25 fw-300 c-white">已打捞次数</view>
@@ -149,7 +149,21 @@
             </view>
 
         </view>
-
+        <view class="css p-3vw">
+            <view class="rcs fs-30 fw-700 c-white">温馨提示:</view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">1.</view>
+                <view class="rus fs-23 fw-300 c-white">黑洞是现代广义相对论中，存在于宇宙空间中的一种天体。黑洞的引力极其强脱的天体”。</view>
+            </view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">2.</view>
+                <view class="rus fs-25 fw-300 c-white">1916年，德国天文学家卡尔·史瓦西通过计算得到了爱因斯坦场方程的一个真空解，这个解表明，为“黑洞”。</view>
+            </view>
+            <view class="rss">
+                <view class="rus fs-23 fw-300 c-white">3.</view>
+                <view class="rus fs-23 fw-300 c-white">黑洞无法直接观测，但可以借由间接方式得知其存在与质量，并且观测到它对其他事物的影响。。</view>
+            </view>
+        </view>
 
     </view>
     <!-- <view wx:else class="cac" style="flex:1">

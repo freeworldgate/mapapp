@@ -113,32 +113,17 @@ function createDialog(page) {
     dialog.visible = false;
     dialog.title = "",
     dialog.text = "",
-    dialog.tipBack="",
-    dialog.tipImg="",
+
+    
     dialog.show = function (title, text) {
-      var tipBack = wx.getStorageSync('tipBack');
-      var tipImg = wx.getStorageSync('tipImg');
-      var backUrl = tipBack?tipBack:"";
-      var imgUrl = tipImg?tipImg:"/images/pk.png";
+
+
 
       page.setData({
-        'dialog.tipBack': backUrl,
-        'dialog.tipImg': imgUrl,
         'dialog.title': title,
         'dialog.text': text,
         'dialog.visible': true,
       })
-
-  
-
-  
-      var httpClient = createHttpClient(page);
-      httpClient.setMode("", false);
-      httpClient.addHandler("success", function (tip) {
-          wx.setStorageSync('tipBack', tip.tipBack);
-          wx.setStorageSync('tipImg', tip.tipImg);
-      })
-      httpClient.send(request.url.updateTipBack , "GET",{});
 
 
 
@@ -193,37 +178,22 @@ function createOperateDialog(page) {
   operateDialog.visible = false;
   operateDialog.title = "",
   operateDialog.text = "",
-  operateDialog.tipBack= "",
-  operateDialog.tipImg= "",
   operateDialog.statu = 0;
   operateDialog.confirm = function () { };
   operateDialog.cancel = function () { };
 
   operateDialog.show = function (title, text, confirm, cancel) {
-    var tipBack = wx.getStorageSync('tipBack');
-    var tipImg = wx.getStorageSync('tipImg');
-    var backUrl = tipBack?tipBack:"";
-    var imgUrl = tipImg?tipImg:"/images/pk.png";
+
 
 
     operateDialog.confirm = confirm;
     operateDialog.cancel = cancel;
     page.setData({
-      'operateDialog.tipBack': backUrl,
-      'operateDialog.tipImg': imgUrl,
+
       'operateDialog.title': title,
       'operateDialog.text': text,
       'operateDialog.visible': true,
     })
-
-    var httpClient = createHttpClient(page);
-    httpClient.setMode("", false);
-    httpClient.addHandler("success", function (tip) {
-        wx.setStorageSync('tipBack', tip.tipBack);
-        wx.setStorageSync('tipImg', tip.tipImg);
-    })
-    httpClient.send(request.url.updateTipBack , "GET",{});
-
 
 
 

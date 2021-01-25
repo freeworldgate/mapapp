@@ -240,7 +240,7 @@
                                         <view class="rcc pt-20 pb-20">
                                             <image class="rcc w-25 h-25" src="/images/daka.png" mode="aspectFill"></image>
                                             <view class="w-10"></view>
-                                            <view class="fs-25 fw-400 c-word-6">第23次在此打卡</view>
+                                            <view class="fs-25 fw-400 c-word-6">第{{post.postTimes}}次在此打卡</view>
                                         </view>
                                         <!-- 随着天数增加，会变得越来越长 -->
                                         <view class="rcc" >

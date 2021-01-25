@@ -266,7 +266,7 @@
                                     <view class="rcc pt-20 pb-20">
                                         <image class="rcc w-25 h-25" src="/images/daka.png" mode="aspectFill"></image>
                                         <view class="w-10"></view>
-                                        <view class="fs-25 fw-400 c-word-6">第23天打卡</view>
+                                        <view class="fs-25 fw-400 c-word-6">第{{post.postTimes}}次在此打卡</view>
                                         <view class="w-10"></view>
                                         <view hidden="{{post.creator.userId != user.userId  ||  (bindex === 0 && post.postId === pk.topPostId)  }}" class="fs-20 fw-300 pl-10 pr-10 br-5 b-48 c-4" bindtap="removePost" data-post="{{post}}" data-pkid="{{pk.pkId}}" data-index="{{bindex}}">删除</view>
                                     </view>

@@ -1,4 +1,4 @@
-<view class="css {{(pkGroups&&pkGroups.length>0)?'b-48':'b-white'}}" style="min-height:100vh" >
+<view class="css b-white" style="min-height:100vh" >
 
             
             <view wx:if="{{pkGroups&&pkGroups.length>0}}" class="css pl-5vw pr-5vw">
@@ -12,8 +12,8 @@
                     <view class="rcs " style="height:10px"></view>
                 </view>
                 <block wx:for="{{pkGroups}}" wx:for-index="bindex" wx:for-item="pkGroup" wx:key="findKey">
-                    <view class="css b-white br-20 p-3vw" >
-                        <view class="rcs">
+                    <view class="css b-white br-20 p-3vw z3" >
+                        <view class="rcs pt-20 pb-10">
                             <image class="h-40 w-40" mode="aspectFit" src="/images/groupCode.png"></image>
                             <view class="w-20"></view>
                             <view class="rus fs-23 fw-400 c-4">更新时间 {{pkGroup.lastUpdateTime}}</view>
@@ -105,6 +105,7 @@
             </view>
 
 </view>
+<view class="pageback z2 b-black"  style="width:100vw;height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; "></view>
 
 <view class="css bottomBar12 z3 b-black " >
     <view class="css pl-5vw pr-5vw">
@@ -156,19 +157,19 @@
 </view>
 
 <!-- //头部 -->
-<view class="css customCenterBar z3 {{pkGroups.length>0?'b-48':'b-white'}}" >
+<view class="css customCenterBar z3" >
     <view class="rcs " style="height:{{top}}px"></view>
     <view class="rbc" style="height:32px">
         <view class="rcs" style="flex:1">
             <view class="rcc h-32px" bindtap="back">
                 <view class="w-4vw"></view>
-                <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
+                <image class="h-30 w-30" mode="aspectFit" src="/images/back1.png"></image>
                 <view class="w-4vw"></view>
             </view>
 
         </view>
         <view class="rcc">
-            <view class="rcc fs-35 fw-700 c-4-1">交友</view>
+            <view class="rcc fs-35 fw-700 c-white">交友</view>
         </view>
         
         <view class="rcc" style="flex:1">
