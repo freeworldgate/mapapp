@@ -63,7 +63,7 @@
                 <view class=" rcc ">
                                         <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="myGroups">
                                             <view class="rcc ">
-                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/card.png"></image>
+                                                <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/wechat.png"></image>
                                             </view>
                                         </view>
                 </view>

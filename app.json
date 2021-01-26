@@ -47,7 +47,7 @@
     "pages/pk/drawPost/drawPost",
     "pages/pk/uploadImgs/uploadImgs",
 
-    "pages/pk/userHome/userHome",
+
     "pages/pk/timepage/timepage",
     "pages/pk/hiddentimepage/hiddentimepage",
     "pages/user/login/login",

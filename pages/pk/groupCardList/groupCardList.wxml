@@ -112,7 +112,7 @@
   <view class="rcs " style="height:32px">
 
     <view class="rcc h-32px ">
-        <image class="h-40 w-40"  mode="aspectFit" src="/images/hiscard.png.png"></image>
+        <image class="h-40 w-40"  mode="aspectFit" src="/images/unlock.png"></image>
         <view class="w-20"></view>
         <view class="fs-30 fw-400">已解锁群</view>
     </view>

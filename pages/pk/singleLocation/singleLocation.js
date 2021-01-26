@@ -92,7 +92,23 @@ Page({
 
 
   },
+  decr:function(){
+    var that = this;
+    if(that.data.circles[0].radius<20){return;}
+    var key = "circles[0].radius"
+    that.setData({
+      [key]:that.data.circles[0].radius-10
+    })
+  },
+  incr:function(){
+    var that = this;
 
+    if(that.data.circles[0].radius>1990){return;}
+    var key = "circles[0].radius"
+    that.setData({
+      [key]:that.data.circles[0].radius+10
+    })
+  },
   buildLocation:function () {
     var that = this;
     that.setData({
@@ -153,7 +169,8 @@ Page({
       city:that.data.city,
       sign: that.data.sign,
       type: that.data.type,
-      backUrl:that.data.backUrl
+      backUrl:that.data.backUrl,
+      radius:that.data.circles[0].radius
     }
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);

@@ -9,7 +9,7 @@
                     </view>
                     <view class="rcs " style="height:10px"></view>
             </view>   
-            <view class="rbc p-50 z3">
+            <view class="rbc p-50 z3 b-line">
                     <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
                                         <view class="rcc">
                                             <view class="rus fs-30 fw-700 line-h40 c-white">{{lengthStr}}</view>
@@ -41,7 +41,7 @@
                     </navigator>
             </view>  
 
-
+            
 
             <view class="css pl-5vw pr-5vw">
 
@@ -161,7 +161,7 @@
         </navigator>
         <view class="w-70"></view> -->
 
-        <navigator class="rcc pb-30" hover-class="none" url="/pages/pk/userFind/userFind?pkId={{pkId}}">
+        <navigator class="rcc pb-30" hover-class="none" url="/pages/pk/editUserGroup/editUserGroup?pkId={{pkId}}">
                                 <view  class=" w-100 h-100 br-20 rcc box100 b-white" >
                                     <view class="rcc ">
                                         <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/group1.png"></image>

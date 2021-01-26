@@ -126,7 +126,7 @@
   <view class="rcs " style="height:32px">
 
     <view class="rcc h-32px ">
-        <image class="h-40 w-40"  mode="aspectFit" src="/images/hiscard.png.png"></image>
+        <image class="h-40 w-40"  mode="aspectFit" src="/images/wechat.png"></image>
         <view class="w-20"></view>
         <view class="fs-30 fw-400">我的群组</view>
     </view>

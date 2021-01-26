@@ -132,27 +132,6 @@
         </view>
 
 
-        <!-- <view class="rac p-5vw">
-            <view hidden="{{!myLengthStr}}" class="ccc" >
-                                    <view class="rcc">
-                                        <view class="rus fs-35 fw-700 line-h40">{{myLengthStr}}</view>
-                                        <view class="rus fs-25 fw-700 pt-5">{{(myLength*1000 < 1000)?"米":"公里"}}</view>
-                                    </view>
-                                    <view class="rcc fs-30 fw-300  c-3">我的距离</view>
-            </view>
-    
-            <view hidden="{{!rangeStr}}" class="ccc">
-                                    <view class="rcc">
-                                        <view class="rus fs-35 fw-700 line-h40">{{rangeStr}}</view>
-                                        <view class="rus fs-25 fw-700 pt-5">{{(range < 1000)?"米":"公里"}}</view>
-                                    </view>
-                              
-                                    <view class="rcc fs-30 fw-300  c-3">有效范围</view>
-            </view>
-
-        </view> -->
-
-
 
 
     </view>

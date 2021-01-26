@@ -46,7 +46,7 @@ Page({
     })
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("page", true);
-    httpClient.send(request.url.queryPkSorts, "GET", {pkId:options.pkId});
+    httpClient.send(request.url.queryUserPkPosts, "GET", {pkId:options.pkId});
 
   },
   back:function(){
@@ -162,7 +162,7 @@ Page({
         page: that.data.page + 1
       })
     })
-    httpClient.send(request.url.nextPkSorts, "GET", { page: that.data.page,pkId: that.data.pkId });
+    httpClient.send(request.url.nextUserPkPost, "GET", { page: that.data.page,pkId: that.data.pkId });
 
     // wx.stopPullDownRefresh()
   },

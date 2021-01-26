@@ -66,9 +66,9 @@ Page({
       httpClient.send(request.url.nextUserPublishPosts, "GET",{ targetId:that.data.targetId ,page:that.data.page});
     
   },
-  uploadImg:function(){
+  uploadImg:function(res){
     var that = this;
-
+    var userId = res.currentTarget.dataset.userid;
     template.createOperateDialog(that).show("上传背景图?", "修改背景图?...", function () {
   
       wx.chooseImage({
@@ -78,11 +78,20 @@ Page({
         success(res) {
           var files = res.tempFilePaths;
           template.uploadImages3("PK-User-Back", files,that, function(urls){
+            
   
-              that.setData({
-                imgUrl:urls[0],
+              var httpClient = template.createHttpClient(that);
+              httpClient.setMode("label", true);
+              httpClient.addHandler("success", function (posts) {
+                var key = "userDynamic.userBack"
+                  that.setData({
+                    [key]:urls[0]
+                  })
               })
-  
+              httpClient.send(request.url.updateUserBack, "GET",{ targetUserId:userId,url:urls[0]});
+            
+
+
   
           }, function(){});
   

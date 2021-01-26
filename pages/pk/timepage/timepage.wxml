@@ -99,10 +99,10 @@
                                                                 <view class="rcc pl-20 pr-20 br-10 b-48">
                                                                     <view class="csc " bindtap="showLocation" data-pk="{{pk}}">
                                                                         <view wx:if="{{lengthStr}}" class="rus">
-                                                                            <view class="rcc fs-30 h-50 fw-610 c-4">{{lengthStr}}</view>
-                                                                            <view class="rcc fs-25 h-50 fw-300 c-4">{{(length < 1000)?"米":"公里"}}</view>
+                                                                            <view class="rcc fs-28 h-50 fw-400">{{lengthStr}}</view>
+                                                                            <view class="rcc fs-25 h-50 fw-300">{{(length < 1000)?"米":"公里"}}</view>
                                                                         </view>
-                                                                        <view wx:else class="rus fs-30 h-50 fw-600 c-4">计算中</view>
+                                                                        <view wx:else class="rus fs-30 h-50 fw-600">计算中</view>
                                                                         <view class="rcc fs-25 fw-300">卡点距离</view>
                                                                     </view>
                                                                 </view>
@@ -110,8 +110,8 @@
                                                                 <view class="rcc pl-20 pr-20 br-10 b-48" bindtap="userSort" data-pkid="{{pk.pkId}}">
                                                                     <view class="csc">
                                                                         <view class="rus">
-                                                                            <view class="rcc fs-30 h-50 fw-610 c-4">{{postTimes?postTimes:0}}</view>
-                                                                            <view class="rcc fs-25 h-50 fw-300 c-4">次</view>
+                                                                            <view class="rcc fs-28 h-50 fw-400">{{postTimes?postTimes:0}}</view>
+                                                                            <view class="rcc fs-25 h-50 fw-300">次</view>
                                                                         </view>
                                                                         <view class="rcc fs-25 fw-300">我的打卡</view>
                                                                     </view>      

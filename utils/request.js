@@ -1,6 +1,6 @@
- var host = 'https://www.211shopper.com'; 
+//  var host = 'https://www.211shopper.com'; 
 // var host = 'http://192.168.2.245:8080'; 
-// var host = 'http://192.168.43.67:8080'; 
+var host = 'http://192.168.43.67:8080'; 
 
 // 上传图片接口 
 var uploadUrl = 'https://oss.211shopper.com'; 
@@ -304,9 +304,11 @@ var url = {
         nextMyUnlockGroups:`${host}/pk/nextMyUnlockGroups`,
         nextMyUnlockPkGroups:`${host}/pk/nextMyUnlockPkGroups`,
         unLockGroup:`${host}/pk/unLockGroup`,
-        
-
+        queryUserPkPosts:`${host}/pk/queryUserPkPosts`,
+        nextUserPkPost:`${host}/pk/nextUserPkPost`,
         setPkTips:`${host}/pk/setPkTips`,
+        
+        updateUserBack:`${host}/pk/updateUserBack`,
 
         showInfo:`${host}/pk/showInfo`, 
 
