@@ -128,22 +128,50 @@ Page({
       },
     })
   },
-
-
+  
+  
   upload:function(){
-      var that = this;
+    var that = this;
+    
+    
+    if(!that.data.imgs||that.data.imgs.length===0){
+        var httpClient = template.createHttpClient(that);
+        httpClient.setMode("label", true);
+        httpClient.addHandler("success", function (post) {
+          tip.showTip("上传成功......");
+
+          template.createLabelLoading(that).hide();
+          wx.setStorageSync("userPost", post)
+          wx.navigateBack({
+            complete: (res) => {
+              
+              
+            },
+          })
+
+        })
+        httpClient.send(request.url.createPost, "GET",
+          {
+            pkId: that.data.pkId,
+            title: that.data.text,
+            imgUrls: new Array(),
+          }
+        );
 
 
+    }
+    else{
 
+      
       template.uploadImages3("userUpload", that.data.imgs, that,
-      function (urls) {
+        function (urls) {
           //传输成功
           wx.hideLoading({
             complete: (res) => {},
           })
           console.log("---start---" ,urls);
           console.log("图片集合", urls);
-  
+          
           // , urls
           var httpClient = template.createHttpClient(that);
           httpClient.setMode("label", true);
@@ -154,8 +182,8 @@ Page({
             wx.setStorageSync("userPost", post)
             wx.navigateBack({
               complete: (res) => {
-                  
-                  
+                
+                
               },
             })
 
@@ -185,7 +213,7 @@ Page({
 
       });
 
-
+    }
 
   }
 })

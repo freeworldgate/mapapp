@@ -500,9 +500,10 @@ Page({
     var that = this;
     that.data.locationUpdate = true;
     var userPost = wx.getStorageSync('userPost');
+    wx.removeStorageSync('userPost')
     if(userPost)
     {
-        wx.removeStorageSync('userPost')
+        
         if(that.data.posts && that.data.posts.length>0 && that.data.pk.topPostId === that.data.posts[0].postId)
         {//存在顶置 
           that.data.posts.splice(1, 0,userPost); 

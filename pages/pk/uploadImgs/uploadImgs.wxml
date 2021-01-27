@@ -17,12 +17,12 @@
             <view class="fs-20 fw-400 c-3">还可输入{{left}}个字</view>
         </view>
     </view>
-    <view class="css pr-2vw pl-2vw">
+    <view class="css pr-5vw pl-5vw">
         <view class="rus-wrap">
             <block wx:for="{{imgs}}"  wx:for-index="bindex" wx:for-item="img" wx:key="idx2" >
-                <view class="rcc w-32vw h-32vw">
-                    <image class="br-10 w-30vw h-30vw" mode="aspectFill" src="{{img}}"></image>
-                    <view hidden="{{imgs.length<2}}" class="absolute css w-32vw h-32vw">
+                <view class="rcc w-30vw h-30vw">
+                    <image class="br-10 w-28vw h-28vw" mode="aspectFill" src="{{img}}"></image>
+                    <view class="absolute css w-30vw h-30vw">
                         <view class="rbc">
                             <view></view>
                             <view class="rcc w-12vw h-12vw" bindtap="_remove" class="rcc w-100 h-100" data-index="{{bindex}}">
@@ -34,8 +34,8 @@
                 
             </block>
 
-            <view hidden="{{imgs.length>8}}" class="rcc w-32vw h-32vw">
-                <view class="ccc br-10 w-30vw h-30vw b-40" bindtap="_add">
+            <view hidden="{{imgs.length>8}}" class="rcc w-30vw h-30vw">
+                <view class="ccc br-10 w-28vw h-28vw b-40" bindtap="_add">
                   <view class="fs-50 fw-700 c-5">+</view>
                   <view class="fs-30 fw-700 c-5">添加照片</view>
                 </view>
@@ -96,7 +96,7 @@
 <view class="ccc uploadButton">
     <!-- <view hidden="{{imgs.length === 9}}" class="p-50 fs-30 fw-400 c-1">只能选择9张图片</view> -->
 
-    <view wx:if="{{imgs.length>0 && 10>imgs.length && text}}" class="rcc fs-30 fw-700 w-500 h-100 br-100 b-upload c-white" bindtap="upload">立即上传</view>
+    <view wx:if="{{ text}}" class="rcc fs-30 fw-700 w-500 h-100 br-100 b-upload c-white" bindtap="upload">立即上传</view>
     <view wx:else class="rcc fs-30 fw-700 w-500 h-100 br-100 b-40 c-4" >立即上传</view>
 
     <view class="h-50"></view>

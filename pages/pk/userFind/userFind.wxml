@@ -23,18 +23,25 @@
 
     <view class="css pl-3vw pr-3vw">
         <view class="rbc pl-50 pr-50 pt-50 pb-50">
-            <view class="ccc">
-                <view class="rcc fs-30 fw-700 c-white">5次</view>
-                <view class="fs-25 fw-300 c-white">已打捞次数</view>
+            <view class="rbc" style="flex:1">
+                <view class="ccc" >
+                    <view class="rcc fs-30 fw-700 c-white">5次</view>
+                    <view class="fs-25 fw-300 c-white">已打捞次数</view>
+                </view>
+                <view></view>
             </view>
             <view class="ccc">
                 <view class="rcc fs-30 fw-700 c-white">3天</view>
                 <view class="fs-25 fw-300 c-white">已打捞时间</view>
             </view>
-            <view class="ccc">
-                <view class="rcc fs-30 fw-700 c-white">{{leftTime?leftTime:0}}</view>
-                <view class="fs-25 fw-300 c-white">剩余时间</view>
+            <view class="rbc" style="flex:1">
+                <view></view>
+                <view class="ccc">
+                    <view class="rcc fs-30 fw-700 c-white">{{leftTime?leftTime:0}}</view>
+                    <view class="fs-25 fw-300 c-white">剩余时间</view>
+                </view>
             </view>
+
         </view>
 
 
