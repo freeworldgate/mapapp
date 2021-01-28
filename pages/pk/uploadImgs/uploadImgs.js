@@ -14,7 +14,7 @@ var template = require('./../../../template/template.js')
 var amapFile = require('./../../../utils/amap-wx.js')
 
 
-
+const whiteback = {backId:-1,backColor:'000000',backUrl:'',fontColor:'ffffff'};
 
 
 
@@ -23,12 +23,17 @@ Page({
   /**
    * 页面的初始数据
    */
+
+
+
   data: {
     text:"",
     left:200,
     maxLength:200,
+    whiteBack:whiteback,
+    currentBack:whiteBack,
     imgs:[],
-
+    textBacks:[]
 
   },
 
@@ -45,29 +50,51 @@ Page({
           top: res.statusBarHeight + (res.titleBarHeight - 32) / 2
       })
     })
+
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("", true);
+    httpClient.send(request.url.queryTextBacks, "GET", {});
+
+
     var pk = wx.getStorageSync('publish-pk', that.data.pk)
     wx.removeStorageSync('publish-pk')
-    this.data.pkId = options.pkId;
+    that.data.pkId = options.pkId;
     var imgFiles = options.imgs.split(",");
-    var allFiles = this.data.imgs.concat(imgFiles);
-    this.setData({
+    var allFiles = that.data.imgs.concat(imgFiles);
+    that.setData({
       imgs:allFiles,
       pkId:options.pkId,
       pk:pk
     })
-
     locationUtil.getLocation(function(latitude,longitude){
-
       var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
       that.setData({
         length:distance*1000,
         lengthStr:distance<1?distance*1000:distance
       })
-
-
     })
 
 
+
+
+
+
+
+
+
+  },
+  select:function(res){
+    var that = this;
+    var back = res.currentTarget.dataset.back;
+    that.setData({
+      currentBack:back
+    })
+
+  },
+  selectnone:function(){
+    that.setData({
+      currentBack:{}
+    })
   },
   showLocation:function(res){
     var that = this;

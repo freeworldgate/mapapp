@@ -670,19 +670,19 @@ Page({
               lengthStr:distance<1?distance*1000:distance
             })
 
-            if(distance*1000 > that.data.pk.type.rangeLength)
-            {
-              template.createDialog(that).show("超出打卡区域","您所在区域不在卡点可打卡范围之内");
-              return;
-            }
-            //非打卡时间
-            if(that.data.leftTime > 0)
-            {
-              that.setData({
-                showTime:true
-              })
-              return;
-            }
+            // if(distance*1000 > that.data.pk.type.rangeLength)
+            // {
+            //   template.createDialog(that).show("超出打卡区域","您所在区域不在卡点可打卡范围之内");
+            //   return;
+            // }
+            // //非打卡时间
+            // if(that.data.leftTime > 0)
+            // {
+            //   that.setData({
+            //     showTime:true
+            //   })
+            //   return;
+            // }
             wx.chooseImage({
               count: 9,
               sizeType: ['compressed', 'original'],
