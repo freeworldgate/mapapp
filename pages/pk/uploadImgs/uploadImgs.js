@@ -14,7 +14,7 @@ var template = require('./../../../template/template.js')
 var amapFile = require('./../../../utils/amap-wx.js')
 
 
-const whiteback = {backId:-1,backColor:'000000',backUrl:'',fontColor:'ffffff'};
+
 
 
 
@@ -30,8 +30,8 @@ Page({
     text:"",
     left:200,
     maxLength:200,
-    whiteBack:whiteback,
-    currentBack:whiteBack,
+    whiteBack: {backId:-1,backColor:'fafafa',backUrl:'',fontColor:'000000'},
+    currentBack: {backId:-1,backColor:'fafafa',backUrl:'',fontColor:'000000'},
     imgs:[],
     textBacks:[]
 
@@ -135,6 +135,24 @@ Page({
     that.setData({
       imgs: that.data.imgs,
     })
+    if(that.data.imgs.length === 0 )
+    {
+      var textLeft = 60 - that.data.text.length;
+      var newText = that.data.text.substring(0,60);
+      that.setData({
+        left:textLeft>0?textLeft:0,
+        maxLength:60,
+        text:newText
+      })
+    }
+    else{
+      var textLeft = 200 - that.data.text.length;
+      that.setData({
+        left:textLeft>0?textLeft:0,
+        maxLength:200,
+        text:that.data.text
+      })
+    }
 
   },
 
@@ -152,6 +170,24 @@ Page({
         that.setData({
           imgs: imgFiles,
         })
+        if(that.data.imgs.length === 0 )
+        {
+          var textLeft = 60 - that.data.text.length;
+          var newText = that.data.text.substring(0,60);
+          that.setData({
+            left:textLeft>0?textLeft:0,
+            maxLength:60,
+            text:newText
+          })
+        }
+        else{
+          var textLeft = 200 - that.data.text.length;
+          that.setData({
+            left:textLeft>0?textLeft:0,
+            maxLength:200,
+            text:that.data.text
+          })
+        }
       },
     })
   },
@@ -182,6 +218,7 @@ Page({
             pkId: that.data.pkId,
             title: that.data.text,
             imgUrls: new Array(),
+            backId: that.data.currentBack.backId,
           }
         );
 

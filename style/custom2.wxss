@@ -1390,7 +1390,7 @@ mw-200{
   /* border: 1px solid rgba(180, 180, 180, 0.055);  */
 }
 .border24{
-  border: 1px solid rgba(0, 0, 0); 
+  border: 1vw solid rgb(255, 255, 255); 
 }
 .border-group{
   border: 0.5px solid rgba(158, 158, 158, 0.267); 
@@ -1544,6 +1544,16 @@ mw-200{
   overflow:hidden;
   text-overflow:ellipsis;
   -webkit-line-clamp:5;
+  -webkit-box-orient:vertical;
+  word-break:break-all;
+  text-align: center;
+}
+.line-100-center{
+  word-wrap: break-word;
+  display:-webkit-box;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:100;
   -webkit-box-orient:vertical;
   word-break:break-all;
   text-align: center;

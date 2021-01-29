@@ -173,10 +173,16 @@
                                                 <view class="rus line-1-start fs-35 fw-650" >{{post.pkTopic}}</view>
                                         </view>
                                       
-                                        <view class="css p-3vw b-48" catchtap="return">
+                                        <view class="css {{(!post.postImages||post.postImages.length===0)?'':'p-3vw b-48'}}" catchtap="return">
                                             <view class="css">
-
-                                                <view class="{{post.tag?'rus fs-32 fw-400':'rus line-3-start fs-32 fw-400'}} " bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
+                                                <view wx:if="{{!post.postImages||post.postImages.length===0}}" class="css br-20" style="background-color:#{{post.backColor}}">
+                                                    <view class="csc p-50 br-20 "  style="min-height:300rpx;background-position: center;background-image: url({{post.backUrl}});background-repeat: no-repeat;background-size: 100% auto;">
+                                                        <text class="{{post.tag?'line-100-center':'line-5-center '}} fs-35 fw-700" bindtap="openText" data-index="{{bindex}}" style="color:#{{post.fontColor}}">{{post.topic}}</text>
+                                                    </view>
+                                                    
+                                                </view>
+                                                <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
+                                                
                                                 <view class="h-10"></view>
                                             </view>
                                             <view class="css">

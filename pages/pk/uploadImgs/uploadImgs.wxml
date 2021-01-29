@@ -10,7 +10,7 @@
     </view>
     <view class="css pr-3vw pl-3vw">
         <view wx:if="{{imgs&&imgs.length>0}}" class="css p-20 " >
-            <textarea adjustPosition="true" bindinput="_input" class=" h-150 fs-35 fw-400" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="说点什么..." value="{{text}}"></textarea>
+            <textarea adjustPosition="true" bindinput="_input" class=" h-200 fs-35 fw-400" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="说点什么..." value="{{text}}"></textarea>
         </view>
         <view wx:else class="csc b-timepage br-20  p-5vw" style="background-color:#{{currentBack.backColor}}" >
             <view class="csc h-350 ">
@@ -20,15 +20,17 @@
 
         
 
-        <view hidden="{{imgs&&imgs.length>0}}" class="css pt-20 pb-20 t-line">
-            <scroll-view class="rss br-20" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:94vw;height:12vw">
-                <view class="h-10vw w-10vw br-10 {{currentBack.backId === textBack.backId?'border24':''}} box8"  style="background-color:#{{textBack.backColor}}"   bindtap="select" data-back="{{whiteBack}}" ></view>
+        <view hidden="{{imgs&&imgs.length>0}}" class="css pt-20 pb-20">
+            <scroll-view class="rss" scrollX="true"  enable-flex="true" style="white-space:nowrap;width:94vw;height:15vw">
+                <view class="rcc h-15vw">
+                    <view class="h-10vw w-10vw br-10 box8"  style="background-color:#{{whiteBack.backColor}}"   bindtap="select" data-back="{{whiteBack}}" ></view>
+                </view>
                 <view  style="width:1vw"></view>  
                 <view class="css" style="display:inline-block" wx:for="{{textBacks}}" wx:for-index="sindex" wx:for-item="textBack" wx:key="postkey">
                     <view class="rss">
                         
-                        <view class="rcc" >
-                            <view class="h-10vw w-10vw br-10 {{currentBack.backId === textBack.backId?'border24 box8':''}}"  style="background-color:#{{textBack.backColor}}"  bindtap="select" data-back="{{textBack}}" ></view>
+                        <view class="rcc h-15vw" >
+                            <view class=" br-10 {{currentBack.backId === textBack.backId?'border24 box8 h-8vw w-8vw':'h-10vw w-10vw'}}"  style="background-color:#{{textBack.backColor}}"  bindtap="select" data-back="{{textBack}}" ></view>
                         </view>
                         <view  style="width:1vw"></view>                                                                                                    
                     </view>
@@ -61,9 +63,9 @@
             </block>
 
             <view hidden="{{imgs.length>8}}" class="rcc w-30vw h-30vw">
-                <view class="ccc br-10 w-28vw h-28vw b-40" bindtap="_add">
-                  <view class="fs-50 fw-700 c-5">+</view>
-                  <view class="fs-30 fw-700 c-5">添加照片</view>
+                <view class="ccc br-10 w-28vw h-28vw b-48" bindtap="_add">
+                  <view class="fs-60 fw-300 c-3">+</view>
+    
                 </view>
 
             </view>
