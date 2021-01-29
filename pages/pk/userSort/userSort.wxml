@@ -58,10 +58,9 @@
                                                     <view class="csc p-50 br-20 "  style="min-height:300rpx;background-position: center;background-image: url({{post.backUrl}});background-repeat: no-repeat;background-size: 100% auto;">
                                                         <text class="{{post.tag?'line-100-center':'line-5-center '}} fs-35 fw-700" bindtap="openText" data-index="{{bindex}}" style="color:#{{post.fontColor}}">{{post.topic}}</text>
                                                     </view>
-                                                    
                                                 </view>
                                                 <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
-                                                
+
                                                 <view class="h-10"></view>
                                             </view>
                                             <view class="css">

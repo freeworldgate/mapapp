@@ -54,6 +54,16 @@ Page({
       delta: 0,
     })
   },
+  openText:function(res)
+  {
+    var that = this;
+    var index = res.currentTarget.dataset.index;
+    var tag = 'posts['+index+'].tag';
+    var ctag = that.data.posts[index].tag;
+    that.setData({
+      [tag]:!ctag
+    })
+  },
   uploadImage:function(){
     var that = this;
   

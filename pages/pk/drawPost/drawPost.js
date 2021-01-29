@@ -45,9 +45,10 @@ Page({
 
     var pk = wx.getStorageSync('drawPk');
     wx.removeStorageSync('drawPk')
-    that.setData({
-        pk:pk,
-    })
+    that.data.pk = pk;
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("page", false);
+    httpClient.send(request.url.queryPkCode, "GET", { pkId: pk.pkId});
 
     that.drawWxCode();
     that.drawUserImg();

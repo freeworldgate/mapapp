@@ -182,7 +182,7 @@
                                                     
                                                 </view>
                                                 <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
-                                                
+       
                                                 <view class="h-10"></view>
                                             </view>
                                             <view class="css">

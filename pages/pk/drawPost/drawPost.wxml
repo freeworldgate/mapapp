@@ -22,22 +22,19 @@
     </view>
     <view class="h-100"></view>
 
-    <view>
+    <view wx:if="{{statu === 1}}">
         <view class="rcc" style="margin:1vw">
             <canvas canvas-id="myCanvas" style="width:98vw;height:159vw" ></canvas>
         </view>
-        
-        
     </view>
-
-    
-    <!-- <view hidden="{{statu != 1}}"  class="ccc">
-        <view class="h-30"></view>
-        <view class="rcc w-300 h-80 br-80 b-publish" bindtap="save">                
-            <view class="rcc fs-25 fw-400 c-white ">导出画报</view>
+    <view wx:else  class="ccc">
+        <view class="h-200"></view>
+        <view class="ccc">     
+            <image class="w-80 h-80 br-80" mode="aspectFill" src="/images/loading.gif"></image>
+            <view class="rcc fs-30 fw-400 c-white p-30">导出画报中...</view>
         </view>
         <view class="h-300"></view>
-    </view> -->
+    </view>
 
 
 
