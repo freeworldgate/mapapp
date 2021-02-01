@@ -68,6 +68,21 @@ Page({
     that.queryLocation("page",options.latitude,options.longitude,options.name);
     
   },
+
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
+  showLocation:function(res){
+    var pk = res.currentTarget.dataset.pk;
+    wx.setStorageSync('locationShow', pk)
+    wx.navigateTo({
+      url: '/pages/pk/showLocation/showLocation',
+    })
+  },
   queryLocation:function (tab,latitude,longitude,name) {
     var that = this;
     var httpClient = template.createHttpClient(that);

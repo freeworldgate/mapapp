@@ -222,8 +222,8 @@ var url = {
         
         deleteCashier:`${host}/pk/deleteCashier`, 
         deletePk:`${host}/pk/deletePk`, 
-        userPosts:`${host}/pk/userPosts`, 
-        nextUserPosts:`${host}/pk/nextUserPosts`,       
+
+   
         activeSinglePK:`${host}/pk/activeSinglePK`, 
         topPost:`${host}/pk/topPost`, 
         queryUserPublishPks:`${host}/pk/queryUserPublishPks`, 

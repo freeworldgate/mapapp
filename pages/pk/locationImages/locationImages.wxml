@@ -29,7 +29,7 @@
 
                     </view>
                     <view class="rbc p-20">
-                        <view class="rcc">
+                        <view class="rcc" bindtap="goUser" data-user="{{image.user.userId}}">
                             <view class="rcc h-60 w-60 br-60 b-white box8"><image class="rcc w-50 h-50 br-50" src="{{image.user.imgUrl}}" mode="aspectFill"></image></view>
                             <view class="w-20"></view>
                             <view class="rus line-1-start fs-30 fw-650 c-white w-200">{{image.user.userName}}</view>
@@ -94,9 +94,9 @@
         <view class="rcc">
           
             <view class=" rcc">
-                                    <view class=" w-100 h-100 br-100 rcc box100 b-share" bindtap="uploadImage">
+                                    <view class=" w-100 h-100 br-100 rcc box100 b-white" bindtap="uploadImage">
                                         <view class="rcc ">
-                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/invite.png"></image>
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/upload.png"></image>
                                         </view>
 
                                     </view>

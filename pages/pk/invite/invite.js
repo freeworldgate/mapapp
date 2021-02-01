@@ -44,24 +44,27 @@ Page({
       that.setData({
           top: res.statusBarHeight + (res.titleBarHeight - 32) / 2
       })
-  })
-    
-
+    })
+    var target = options.userId;
+    that.data.targetId = target;
+    login.getUser(function(user){
+      that.setData({user:user})
+    })
     template.createPageLoading(that).show();
     locationUtil.getLocation(function (latitude,longitude) {
       that.setData({
         latitude:latitude,
         longitude:longitude
       })
-      that.init("page",latitude,longitude);
+      that.init("page",latitude,longitude,target);
     });
 
   },
-  queryPks:function (tab,latitude,longitude) {
+  queryPks:function (tab,latitude,longitude,target) {
     var that = this;
     var httpClient = template.createHttpClient(that);
-    httpClient.setMode(tab, true);
-    httpClient.send(request.url.queryInvites, "GET", {latitude:latitude,longitude:longitude});
+    httpClient.setMode(tab, false);
+    httpClient.send(request.url.queryInvites, "GET", {latitude:latitude,longitude:longitude,targetId:target});
   },
 
 
@@ -82,7 +85,7 @@ Page({
             pks:that.data.pks.concat(pagePks)
         })
       })
-      httpClient.send(request.url.nextInvitePage, "GET",{ userId:user.userId ,page:that.data.page,latitude:that.data.latitude,longitude:that.data.longitude});
+      httpClient.send(request.url.nextInvitePage, "GET",{targetId:that.data.targetId ,page:that.data.page,latitude:that.data.latitude,longitude:that.data.longitude});
     
   },
 
@@ -112,7 +115,13 @@ Page({
       
     })
   },
-
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
   onShow:function () {
     var that = this;
     locationUtil.getLocation(function(latitude,longitude){
@@ -138,10 +147,10 @@ Page({
   onHide:function(){
 
   },
-  init:function (tab,latitude,longitude) {
+  init:function (tab,latitude,longitude,target) {
     var that = this;
  
-      that.queryPks(tab,latitude,longitude);
+      that.queryPks(tab,latitude,longitude,target);
  
   },
   onPullDownRefresh:function (params) {
@@ -211,38 +220,7 @@ Page({
 
   },
 
-  groupCode:function(res) {
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
-
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.send(request.url.viewGroupCode, "GET",{pkId:pkId});   
-
-  },
-  approverMessageDetail:function(res){
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
-    login.getUser(function (user) {
-
-      wx.navigateTo({
-        url: '/pages/pk/messageInfo/messageInfo?pkId=' + pkId ,
-      })   
-    })
-
-
-  },
-
-  showPk:function(res){
-    var that = this;
-    var topic = res.currentTarget.dataset.topic;
-    var watchword =  res.currentTarget.dataset.watchword;
-
-    template.createShowPkDialog(that).show(topic,watchword)
 
 
 
-
-
-  },
 })

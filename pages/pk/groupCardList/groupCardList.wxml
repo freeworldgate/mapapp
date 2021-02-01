@@ -1,7 +1,7 @@
-<view class="css {{pkGroups.length > 0?'b-49':'b-white'}}" style="min-height:100vh">
+<view class="css" style="min-height:100vh">
 
 
-    <view wx:if="{{pkGroups.length > 0}}" class="css z2" >
+    <view class="css" >
         <view class="css">
         
 
@@ -18,17 +18,17 @@
 
                 <block wx:for="{{pkGroups}}" wx:for-index="bindex" wx:for-item="pkGroup" >
 
-                  <view class="css b-white br-20 p-4vw" >
+                  <view class="css b-white br-20 p-4vw z4" >
                             <view class="rcs">
                                 <image class="h-40 w-40" mode="aspectFit" src="/images/groupCode.png"></image>
                                 <view class="w-20"></view>
                                 <view class="rus fs-23 fw-400 c-4">更新时间 {{pkGroup.lastUpdateTime}}</view>
                             </view>
-                            <view class="css pb-20 pt-20">
+                            <view class="css pb-20 pt-20" bindtap="showText" data-text="{{pkGroup.groupName}}">
                                 <view class="rus line-1-start fs-35 fw-700">{{pkGroup.groupName}}</view>
                             </view>
                             
-                            <view class="rus line-3-start fs-28 fw-300 c-4">{{pkGroup.groupDesc}}</view>
+                            <view class="rus line-3-start fs-28 fw-300 c-4" bindtap="showText" data-text="{{pkGroup.groupDesc}}">{{pkGroup.groupDesc}}</view>
                             <view class="css pt-30 pb-30">
                                 <view class="rss ">
                                     <view class="rcc w-120 h-160 b-48">
@@ -44,7 +44,7 @@
                                             <view class="rcc fs-30 fw-400  c-4">成员</view>
                                         </view>
 
-                                        <view class="ccc">
+                                        <view class="ccc" bindtap="goUser" data-user="{{pkGroup.user.userId}}">
                                             <image class="rcc w-50 h-50 br-10 " src="{{pkGroup.user.imgUrl}}" mode="aspectFill"></image>
                                             <view class="h-10"></view>
                                             <view class="rcc fs-30 fw-400  c-4">群主</view>
@@ -74,11 +74,11 @@
                                     <view class="rbc">
                                 
                                         <view class="rcc">
-                                                    <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.user.imgUrl}}" ></image>
+                                                    <image class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.user.imgUrl}}" ></image>
                                                     <view class="w-10"></view>
-                                                    <image hidden="{{!pkGroup.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.member1.imgUrl}}" ></image>
+                                                    <image hidden="{{!pkGroup.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.member1.imgUrl}}" ></image>
                                                     <view class="w-10"></view>
-                                                    <image hidden="{{!pkGroup.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.member2.imgUrl}}" ></image>
+                                                    <image hidden="{{!pkGroup.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.member2.imgUrl}}" ></image>
                                         </view>
                                         <view class="rcc h-60 c-word-6 f-shadow3 br-10  fs-30 fw-700"></view>
                                     </view>
@@ -94,27 +94,25 @@
 
         </view>
         <view hidden="{{!nomore}}" class="rcc p-50">
-                <view class="fs-30 fw-400 c-3-1 ">没有更多</view>
+                <view class="fs-30 fw-400 c-white">没有更多</view>
         </view>
 
     </view>
-    <view wx:else class="ccc z2 "  style="padding-top:40vh">
-        <view class="rcc">
-            <image class="h-300 w-300" mode="aspectFit" src="{{emptyData}}" ></image>
-        </view>
-        <view class="fs-30 fw-400 c-3">暂无解锁信息</view>
-
-    </view>
+  
 
 </view>
-<view class="css customBar {{pkGroups.length > 0?'b-49':'b-white'}} z2">
+<view class="pageback z2 b-black"  style="width:100vw;height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; "></view>
+
+
+
+<view class="css customBar z4">
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 
     <view class="rcc h-32px ">
         <image class="h-40 w-40"  mode="aspectFit" src="/images/unlock.png"></image>
         <view class="w-20"></view>
-        <view class="fs-30 fw-400">已解锁群</view>
+        <view class="fs-30 fw-400 c-white">已解锁群</view>
     </view>
 
   </view>

@@ -279,7 +279,7 @@ Page({
     return {
         title: '邀请你一起打卡@'+ that.data.pk.name ,
         desc: "from",
-        imageUrl:that.data.pk.backUrl,
+        imageUrl:that.data.pk.backUrl+"?x-oss-process=image/crop,w_1000,h_1000,g_center",
         path: '/pages/pk/timepage/timepage?type=share&pkId=' + that.data.pk.pkId,
     }
 
@@ -659,6 +659,19 @@ Page({
 
 
   },
+  userPage:function(res){
+    var that = this;
+    var userId =  res.currentTarget.dataset.user;
+    login.getUser(function(user){
+      wx.navigateTo({
+        url: "/pages/pk/userPublishPost/userPublishPost?userId=" + userId,
+      })
+
+    })
+
+
+
+  },
   signLocation:function(){
     var that = this;
     login.getUser(function(user){
@@ -691,7 +704,7 @@ Page({
                   var files = res.tempFilePaths;
                   wx.setStorageSync('publish-pk', that.data.pk)
                   wx.navigateTo({
-                    url: '/pages/pk/uploadImgs/uploadImgs?imgs='+files + "&pkId=" + that.data.pkId,
+                    url: '/pages/pk/uploadImgs/uploadImgs?imgs='+files + "&pkId=" + that.data.pkId+"&postTimes="+that.data.postTimes,
                   })
               },
             })
@@ -707,7 +720,45 @@ Page({
     })
 
   },
+  signLocation1:function(){
+    var that = this;
+    login.getUser(function(user){
+      locationUtil.getLocation(function(latitude,longitude){
 
+            var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
+            that.setData({
+              length:distance*1000,
+              lengthStr:distance<1?distance*1000:distance
+            })
+
+            // if(distance*1000 > that.data.pk.type.rangeLength)
+            // {
+            //   template.createDialog(that).show("超出打卡区域","您所在区域不在卡点可打卡范围之内");
+            //   return;
+            // }
+            // //非打卡时间
+            // if(that.data.leftTime > 0)
+            // {
+            //   that.setData({
+            //     showTime:true
+            //   })
+            //   return;
+            // }
+            wx.setStorageSync('publish-pk', that.data.pk)
+            wx.navigateTo({
+              url: '/pages/pk/uploadImgs/uploadImgs?pkId=' + that.data.pkId+"&postTimes="+that.data.postTimes
+            })
+
+
+  })
+
+
+
+
+
+    })
+
+  },
 
   back:function (params) {
     wx.navigateBack({
@@ -979,6 +1030,29 @@ Page({
     var key = "posts["+index+"].current";
     that.setData({
       [key]:index1
+    })
+  },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
+  showImg:function(res){
+    var that  = this;
+    var index = parseInt(res.currentTarget.dataset.index);
+    var imgs = res.currentTarget.dataset.imgs;
+    if(index > imgs.length-1){return;}
+    var current = imgs[index].imgUrl;
+    var images = [];
+    for(var i=0;i<imgs.length;i++)
+    {
+        images[i] = imgs[i].imgUrl;
+    }
+    wx.previewImage({
+      current:current,
+      urls: images,
     })
   }
 

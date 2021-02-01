@@ -67,6 +67,14 @@ Page({
     httpClient.send(request.url.queryPkGroups, "GET", {pkId:options.pkId});
     
   },
+  goUser:function(res){
+    var userId = res.currentTarget.dataset.user;
+    wx.navigateTo({
+      url: '/pages/pk/userPublishPost/userPublishPost?userId='+userId,
+    })
+
+
+  },
   unLock:function(res){
     var that = this;
     var groupId = res.currentTarget.dataset.groupid;
@@ -75,7 +83,7 @@ Page({
         var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
         if(distance*1000 > that.data.pk.type.rangeLength)
         {
-            template.createOperateDialog(that).show("你距离卡点距离超出解锁范围", "你距离卡点距离超出解锁范围...", function () {
+            template.createOperateDialog(that).show("您当前距离超出解锁范围", "您当前距离超出解锁范围...", function () {
             }, function () {});
             return;
         }
@@ -91,6 +99,13 @@ Page({
           });
           httpClient.send(request.url.unLockGroup, "GET", { groupId:groupId});  
         }
+    })
+  },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
     })
   },
   userCardApply:function(res){
@@ -180,6 +195,15 @@ Page({
           url: '/pages/pk/editUserGroup/editUserGroup?pkId=' + pkId,
         })
       })
+  },
+  showImg:function(res){
+    var that = this;
+    var img = res.currentTarget.dataset.img;
+    wx.previewImage({
+      current:img,
+    })
   }
+
+
 
 })

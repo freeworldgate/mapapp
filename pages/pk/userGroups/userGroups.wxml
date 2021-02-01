@@ -1,19 +1,19 @@
 <!--pages/pk/userPk/userPk.wxml-->
 
-<view class="css {{pkGroups.length > 0?'b-49':'b-white'}}" style="min-height:100vh">
+<view class="css" style="min-height:100vh">
 
 
 
 
 
 
-<view wx:if="{{pkGroups.length > 0}}" class="css z2" >
+<view class="css z4" >
     <view class="css pl-4vw pr-4vw">
 
         <view style="height:{{top+42}}px"></view>
         <view class="css"  >
             <block wx:for="{{pkGroups}}" wx:for-index="bindex" wx:for-item="pkGroup" wx:key="findKey">
-                    <view class="css b-white br-20 p-4vw" >
+                    <view class="css b-white br-20 p-4vw z4" >
                       
                         <view class="rbc" bindtap="userGroup" data-pkid="{{pkGroup.pkId}}">
                             <view class="rcs">
@@ -112,23 +112,25 @@
     </view>
 
 </view>
-<view wx:else class="ccc z2 "  style="padding-top:20vh">
+<!-- <view wx:else class="ccc z2 "  style="padding-top:20vh">
     <view class="rcc">
         <image class="h-300 w-300" mode="aspectFit" src="{{emptyImage}}" ></image>
     </view>
-    <view class="fs-30 fw-400 c-3">暂无打捞信息</view>
+    <view class="fs-30 fw-400 c-white">暂无打捞信息</view>
+</view> -->
 
 </view>
 
-</view>
-<view class="css customBar {{pkGroups.length > 0?'b-49':'b-white'}} z2">
+<view class="pageback z2 b-black"  style="width:100vw;height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; "></view>
+
+<view class="css customBar z4">
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 
     <view class="rcc h-32px ">
         <image class="h-40 w-40"  mode="aspectFit" src="/images/wechat.png"></image>
         <view class="w-20"></view>
-        <view class="fs-30 fw-400">我的群组</view>
+        <view class="fs-30 fw-400 c-white">我的群组</view>
     </view>
 
   </view>

@@ -27,7 +27,7 @@
                             <view class="css"> 
                             <view class="rus line-1-start fs-35 fw-650 c-word-6 f-shadow3" bindtap="userCenter" data-follower="{{follower}}">{{follower.userName}}</view>
                             </view>
-                            <view class="rcs"><view class="fs-25 fw-400 c-3">300个粉丝</view></view>
+                            <!-- <view class="rcs"><view class="fs-25 fw-400 c-3">300个粉丝</view></view> -->
                         </view>
                         <view class="rcc">
                             <view style="width: 10vw"></view>
@@ -45,7 +45,7 @@
     </view>
     <view wx:else class="ccc "  style="flex:1">
         <view class="rcc">
-            <image class="h-400 w-400" mode="aspectFit" src="/images/img.png" ></image>
+            <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
         </view>
         <view class="fs-30 fw-300 c-3">暂无粉丝</view>
 
@@ -118,12 +118,7 @@
     </view>
 
 </view>
-
-
 </view>
-<!-- <view class="rcc p-100">
-<image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
-</view> -->
 </view>
 <view class="rcc tipDialog " hidden="{{tipDialog.visible!=true}}">
 <view class="ccc levelDialog_view">

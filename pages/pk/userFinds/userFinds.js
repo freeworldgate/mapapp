@@ -59,7 +59,13 @@ Page({
     httpClient.setMode(tab, true);
     httpClient.send(request.url.queryMyFinds, "GET", {});
   },
-
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

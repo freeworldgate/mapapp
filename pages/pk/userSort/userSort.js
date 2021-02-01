@@ -125,6 +125,25 @@ Page({
 
 
   },
+
+  showImg:function(res){
+    var that  = this;
+    var index = parseInt(res.currentTarget.dataset.index);
+    var imgs = res.currentTarget.dataset.imgs;
+    if(index > imgs.length-1){return;}
+    var current = imgs[index].imgUrl;
+    var images = [];
+    for(var i=0;i<imgs.length;i++)
+    {
+        images[i] = imgs[i].imgUrl;
+    }
+    wx.previewImage({
+      current:current,
+      urls: images,
+    })
+  },
+
+
   follow:function(res){
     var that = this;
     var targetId = res.currentTarget.dataset.targetid;

@@ -52,19 +52,19 @@
                             <view class="w-20"></view>
                             <view class="rus fs-23 fw-400 c-4">更新时间 {{pkGroup.lastUpdateTime}}</view>
                         </view>
-                        <view class="css pb-20 pt-20">
+                        <view class="css pb-20 pt-20" bindtap="showText" data-text="{{pkGroup.groupName}}">
                             <view class="rus line-1-start fs-35 fw-700">{{pkGroup.groupName}}</view>
                         </view>
                         
-                        <view class="rus line-3-start fs-28 fw-300 c-4">{{pkGroup.groupDesc}}</view>
+                        <view class="rus line-3-start fs-28 fw-300 c-4" bindtap="showText" data-text="{{pkGroup.groupDesc}}">{{pkGroup.groupDesc}}</view>
                         <view class="css pt-30 pb-30">
                             <view class="rss ">
-                                <view class="rcc w-120 h-160 {{pkGroup.queryerMemberEntity?'b-48':'b-white'}}">
+                                <view class="rcc w-120 h-160 {{pkGroup.queryerMemberEntity?'b-48':'b-48'}}">
                                     <view  wx:if="{{pkGroup.user.userId === user.userId}}" class="rcc">
                                         <image class=" w-120 h-160 " src="{{pkGroup.groupCard}}" mode="aspectFill"></image>
                                     </view>
                                     <view wx:else class="rcc">
-                                        <image wx:if="{{pkGroup.queryerMemberEntity}}" class=" w-120 h-160 " src="{{pkGroup.groupCard}}" mode="aspectFill"></image>
+                                        <image wx:if="{{pkGroup.queryerMemberEntity}}" class=" w-120 h-160" src="{{pkGroup.groupCard}}" mode="aspectFill" bindtap="showImg" data-img="{{pkGroup.groupCard}}"></image>
                                         <image wx:else class=" w-120 h-120 " src="/images/lockCard.png" mode="aspectFit"></image>
                                     </view>
 
@@ -79,7 +79,7 @@
                                         <view class="rcc fs-30 fw-400  c-4">成员</view>
                                     </view>
 
-                                    <view class="ccc">
+                                    <view class="ccc" bindtap="goUser" data-user="{{pkGroup.user.userId}}">
                                         <image class="rcc w-50 h-50 br-10 " src="{{pkGroup.user.imgUrl}}" mode="aspectFill"></image>
                                         <view class="h-10"></view>
                                         <view class="rcc fs-30 fw-400  c-4">群主</view>
@@ -109,11 +109,11 @@
                                 <view class="rbc">
                             
                                     <view class="rcc">
-                                                <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.user.imgUrl}}" ></image>
+                                                <image class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.user.imgUrl}}" ></image>
                                                 <view class="w-10"></view>
-                                                <image hidden="{{!pkGroup.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.member1.imgUrl}}" ></image>
+                                                <image hidden="{{!pkGroup.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.member1.imgUrl}}" ></image>
                                                 <view class="w-10"></view>
-                                                <image hidden="{{!pkGroup.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{pkGroup.member2.imgUrl}}" ></image>
+                                                <image hidden="{{!pkGroup.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{pkGroup.member2.imgUrl}}" ></image>
                                     </view>
                                     <view wx:if="{{pkGroup.user.userId != user.userId}}" class="rcc h-60" bindtap="{{!pkGroup.queryerMemberEntity?'unLock':''}}" data-groupid="{{pkGroup.groupId}}" data-index="{{bindex}}">
                                         <image class="w-30 h-30" mode="aspectFit" src="/images/unlock.png" ></image>
@@ -133,10 +133,6 @@
                 <view class="h-150"></view>
             </view>
            
-            <!-- <view wx:else class="ccc" style="height:100vh">
-                <image class="rcc w-400 h-400" src="{{emptyData}}" mode="aspectFit"></image>
-                <view class="rcc fs-30 fw-300 c-3">此处暂无群组信息</view>
-            </view> -->
 
 </view>
 <view class="pageback z2 b-black"  style="width:100vw;height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; "></view>
@@ -151,15 +147,6 @@
     
     </view>
     <view class="rcc">
-        <!-- <navigator class="rcc pb-30" hover-class="none" url="/pages/manage/approveFind/approveFind">
-                                <view  class=" w-100 h-100 br-100 rcc box100 b-white" >
-                                    <view class="rcc ">
-                                        <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/collect.png"></image>
-                                    </view>
-
-                                </view>
-        </navigator>
-        <view class="w-70"></view> -->
 
         <navigator class="rcc pb-30" hover-class="none" url="/pages/pk/editUserGroup/editUserGroup?pkId={{pkId}}">
                                 <view  class=" w-100 h-100 br-20 rcc box100 b-white" >
@@ -176,55 +163,6 @@
 
 </view>
 
-
-<!-- <view class="css bottomBar12 z3 b-black " >
-    <view class="css pl-5vw pr-5vw">
-        <view class="h-20"></view>
-        <view class="rbc ">
-            <view class="rbc" style="flex:1">
-                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
-                                        <view class="rcc">
-                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{lengthStr}}</view>
-                                            <view class="rus fs-20 fw-700 pt-5 c-white">{{(length < 1000)?"米":"公里"}}</view>
-                                        </view>
-                                    
-                                        <view class="rcc fs-22 fw-300 c-white">我的距离</view>
-                    </view>
-
-                    <view class="ccc" bindtap="showLocation" data-pk="{{pk}}">
-                                        <view class="rcc">
-                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{pk.type.rangeValue}}</view>
-                                            <view class="rus fs-20 fw-700 pt-5 c-white">{{pk.type.rangeLength<1000?'米':'公里'}}</view>
-                                        </view>
-                                
-                                        <view class="rcc fs-22 fw-300 c-white">有效距离</view>
-                    </view>
-                    <navigator class="ccc" hover-class="none" url="/pages/pk/userSort/userSort?pkId={{pkId}}">
-                                        <view class="rcc">
-                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{postTimes}}</view>
-                                            <view class="rus fs-20 fw-700 pt-5 c-white">次</view>
-                                        </view>
-                                
-                                        <view class="rcc fs-22 fw-300 c-white">我的打卡</view>
-                    </navigator>
-                    <navigator class="ccc" hover-class="none" url="/pages/pk/groupCardList/groupCardList?pkId={{pkId}}">
-                                        <view class="rcc">
-                                            <view class="rus fs-25 fw-700 line-h40 c-white">{{unLockGroups}}</view>
-                                            <view class="rus fs-20 fw-700 pt-5 c-white">次</view>
-                                        </view>
-                                
-                                        <view class="rcc fs-22 fw-300 c-white">已解锁</view>
-                    </navigator>
-            </view>
-            <view class="w-50"></view>
-            <view class="rcc">
-                <view class="rcc br-20 pl-20 pr-20 pt-10 pb-10 fs-25 fw-300 c-white border10-2" bindtap="userGroup" data-pkid="{{pkId}}">我的群组</view>
-            </view>
-        </view>
-        <view class="h-20"></view>
-    </view>
-
-</view> -->
 
 <!-- //头部 -->
 <view class="css customCenterBar z3" >
@@ -379,53 +317,6 @@
     </view>
 
     
-    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{editTextDialog.visible!=true}}"></view>
-    <view catchtouchmove="return" class="css editTextDialog" hidden="{{editTextDialog.visible!=true}}">
-        <view class="css editTextDialog_view ">
-            <view class="rbc">
-                <view class="t19-13-1" style="padding-left:15rpx">{{editTextDialog.title}}</view>
-                <view class="rcc"></view>
-            </view>
-            <view class="rcc t19-2">
-                <textarea adjustPosition="true" bindinput="_editTextDialog_input" class=" t19-1-2" maxlength="{{editTextDialog.maxLength}}" placeholder="{{editTextDialog.placeholder}}" value="{{editTextDialog.text}}"></textarea>
-            </view>
-            <view class="rbc">
-                <view>
-                    <view class="t19-7-1" hidden="{{editTextDialog.maxLength>editTextDialog.text.length}}">内容已达最大长度!</view>
-                </view>
-                <view class="t19-6" style="padding-right:50rpx">{{editTextDialog.text.length}}/{{editTextDialog.maxLength}}</view>
-            </view>
-            <view style="height:20rpx"></view>
-            <view class="rbc pt-50 pb-20 t-line">
-                <view></view>
-                <view class="rcc">
-                    <view bindtap="_editTextDialog_close" class="rcc c-3 fs-30 fw-700" hoverClass="c-3-1">取消</view>
-                    <view class="w-100"></view>
-                    <view bindtap="_editTextDialog_confirm" class="rcc c-1 fs-30 fw-700" hoverClass="c-3-1">确定</view>
-                    <view class="w-50"></view>
-                </view>
-
-            </view>
-        </view>
-    </view>
-    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{shortTextDialog.visible!=true}}"></view>
-    <view class="rcc shortTextDialog" hidden="{{shortTextDialog.visible!=true}}">
-        <view class="css shortTextDialog_view">
-            <view class="rcc shortTextDialog_title">{{shortTextDialog.title}}</view>
-            <view style="height:60rpx"></view>
-            <view class="css">
-                <input bindinput="_shortTextDialog_input" class="shortTextDialog_input" maxlength="{{shortTextDialog.maxLength}}" placeholder="点击输入最多{{shortTextDialog.maxLength}}位数字" value="{{shortTextDialog.text}}"></input>
-            </view>
-            <view style="height:60rpx"></view>
-            <view class="rac">
-                <view bindtap="_shortTextDialog_close" class="rcc shortTextDialog_cancel" hoverClass="dialog_cancel_hoverClass">取消</view>
-                <view bindtap="_shortTextDialog_confirm" class="rcc shortTextDialog_confirm" hoverClass="dialog_confirm_hoverClass" wx:if="{{shortTextDialog.text.length>0}}">确定</view>
-                <view class="rcc shortTextDialog_cancel" wx:else>确定</view>
-            </view>
-        </view>
-    </view>
-
-
 
 
 

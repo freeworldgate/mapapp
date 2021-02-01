@@ -47,13 +47,18 @@ Page({
       complete: (res) => {},
     })
 
+    var target = options.userId
+    that.data.targetId = target;
+    login.getUser(function(user){
+      that.setData({user:user})
+    })
     template.createPageLoading(that).show();
     locationUtil.getLocation(function (latitude,longitude) {
       that.setData({
         latitude:latitude,
         longitude:longitude
       })
-      that.init("page",latitude,longitude);
+      that.init("page",latitude,longitude,target);
     });
 
   },
@@ -64,11 +69,11 @@ Page({
       url: '/pages/pk/showLocation/showLocation',
     })
   },
-  queryPks:function (tab,latitude,longitude) {
+  queryPks:function (tab,latitude,longitude,target) {
     var that = this;
     var httpClient = template.createHttpClient(that);
-    httpClient.setMode(tab, true);
-    httpClient.send(request.url.userPks, "GET", {latitude:latitude,longitude:longitude});
+    httpClient.setMode(tab, false);
+    httpClient.send(request.url.userPks, "GET", {latitude:latitude,longitude:longitude,targetId:target});
   },
 
   /**
@@ -78,8 +83,6 @@ Page({
     var that = this;
 
       if(that.data.pkEnd){return;}
-      var user = wx.getStorageSync('user');
-      var fromUser = wx.getStorageSync('fromUser')
       var httpClient = template.createHttpClient(that);
       httpClient.setMode("label", false);
       httpClient.addHandler("success", function (pagePks) {
@@ -88,7 +91,7 @@ Page({
             pks:that.data.pks.concat(pagePks)
         })
       })
-      httpClient.send(request.url.nextUserPks, "GET",{ userId:user.userId ,page:that.data.page,latitude:that.data.latitude,longitude:that.data.longitude});
+      httpClient.send(request.url.nextUserPks, "GET",{ targetId:that.data.targetId ,page:that.data.page,latitude:that.data.latitude,longitude:that.data.longitude});
     
   },
 
@@ -120,10 +123,10 @@ Page({
 
   },
 
-  init:function (tab,latitude,longitude) {
+  init:function (tab,latitude,longitude,target) {
     var that = this;
  
-      that.queryPks(tab,latitude,longitude);
+      that.queryPks(tab,latitude,longitude,target);
  
   },
   onPullDownRefresh:function (params) {
@@ -166,164 +169,15 @@ Page({
   login:function(){
     login.getUser(function(user){})    
   },
-  createPk:function()
-  {
-    var that = this;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("label", true);
-    httpClient.addHandler("create", function (tip) {
-      template.createOperateDialog(that).show(tip.castV2,tip.castV3,function(){
-
-
-          template.createEditPkDialog(that).show(function (topic,watchWord,invite) {
-            var httpClient = template.createHttpClient(that);
-            httpClient.setMode("label", true);
-            httpClient.addHandler("success", function (pk) {
-              // template.createEditPkDialog(that).hide();
-              that.data.pks.unshift(pk);
-              that.setData({pks: that.data.pks})
-            })
-    
-    
-            httpClient.send(request.url.createPk, "GET",{topic:topic,watchWord:watchWord,invite:invite});
-          });
-
-      },function(){});
-
-
-  
-    })
-    httpClient.send(request.url.checkPk, "GET",{});   
-
-
-  },
-
-  updatePkPage:function(res)
-  {
-    var that = this;
-    var pk = res.currentTarget.dataset.pk;
-    var index =  res.currentTarget.dataset.index;
-
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed', 'original'],
-      sourceType: ['album'],
-      success(res) {
-        // var files = new Array();
-        // files.concat(res.tempFilePaths);
-        var files = res.tempFilePaths;
-        template.uploadImages3("PK-Back", files,that, function(urls){
-
-          var httpClient = template.createHttpClient(that);
-          httpClient.setMode("label", true);
-          httpClient.addHandler("success", function (newPk) {
-            // template.createUpdatePkDialog(that).hide();
-            newPk.userLength = pk.userLength;
-            newPk.userLengthStr = pk.userLengthStr;
-            that.data.pks.splice(index, 1,newPk); 
-            that.setData({
-              pks: that.data.pks
-            })
-            
-          })
-    
-    
-          httpClient.send(request.url.updatePkPage, "GET",{imgUrl:urls[0],pkId:pk.pkId});
-        }, function(){});
-
-
-      },
-    })
 
 
 
-
-  },
-
-
-  updatePk:function(res){
-    
-    var that = this;
-    var pkid = res.currentTarget.dataset.pkid;
-    var index =  res.currentTarget.dataset.index;
-    var topic = res.currentTarget.dataset.topic;
-    var watchword =  res.currentTarget.dataset.watchword;
-
-    template.createUpdatePkDialog(that).show(topic,watchword, function (topic,watchWord) {
-      var httpClient = template.createHttpClient(that);
-      httpClient.setMode("label", true);
-      httpClient.addHandler("success", function (pk) {
-        // template.createUpdatePkDialog(that).hide();
-        that.data.pks.splice(index, 1,pk); 
-        that.setData({
-          pks: that.data.pks
-        })
-        
-      })
-
-
-      httpClient.send(request.url.updatePk, "GET",{topic:topic,watchWord:watchWord,pkId:pkid});
-    });
-
-
-
-  },
-
-
-  showPk:function(res){
-    var that = this;
-    var topic = res.currentTarget.dataset.topic;
-    var watchword =  res.currentTarget.dataset.watchword;
-
-    template.createShowPkDialog(that).show(topic,watchword)
-
-  },
-  
-
-  groupCode:function(res) {
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
     wx.navigateTo({
-      url: '/pages/pk/message/message?pkId='+pkId,
+      url: '/pages/pk/showText/showText?text='+text,
     })
-    // var httpClient = template.createHttpClient(that);
-    // httpClient.setMode("label", true);
-    // httpClient.send(request.url.viewGroupCode, "GET",{pkId:pkId});   
-
-  },
-  approverMessageDetail:function(res){
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
-    login.getUser(function (user) {
-
-      wx.navigateTo({
-        url: '/pages/pk/messageInfo/messageInfo?pkId=' + pkId ,
-      })   
-    })
-
-
-  },
-
-  approvingList:function(res){
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
-    login.getUser(function(user){
-        if(user.userType === 0){
-          wx.navigateTo({
-            url: '/pages/pk/approvingPostList/approvingPostList?pkId=' + pkId,
-          
-          })
-        }else{
-          wx.navigateTo({
-            url: '/pages/pk/approvingList/approvingList?pkId=' + pkId,
- 
-          })
-        }
-
-
-
-    })
-
   },
   hiddenMap:function(){
     this.setData({
@@ -344,36 +198,7 @@ Page({
       
     })
   },
-  deletePk:function(res)
-  {
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid; 
-    var index = res.currentTarget.dataset.index;
 
-    template.createOperateDialog(that).show("删主题","确定删除?",function(){
-
-      var httpClient = template.createHttpClient(that);
-      httpClient.setMode("label", true);
-      httpClient.addHandler("success", function () {
-        that.data.pks.splice(index, 1); 
-        that.setData({
-          pks: that.data.pks
-        })
-      })
-
-
-      httpClient.send(request.url.deletePk, "GET",{pkId:pkId});  
-  },function(){});
-
-
-
-
-
-
-
-
-
-  },
   setPkCode:function()
   {
     var that = this;

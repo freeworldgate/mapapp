@@ -44,9 +44,10 @@ Page({
     var that = this;
     if(that.data.findUser&&that.data.findUser.statu)
     {
-      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
-      },function(){});
-      return;
+        wx.navigateTo({
+          url: '/pages/pk/showText/showText?text='+that.data.findUser.text
+        })
+        return;
     }
 
     if(that.data.findUser&&that.data.findUser.text){

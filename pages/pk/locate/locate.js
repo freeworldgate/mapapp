@@ -73,7 +73,7 @@ Page({
   myPk:function(){
     login.getUser(function(user){
       wx.navigateTo({
-        url: '/pages/pk/userPk/userPk',
+        url: '/pages/pk/userPk/userPk?userId='+user.userId,
       })
 
     })
@@ -84,7 +84,7 @@ Page({
   myInvite:function(){
     login.getUser(function(user){
       wx.navigateTo({
-        url: '/pages/pk/invite/invite',
+        url: '/pages/pk/invite/invite?userId='+user.userId,
       })
 
     })
@@ -433,6 +433,7 @@ Page({
 
     var current =  res.detail.current;
     var pk = that.data.pks[current];
+    
     console.log("当前PK位置:",location);
     that.setData({
       latitude : pk.latitude - 0.000,
@@ -471,18 +472,7 @@ Page({
     httpClient.send(request.url.viewGroupCode, "GET",{pkId:pkId});   
 
   },
-  approverMessageDetail:function(res){
-    var that = this;
-    var pkId = res.currentTarget.dataset.pkid;
-    login.getUser(function (user) {
 
-      wx.navigateTo({
-        url: '/pages/pk/messageInfo/messageInfo?pkId=' + pkId ,
-      })   
-    })
-
-
-  },
   myGroups:function(){
     login.getUser(function(user){
       wx.navigateTo({
@@ -497,6 +487,20 @@ Page({
         url: '/pages/pk/groupCardList/groupCardList',
       })
 
+    })
+  },
+  showLocation:function(res){
+    var pk = res.currentTarget.dataset.pk;
+    wx.setStorageSync('locationShow', pk)
+    wx.navigateTo({
+      url: '/pages/pk/showLocation/showLocation',
+    })
+  },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
     })
   }
 

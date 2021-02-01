@@ -25,13 +25,13 @@
         <view class="rbc pl-50 pr-50 pt-50 pb-50">
             <view class="rbc" style="flex:1">
                 <view class="ccc" >
-                    <view class="rcc fs-30 fw-700 c-white">5次</view>
+                    <view class="rcc fs-30 fw-700 c-white">{{findTimes}}次</view>
                     <view class="fs-25 fw-300 c-white">已打捞次数</view>
                 </view>
                 <view></view>
             </view>
             <view class="ccc">
-                <view class="rcc fs-30 fw-700 c-white">3天</view>
+                <view class="rcc fs-30 fw-700 c-white">{{speedTime}}</view>
                 <view class="fs-25 fw-300 c-white">已打捞时间</view>
             </view>
             <view class="rbc" style="flex:1">
@@ -71,7 +71,7 @@
             <view hidden="{{!findUser.startTime||!findUser.endTime}}" class="rbc-nowrap pt-30 pb-30"> 
                 <view class="rcs  fs-30 fw-700">时间</view>
             
-                <view class="rcc fs-30 fw-400 c-4 ">{{findUser.startTime}}~{{findUser.endTime}}</view>
+                <view class="rcc fs-30 fw-400 c-4 ">1月31日 22:30 ~ 2月1日 22:30</view>
             </view>
             <view class="rbc-nowrap pt-30 pb-30" bindtap="showPk" data-pk="{{pk}}"> 
                 <view class="rcs fs-30 fw-700">卡点</view>
@@ -203,19 +203,16 @@
 
       <view wx:if="{{findUser.statu && findUser.statu.key===3}}" class="ccc">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-red c-white" bindtap="clearUserFind">清除</view>
-          <view class="rcc h-70 fs-25 fw-400 c-word-6 "></view>
+    
       </view>
       <view wx:elif="{{findUser.statu && (findUser.statu.key===2 || findUser.statu.key===1)}}" class="ccc">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 b-white c-4" bindtap="giveUpUserPkFind">终止打捞</view>
-          <view class="rcc h-70 fs-25 fw-400 c-word-6 "> </view>
+
 
       </view>
       <view wx:else class="ccc">
           <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{(findUser.findLength>0 && findUser.text && findUser.img1)?'b-red c-white':'b-white c-3'}} " bindtap="{{(findUser.findLength>0 && findUser.text && findUser.img1)?'startFind':''}}">开捞</view>
-          
-          <view class="rcc pt-20">
-              <view class="rcc h-70 fs-25 fw-400 c-word-6 " ></view>
-          </view>
+        
       </view>
 
 
@@ -223,7 +220,7 @@
   </view>
 
 
-  <view class="rcc h-20 fs-30 fw-300 c-3"></view>
+  <view class="rcc h-30 fs-30 fw-300 c-3"></view>
   <view class="rcc  p-20">
     <view class="rcc fs-25 fw-300 c-white">遇见不撩</view>
     <image class="w-35 h-35 pl-10 pr-10" mode="aspectFit" src="/images/shank.png"></image>

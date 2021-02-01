@@ -119,15 +119,20 @@ Page({
 
 
   showImg:function(res){
-    var post = res.currentTarget.dataset.post;
-    var index = res.currentTarget.dataset.index;
-
+    var that  = this;
+    var index = parseInt(res.currentTarget.dataset.index);
+    var imgs = res.currentTarget.dataset.imgs;
+    if(index > imgs.length-1){return;}
+    var current = imgs[index].imgUrl;
+    var images = [];
+    for(var i=0;i<imgs.length;i++)
+    {
+        images[i] = imgs[i].imgUrl;
+    }
     wx.previewImage({
-      current:post.postImages[index].imgUrl,
-      urls: [post.postImages[0].imgUrl,post.postImages[1].imgUrl,post.postImages[2].imgUrl,post.postImages[3].imgUrl,post.postImages[4].imgUrl,post.postImages[5].imgUrl,post.postImages[6].imgUrl,post.postImages[7].imgUrl,post.postImages[8].imgUrl],
+      current:current,
+      urls: images,
     })
-
-
   },
 
   follow:function(res){

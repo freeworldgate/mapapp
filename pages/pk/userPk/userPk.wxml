@@ -31,9 +31,9 @@
                                                                         <view></view>
 
 
-                                                                        <navigator class="fs-23 fw-400 c-4 pl-20 pr-20 pt-10 pb-10 b-48 br-10" hover-class="none" url="/pages/pk/hiddentimepage/hiddentimepage?pkId={{pk.pkId}}">隐藏记录</navigator>
+                                                                        <navigator hidden="{{user.userId!=target.userId}}" class="fs-23 fw-400 c-4 pl-20 pr-20 pt-10 pb-10 b-48 br-10" hover-class="none" url="/pages/pk/hiddentimepage/hiddentimepage?pkId={{pk.pkId}}">隐藏记录</navigator>
 
-                                                                        <navigator class="fs-23 fw-400 c-4 pl-20 pr-20 pt-10 pb-10 b-48 br-10" hover-class="none" url="/pages/pk/locationApprovingImages/locationApprovingImages?pkId={{pk.pkId}}">卡点相册</navigator>
+                                                                        <navigator hidden="{{user.userId!=target.userId}}" class="fs-23 fw-400 c-4 pl-20 pr-20 pt-10 pb-10 b-48 br-10" hover-class="none" url="/pages/pk/locationApprovingImages/locationApprovingImages?pkId={{pk.pkId}}">卡点相册</navigator>
 
 
 
@@ -85,9 +85,15 @@
                                                                         <view class="ccs w-12vw"><view class="fs-30 fw-300 c-4">签名</view></view>
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
-                                                                            <navigator class="css" hover-class="none"  style="flex:1" url="/pages/pk/editText/editText?scene=changeSign&text={{pk.sign}}&index={{bindex}}&pkId={{pk.pkId}}">
+
+                                                                            <navigator wx:if="{{user.userId === target.userId}}" class="css" hover-class="none"  style="flex:1" url="/pages/pk/editText/editText?scene=changeSign&text={{pk.sign}}&index={{bindex}}&pkId={{pk.pkId}}">
                                                                                 <view class="rus line-2-start fs-30 fw-300">{{pk.sign}}</view>
                                                                             </navigator>
+                                                                            <navigator wx:else class="css" hover-class="none"  style="flex:1" url="/pages/pk/showText/showText?text={{pk.sign}}">
+                                                                                <view class="rus line-2-start fs-30 fw-300">{{pk.sign}}</view>
+                                                                            </navigator>
+
+
                                                                             <view></view>
                                                                         </view>
                                                                     
@@ -123,7 +129,7 @@
                                                                         </view>
                                                                         <view class="w-3vw"></view>
                                                                         <view class="rbc-nowrap" style="flex:1">
-                                                                            <view class="css"  style="flex:1">
+                                                                            <view class="css"  style="flex:1" bindtap="showText" data-text="{{pk.address}}">
                                                                                 <view class="rus line-1-start fs-25 fw-300 c-4">{{pk.address}}</view>
                                                                             </view>
                                                                             <view class="w-30 "></view>
@@ -175,7 +181,7 @@
       <view class="rcc h-32px ">
           <image class="h-40 w-40"  mode="aspectFit" src="/images/collect.png"></image>
           <view class="w-20"></view>
-          <view class="fs-30 fw-400">我的卡点</view>
+          <view class="fs-30 fw-400">{{user.userId===target.userId?'我的卡点':'卡点列表'}}</view>
       </view>
   </view>
   <view class="rcs " style="height:10px"/>

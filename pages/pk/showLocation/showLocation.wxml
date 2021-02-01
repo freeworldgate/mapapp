@@ -56,9 +56,9 @@
         <view class="rcc">
     
             <view class=" rcc">
-                                    <view  class=" w-100 h-100 br-100 rcc box100 b-share"  bindtap="showLength" >
+                                    <view  class=" w-100 h-100 br-100 rcc box100 b-white"  bindtap="showLength" >
                                         <view class="rcc ">
-                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/invite.png"></image>
+                                            <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/way.png"></image>
                                         </view>
 
                                     </view>

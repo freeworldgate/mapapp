@@ -184,5 +184,11 @@ Page({
 
 
 
-  }
+  },
+  goUser:function(res){
+    var userId = res.currentTarget.dataset.user;
+    wx.navigateTo({
+      url: '/pages/pk/userPublishPost/userPublishPost?userId='+userId,
+    })
+  },
 })

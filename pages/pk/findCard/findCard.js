@@ -40,7 +40,13 @@ Page({
 
 
   },
-
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -115,5 +121,21 @@ Page({
     wx.reLaunch({
       url: '/pages/pk/locate/locate',
     })
+  },
+  showImg:function(res)
+  {
+    var img = res.currentTarget.dataset.img;
+    var img1 = res.currentTarget.dataset.img1;
+    var img2 = res.currentTarget.dataset.img2;
+    var img3 = res.currentTarget.dataset.img3;
+    var imgs = [];
+    if(img1){imgs.push(img1);};
+    if(img2){imgs.push(img2);};
+    if(img3){imgs.push(img3);};
+    wx.previewImage({
+      current:img,
+      urls: imgs,
+    })
   }
+
 })

@@ -12,8 +12,8 @@
         <view wx:if="{{imgs&&imgs.length>0}}" class="css p-20 " >
             <textarea adjustPosition="true" bindinput="_input" class=" h-200 fs-35 fw-400" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="说点什么..." value="{{text}}"></textarea>
         </view>
-        <view wx:else class="csc b-timepage br-20  p-5vw" style="background-color:#{{currentBack.backColor}}" >
-            <view class="csc h-350 ">
+        <view wx:else class="csc b-timepage br-20" style="background-color:#{{currentBack.backColor}}" >
+            <view class="csc h-400 p-5vw" style="background-position: center;background-image: url({{currentBack.backUrl}});background-repeat: no-repeat;background-size: 100% auto;" >
                 <textarea adjustPosition="true" bindinput="_input" auto-height="true" class=" fs-35 fw-700" style="width:84vw;text-align:center;color:#{{currentBack.fontColor}}" cursorSpacing="50" fixed="true" maxlength="{{maxLength}}" placeholder="说点什么..." value="{{text}}"></textarea>
             </view>
         </view>
@@ -30,7 +30,10 @@
                     <view class="rss">
                         
                         <view class="rcc h-15vw" >
-                            <view class=" br-10 {{currentBack.backId === textBack.backId?'border24 box8 h-8vw w-8vw':'h-10vw w-10vw'}}"  style="background-color:#{{textBack.backColor}}"  bindtap="select" data-back="{{textBack}}" ></view>
+                            <view class="rcc br-10" style="background-color:#{{textBack.backColor}}">
+                                <view class=" br-10 {{currentBack.backId === textBack.backId?'border24 box8 h-8vw w-8vw':'h-10vw w-10vw'}}"  style="background-position: center;background-image: url({{textBack.backUrl}});background-repeat: no-repeat;background-size: 100% auto;"   bindtap="select" data-back="{{textBack}}" ></view>
+                            </view>
+                            
                         </view>
                         <view  style="width:1vw"></view>                                                                                                    
                     </view>
@@ -41,7 +44,7 @@
         </view>    
 
         <view class="rbc p-20 t-line">
-            <view class="fs-25 fw-400 c-word-6">第23次打卡</view>
+            <view></view>
             <view class="fs-20 fw-400 c-3">还可输入{{left}}个字</view>
         </view>
     </view>
@@ -78,17 +81,10 @@
                 <image class="rcc w-40 h-40" mode="aspectFit" src="/images/locate.png" ></image>
             </view>
             <view class="css" style="flex:1">
-                <view class="rus line-1-start fs-30 fw-400 c-4">{{pk.name}}</view>
+                <view class="rus line-1-start fs-30 fw-400">{{pk.name}}</view>
             </view>
-            <view class="rcc pl-20 pr-20  br-10 b-48" bindtap="showLocation" data-pk="{{pk}}">
-                                                                    <view class="csc " >
-                                                                        <view wx:if="{{lengthStr}}" class="rus">
-                                                                            <view class="rcc fs-25 h-50 fw-300 c-4">{{lengthStr}}</view>
-                                                                            <view class="rcc fs-25 h-50 fw-300 c-4">{{(length < 1000)?"米":"公里"}}</view>
-                                                                        </view>
-                                                                        <view wx:else class="rus fs-25 h-50 fw-300 c-4">计算中</view>
-                                                                    </view>
-            </view>
+            <view class="w-50"></view>
+            <view class="fs-25 fw-400 c-word-6">第{{postTimes}}次打卡</view>
         </view>
 
     </view>
@@ -108,7 +104,7 @@
                     <view class="w-4vw"></view>
                     <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
                     <view class="w-3vw"></view>
-                    <view class="rcc fs-35 fw-400 c-4">编辑卡册</view>
+                    <!-- <view class="rcc fs-35 fw-400 c-4">编辑卡册</view> -->
                 </view>
 
             </view>

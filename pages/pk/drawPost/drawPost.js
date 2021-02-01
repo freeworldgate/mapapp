@@ -46,10 +46,14 @@ Page({
     var pk = wx.getStorageSync('drawPk');
     wx.removeStorageSync('drawPk')
     that.data.pk = pk;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("page", false);
-    httpClient.send(request.url.queryPkCode, "GET", { pkId: pk.pkId});
+    // var httpClient = template.createHttpClient(that);
+    // httpClient.setMode("page", false);
+    // httpClient.send(request.url.queryPkCode, "GET", { pkId: pk.pkId});
 
+
+  },
+  onShow:function(){
+    var that = this;
     that.drawWxCode();
     that.drawUserImg();
     that.drawBackImg();

@@ -87,8 +87,9 @@ Page({
     var that = this;
     if(that.data.userGroup&&that.data.userGroup.statu)
     {
-      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
-      },function(){});
+      wx.navigateTo({
+        url: '/pages/pk/showText/showText?text='+that.data.userGroup.groupName
+      })
       return;
     }
 
@@ -114,8 +115,10 @@ Page({
     var that = this;
     if(that.data.userGroup&&that.data.userGroup.statu)
     {
-      template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){
-      },function(){});
+      wx.navigateTo({
+        url: '/pages/pk/showText/showText?text='+that.data.userGroup.groupDesc
+      })
+
       return;
     }
     if(that.data.userGroup&&that.data.userGroup.groupDesc){
@@ -159,6 +162,13 @@ Page({
 
   uploadGroup:function(){
     var that = this;
+    if(that.data.myLength > that.data.range)
+    {
+      template.createOperateDialog(that).show("提示", "超出有效范围",function(){
+      },function(){});
+      return;
+    }
+
     if(that.data.userGroup&&that.data.userGroup.statu)
     {
       template.createOperateDialog(that).show("提示", "当前状态不支持修改",function(){

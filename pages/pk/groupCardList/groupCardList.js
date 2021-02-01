@@ -58,8 +58,21 @@ Page({
     
 
   },
+  goUser:function(res){
+    var userId = res.currentTarget.dataset.user;
+    wx.navigateTo({
+      url: '/pages/pk/userPublishPost/userPublishPost?userId='+user,
+    })
 
 
+  },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

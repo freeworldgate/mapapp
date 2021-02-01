@@ -59,11 +59,16 @@ Page({
     var pk = wx.getStorageSync('publish-pk', that.data.pk)
     wx.removeStorageSync('publish-pk')
     that.data.pkId = options.pkId;
-    var imgFiles = options.imgs.split(",");
-    var allFiles = that.data.imgs.concat(imgFiles);
+    var allFiles = that.data.imgs;
+    if(options.imgs){
+      var imgFiles = options.imgs.split(",");
+      var allFiles = that.data.imgs.concat(imgFiles);
+    }
+
     that.setData({
       imgs:allFiles,
       pkId:options.pkId,
+      postTimes:parseInt(options.postTimes)+1,
       pk:pk
     })
     locationUtil.getLocation(function(latitude,longitude){
@@ -137,11 +142,11 @@ Page({
     })
     if(that.data.imgs.length === 0 )
     {
-      var textLeft = 60 - that.data.text.length;
-      var newText = that.data.text.substring(0,60);
+      var textLeft = 100 - that.data.text.length;
+      var newText = that.data.text.substring(0,100);
       that.setData({
         left:textLeft>0?textLeft:0,
-        maxLength:60,
+        maxLength:100,
         text:newText
       })
     }
@@ -172,11 +177,11 @@ Page({
         })
         if(that.data.imgs.length === 0 )
         {
-          var textLeft = 60 - that.data.text.length;
-          var newText = that.data.text.substring(0,60);
+          var textLeft = 100 - that.data.text.length;
+          var newText = that.data.text.substring(0,100);
           that.setData({
             left:textLeft>0?textLeft:0,
-            maxLength:60,
+            maxLength:100,
             text:newText
           })
         }
@@ -257,6 +262,7 @@ Page({
               pkId: that.data.pkId,
               title: that.data.text,
               imgUrls: urls,
+              backId: "-1",
             }
           );
 

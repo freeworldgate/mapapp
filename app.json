@@ -21,6 +21,7 @@
     
     "pages/pk/userFind/userFind",
     "pages/pk/editText/editText",
+    "pages/pk/showText/showText",
     "pages/pk/editTag/editTag",
     "pages/pk/findSomeOne/findSomeOne",
     "pages/pk/findCard/findCard",
@@ -43,7 +44,6 @@
     "pages/pk/locationApprovingImages/locationApprovingImages",
 
 
-    "pages/pk/drawImg/drawImg",
     "pages/pk/drawPost/drawPost",
     "pages/pk/uploadImgs/uploadImgs",
 

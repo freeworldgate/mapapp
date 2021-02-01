@@ -157,7 +157,7 @@
       <view wx:else class="ccc">
         <view class="rcc fs-30 fw-700 w-300 h-80 br-80 {{userGroup.groupCard&&userGroup.groupName&&userGroup.groupDesc?'b-red c-white':'b-48 c-4'}}" bindtap="{{(userGroup.groupCard&&userGroup.groupName&&userGroup.groupDesc)?'uploadGroup':''}}">发布</view>
       </view>
-      <view class="h-100"></view>
+      <view class="h-80"></view>
 
   </view>
 
