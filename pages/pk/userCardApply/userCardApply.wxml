@@ -12,64 +12,34 @@
         <view wx:if="{{type === '0'}}" class="css pl-3vw pr-3vw">
             <view class="css b-white br-20 p-3vw">
                 <view class="rbc" >
-                                <view class="rcc ">
+                                <navigator class="rcc " hover-class="none" url="/pages/pk/userPublishPost/userPublishPost?userId={{apply.applyer.userId}}">
                                     <image class="rcc w-50 h-50 br-50 " src="{{apply.applyer.imgUrl}}" mode="aspectFill"></image>
                                     <view class="w-10"></view>
-                                    <view class="rcc fs-30 fw-400" >留言</view>
-                                </view>
+                                    <view class="rcc fs-25 fw-400 c-4" >在向你打招呼</view>
+                                </navigator>
                                 <view class="fs-25 fw-300 c-4">3分钟前</view>
-                                <!-- <view class="rcc" >
-                                    
-                                                <view class="rcc">
-                                                    <view class="rcc">
-                                                        <image class="rcc w-50 h-50 br-50 " src="{{apply.applyer.imgUrl}}" mode="aspectFill"></image>
-                                                    </view>
-                                                </view> 
-                                        
-                                                
-                                
-                                </view> -->
-                            
-                                <!-- <view class="cas" style="flex:1">
-                                    <view class="css"> 
-                                        <view class="rus line-1-start fs-30 fw-400 c-word-6" >{{apply.applyer.userName}}</view>
-                                    </view>
-                                </view>
-                                <view class="rcc">
-                                    <view style="width: 10vw"></view>
-                                    <view class="fs-25 fw-300 c-4">3分钟前</view>
-                                </view> -->
+                        
 
                 </view>
                 
-                <view class="rus line-5-center fs-30 fw-700 pb-100 pt-100 c-4" style="flex:1">{{apply.text}}</view>
+                <view class="rcc fs-40 fw-400 pt-100 pb-100 line-3-center" bindtap="showText" data-text="{{apply.text}}">{{apply.text}}</view>
                 <view class="rbc">
                     <view class="rcc">
-                        <view class="rcc pl-20 pr-20 pt-10 pb-10 br-10 b-48">
+                        <view class="rcc">
                             <view class="rcc "><image class="rcc w-30 h-30" src="{{apply.lock?'/images/unlock.png':'/images/lock.png'}} " mode="aspectFit"></image></view>
-                            <view class="rcc fs-25 fw-300" >{{apply.lock?'已解锁':'未解锁'}}</view>
+                            <view class="w-10"></view>
+                            <view class="rcc fs-23 fw-300 c-3" >{{apply.lock?'已解锁':'未解锁'}}</view>
                         </view>
-                        <view class="w-20"></view>
-                        <navigator  class="rcc " hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
-                                        <view class="rcc">
-                                            <view class="rcc">
-                                                <image class="w-60 h-60" mode="aspectFit" src="/images/card.png"></image>
-                                            </view>
-                                        </view>
-                        </navigator> 
+            
+                  
                     </view>
 
                     <view class="rcc">
-                        <!-- <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700  f-shadow3 " bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
-                        <view class="w-20"></view> -->
-
 
                         <view class="rcc" bindtap="changeLock" data-apply="{{apply}}" data-index="{{bindex}}">
                             <view wx:if="{{!apply.lock}}" class="rcc h-50 w-120 b-red c-white br-10  fs-25 fw-700" >解锁</view>
                             <view wx:else class="rcc h-50 w-120 border-locate c-word-6 f-shadow3 br-10  fs-25 fw-700" >禁止</view>
                         </view>
-
-
 
                     </view>
 
@@ -85,41 +55,45 @@
             <view class="css b-white br-20 p-3vw">
                 <view class="rbc" >
                                 <view class="rcc">
-                                    <image class="rcc w-40 h-40 " src="/images/topic.png" mode="aspectFill"></image>
-                                    <view class="rcc fs-30 fw-400" >我的留言</view>
+                                        <view class="rcc "><image class="rcc w-30 h-30" src="{{apply.lock?'/images/unlock.png':'/images/lock.png'}}" mode="aspectFit"></image></view>
+                                        <view class="w-10"></view>
+                                        <view class="rcc fs-23 fw-300 c-3" >{{apply.lock?'已解锁':'未解锁'}}</view>
+                            
                                 </view>
                                 <view class="fs-25 fw-300 c-4">3分钟前</view>
                         
 
                 </view>
-                <view class="css pb-100 pt-100"><view class="rus line-5-center fs-30 fw-400 ">{{apply.text}}</view></view>
+                <view class="css pt-100 pb-100"><view class="rcc fs-40 fw-400 line-3-center" bindtap="showText" data-text="{{apply.text}}">{{apply.text}}</view></view>
                 
                 <view class="rbc">
                     <view class="rcc">
                         
     
-                        <view class="rcc pl-20 pr-20 pt-10 pb-10 br-10 b-48">
-                            <view class="rcc "><image class="rcc w-30 h-30" src="{{apply.lock?'/images/unlock.png':'/images/lock.png'}}" mode="aspectFit"></image></view>
-                            <view class="w-10"></view>
-                            <view class="rcc fs-25 fw-300 c-4" >{{apply.lock?'已解锁':'未解锁'}}</view>
-                        </view>
-                        <view class="w-20"></view>
-                        <navigator  class="rcc" hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
-                                        <view class="rcc">
+                        <view class="rcc">
+                            <navigator class="rcc" hover-class="none" url="/pages/pk/userPublishPost/userPublishPost?userId={{apply.target.userId}}">
+                                <image class="rcc w-50 h-50 br-50 " src="{{apply.target.imgUrl}}" mode="aspectFill"></image>
+                            </navigator>
+                            <view class="w-50"></view>
+                            <navigator  class="rcc" hover-class="none" url="/pages/pk/userCard/userCard?userId={{apply.target.userId}}">
                                             <view class="rcc">
-                                                <image class="w-60 h-60" mode="aspectFit" src="/images/card.png"></image>
+                                                <view class="rcc">
+                                                    <image class="w-60 h-60" mode="aspectFit" src="/images/card.png"></image>
+                                                </view>
+                                        
                                             </view>
-                                    
-                                        </view>
-                
-                        </navigator>
+
+                            </navigator>
+
+                        </view>
+
+
                         
                         
                     </view>
                     <view class="rcc">
-                        <image class="rcc w-50 h-50 br-50 " src="{{apply.target.imgUrl}}" mode="aspectFill"></image>
-                        <view class="w-20"></view>
-                        <view class="rcc h-50 w-120 border-locate c-red br-10 fs-25 fw-700" bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除</view>
+
+                        <view class="rcc h-50 w-120 border-locate br-10 fs-25 fw-300" bindtap="deletApply" data-index="{{bindex}}" data-applyid="{{apply.applyId}}">删除招呼</view>
                         <!-- <view class="rcc h-50 w-120 b-red c-white br-10  fs-25 fw-700" >删除</view> -->
 
                     </view>
@@ -143,9 +117,9 @@
   </view>
   <view wx:else class="ccc "  style="flex:1">
         <view class="rcc">
-            <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
+            <image class="h-400 w-400" mode="aspectFit" src="/images/emptydata.png" ></image>
         </view>
-        <view class="fs-30 fw-300 c-3">暂无留言</view>
+        <view class="fs-30 fw-300 c-3">空空如也</view>
         <view class="h-200"></view>
   </view>
 

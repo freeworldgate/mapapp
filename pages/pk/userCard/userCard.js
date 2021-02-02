@@ -70,9 +70,20 @@ Page({
       }
       else
       {
-        template.createOperateDialog(that).show("仅用户自身可见?", "仅用户自身可见...", function () {
+        // return;
+        template.createOperateDialog(that).show("仅用户自己有权查看", "仅用户自己有权查看...", function () {
         }, function () {});
       }
+    })
+  },
+  
+  showSingleImg:function(res){
+    var that  = this;
+    var url = res.currentTarget.dataset.url;
+   
+    wx.previewImage({
+      current:url,
+      urls:[url]
     })
   },
 
@@ -95,6 +106,13 @@ Page({
 
 
 
+  },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
   },
   onShow:function(){
     var that = this;

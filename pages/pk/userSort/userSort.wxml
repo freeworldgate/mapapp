@@ -147,7 +147,7 @@
     </view>
     <view wx:else class="ccc "  style="flex:1">
         <view class="rcc">
-            <image class="h-300 w-300" mode="aspectFit" src="{{emptyData}}" ></image>
+            <image class="h-300 w-300" mode="aspectFit" src="/images/location.png" ></image>
         </view>
         <view class="fs-30 fw-300 c-3">暂无打卡信息</view>
     </view>

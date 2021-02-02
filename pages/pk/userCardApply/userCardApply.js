@@ -75,11 +75,18 @@ Page({
 
 
   },
+  showText:function(res){
+    var that  = this;
+    var text = res.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/pages/pk/showText/showText?text='+text,
+    })
+  },
   changeLock:function(res){
     var that = this;
     var apply =  res.currentTarget.dataset.apply;
     var index =  res.currentTarget.dataset.index;
-    template.createOperateDialog(that).show(apply.lock?"禁止?":"解锁?", apply.lock?"禁止?":"解锁?", function () {
+    template.createOperateDialog(that).show(apply.lock?"禁止?":"解锁?", apply.lock?"禁止用户查看你的二维码名片...":"解锁后，留言用户能够查看你的二维码名片...", function () {
       var httpClient = template.createHttpClient(that);
       httpClient.setMode("label", true);
       httpClient.addHandler("success", function () {

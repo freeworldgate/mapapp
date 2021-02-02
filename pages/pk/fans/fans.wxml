@@ -45,7 +45,7 @@
     </view>
     <view wx:else class="ccc "  style="flex:1">
         <view class="rcc">
-            <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
+            <image class="h-400 w-400" mode="aspectFit" src="/images/emptydata.png" ></image>
         </view>
         <view class="fs-30 fw-300 c-3">暂无粉丝</view>
 

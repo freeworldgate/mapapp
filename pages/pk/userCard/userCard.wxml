@@ -7,11 +7,11 @@
                     <view class="rbc p-3vw" >
                             <view class="rcc" >
                                 
-                                            <view class="rcc">
+                                            <navigator class="rcc" hover-class="none" url="/pages/pk/userPublishPost/userPublishPost?userId={{userCard.user.userId}}">
                                                 <view class="rcc pr-10 pt-20 pb-20">
                                                     <image class="rcc w-60 h-60 br-60 " src="{{userCard.user.imgUrl}}" mode="aspectFill"></image>
                                                 </view>
-                                            </view> 
+                                            </navigator> 
                                 
                             
                             </view>
@@ -42,11 +42,11 @@
         
                     <!-- //图片 -->
                     <view class="rcc" style="width:90vw;height:90vw">
-                        <image wx:if="{{userCard.userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard.userCard}}" ></image>
+                        <image wx:if="{{userCard.userCard}}" class="" style="width:90vw;height:90vw " mode="aspectFill" src="{{userCard.userCard}}"  bindtap="showSingleImg" data-url="{{userCard.userCard}}" ></image>
                         <image wx:else class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/img.png" ></image>
 
                         <view hidden="{{(userCard.user.userId===user.userId) || userApply.lock}}" class="rcc absolute b-user-card" style="width:90vw;height:90vw">
-                            <image class="" style="width:90vw;height:90vw " mode="aspectFit" src="/images/lockCard.png" ></image>
+                            <image style="width:90vw;height:90vw " mode="aspectFit" src="/images/lockCard.png" ></image>
                         </view>
                     </view>
                     <view class="css p-3vw">
@@ -57,16 +57,19 @@
                             <view class="rcc p-10 fs-28 fw-400 c-4 " style="flex:1" bindtap="userCardApply" data-type="1" data-targetid="{{userCard.user.userId}}">{{userCard.user.userId===user.userId?'我':'Ta'}}想认识的人({{userCard.meLike}})</view>
                             
                         </view>
-                        <view style="height:3vw"></view>
-                        <view hidden="{{!userApply}}" class="rss pb-20">
-                            <view class="rcc">
-                                <image class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userApply.applyer.imgUrl}}" ></image>
-                            </view>
-                            <view class="w-10"></view>
-                            <view class="cas " style="flex:1">
-                                <view class="rus line-1-start fs-25 fw-300 c-3">{{userApply.text}}</view>
+                        
+                        <view class="csc h-50">
+                            <view hidden="{{!userApply}}" class="rss ">
+                                <view class="rcc">
+                                    <image class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{userApply.applyer.imgUrl}}" ></image>
+                                </view>
+                                <view class="w-10"></view>
+                                <view class="cas " style="flex:1" bindtap="showText" data-text="{{userApply.text}}">
+                                    <view class="rus line-1-start fs-25 fw-300 c-3">{{userApply.text}}</view>
+                                </view>
                             </view>
                         </view>
+
 
                     </view>
                 </view>
@@ -80,11 +83,11 @@
                
                     </view>
                     <view class="rcc">
-                        <image hidden="{{!userCard.member3}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member3.imgUrl}}" ></image>
+                        <image hidden="{{!userCard.member3}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{userCard.member3.imgUrl}}" ></image>
                         <view  hidden="{{!userCard.member2}}" class="w-10"></view>
-                        <image hidden="{{!userCard.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member2.imgUrl}}" ></image>
+                        <image hidden="{{!userCard.member2}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{userCard.member2.imgUrl}}" ></image>
                         <view  hidden="{{!userCard.member1}}" class="w-10"></view>
-                        <image hidden="{{!userCard.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFit" src="{{userCard.member1.imgUrl}}" ></image>
+                        <image hidden="{{!userCard.member1}}" class="rcc w-40 h-40 br-40" mode="aspectFill" src="{{userCard.member1.imgUrl}}" ></image>
                     </view>
 
                 </view>

@@ -167,7 +167,7 @@
     </view>
     <view wx:else class="ccc z2 "   style="height:100vh">
         <view class="rcc">
-            <image class="h-300 w-300" mode="aspectFit" src="location.png" ></image>
+            <image class="h-300 w-300" mode="aspectFit" src="/images/location.png" ></image>
         </view>
         <view class="fs-30 fw-400 c-3">暂无卡点</view>
     

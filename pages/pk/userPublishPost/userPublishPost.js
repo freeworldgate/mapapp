@@ -249,7 +249,8 @@ Page({
       }
       else
       {
-        template.createOperateDialog(that).show("仅用户自身可见?", "仅用户自身可见...", function () {
+        // return;
+        template.createOperateDialog(that).show("仅用户自己有权查看?", "仅用户自己有权查看...", function () {
         }, function () {});
     
       }

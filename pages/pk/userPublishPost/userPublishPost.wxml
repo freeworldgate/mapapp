@@ -37,7 +37,7 @@
         </view>
         <view class="rbc-nowrap pl-30 pr-30 pt-10 " >
             <view class="rcc pt-10" style="min-width:200rpx;max-width:260rpx">
-                <view class="rcc fs-45 fw-900 line-1-start">{{user.userName}}</view>
+                <view class="rcc fs-45 fw-900 line-1-start">{{creator.userName}}</view>
 
             </view>
             
