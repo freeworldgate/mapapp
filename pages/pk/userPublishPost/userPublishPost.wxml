@@ -3,7 +3,7 @@
         <view  class="css absolute z1" bindtap="{{creator.userId===user.userId?'uploadImg':''}}" data-userid="{{creator.userId}}" style="width: 100vw; height: 55vw;background-position: center;background-image: url({{userDynamic.userBack}});background-repeat: no-repeat;background-size: 100% auto;"></view>
         <view class="" style="height:50vw"></view>
         <view class="rbc pl-3vw pr-3vw z2">
-            <image class="" style="width: 200rpx; height: 200rpx; border-radius:200rpx" mode="aspectFill" src="{{creator.imgUrl}}"></image>
+            <image class="" style="width: 200rpx; height: 200rpx; border-radius:200rpx" mode="aspectFill" src="{{creator.imgUrl}}" bindtap="showSingleImg" data-url="{{creator.imgUrl}}"></image>
             <view class="rcc">
                 <view class="rcc">
                     <navigator  wx:if="{{user.userId === creator.userId}}" class="rcc h-70 w-200 b-48 br-10 " hover-class="none" url="/pages/pk/followers/followers?userId={{creator.userId}}">
@@ -181,7 +181,7 @@
                                                     </view>
                                                     
                                                 </view>
-                                                <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
+                                                <text wx:else class="{{post.tag?'':'line-3-start '}} rus fs-32 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</text>
        
                                                 <view class="h-10"></view>
                                             </view>

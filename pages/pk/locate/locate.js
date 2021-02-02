@@ -496,12 +496,31 @@ Page({
       url: '/pages/pk/showLocation/showLocation',
     })
   },
+
+
+
   showText:function(res){
     var that  = this;
     var text = res.currentTarget.dataset.text;
     wx.navigateTo({
       url: '/pages/pk/showText/showText?text='+text,
     })
+  },
+
+
+  changeUser:function(){
+    var that = this;
+    var httpClient = template.createHttpClient(that);
+    httpClient.setMode("label", false);
+    httpClient.addHandler("success", function (user) {
+        wx.setStorageSync('user', user)
+        wx.reLaunch({
+          url: '/pages/pk/locate/locate',
+        })
+    })
+    httpClient.send(request.url.changeUser, "GET",{});   
+
+
   }
 
 })

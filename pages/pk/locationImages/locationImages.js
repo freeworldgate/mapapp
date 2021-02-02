@@ -191,4 +191,19 @@ Page({
       url: '/pages/pk/userPublishPost/userPublishPost?userId='+userId,
     })
   },
+  showImg:function(res){
+    var that  = this;
+    var index = res.currentTarget.dataset.index;
+    var imgs = res.currentTarget.dataset.imgs;
+    var current = imgs[index].imgUrl;
+    var images = [];
+    for(var i=0;i<imgs.length;i++)
+    {
+        images[i] = imgs[i].imgUrl;
+    }
+    wx.previewImage({
+      current:current,
+      urls: images,
+    })
+  },
 })

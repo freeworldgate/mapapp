@@ -17,7 +17,7 @@
                                                                         </view>
                                                                         <view wx:else class="rcc fs-23 fw-300">计算中</view>
                                                                 </view>
-                                                                <view class="h-30"></view>
+                                                                <view class="h-40"></view>
                                                                 <view class="rcs h-45 lbr-45 pl-20 pr-10 b-publish c-white" bindtap="userSort" data-pkid="{{pk.pkId}}">
                                                                    
                                                                         <view class="rcc fs-23 fw-300">记录:</view>
@@ -290,7 +290,7 @@
                                                     </view>
                                                     
                                                 </view>
-                                                <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
+                                                <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-32 fw-500 pt-10" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
                                                 <view class="h-10"></view>
 
                                             </view>

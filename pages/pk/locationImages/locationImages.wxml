@@ -1,4 +1,4 @@
-<view class="css z3 b-white"  style="min-height:100vh">
+<view class="css b-white"  style="min-height:100vh">
     <!-- <view  class="css" style="width: 100vw; height: 80vw" >
         <image style="width: 100vw; height: 80vw" src="{{pkBackUrl}}" mode="aspectFill"></image>
         <view class="absolute cbs" style="width: 100vw; height: 80vw" >
@@ -15,7 +15,7 @@
         <view class="css" wx:for="{{images}}" wx:for-index="bindex" wx:for-item="image" wx:key="postkey">
             <view class="css" style="width: 100vw; height: 80vw" >
 
-                <image  style="width: 100vw; height: 80vw" src="{{image.imgUrl}}" mode="aspectFill"></image>
+                <image class="z1" style="width: 100vw; height: 80vw" src="{{image.imgUrl}}" mode="aspectFill" bindtap="showImg" data-index="{{bindex}}" data-imgs="{{images}}"></image>
                 <view class="absolute cbs" style="width: 100vw; height: 80vw" >
                     <view class="rbc p-20">
                         <view class="rcc">
@@ -28,7 +28,7 @@
 
 
                     </view>
-                    <view class="rbc p-20">
+                    <view class="rbc p-20 z3">
                         <view class="rcc" bindtap="goUser" data-user="{{image.user.userId}}">
                             <view class="rcc h-60 w-60 br-60 b-white box8"><image class="rcc w-50 h-50 br-50" src="{{image.user.imgUrl}}" mode="aspectFill"></image></view>
                             <view class="w-20"></view>
@@ -55,7 +55,7 @@
     </view>
     <view wx:else class="ccc z2 "  style="padding-top:30vh">
         <view class="rcc">
-            <image class="h-400 w-400" mode="aspectFit" src="{{emptyImage}}" ></image>
+            <image class="h-400 w-400" mode="aspectFit" src="/images/img.png" ></image>
         </view>
         <view class="fs-30 fw-400 c-3">暂无图片</view>
 

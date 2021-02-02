@@ -1,6 +1,6 @@
- var host = 'https://www.211shopper.com'; 
+//  var host = 'https://www.211shopper.com'; 
 // var host = 'http://192.168.2.245:8080'; 
-// var host = 'http://192.168.43.67:8080'; 
+var host = 'http://192.168.43.67:8080'; 
 
 // 上传图片接口 
 var uploadUrl = 'https://oss.211shopper.com'; 
@@ -324,7 +324,7 @@ var url = {
         oneTimeTask:`${host}/pk/oneTimeTask`, 
         // 登录地址，用于建立会话 
         loginUrl: `${host}/user/login`, 
-        userRegister: `${host}/user/register`, 
+        changeUser: `${host}/user/changeUser`, 
         getVCode: `${host}/user/vcode`, 
         getOssUploadUrl: `${host}/oss/getUrl`, 
         postUploadImgs: `${host}/oss/postUploadImgs`, 

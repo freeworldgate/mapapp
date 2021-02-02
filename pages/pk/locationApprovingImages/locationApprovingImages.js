@@ -108,6 +108,27 @@ Page({
 
 
   },
+  showImg:function(res){
+    var that  = this;
+    var index = res.currentTarget.dataset.index;
+    var imgs = res.currentTarget.dataset.imgs;
+    var current = imgs[index].imgUrl;
+    var images = [];
+    for(var i=0;i<imgs.length;i++)
+    {
+        images[i] = imgs[i].imgUrl;
+    }
+    wx.previewImage({
+      current:current,
+      urls: images,
+    })
+  },
+  goUser:function(res){
+    var userId = res.currentTarget.dataset.user;
+    wx.navigateTo({
+      url: '/pages/pk/userPublishPost/userPublishPost?userId='+userId,
+    })
+  },
   nextPage: function () {
     var that = this;
     var httpClient = template.createHttpClient(that);

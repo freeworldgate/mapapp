@@ -4,11 +4,11 @@
 
 
 
-    <view style="height:{{top+32}}px"></view>
 
-    <view class="h-30"></view> 
 
     <view wx:if="{{pks.length > 0}}" class="css z2" >
+        <view style="height:{{top+32}}px"></view>
+        <view class="h-30"></view> 
         <view class="css">
         
 
@@ -165,9 +165,9 @@
         </view>
 
     </view>
-    <view wx:else class="ccc z2 "  style="padding-top:70rpx">
+    <view wx:else class="ccc z2 "   style="height:100vh">
         <view class="rcc">
-            <image class="h-300 w-300" mode="aspectFit" src="{{emptyImage}}" ></image>
+            <image class="h-300 w-300" mode="aspectFit" src="location.png" ></image>
         </view>
         <view class="fs-30 fw-400 c-3">暂无卡点</view>
     

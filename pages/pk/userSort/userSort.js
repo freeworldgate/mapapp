@@ -58,73 +58,13 @@ Page({
   {
     var that = this;
     var index = res.currentTarget.dataset.index;
-    var tag = 'posts['+index+'].tag';
-    var ctag = that.data.posts[index].tag;
+    var tag = 'sorts['+index+'].tag';
+    var ctag = that.data.sorts[index].tag;
     that.setData({
       [tag]:!ctag
     })
   },
-  uploadImage:function(){
-    var that = this;
-  
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed', 'original'],
-      sourceType: ['album'],
-      success(res) {
-        var files = res.tempFilePaths;
-        template.uploadImages3("PK-User-Back", files,that, function(urls){
 
-          var httpClient = template.createHttpClient(that);
-          httpClient.setMode("label", true);
-          httpClient.addHandler("success", function (image) {
-
-              for(var i=0;i<that.data.images.length;i++)
-              {
-                  if(image.imageId === that.data.images[i].imageId ){
-                    that.data.images.splice(i, 1); 
-                    break;
-                  }
-
-              }
-
-
-              that.data.images.unshift(image);
-              that.setData({
-                images:that.data.images
-              })
-          })
-          httpClient.send(request.url.uploadPkImages, "GET", { pkId:that.data.pkId,imgUrl:urls[0]});
-
-
-
-
-        }, function(){});
-
-
-      },
-    })
-
-
-
-
-
-
-  },
-  userCenter:function(res){
-    var that = this;
-    var follower =  res.currentTarget.dataset.follower;
-
-    login.getUser(function(user){
-      wx.navigateTo({
-        url: '/pages/pk/userPublishPost/userPublishPost?userId='+follower.userId,
-      })
-
-    })
-
-
-
-  },
 
   showImg:function(res){
     var that  = this;
@@ -144,33 +84,7 @@ Page({
   },
 
 
-  follow:function(res){
-    var that = this;
-    var targetId = res.currentTarget.dataset.targetid;
-    var index = res.currentTarget.dataset.index;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("", true);
-    httpClient.send(request.url.followUser, "GET", {followerId:targetId});
-    var key = "followers["+index+"].followStatu";
-    that.setData({
-      [key] : 1,
-    });
 
-
-  },
-  cancelFollow:function(res){
-    var that = this;
-    var targetId = res.currentTarget.dataset.targetid;
-    var index = res.currentTarget.dataset.index;
-    var httpClient = template.createHttpClient(that);
-    httpClient.setMode("", true);
-    httpClient.send(request.url.cancelFollow, "GET", {followerId:targetId});
-    var key = "followers["+index+"].followStatu";
-    that.setData({
-      [key] : 0,
-    });
-
-  },
   onReachBottom:function(){
     if(!this.data.nomore)
     {
@@ -195,14 +109,5 @@ Page({
 
     // wx.stopPullDownRefresh()
   },
-  setUser:function(res){
-    var userId =  res.currentTarget.dataset.user;
-    var user = wx.getStorageInfoSync("user");
-    user.userId = userId;
-    wx.setStorageSync('user', user);
-    wx.reLaunch({
-      url: '/pages/pk/locate/locate',
-    })
 
-  }
 })

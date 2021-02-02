@@ -1,11 +1,11 @@
-<view class="css z3 b-white"  style="min-height:100vh">
+<view class="css b-white"  style="min-height:100vh">
 
     <view wx:if="{{images&&images.length>0}}" class="css">
 
         <view class="css" wx:for="{{images}}" wx:for-index="bindex" wx:for-item="image" wx:key="postkey">
             <view class="css" style="width: 100vw; height: 70vw" >
 
-                <image  style="width: 100vw; height: 70vw" src="{{image.imgUrl}}" mode="aspectFill"></image>
+                <image class="z1" style="width: 100vw; height: 70vw" src="{{image.imgUrl}}" mode="aspectFill" bindtap="showImg" data-index="{{bindex}}" data-imgs="{{images}}"></image>
                 <view class="absolute cbs" style="width: 100vw; height: 70vw" >
                     <view class="rbc p-20">
                         <view class="rcc">
@@ -18,8 +18,8 @@
 
 
                     </view>
-                    <view class="rbc p-20">
-                        <view class="rcc">
+                    <view class="rbc p-20 z3">
+                        <view class="rcc" bindtap="goUser" data-user="{{image.user.userId}}">
                             <view class="rcc h-60 w-60 br-60 b-white box8"><image class="rcc w-50 h-50 br-50" src="{{image.user.imgUrl}}" mode="aspectFill"></image></view>
                             <view class="w-20"></view>
                             <view class="rus line-1-start fs-30 fw-650 c-white w-200 f-shadow3">{{image.user.userName}}</view>

@@ -1,5 +1,5 @@
 <!--pages/pk/findCard/findCard.wxml-->
-<view class="csc {{findUser?'b-black':'b-white'}} " style="min-height:100vh;background-position: center;background-image: url({{findUser?backUrl:''}});background-repeat: no-repeat;background-size: 100% 100%; ">
+<view class="csc b-black" style="min-height:100vh;background-position: center;background-image: url({{backUrl}});background-repeat: no-repeat;background-size: 100% 100%; ">
 
     <view wx:if="{{findUser}}" class="css">
 
@@ -155,8 +155,8 @@
 
     </view>
     <view wx:else class="ccc" style="height:100vh">
-                <image class="rcc w-400 h-400" src="{{userFindImage}}" mode="aspectFit"></image>
-                <view class="rcc fs-30 fw-300 c-3">捞人卡已失效</view>
+                <!-- <image class="rcc w-400 h-400" src="{{userFindImage}}" mode="aspectFit"></image> -->
+                <view class="rcc fs-30 fw-700 p-20 br-20 b-white">卡片已失效</view>
     </view>
 
 

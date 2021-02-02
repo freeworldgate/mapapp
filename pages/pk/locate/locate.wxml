@@ -5,11 +5,11 @@
 </view>
 <!-- //头部 -->
 <!-- //头部 -->
-<view hidden="{{!pageTag}}" class="css customBar z3 buildHead" >
+<view hidden="{{!pageTag}}" class="css customBar z20 buildHead" >
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 
-      <view class="rcc h-32px ">
+      <view class="rcc h-32px" bindtap="changeUser">
           <image class="h-35 w-35" mode="aspectFit" src="/images/daka.png"></image>
           <view class="fs-30 fw-700 c-word-6 f-shadow3">周边卡点</view>
       </view>
@@ -76,8 +76,8 @@
                                         </view>
                 </view>
                 <view class="h-70"></view>
-                <view class=" rcc ">
-                                    <view  class="w-90 h-90 br-90 rcc box8 b-white" bindtap="userCenter">
+                <view class=" rcc">
+                                    <view  class="w-90 h-90 br-90 rcc box8 b-white"  bindtap="userCenter">
                                             <image wx:if="{{user}}" class="rcc w-80 h-80 br-80 border10-2" mode="aspectFill" src="{{user.imgUrl}}"></image>
                                             <image wx:else class="rcc w-50 h-50 " mode="aspectFit" src="/images/user.png"></image>
                                     

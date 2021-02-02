@@ -149,7 +149,7 @@
 
         </view>
         <view class="rcc">
-            <view class="rcc fs-35 fw-700 c-white">捞人</view>
+            <view class="rcc fs-35 fw-700 c-white">捞一捞</view>
         </view>
         
         <view class="rcc" style="flex:1">

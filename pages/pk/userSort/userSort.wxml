@@ -26,7 +26,7 @@
 
         <view class="css" wx:for="{{sorts}}" wx:for-index="bindex" wx:for-item="post" wx:key="postkey">
                 <view class="b-48 h-10"></view>
-                <view class="css pt-40 pb-40"  bindtap="inPk" data-pkid="{{post.pkId}}">
+                <view class="css pt-40 pb-40" >
                     <view class="rss b-white" >
             
                         <view class="css" style="width: 15vw">
@@ -59,7 +59,7 @@
                                                         <text class="{{post.tag?'line-100-center':'line-5-center '}} fs-35 fw-700" bindtap="openText" data-index="{{bindex}}" style="color:#{{post.fontColor}}">{{post.topic}}</text>
                                                     </view>
                                                 </view>
-                                                <view wx:else class="{{post.tag?'':'line-3-start '}} rus fs-30 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</view>
+                                                <text wx:else class="{{post.tag?'':'line-3-start '}} rus fs-32 fw-500" bindtap="openText" data-index="{{bindex}}" >{{post.topic}}</text>
 
                                                 <view class="h-10"></view>
                                             </view>
