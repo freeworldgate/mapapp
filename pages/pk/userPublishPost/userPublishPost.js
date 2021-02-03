@@ -52,7 +52,7 @@ Page({
   onReachBottom: function () {
     var that = this;
 
-      if(that.data.pkEnd){return;}
+      if(that.data.nomore){return;}
       var user = wx.getStorageSync('user');
       var fromUser = wx.getStorageSync('fromUser')
       var httpClient = template.createHttpClient(that);

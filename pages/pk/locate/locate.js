@@ -288,10 +288,9 @@ Page({
       autoplay:true
     })
     var user = wx.getStorageSync('user');
-    if(!that.data.user)
-    {
-      that.setData({user:user})
-    }
+
+    that.setData({user:user})
+
 
     that.updateDistance();
     if(that.data.choose){

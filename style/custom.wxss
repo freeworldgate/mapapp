@@ -527,14 +527,14 @@
   /* background-color: rgb(255, 0, 0); */
 }
 .dialogTip{
-    width: 80vw;
+    width: 90vw;
 
     /* height: 30%; */
     position: fixed;
     z-index: 31;
-    top: 22vh; 
+    top: 40vh; 
     /* top:0px; */
-    left: 10vw;
+    left: 5vw;
 
 
     /* padding-right: 70rx;

@@ -683,19 +683,27 @@ Page({
               lengthStr:distance<1?distance*1000:distance
             })
 
-            // if(distance*1000 > that.data.pk.type.rangeLength)
-            // {
-            //   template.createDialog(that).show("超出打卡区域","您所在区域不在卡点可打卡范围之内");
-            //   return;
-            // }
-            // //非打卡时间
-            // if(that.data.leftTime > 0)
-            // {
-            //   that.setData({
-            //     showTime:true
-            //   })
-            //   return;
-            // }
+            if(distance*1000 > that.data.pk.type.rangeLength)
+            {
+
+              template.createOperateDialog(that).show("不在可打卡范围内，查看卡点范围?", "不在可打卡范围内，查看卡点范围?", function () {
+                var pk = that.data.pk;
+                wx.setStorageSync('locationShow', pk)
+                wx.navigateTo({
+                  url: '/pages/pk/showLocation/showLocation',
+                })
+              }, function () {});
+          
+              return;
+            }
+            //非打卡时间
+            if(that.data.leftTime > 0)
+            {
+              that.setData({
+                showTime:true
+              })
+              return;
+            }
             wx.chooseImage({
               count: 9,
               sizeType: ['compressed', 'original'],
@@ -731,19 +739,25 @@ Page({
               lengthStr:distance<1?distance*1000:distance
             })
 
-            // if(distance*1000 > that.data.pk.type.rangeLength)
-            // {
-            //   template.createDialog(that).show("超出打卡区域","您所在区域不在卡点可打卡范围之内");
-            //   return;
-            // }
-            // //非打卡时间
-            // if(that.data.leftTime > 0)
-            // {
-            //   that.setData({
-            //     showTime:true
-            //   })
-            //   return;
-            // }
+            if(distance*1000 > that.data.pk.type.rangeLength)
+            {
+              template.createOperateDialog(that).show("不在可打卡范围内，查看卡点范围?", "不在可打卡范围内，查看卡点范围?", function () {
+                var pk = that.data.pk;
+                wx.setStorageSync('locationShow', pk)
+                wx.navigateTo({
+                  url: '/pages/pk/showLocation/showLocation',
+                })
+              }, function () {});
+              return;
+            }
+            //非打卡时间
+            if(that.data.leftTime > 0)
+            {
+              that.setData({
+                showTime:true
+              })
+              return;
+            }
             wx.setStorageSync('publish-pk', that.data.pk)
             wx.navigateTo({
               url: '/pages/pk/uploadImgs/uploadImgs?pkId=' + that.data.pkId+"&postTimes="+that.data.postTimes

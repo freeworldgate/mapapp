@@ -370,7 +370,7 @@
         <view class="rcc">
 
             <view class=" rcc">
-                                    <view wx:if="{{length<pk.type.rangeLength && leftTime < 1}}" bindtap="signLocation" bindlongpress="signLocation1" class=" w-100 h-100 br-100 rcc box100 b-publish" >
+                                    <view wx:if="{{length<pk.type.rangeLength && leftTime < 1}}" bindtap="signLocation" bindlongtap="signLocation1" class=" w-100 h-100 br-100 rcc box100 b-publish" >
                                         <view class="rcc ">
                                             <image class="rcc w-50 h-50 " mode="aspectFit" src="/images/pan.png"></image>
                                         </view>
@@ -420,7 +420,7 @@
 <!-- 时间 -->
 <view class="coverAll" hidden="{{!showTime}}"  bindtap="hiddeTime"></view>
 <view class="css dialogTip" hidden="{{!showTime}}">
-        <view class="css b-white br-20"   >
+        <!-- <view class="css b-white br-20"   >
             <view class="cbs" style="flex:1">
                 <view class="h-100"></view>
                 <view class="rcc">
@@ -435,8 +435,26 @@
             </view>
 
 
-        </view>
+        </view> -->
 
+        <view class="css b-white br-10"   >
+            <view class="css p-5vw ">
+                <view class="rbc pt-70 pb-70">
+                    <view class="rcs fs-35 fw-300">距离下次可打卡时间:</view>
+                    <view class="rus fs-35 h-50 fw-700">{{hourStr}}:{{minStr}}:{{secStr}}</view>
+                </view>
+                <view class="h-3vw"></view>
+                <view class="rbc pl-3vw pr-3vw">
+                    <view></view>
+                    <view class="rcc">
+                        <view class="rcc fs-32 fw-300 c-green"  bindtap="hiddeTime" >知道了</view>
+                    </view>
+                    
+                </view>
+                <!-- <view class="rcc p-30 fs-25 fw-400 c-3"  bindtap="operateDialog_cancel">知道了</view> -->
+
+            </view>
+        </view>
 </view>
 
 
@@ -459,27 +477,27 @@
 
     <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
     <view class="css dialogTip" hidden="{{dialog.visible!=true}}">
-        <view class="css b-white br-20"   >
-            <view class="cbs" style="flex:1">
-                <view class="rcc">
-                     <image class="w-300 h-300" mode="aspectFit" src="{{dialog.tipImg}}"></image>
+
+        <view class="css b-white br-10"   >
+ 
+            <view class="css p-5vw ">
+                <view class="css pt-70 pb-70">
+                    <view class="rus fs-35 fw-300 line-3-start">{{operateDialog.text}}</view> 
                 </view>
-                
-                <view class="css">
-                    <view class="rcc fs-40 fw-700 c-tipColor pl-4vw pr-4vw line-3-center">{{dialog.title}}</view>
-                    <view class="h-20"></view>
-                    <view class="rcc-wrap fs-28 fw-400 c-3  pl-4vw pr-4vw  line-3-center">{{dialog.text}}</view> <view class="h-40"></view>
-                </view>
-                <view></view>
-                <view></view>
-                <view class="rcc pt-50 pb-50">
-                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="dialog_confirm" >知道了</view>
+                <view class="h-3vw"></view>
+                <view class="rbc pl-3vw pr-3vw">
+                    <view></view>
+                    <view class="rcc">
+                        <view class="rcc fs-32 fw-300 c-green"  bindtap="dialog_confirm" >知道了</view>
+                    </view>
+                    
                 </view>
     
             </view>
 
 
         </view>
+ 
         <!-- <view class="rcc p-100">
             <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
         </view> -->
@@ -497,37 +515,31 @@
     </view>
     <view class="coverAll" hidden="{{operateDialog.visible!=true}}"  catchtouchmove="return"></view>
     <view class="css dialogTip" hidden="{{operateDialog.visible!=true}}">
-        <view class="css b-white br-20"   >
-            <!-- <view class="rcc">
-                <view class="rcc absolute ">
-                    <image class="w-600 h-400" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+        <view class="css b-white br-10"   >
+ 
+            <view class="css p-5vw ">
+                <view class="css pt-70 pb-70">
+                    <view class="rus fs-35 fw-300 line-3-start">{{operateDialog.text}}</view> 
                 </view>
-            </view> -->
-            <view class="cbs" style="flex:1">
-                <view class="rcc">
-                    <image class="w-300 h-300" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                <view class="h-3vw"></view>
+                <view class="rbc pl-3vw pr-3vw">
+                    <view></view>
+                    <view class="rcc">
+                        <view class="rcc fs-32 fw-300 c-3"  bindtap="operateDialog_cancel">取消</view> 
+                        <view class="w-70"></view>
+                        <view class="rcc fs-32 fw-300 c-green"  bindtap="operateDialog_confirm" >确定</view>
+                    </view>
+                    
                 </view>
-                <view class="css">
-                    <view class="rcc fs-40 fw-700 c-tipColor pl-4vw pr-4vw line-3-center">{{operateDialog.title}}</view>
-                    <view class="h-20"></view>
-                    <view class="rcc-wrap fs-28 fw-400 c-3  pl-4vw pr-4vw  line-3-center">{{operateDialog.text}}</view> <view class="h-40"></view>
-                </view>
-
-                <view></view>
-                <view></view>
-
-                <view class="rcc ">
-                    <view class="rcc w-250 h-70 br-20 bTipColor fs-25 fw-400 c-white"  bindtap="operateDialog_confirm" >确定</view>
-                </view>
-                <view class="rcc p-30 fs-25 fw-400 c-3"  bindtap="operateDialog_cancel">知道了</view>
+                <!-- <view class="rcc p-30 fs-25 fw-400 c-3"  bindtap="operateDialog_cancel">知道了</view> -->
     
             </view>
 
 
         </view>
-        <view class="rcc p-100">
+        <!-- <view class="rcc p-100">
             <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
-        </view>
+        </view> -->
     </view>
 
 
