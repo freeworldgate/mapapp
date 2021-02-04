@@ -175,11 +175,7 @@ Page({
       httpClient.setMode("label", true);
       httpClient.send(request.url.userPublishPosts, "GET", {targetId:that.data.targetId});
   },
-  back:function(){
-    wx.navigateBack({
-      complete: (res) => {},
-    })
-  },
+
 
 
 
@@ -250,8 +246,7 @@ Page({
       else
       {
         // return;
-        template.createOperateDialog(that).show("仅用户自己有权查看?", "仅用户自己有权查看...", function () {
-        }, function () {});
+        template.createDialog(that).show("仅用户自己有权查看?", "仅用户自己有权查看...");
     
       }
     })
@@ -261,7 +256,12 @@ Page({
 
 
 
-  }
+  },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
 
 
 

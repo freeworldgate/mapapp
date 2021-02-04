@@ -48,11 +48,7 @@ Page({
     httpClient.send(request.url.queryPkImages, "GET", { pkId:pkId});
 
   },
-  back:function(){
-    wx.navigateBack({
-      delta: 0,
-    })
-  },
+
   uploadImage:function(){
     var that = this;
   
@@ -204,6 +200,11 @@ Page({
     wx.previewImage({
       current:current,
       urls: images,
+    })
+  },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
     })
   },
 })

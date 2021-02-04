@@ -196,7 +196,11 @@ Page({
       },
     })
   },
-  
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   
   upload:function(){
     var that = this;
@@ -206,16 +210,35 @@ Page({
         var httpClient = template.createHttpClient(that);
         httpClient.setMode("label", true);
         httpClient.addHandler("success", function (post) {
-          tip.showTip("上传成功......");
+              tip.showTip("上传成功......");
+              var pages = getCurrentPages();
+              var prevPage = pages[pages.length - 2];  //上一个页面
+              if(prevPage.data.posts && prevPage.data.posts.length>0 && prevPage.data.pk.topPostId === prevPage.data.posts[0].postId)
+              {//存在顶置 
+                prevPage.data.posts.splice(1, 0,post); 
+              }
+              else
+              {//不存在顶置
+                prevPage.data.posts.unshift(post);
+              }
+              prevPage.setData({
+                posts:prevPage.data.posts
+              })
+              wx.navigateBack({
+                delta: 0,
+              })
 
-          template.createLabelLoading(that).hide();
-          wx.setStorageSync("userPost", post)
-          wx.navigateBack({
-            complete: (res) => {
+
+
+
+
+          // template.createLabelLoading(that).hide();
+          // wx.setStorageSync("userPost", post)
+          // wx.navigateBack({
+          //   complete: (res) => {
               
-              
-            },
-          })
+          //   },
+          // })
 
         })
         httpClient.send(request.url.createPost, "GET",
@@ -246,14 +269,21 @@ Page({
           httpClient.setMode("label", true);
           httpClient.addHandler("success", function (post) {
             tip.showTip("上传成功......");
-
-            template.createLabelLoading(that).hide();
-            wx.setStorageSync("userPost", post)
+            var pages = getCurrentPages();
+            var prevPage = pages[pages.length - 2];  //上一个页面
+            if(prevPage.data.posts && prevPage.data.posts.length>0 && prevPage.data.pk.topPostId === prevPage.data.posts[0].postId)
+            {//存在顶置 
+              prevPage.data.posts.splice(1, 0,post); 
+            }
+            else
+            {//不存在顶置
+              prevPage.data.posts.unshift(post);
+            }
+            prevPage.setData({
+              posts:prevPage.data.posts
+            })
             wx.navigateBack({
-              complete: (res) => {
-                
-                
-              },
+              delta: 0,
             })
 
           })

@@ -99,6 +99,7 @@ Page({
     }, function () {});
 
   },
+
   onReachBottom:function(){
     if(!this.data.nomore)
     {

@@ -59,5 +59,10 @@ Page({
       delta: 0,
     })
 
+  },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
   }
 })

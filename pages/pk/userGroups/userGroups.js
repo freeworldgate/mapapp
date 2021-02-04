@@ -60,6 +60,11 @@ Page({
     })
 
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   queryPks:function (tab) {
     var that = this;
     var httpClient = template.createHttpClient(that);

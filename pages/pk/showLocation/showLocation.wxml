@@ -12,7 +12,7 @@
   <view class="rcs " style="height:{{top}}px"></view>
   <view class="rcs " style="height:32px">
 
-      <view class="rcc h-32px ">
+      <view class="rcc h-32px " bindtap="back">
           <image class="h-30 w-30" mode="aspectFit" src="/images/back.png"></image>
           <view class="fs-30 fw-700 c-4">卡点距离</view>
       </view>
@@ -22,7 +22,7 @@
 </view>
 
 <!-- 距离 -->
-<view hidden="{{!lengthStr}}" class="rcc z4" style="position: fixed;left:0;top:{{top}}px;width:100vw;height:32px">
+<view hidden="{{!lengthStr}}" class="rcc z4" style="position: fixed;left:20vw;top:{{top}}px;width:60vw;height:32px">
     <view class="rcc pl-40 pr-40 br-20 b-publish " style="height:32px">
         <!-- <view></view> -->
         <view class="c-white fs-25 fw-700">距离{{lengthStr}}</view>

@@ -58,6 +58,11 @@ Page({
     
 
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   goUser:function(res){
     var userId = res.currentTarget.dataset.user;
     wx.navigateTo({

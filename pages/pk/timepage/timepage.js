@@ -499,24 +499,7 @@ Page({
   onShow:function(){
     var that = this;
     that.data.locationUpdate = true;
-    var userPost = wx.getStorageSync('userPost');
-    wx.removeStorageSync('userPost')
-    if(userPost)
-    {
-        
-        if(that.data.posts && that.data.posts.length>0 && that.data.pk.topPostId === that.data.posts[0].postId)
-        {//存在顶置 
-          that.data.posts.splice(1, 0,userPost); 
-        }
-        else
-        {//不存在顶置
-          that.data.posts.unshift(userPost);
-        }
-        that.setData({
-          posts:that.data.posts
-        })
 
-    }
 
   },
   onUnload:function(){
@@ -600,7 +583,7 @@ Page({
     var pkId = res.currentTarget.dataset.pkid;
     var index = res.currentTarget.dataset.index;
 
-    template.createOperateDialog(that).show("隐藏打卡信息?", "隐藏?...", function () {
+    template.createOperateDialog(that).show("确定隐藏该条打卡信息吗?", "确定隐藏该条打卡信息吗?...", function () {
       var httpClient = template.createHttpClient(that);
       httpClient.setMode("label", true);
       httpClient.addHandler("success", function () {

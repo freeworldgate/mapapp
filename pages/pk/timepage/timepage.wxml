@@ -129,59 +129,7 @@
                                         </view>
                                         <view class="h-20"></view>
                                        
-                                        <view class="rbc">
-                                            <view class="rcc">
-                                                                <!-- <view class="rcc pl-20 pr-20 br-10 b-48">
-                                                                    <view class="csc " bindtap="showLocation" data-pk="{{pk}}">
-                                                                        <view wx:if="{{lengthStr}}" class="rus">
-                                                                            <view class="rcc fs-28 h-50 fw-400">{{lengthStr}}</view>
-                                                                            <view class="rcc fs-25 h-50 fw-300">{{(length < 1000)?"米":"公里"}}</view>
-                                                                        </view>
-                                                                        <view wx:else class="rus fs-30 h-50 fw-600">计算中</view>
-                                                                        <view class="rcc fs-25 fw-300">卡点距离</view>
-                                                                    </view>
-                                                                </view>
-                                                                <view class="w-20"></view>
-                                                                <view class="rcc pl-20 pr-20 br-10 b-48" bindtap="userSort" data-pkid="{{pk.pkId}}">
-                                                                    <view class="csc">
-                                                                        <view class="rus">
-                                                                            <view class="rcc fs-28 h-50 fw-400">{{postTimes?postTimes:0}}</view>
-                                                                            <view class="rcc fs-25 h-50 fw-300">次</view>
-                                                                        </view>
-                                                                        <view class="rcc fs-25 fw-300">我的打卡</view>
-                                                                    </view>      
-                                                                </view> -->
-                                            </view>
-                                            <view class="rbc" style="flex:1">
-                                                <view></view>
-                                                <!-- <view class="ccc" bindtap="" data-pk="{{pk}}">
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/like.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">喜欢</view>
-                                                </view> -->
-                                                <!-- <view class="ccc" bindtap="drawPkCode" data-pk="{{pk}}">
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/ercode.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">画报</view>
-                                                </view> -->
-                                                <!-- <view class="ccc" hover-class="none" bindtap="groupCode">
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/group1.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">交友</view>
-                                                </view>
-                                                <view class="ccc" hover-class="none" bindtap="findSomeOne" data-pk="{{pk}}" >
-                                                    <view class="rcc h-50">
-                                                        <image class="rcc w-40 h-40" src="/images/find.png" mode="aspectFit"></image>
-                                                    </view>
-                                                    <view class="rcc fs-25 fw-300">捞人</view>
-                                                </view> -->
-
-
-                                            </view>
-                                        </view>
+             
                  
         </view>
 
@@ -239,9 +187,9 @@
                                                 </view> 
                                                 <view  wx:elif="{{post.postImages.length===2}}" class="css">
                                                     <view class="rcs">
-                                                        <image class="rcc br-10"  style="width: 37.8vw;height:37.8vw" src="{{post.postImages[0].imgUrl}}?x-oss-process=image/resize,h_600,m_lfit" mode="aspectFill" bindtap="showImg" data-index="0" data-imgs="{{post.postImages}}"></image>
+                                                        <image class="rcc br-10"  style="width: 37.8vw;height:37.8vw" src="{{post.postImages[0].imgUrl}}?x-oss-process=image/resize,w_600,m_lfit" mode="aspectFill" bindtap="showImg" data-index="0" data-imgs="{{post.postImages}}"></image>
                                                         <view style="width: 0.6vw"></view>
-                                                        <image class="rcc br-10" style="width: 37.8vw;height:37.8vw" src="{{post.postImages[1].imgUrl}}?x-oss-process=image/resize,h_600,m_lfit" mode="aspectFill" bindtap="showImg" data-index="1" data-imgs="{{post.postImages}}"></image>
+                                                        <image class="rcc br-10" style="width: 37.8vw;height:37.8vw" src="{{post.postImages[1].imgUrl}}?x-oss-process=image/resize,w_600,m_lfit" mode="aspectFill" bindtap="showImg" data-index="1" data-imgs="{{post.postImages}}"></image>
                                                     </view>
                                         
                                                 </view>
@@ -286,7 +234,7 @@
 
                                                 <view wx:if="{{!post.postImages||post.postImages.length===0}}" class="css br-20" style="background-color:#{{post.backColor}}">
                                                     <view class="csc p-50 br-20 "  style="min-height:300rpx;background-position: center;background-image: url({{post.backUrl}});background-repeat: no-repeat;background-size: 100% auto;">
-                                                        <text class="{{post.tag?'line-100-center':'line-5-center '}} fs-35 fw-700" bindtap="openText" data-index="{{bindex}}" style="color:#{{post.fontColor}}">{{post.topic}}</text>
+                                                        <text class="{{post.tag?'line-100-center':'line-5-center '}} fs-32 fw-700" bindtap="openText" data-index="{{bindex}}" style="color:#{{post.fontColor}}">{{post.topic}}</text>
                                                     </view>
                                                     
                                                 </view>
@@ -482,7 +430,7 @@
  
             <view class="css p-5vw ">
                 <view class="css pt-70 pb-70">
-                    <view class="rus fs-35 fw-300 line-3-start">{{operateDialog.text}}</view> 
+                    <view class="rus fs-35 fw-300 line-3-start">{{dialog.text}}</view> 
                 </view>
                 <view class="h-3vw"></view>
                 <view class="rbc pl-3vw pr-3vw">

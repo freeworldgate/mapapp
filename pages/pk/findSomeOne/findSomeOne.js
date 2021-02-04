@@ -44,6 +44,11 @@ Page({
 
 
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   queryFinds:function(page,pkId){
     var that = this;
     var httpClient = template.createHttpClient(that);

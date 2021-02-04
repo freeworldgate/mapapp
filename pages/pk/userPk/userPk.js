@@ -75,7 +75,11 @@ Page({
     httpClient.setMode(tab, false);
     httpClient.send(request.url.userPks, "GET", {latitude:latitude,longitude:longitude,targetId:target});
   },
-
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

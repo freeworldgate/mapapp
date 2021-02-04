@@ -123,6 +123,7 @@ Page({
       urls: images,
     })
   },
+
   goUser:function(res){
     var userId = res.currentTarget.dataset.user;
     wx.navigateTo({

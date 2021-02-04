@@ -159,7 +159,11 @@ Page({
 
 
   },
-
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   uploadGroup:function(){
     var that = this;
     if(that.data.myLength > that.data.range)

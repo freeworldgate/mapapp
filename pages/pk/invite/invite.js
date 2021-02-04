@@ -115,6 +115,11 @@ Page({
       
     })
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   showText:function(res){
     var that  = this;
     var text = res.currentTarget.dataset.text;

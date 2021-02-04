@@ -185,7 +185,7 @@
  
             <view class="css p-5vw ">
                 <view class="css pt-70 pb-70">
-                    <view class="rus fs-35 fw-300 line-3-start">{{operateDialog.text}}</view> 
+                    <view class="rus fs-35 fw-300 line-3-start">{{dialog.text}}</view> 
                 </view>
                 <view class="h-3vw"></view>
                 <view class="rbc pl-3vw pr-3vw">

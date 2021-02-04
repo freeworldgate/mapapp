@@ -136,6 +136,10 @@ Page({
       current:img,
       urls: imgs,
     })
-  }
-
+  },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
 })

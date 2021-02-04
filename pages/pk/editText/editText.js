@@ -108,6 +108,11 @@ Page({
 
 
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   _input:function(res){
     var that = this;
     var value = res.detail.value;

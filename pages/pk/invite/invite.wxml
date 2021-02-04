@@ -55,7 +55,7 @@
                                                                         <view class="rcs pt-10" >
                                                                                                 <!-- <view class="rcc fs-25 fw-300 c-word-6">·景区</view>
                                                                                                 <view class="w-20"></view> -->
-                                                                                                <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.pkDynamic.totalUsers}}人到此打卡</view>
+                                                                                                <view class="rcc pl-15 pr-15 br-10 fs-25 fw-300 b-approved c-approved">{{pk.totalUsers}}人到此打卡</view>
                                                                                                 <view class="w-20"></view>
                                                                                                 <view class="rcc pl-15 pr-15 fs-20 fw-300 b-tip br-10 " >
                                                                                                     <image class="w-25 h-25" mode="aspectFit" src="/images/address.png"></image>
@@ -184,7 +184,7 @@
  
             <view class="css p-5vw ">
                 <view class="css pt-70 pb-70">
-                    <view class="rus fs-35 fw-300 line-3-start">{{operateDialog.text}}</view> 
+                    <view class="rus fs-35 fw-300 line-3-start">{{dialog.text}}</view> 
                 </view>
                 <view class="h-3vw"></view>
                 <view class="rbc pl-3vw pr-3vw">

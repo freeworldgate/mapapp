@@ -75,6 +75,11 @@ Page({
 
 
   },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   unLock:function(res){
     var that = this;
     var groupId = res.currentTarget.dataset.groupid;

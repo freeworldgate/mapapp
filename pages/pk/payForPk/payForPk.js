@@ -40,5 +40,10 @@ Page({
     httpClient.send(request.url.payForPk, "GET", {});
 
 
-  }
+  },
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
 })

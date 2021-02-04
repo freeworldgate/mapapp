@@ -518,7 +518,11 @@ Page({
 
 
   },
-  
+  back:function(){
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
   hiddenPost:function(res){
     var that = this;
 
@@ -526,7 +530,7 @@ Page({
     var pkId = res.currentTarget.dataset.pkid;
     var index = res.currentTarget.dataset.index;
 
-    template.createOperateDialog(that).show("隐藏打卡信息?", "隐藏?...", function () {
+    template.createOperateDialog(that).show("确定从隐藏列表中移除该条记录?", "确定从隐藏列表中移除该条记录?", function () {
       var httpClient = template.createHttpClient(that);
       httpClient.setMode("label", true);
       httpClient.addHandler("success", function () {
@@ -608,11 +612,7 @@ Page({
   },
 
 
-  back:function (params) {
-    wx.navigateBack({
-      complete: (res) => {},
-    })
-  },
+
   relaunch:function (params) {
     wx.reLaunch({
       url: '/pages/pk/locate/locate',
