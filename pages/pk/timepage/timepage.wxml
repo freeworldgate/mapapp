@@ -367,30 +367,30 @@
 
 <!-- 时间 -->
 <view class="coverAll" hidden="{{!showTime}}"  bindtap="hiddeTime"></view>
-<view class="css dialogTip" hidden="{{!showTime}}">
-        <!-- <view class="css b-white br-20"   >
-            <view class="cbs" style="flex:1">
-                <view class="h-100"></view>
-                <view class="rcc">
-                    <view class="rus fs-35 h-50 fw-700 c-word-6 f-shadow3">{{hourStr}}:{{minStr}}:{{secStr}}</view>
-                </view>
-                <view></view>
-                <view></view>
-                <view class="rcc pt-50 pb-50">
-                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="hiddeTime" >知道了</view>
-                </view>
-    
-            </view>
-
-
-        </view> -->
+<view class="css timeTip" hidden="{{!showTime}}">
 
         <view class="css b-white br-10"   >
             <view class="css p-5vw ">
                 <view class="rbc pt-70 pb-70">
-                    <view class="rcs fs-35 fw-300">距离下次可打卡时间:</view>
-                    <view class="rus fs-35 h-50 fw-700">{{hourStr}}:{{minStr}}:{{secStr}}</view>
+                    <view class="ccc" style="flex:1">
+                        <view class="rcc">
+                            <view class="fs-40 fw-700">{{postTimes}}</view>
+                            <!-- <view class="fs-25 fw-300">次</view> -->
+                        </view>
+                        <view class="h-20"></view>
+                        <view class="rcs fs-30 fw-300 c-4">已打卡次数</view>
+                    </view>
+                    <view class="ccc" style="flex:1">
+                        <view class="rcc">
+                            <view class="fs-40 fw-700">{{hourStr}}:{{minStr}}:{{secStr}}</view>
+                    
+                        </view>
+                        <view class="h-20"></view>
+                        <view class="rcs fs-30 fw-300 c-4">打卡时间</view>
+                    </view>
+                    <view class="rus fs-35 h-50 fw-700"></view>
                 </view>
+                <view class="rus fs-25 fw-300 c-4">计时结束后可在此打卡...</view>
                 <view class="h-3vw"></view>
                 <view class="rbc pl-3vw pr-3vw">
                     <view></view>
@@ -399,13 +399,55 @@
                     </view>
                     
                 </view>
-                <!-- <view class="rcc p-30 fs-25 fw-400 c-3"  bindtap="operateDialog_cancel">知道了</view> -->
+         
 
             </view>
         </view>
 </view>
 
+<view class="coverAll" hidden="{{!showLocation}}"></view>
+<view class="css timeTip" hidden="{{!showLocation}}">
 
+        <view class="css b-white br-10">
+            <view class="css p-5vw ">
+                <view class="rbc pt-70 pb-70">
+                    <view class="ccc" style="flex:1">
+                        <view class="rcc">
+                            <view class="fs-40 fw-700">{{pk.type.range}}</view>
+                            <!-- <view class="fs-25 fw-300">次</view> -->
+                        </view>
+                        <view class="h-20"></view>
+                        <view class="rcs fs-30 fw-300 c-4">有效范围</view>
+                    </view>
+                    <view class="ccc" style="flex:1">
+                        <view class="rcc">
+                            <view wx:if="{{lengthStr}}" class="rcc">
+                                <view class="rcc fs-40 fw-700">{{lengthStr}}</view>
+                                <view class="rcc fs-35 fw-700">{{(length < 1000)?"米":"公里"}}</view>
+                            </view>
+                            <view wx:else class="rcc fs-35 fw-700 c-4">计算中</view>
+                        </view>
+                        <view class="h-20"></view>
+                        <view class="rcs fs-30 fw-300">卡点距离</view>
+                    </view>
+                    <view class="rus fs-35 h-50 fw-700"></view>
+                </view>
+                <view class="rus fs-25 fw-300 c-4">当前位置超出可打卡范围，查看卡点范围?</view>
+                <view class="h-3vw"></view>
+                <view class="rbc pl-3vw pr-3vw">
+                    <view></view>
+                    <view class="rcc">
+                        <view class="rcc fs-32 fw-300 c-3"  bindtap="hiddenLocation">确定</view>
+                        <view class="w-70"></view>
+                        <view class="rcc fs-32 fw-300 c-green"  bindtap="showLocation" data-pk="{{pk}}">确定</view>
+                    </view>
+                    
+                </view>
+         
+
+            </view>
+        </view>
+</view>
 
 
 

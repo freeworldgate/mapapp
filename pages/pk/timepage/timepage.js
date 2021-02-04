@@ -122,7 +122,7 @@ Page({
       if(that.data.locationUpdate&&that.data.pk)
       {
        
-        that.queryLengthTime(that.data.pk.pkId);
+        // that.queryLengthTime(that.data.pk.pkId);
         locationUtil.getLocation(function(latitude,longitude){
 
               var distance = locationUtil.getDistance(latitude,longitude,that.data.pk.latitude,that.data.pk.longitude);
@@ -259,12 +259,12 @@ Page({
   },
   queryLengthTime:function(pkId){
     var that = this;
-    locationUtil.getLocation(function(latitude,longitude){
-        var user = wx.getStorageSync("user");
-        var httpClient = template.createHttpClient(that);
-        httpClient.setMode("", false);
-        httpClient.send(request.url.queryLengthTime, "GET", { pkId: pkId, userId: user.userId,latitude:latitude,longitude:longitude});
-    })
+    // locationUtil.getLocation(function(latitude,longitude){
+    //     var user = wx.getStorageSync("user");
+    //     var httpClient = template.createHttpClient(that);
+    //     httpClient.setMode("", false);
+    //     httpClient.send(request.url.queryLengthTime, "GET", { pkId: pkId, userId: user.userId,latitude:latitude,longitude:longitude});
+    // })
 
 
 
@@ -557,7 +557,7 @@ Page({
     var pkId = res.currentTarget.dataset.pkid;
     var index = res.currentTarget.dataset.index;
 
-    template.createOperateDialog(that).show("删除打卡信息?", "删除?...", function () {
+    template.createOperateDialog(that).show("确定删除该条记录吗?", "确定删除该条记录吗?", function () {
       var httpClient = template.createHttpClient(that);
       httpClient.setMode("label", true);
       httpClient.addHandler("success", function () {
@@ -616,6 +616,9 @@ Page({
     wx.navigateTo({
       url: '/pages/pk/showLocation/showLocation',
     })
+    that.setData({
+      showLocation:false
+    })
 
   },
   hiddeTime:function(){
@@ -655,6 +658,12 @@ Page({
 
 
   },
+  hiddenLocation:function(){
+    var that = this;
+    that.setData({
+      showLocation:false
+    })
+  },
   signLocation:function(){
     var that = this;
     login.getUser(function(user){
@@ -668,15 +677,9 @@ Page({
 
             if(distance*1000 > that.data.pk.type.rangeLength)
             {
-
-              template.createOperateDialog(that).show("不在可打卡范围内，查看卡点范围?", "不在可打卡范围内，查看卡点范围?", function () {
-                var pk = that.data.pk;
-                wx.setStorageSync('locationShow', pk)
-                wx.navigateTo({
-                  url: '/pages/pk/showLocation/showLocation',
-                })
-              }, function () {});
-          
+              that.setData({
+                showLocation:true
+              })
               return;
             }
             //非打卡时间

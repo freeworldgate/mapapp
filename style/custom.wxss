@@ -526,6 +526,20 @@
   /* border-radius: 80rpx; */
   /* background-color: rgb(255, 0, 0); */
 }
+.timeTip{
+    width: 90vw;
+
+    /* height: 30%; */
+    position: fixed;
+    z-index: 31;
+    top: 30vh; 
+    /* top:0px; */
+    left: 5vw;
+
+
+    /* padding-right: 70rx;
+    padding-left: 70rpx; */
+}
 .dialogTip{
     width: 90vw;
 

@@ -222,6 +222,8 @@ Page({
                 prevPage.data.posts.unshift(post);
               }
               prevPage.setData({
+                leftTime:post.leftTime,
+                postTimes:post.postTimes,
                 posts:prevPage.data.posts
               })
               wx.navigateBack({
