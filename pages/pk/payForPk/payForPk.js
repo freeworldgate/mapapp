@@ -38,8 +38,6 @@ Page({
     var httpClient = template.createHttpClient(that);
     httpClient.setMode("label", true);
     httpClient.send(request.url.payForPk, "GET", {});
-
-
   },
   back:function(){
     wx.navigateBack({

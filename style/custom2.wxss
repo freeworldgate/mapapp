@@ -1299,17 +1299,14 @@ mw-200{
   color:rgb(131, 117, 103);
 
 }
-
 .border-locate{
   border: 0.2px solid rgb(189, 189, 189); 
 }
 .border-bottom-line1{
   border-bottom: 1px dashed rgb(237, 237, 237); 
-
 }
 .border-top-line1{
   border-top: 1px dashed rgb(237, 237, 237); 
-
 }
 .border0{
   border: 1px solid rgb(0, 146, 199); 

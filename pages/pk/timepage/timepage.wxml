@@ -425,10 +425,10 @@
                                 <view class="rcc fs-40 fw-700">{{lengthStr}}</view>
                                 <view class="rcc fs-35 fw-700">{{(length < 1000)?"米":"公里"}}</view>
                             </view>
-                            <view wx:else class="rcc fs-35 fw-700 c-4">计算中</view>
+                            <view wx:else class="rcc fs-35 fw-700 ">计算中</view>
                         </view>
                         <view class="h-20"></view>
-                        <view class="rcs fs-30 fw-300">卡点距离</view>
+                        <view class="rcs fs-30 fw-300 c-4">卡点距离</view>
                     </view>
                     <view class="rus fs-35 h-50 fw-700"></view>
                 </view>
