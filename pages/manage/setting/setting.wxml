@@ -1,0 +1,542 @@
+<!--pages/manage/setting/setting.wxml-->
+<view class="css p-30">
+
+
+  <view class="h-30"></view>
+
+
+
+  <view class="css">
+
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="time_period" >
+          <view class="rcc fs-30 fw-400">发帖的时间间隔</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{time_period}}秒</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="topPostMinLength" >
+          <view class="rcc fs-30 fw-400">顶置最少时间</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{topPostMinLength}}小时</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxPkSyncTime" >
+          <view class="rcc fs-30 fw-400">PK同步时间间隔</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{maxPkSyncTime}}秒</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxPkLength" >
+          <view class="rcc fs-30 fw-400">创建卡点范围</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{maxPkLength}}公里</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="singlePkPagePosts" >
+          <view class="rcc fs-30 fw-400">单个主题进入后每页POST帖子数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{singlePkPagePosts}}个</view>
+          </view>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="pkCachePost" >
+          <view class="rcc fs-30 fw-400">PK缓存POST页面数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">每个PK缓存{{pkCachePost}}页Post</view>
+          </view>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="postCacheTime" >
+          <view class="rcc fs-30 fw-400">POST页面缓存时间</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{postCacheTime}}秒</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="pkCacheNumbers" >
+          <view class="rcc fs-30 fw-400">PK查询次数(前{{pkCacheNumbers}}名加入缓存)</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{pkCacheNumbers}}个</view>
+          </view>
+      </view>
+
+
+
+
+
+
+
+
+
+      
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxRejectTimes" >
+          <view class="rcc fs-30 fw-400">Post最大驳回修改次数</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{maxRejectTimes}}次</view>
+          </view>
+      </view>
+      <!-- <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="activeCodeTimes" >
+          <view class="rcc fs-30 fw-400">激活码使用次数</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{activeCodeTimes}}次</view>
+          </view>
+      </view> -->
+      <!-- <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="defaultPostTimes" >
+          <view class="rcc fs-30 fw-400">非 VIP 用户默认榜单数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{defaultPostTimes}}个</view>
+          </view>
+      </view> -->
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="pageTopics" >
+          <view class="rcc fs-30 fw-400">主页刷新展示主题个数</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{pageTopics}}个</view>
+          </view>
+      </view>
+
+
+      <!-- <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxComplains" >
+          <view class="rcc fs-30 fw-400">投诉的最大数量(暂时冻结)</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{maxComplains}}个</view>
+          </view>
+      </view> -->
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="activeComplains" >
+          <view class="rcc fs-30 fw-400">PK有效投诉最大数量(超过即封号)</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{activeComplains}}个</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="InfoShowUserNum" >
+          <view class="rcc fs-30 fw-400">PK信息展示页示例用户数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{InfoShowUserNum}}个</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxTips" >
+          <view class="rcc fs-30 fw-400">主题可选择标签数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{maxTips}}个</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-25 fw-400">普通用户主题是否显示分享按钮和群组信息</view>
+        
+          <switch checked="{{isShowshareButton === 'true'}}" bindchange="setmode" data-type="isShowshareButton"></switch>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-30 fw-400">主题和榜帖数量绑定(普通用户)</view>
+        
+          <switch checked="{{commonUserCreatePk === 'true'}}" bindchange="setmode" data-type="commonUserCreatePk"></switch>
+      </view>
+      
+      
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-30 fw-400">是否允许客服会话</view>
+        
+          <switch checked="{{messageSession === 'true'}}" bindchange="setmode" data-type="messageSession"></switch>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStrValue" data-type="accessKeyID" >
+          <view class="rcc fs-30 fw-400">OSS RAM秘钥ID</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{accessKeyID}}</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStrValue" data-type="accessKeySecret" >
+          <view class="rcc fs-30 fw-400">OSS RAM秘钥</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{accessKeySecret}}</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStrValue" data-type="ossBaseUrl" >
+          <view class="rcc fs-30 fw-400">OSSBucket绑定域名地址</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{ossBaseUrl}}</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStrValue" data-type="bucketName" >
+          <view class="rcc fs-30 fw-400">Bucket名字</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{bucketName}}</view>
+          </view>
+      </view>
+      
+      
+      <!-- <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="defaultActiveCode" >
+          <view class="rcc fs-30 fw-400">系统默认激活码</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{defaultActiveCode}}</view>
+          </view>
+      </view> -->
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="commentStyle" >
+          <view class="rcc fs-30 fw-400">留言方式(2:图)(3: 遗传主题 图)(其他:文字)</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{commentStyle}}</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="canComplainWaitingTime" >
+          <view class="rcc fs-30 fw-400">转发榜帖后可投诉最长等待时间</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{canComplainWaitingTime}}分钟</view>
+          </view>
+      </view>
+
+      <view class="fs-30 fw-700 pt-20">定时器每晚5点执行一次更新即将过期媒体文件</view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="mediaMaxOutTime" >
+          <view class="rcc fs-30 fw-400">媒体文件最大过期时间(0 ~ 2 * 24 之间)</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{mediaMaxOutTime}}小时</view>
+          </view>
+      </view>
+
+      <view class="fs-30 fw-700 pt-20">普通用户是否需要通过发帖解锁可浏览主题</view>
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-25 fw-400">关闭状态下普通用户可以不受限制进入任何主题</view>
+          <switch checked="{{allUserRealease === 'true'}}" bindchange="setmode" data-type="allUserRealease"></switch>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="inviteAndRelease" >
+          <view class="rcc fs-30 fw-400">获得一个邀请可以解锁的主题个数</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{inviteAndRelease}}个</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-25 fw-400">首页PK图片是否来自榜主图册(或者随机选择)</view>
+          <switch checked="{{imgSelectPkCreator === 'true'}}" bindchange="setmode" data-type="imgSelectPkCreator"></switch>
+      </view>
+
+
+
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-30 fw-400">遗传用户是否收费</view>
+          <switch checked="{{vipchargePolicy === 'true'}}" bindchange="setmode" data-type="vipchargePolicy"></switch>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="vipsinglePkPrice" >
+          <view class="rcc fs-30 fw-400">遗传用户单个主题费用</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{vipsinglePkPrice}}元</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="vip12PkPrice" >
+          <view class="rcc fs-30 fw-400">遗传用户12个主题打包费用</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{vip12PkPrice}}元</view>
+          </view>
+      </view>
+
+
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 "   >
+          <view class="rcc fs-30 fw-400">普通用户是否收费</view>
+          <switch checked="{{chargePolicy === 'true'}}" bindchange="setmode" data-type="chargePolicy"></switch>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="singlePkPrice" >
+          <view class="rcc fs-30 fw-400">普通用户单个主题费用</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{singlePkPrice}}元</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="n12PkPrice" >
+          <view class="rcc fs-30 fw-400">普通用户12个主题打包费用</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{n12PkPrice}}元</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="pkentityCacheSize" >
+          <view class="rcc fs-30 fw-400">PKEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{pkentityCacheSize}}个</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="userentityCacheSize" >
+          <view class="rcc fs-30 fw-400">USEREntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{userentityCacheSize}}个</view>
+          </view>
+      </view>
+
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="postImageentityCacheSize" >
+          <view class="rcc fs-30 fw-400">POSTIMAGEEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{postImageentityCacheSize}}个</view>
+          </view>
+      </view>
+
+      <!-- <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="pkentityCacheSize" >
+          <view class="rcc fs-30 fw-400">PKEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{pkentityCacheSize}}个</view>
+          </view>
+      </view>
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="postentityCacheSize" >
+          <view class="rcc fs-30 fw-400">POSTEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{postentityCacheSize}}个</view>
+          </view>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="userentityCacheSize" >
+          <view class="rcc fs-30 fw-400">USEREntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{userentityCacheSize}}个</view>
+          </view>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="approveMessageentityCacheSize" >
+          <view class="rcc fs-30 fw-400">APPROVEMESSAGEEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{approveMessageentityCacheSize}}个</view>
+          </view>
+      </view>
+
+      <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="approveCommententityCacheSize" >
+          <view class="rcc fs-30 fw-400">APPROVECOMMENTEntity缓存数量</view>
+          <view class="rcc">
+             <view class="rcc fs-30 fw-400">{{approveCommententityCacheSize}}个</view>
+          </view>
+      </view> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+<view>
+
+    <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{dialog.visible!=true}}">
+        <view class="css b-white br-20" style="background-position: top;background-image: url({{dialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+  
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{dialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{dialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4 pl-4vw pr-4vw line-3-center">{{dialog.text}}</view>
+                
+                <view class="rcc pt-50 pb-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="dialog_confirm" >知道了</view>
+                </view>
+    
+            </view>
+
+        </view>
+        <!-- <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="dialog_confirm"></image>
+        </view> -->
+    </view>
+    <view class="rcc tipDialog " hidden="{{tipDialog.visible!=true}}">
+        <view class="ccc levelDialog_view">
+            <view class="rcc">
+                <image class="tipDialog_image" mode="aspectFit" src="/images/warn.png" wx:if="{{tipDialog.level==='warn'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/error.png" wx:elif="{{tipDialog.level==='error'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/info.png" wx:else></image>
+            </view>
+            <view style="height:30rpx"></view>
+            <view class="rcc levelDialog_text">{{tipDialog.message}}</view>
+        </view>
+    </view>
+    <view class="coverAll" hidden="{{operateDialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{operateDialog.visible!=true}}">
+        <view class="css b-white br-20"  style="background-position: center;background-image: url({{operateDialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{operateDialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4  pl-4vw pr-4vw  line-3-center">{{operateDialog.text}}</view>
+                
+                <view class="rcc pt-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="operateDialog_confirm" >确定</view>
+                </view>
+                <view class="rcc p-30 fs-25 fw-400 c-3-1 "  bindtap="operateDialog_cancel">知道了</view>
+    
+            </view>
+
+
+        </view>
+        <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
+        </view>
+    </view>
+
+
+    <view class="cac pageLoadingDialog1" hidden="{{pageLoadingDialog.visible!=true}}">
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/load.gif"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+        <view></view>
+    </view>
+    <view class="cac pageLoadingDialog1" hidden="{{pageLoadingDialogError.visible!=true}}">
+        <view></view>
+        <view class="ccc ">
+            <view class="rcc">
+                <image class="pageLoadingDialog_image" mode="aspectFit" src="/images/errorpage.png"></image>
+            </view>
+            <view class="rcc"></view>
+        </view>
+    </view>
+    <view catchtouchmove="return" class="coverAll99" hidden="{{labelLoadingDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="rcc labelLoadingDialog " hidden="{{labelLoadingDialog.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <image class="labelLoadingDialog_image" mode="aspectFill" src="/images/loading.gif"></image>
+            <view class="labelLoadingDialog_text">加载中</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogSuccess.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadsuccess.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载成功</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogError.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadfail.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载失败</view>
+        </view>
+    </view>
+
+    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{editTextDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="css editTextDialog" hidden="{{editTextDialog.visible!=true}}">
+        <view class="css editTextDialog_view ">
+            <view class="rbc">
+                <view class="t19-13-1" style="padding-left:15rpx">{{editTextDialog.title}}</view>
+                <view class="rcc"></view>
+            </view>
+            <view class="rcc t19-2">
+                <textarea adjustPosition="true" bindinput="_editTextDialog_input" class=" t19-1-2" maxlength="{{editTextDialog.maxLength}}" placeholder="{{editTextDialog.placeholder}}" value="{{editTextDialog.text}}"></textarea>
+            </view>
+            <view class="rbc">
+                <view>
+                    <view class="t19-7-1" hidden="{{editTextDialog.maxLength>editTextDialog.text.length}}">内容已达最大长度!</view>
+                </view>
+                <view class="t19-6" style="padding-right:50rpx">{{editTextDialog.text.length}}/{{editTextDialog.maxLength}}</view>
+            </view>
+            <view style="height:20rpx"></view>
+            <view class="rac">
+                <view bindtap="_editTextDialog_close" class="rcc shortTextDialog_cancel" hoverClass="dialog_cancel_hoverClass">取消</view>
+                <view bindtap="_editTextDialog_confirm" class="rcc shortTextDialog_confirm" hoverClass="dialog_confirm_hoverClass">确定</view>
+            </view>
+            <view class="t7-5-2" style="height:35rpx"></view>
+        </view>
+    </view>
+    <view bindtap="" catchtouchmove="return" class="coverAll" hidden="{{shortTextDialog.visible!=true}}"></view>
+    <view class="rcc shortTextDialog" hidden="{{shortTextDialog.visible!=true}}">
+        <view class="css shortTextDialog_view">
+            <view class="rcc shortTextDialog_title">{{shortTextDialog.title}}</view>
+            <view style="height:60rpx"></view>
+            <view class="css">
+                <input bindinput="_shortTextDialog_input" class="shortTextDialog_input" maxlength="{{shortTextDialog.maxLength}}" placeholder="点击输入最多{{shortTextDialog.maxLength}}位数字" value="{{shortTextDialog.text}}"></input>
+            </view>
+            <view style="height:60rpx"></view>
+            <view class="rac">
+                <view bindtap="_shortTextDialog_close" class="rcc shortTextDialog_cancel" hoverClass="dialog_cancel_hoverClass">取消</view>
+                <view bindtap="_shortTextDialog_confirm" class="rcc shortTextDialog_confirm" hoverClass="dialog_confirm_hoverClass" wx:if="{{shortTextDialog.text.length>0}}">确定</view>
+                <view class="rcc shortTextDialog_cancel" wx:else>确定</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="" catchtouchmove="return" class="cover104" hidden="{{editNumberDialog.visible!=true}}"></view>
+    <view class="rcc shortTextDialog" hidden="{{editNumberDialog.visible!=true}}">
+        <view class="css shortTextDialog_view">
+            <view class="rcc shortTextDialog_title">{{editNumberDialog.title}}</view>
+            <view style="height:60rpx"></view>
+            <view class="css">
+                <input bindinput="_editNumberDialog_input" class="createEditNumberDialog_input" maxlength="{{editNumberDialog.maxLength}}" placeholder="点击输入最多{{editNumberDialog.maxLength}}位数字" type="number" value="{{editNumberDialog.text}}"></input>
+            </view>
+            <view style="height:60rpx"></view>
+            <view class="rac">
+                <view bindtap="_editNumberDialog_close" class="rcc shortTextDialog_cancel">取消</view>
+                <view bindtap="_editNumberDialog_confirm" class="rcc shortTextDialog_confirm " hoverClass="dialog_confirm_hoverClass" wx:if="{{editNumberDialog.text.length>0}}">确定</view>
+                <view class="rcc  shortTextDialog_cancel" wx:else>确定</view>
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

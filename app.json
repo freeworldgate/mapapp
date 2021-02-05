@@ -1,6 +1,27 @@
 {
   "pages": [
 
+    "pages/manage/appManage/appManage",
+    "pages/manage/approveFind/approveFind",
+    "pages/manage/approveGroup/approveGroup",
+    "pages/manage/approveUpdateGroup/approveUpdateGroup",
+    "pages/manage/textBack/textBack",
+    "pages/manage/scaleRange/scaleRange",
+    "pages/manage/setPkRange/setPkRange",
+    "pages/manage/pkset/pkset",
+    "pages/manage/tipText/tipText",
+    "pages/manage/activeCode/activeCode",
+    "pages/manage/setting/setting",
+    "pages/manage/activePk/activePk",
+
+    "pages/manage/pksorts/pksorts",
+
+    "pages/manage/activeTips/activeTips",
+
+    "pages/manage/preUsers/preUsers",
+    "pages/manage/backImg/backImg",
+  
+  
     "pages/pk/locate/locate",
    
     "pages/plugin/location-picker/location-picker",
@@ -10,15 +31,7 @@
     "pages/webservice/reverseGeocoder-result/reverseGeocoder-result",
     "pages/webservice/policy-list/policy-list",
 
-
-    "pages/manage/approveFind/approveFind",
-
     "pages/pk/userCardApply/userCardApply",
-
-    
-    "pages/pk/payForPk/payForPk",
-    "pages/pk/payForTime/payForTime",
-    
     "pages/pk/userFind/userFind",
     "pages/pk/editText/editText",
     "pages/pk/showText/showText",
@@ -31,7 +44,6 @@
     "pages/pk/followers/followers",
     "pages/pk/fans/fans",
     "pages/pk/userPk/userPk",
-
     "pages/pk/userPublishPost/userPublishPost",
     "pages/pk/groupCardList/groupCardList",
     "pages/pk/groupCard/groupCard",
@@ -42,12 +54,8 @@
     "pages/pk/showLocation/showLocation",
     "pages/pk/locationImages/locationImages",
     "pages/pk/locationApprovingImages/locationApprovingImages",
-
-
     "pages/pk/drawPost/drawPost",
     "pages/pk/uploadImgs/uploadImgs",
-
-
     "pages/pk/timepage/timepage",
     "pages/pk/hiddentimepage/hiddentimepage",
     "pages/user/login/login",

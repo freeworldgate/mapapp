@@ -1,110 +1,109 @@
 <view class="css z3 b-48"  style="min-height:100vh">
 
 
-<view class="css">
-  <view class="rcs " style="height:{{top}}px"></view>
-  <view class="rcs " style="height:32px">
-  </view>
-  <view class="rcs " style="height:20px"></view>
-</view>
-
-
-<view class="css z3 ">
 
 
 
+  <view class="css z3" style="flex:1">
 
-
-    <view class="css" wx:for="{{findUsers}}" wx:for-index="bindex" wx:for-item="findUser" wx:key="postkey">
-        <view class="css pl-3vw pr-3vw">
-    
-            <view class="css b-white br-20 pl-3vw pr-3vw">
-                <view class="rss pb-30 pt-30" >
-
-                    <view class="css">
-                            <view class="rcc">
-                                <view class="rcc circle1">
-                                    <navigator hover-class="none" class="rcc" url="/pages/pk/userPublishPost/userPublishPost?userId={{findUser.user.userId}}">
-                                        <image class="rcc circle2 box8 " src="{{findUser.user.imgUrl}}" mode="aspectFill"></image>
-                                    </navigator>
-                                </view>
-
-                            </view>
-                            <!-- <view class="rss" style="height: 1vw">
-                                <view class="" style="flex:1"></view>
-                                <view class="time-line1" style="flex:1"></view>
-                            </view>
-                            <view class="ccc">
-                                <view class="fs-21 fw-300 c-4">21:20</view>
-                                <view class="fs-21 fw-300 c-4">昨天</view>
-
-                            </view> -->
-                            <view class="rss" style="flex:1">
-                                <view class="" style="flex:1"></view>
-                                <view class="" style="flex:1"></view>
-                            </view>
-
-                        
-                    </view>
-                    <view class="w-2vw"></view>
-                    <view class="rss" style="flex:1">
-                            <view class="css" style="flex:1">
-                                <view class="css" style="" >
-                                    <view class="css">
-                                        <view class="css">
-                                            <!-- <view class="h-5"></view> -->
-                                            <view class="rbc-nowrap">
-                                                <view class="rus line-1-start fs-30 fw-610 c-username f-shadow3" style="flex:1">{{findUser.user.userName}}</view>
-                                                <view  class="rcc" >
-                                                    <view class="w-100"></view>
-                                                    <view></view>
-                                                    <view class="rcc" bindtap="approvePass" data-find="{{findUser}}" data-index="{{bindex}}" >
-                                                        <view wx:if="{{findUser.statu.key === 2}}" class="pl-20 pr-20 pt-10 pb-10 b-2 br-10 c-white fw-700 fs-25">取消</view>
-                                                        <view wx:elif="{{findUser.statu.key === 1}}" class="pl-20 pr-20 pt-10 pb-10 b-1 br-10 c-white fw-700 fs-25">通过</view>
-                                                        <view wx:else></view>
-                                                    </view>
-                                                </view>
-                                            </view>
-                                            <!-- <view class="h-10"></view> -->
-                                            <view class="{{findUser.tag?'':'line-3-start'}} rus fs-30 fw-700 c-4" bindtap="openText" data-index="{{bindex}}" >{{findUser.text}}</view>
-                                            
-                                        </view>
-                        
-                                    </view>
-                                </view>
-                            </view>
-                            
-
-                    </view>
-                </view>
-                <view class="css">
-                      <view class="rbc">
-                          <view class="rcc" >
-                            <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img1}}"></image>
-                          </view>
-                          <view class="rcc" >
-                            <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img2}}"></image>
-                          </view>
-                          <view class="rcc">
-                            <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img3}}"></image>
-                          </view>
-                      </view>
-                </view>
-                <view class="h-30"></view>
-
-       
+      <view  wx:if="{{findUsers.length>0}}" class="css">
+            <view class="css">
+                  <view class="rcs " style="height:{{top}}px"></view>
+                  <view class="rcs " style="height:32px">
+                  </view>
+                  <view class="rcs " style="height:20px"></view>
             </view>
+            <view class="css" wx:for="{{findUsers}}" wx:for-index="bindex" wx:for-item="findUser" wx:key="postkey">
+
+
+                <view class="css pl-3vw pr-3vw">
             
-        </view>
-        <view class="h-30"></view>
-    </view>
+                    <view class="css b-white br-20 pl-3vw pr-3vw">
+                        <view class="rss pb-30 pt-30" >
+
+                            <view class="css">
+                                    <view class="rcc">
+                                        <view class="rcc">
+                                                <image class="rcc w-60 h-60 br-10 box8 " src="{{findUser.user.imgUrl}}" mode="aspectFill"></image>
+                                        </view>
+
+                                    </view>
+                       
+                                    <view class="rss" style="flex:1">
+                                        <view class="" style="flex:1"></view>
+                                        <view class="" style="flex:1"></view>
+                                    </view>
+
+                                
+                            </view>
+                            <view class="w-2vw"></view>
+                            <view class="rss" style="flex:1">
+                                    <view class="css" style="flex:1">
+                                        <view class="css" style="" >
+                                            <view class="css">
+                                                <view class="css">
+                                                    <!-- <view class="h-5"></view> -->
+                                                    <view class="rbc-nowrap">
+                                                        <view class="rus line-1-start fs-30 fw-610 c-username f-shadow3" style="flex:1">{{findUser.user.userName}}</view>
+                                                        <view  class="rcc" >
+                                                            <view class="w-100"></view>
+                                                            <view></view>
+                                                            <view class="rcc" bindtap="approvePass" data-find="{{findUser}}" data-index="{{bindex}}" >
+                                                                <view wx:if="{{findUser.statu.key === 2}}" class="pl-20 pr-20 pt-10 pb-10 b-2 br-10 c-white fw-700 fs-25">取消</view>
+                                                                <view wx:elif="{{findUser.statu.key === 1}}" class="pl-20 pr-20 pt-10 pb-10 b-1 br-10 c-white fw-700 fs-25">通过</view>
+                                                                <view wx:else></view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                    <!-- <view class="h-10"></view> -->
+                                                    <view class="{{findUser.tag?'':'line-3-start'}} rus fs-30 fw-700 c-4" bindtap="openText" data-index="{{bindex}}" >{{findUser.text}}</view>
+                                                    
+                                                </view>
+                                
+                                            </view>
+                                        </view>
+                                    </view>
+                                    
+
+                            </view>
+                        </view>
+                        <view class="css">
+                              <view class="rbc">
+                                  <view class="rcc" >
+                                    <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img1}}"></image>
+                                  </view>
+                                  <view class="rcc" >
+                                    <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img2}}"></image>
+                                  </view>
+                                  <view class="rcc">
+                                    <image class="br-10" style="width:29vw;height:23vw" mode="aspectFill" src="{{findUser.img3}}"></image>
+                                  </view>
+                              </view>
+                        </view>
+                        <view class="h-30"></view>
+
+              
+                    </view>
+                    <view class="h-30"></view>
+                </view>
 
 
 
-    <view class="css h-300">
-        <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
-    </view>
-</view> 
+            </view>
+            <view class="css h-300">
+                    <view hidden="{{!nomore}}" class="rcc h-100 fs-30 fw-400 c-3">没有更多...</view>
+            </view>
+      </view>
+      <view wx:else class="ccc b-white" style="flex:1">
+              <view class="rcc">
+                  <image class="h-300 w-300" mode="aspectFit" src="/images/empty.png" ></image>
+              </view>
+              <view class="fs-30 fw-300 c-3"></view>
+              <view class="h-100"></view>
+      </view>
+
+
+  </view> 
 
 
 

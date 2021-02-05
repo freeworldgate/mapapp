@@ -1,0 +1,403 @@
+<!--pages/manage/appManage/appManage.wxml-->
+<view wx:if="{{!user}}" class="cas h-100vh pl-8vw pr-8vw">
+
+        
+
+        <view class="css">
+            <view class="rcc">
+                <image class=" w-200 h-200 " mode="aspectFit" src="/images/logo.png"></image>
+            </view>
+            <view class="h-50"></view>
+            <view class="rcc fs-40 fw-500 c-10">登录</view>
+            <view class="h-50"></view>
+            <view class="css">
+                <input bindinput="inputActiveCode" class="createEditActiveNumberDialog_input" maxlength="100" placeholder="输入安全码" value="{{password}}"></input>
+            </view>
+ 
+        </view>
+        <!-- <button  class="rcc fs-30 fw-700 h-100 br-100 b-upload c-white message" bindtap="login">登录</button>          -->
+        <view class="css" >
+            <button wx:if="{{password}}" class="rcc fs-30 fw-700 h-100 br-100 b-upload c-white message" bindtap="login">登录</button>         
+            <button wx:else class="rcc fs-30 fw-700 h-100 br-100 b-48 c-3 message" >登录</button>
+        </view>
+
+</view>
+<view class="css">
+
+
+
+    <view class="rac pt-30 pb-30 z2">
+        <view class="rcc">
+            <navigator url="/pages/manage/complainPk/complainPk?type=1" class="rcc ">
+                <view class="rcc fs-30 fw-400">普通相册投诉</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/complainPk/complainPk?type=2" class="rcc ">
+                <view class="rcc fs-30 fw-400">内置相册投诉</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/complainPk/complainPk?type=3" class="rcc ">
+                <view class="rcc fs-30 fw-400">遗传相册投诉</view>
+            </navigator>
+        </view>
+
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+        <view class="rcc">
+            <navigator url="/pages/manage/preAlbums/preAlbums" class="rcc">
+                <view class="rcc fs-30 fw-400">内置普通相册</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/homeAlbums/homeAlbums" class="rcc">
+                <view class="rcc fs-30 fw-400">主页设置</view>
+            </navigator>
+        </view>
+
+        <view class="rcc">
+            <navigator url="/pages/manage/preUsers/preUsers" class="rcc">
+                <view class="rcc fs-30 fw-400">InnerUser</view>
+            </navigator>
+        </view>
+
+
+
+
+
+
+
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+        <view class="rcc">
+            <navigator url="/pages/manage/activeTips/activeTips" class="rcc">
+                <view class="rcc fs-30 fw-400">审核提示</view>
+            </navigator>
+        </view>
+ 
+
+        <view class="rcc">
+            <navigator url="/pages/manage/prePublicAlbums/prePublicAlbums" class="rcc">
+                <view class="rcc fs-30 fw-400">内置VIP相册</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/activePk/activePk" class="rcc ">
+                <view class="rcc fs-30 fw-400">主题激活</view>
+            </navigator>
+        </view>
+
+
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+        <view class="rcc">
+            <navigator url="/pages/manage/approvePost/approvePost?type=0" class="rcc">
+                <view class="rcc fs-30 fw-400">普通相册榜帖</view>
+            </navigator>
+        </view>
+ 
+
+ 
+        <view class="rcc">
+            <navigator url="/pages/manage/approvePost/approvePost?type=1" class="rcc">
+                <view class="rcc fs-30 fw-400">遗传相册榜帖</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/approvePost/approvePost?type=2" class="rcc">
+                <view class="rcc fs-30 fw-400">内置相册榜帖</view>
+            </navigator>
+        </view>
+
+
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+
+        <view class="rcc">
+            <navigator url="/pages/manage/activeCode/activeCode" class="rcc">
+                <view class="rcc fs-30 fw-400">S-Kuan</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/setting/setting" class="rcc">
+                <view class="rcc fs-30 fw-400">设置</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/pksorts/pksorts" class="rcc ">
+                <view class="rcc fs-30 fw-400">排名</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/backImg/backImg" class="rcc ">
+                <view class="rcc fs-30 fw-400">背景图片</view>
+            </navigator>
+        </view>
+
+    </view>
+
+
+
+
+    <view class="rac pt-30 pb-30 z2">
+        <view class="rcc">
+            <navigator url="/pages/manage/approveFind/approveFind" class="rcc">
+                <view class="rcc fs-30 fw-400">审核捞人</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/approveGroup/approveGroup" class="rcc">
+                <view class="rcc fs-30 fw-400">审核群组</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/approveUpdateGroup/approveUpdateGroup" class="rcc ">
+                <view class="rcc fs-30 fw-400">审核更新群组</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/textBack/textBack"  class="rcc ">
+                <view class="rcc fs-30 fw-400">文字背景</view>
+            </navigator>
+        </view>
+
+    </view>
+    <view class="rac pt-30 pb-30 z2">
+        <view class="rcc">
+            <navigator url="/pages/manage/scaleRange/scaleRange" class="rcc">
+                <view class="rcc fs-30 fw-400">范围和缩放</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/pkset/pkset" class="rcc">
+                <view class="rcc fs-30 fw-400">排名</view>
+            </navigator>
+        </view>
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+        <view class="rcc">
+            <navigator url="/pages/manage/tipText/tipText?type=1"  class="rcc ">
+                <view class="rcc fs-30 fw-400">捞人:馨提示</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/tipText/tipText?type=2"  class="rcc ">
+                <view class="rcc fs-30 fw-400">交友:温馨提示</view>
+            </navigator>
+        </view>
+        <view class="rcc">
+            <navigator url="/pages/manage/tipText/tipText?type=3"   class="rcc ">
+                <view class="rcc fs-30 fw-400">购买群组提示信息</view>
+            </navigator>
+        </view>
+
+    </view>
+
+    <view class="rac pt-30 pb-30 z2">
+
+
+
+    </view>
+
+
+
+</view>
+
+
+
+<view>
+
+    <view class="coverAll" hidden="{{dialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{dialog.visible!=true}}">
+        <view class="css b-white br-20" style="background-position: top;background-image: url({{dialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+  
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{dialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{dialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4 pl-4vw pr-4vw line-3-center">{{dialog.text}}</view>
+                
+                <view class="rcc pt-50 pb-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="dialog_confirm" >知道了</view>
+                </view>
+    
+            </view>
+
+        </view>
+        <!-- <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="dialog_confirm"></image>
+        </view> -->
+    </view>
+    <view class="rcc tipDialog " hidden="{{tipDialog.visible!=true}}">
+        <view class="ccc levelDialog_view">
+            <view class="rcc">
+                <image class="tipDialog_image" mode="aspectFit" src="/images/warn.png" wx:if="{{tipDialog.level==='warn'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/error.png" wx:elif="{{tipDialog.level==='error'}}"></image>
+                <image class="tipDialog_image" mode="aspectFit" src="/images/info.png" wx:else></image>
+            </view>
+            <view style="height:30rpx"></view>
+            <view class="rcc levelDialog_text">{{tipDialog.message}}</view>
+        </view>
+    </view>
+    <view class="coverAll" hidden="{{operateDialog.visible!=true}}"  catchtouchmove="return"></view>
+    <view class="css dialogTip" hidden="{{operateDialog.visible!=true}}">
+        <view class="css b-white br-20"  style="background-position: center;background-image: url({{operateDialog.tipBack}});background-repeat: no-repeat;background-size: 100% auto; ">
+            <view class="rcc">
+                <view class="rcc absolute">
+                    <image class="w-200 h-200 br-200 b-white" mode="aspectFit" src="{{operateDialog.tipImg}}"></image>
+                </view>
+            </view>
+            <view class="cbs">
+                <view class="h-150"></view>
+                <view></view>
+                <view class="rcc fs-33 fw-700 c-4 pb-50 pl-4vw pr-4vw line-3-center">{{operateDialog.title}}</view>
+            
+                <view class="rcc-wrap fs-28 fw-400 c-4  pl-4vw pr-4vw  line-3-center">{{operateDialog.text}}</view>
+                
+                <view class="rcc pt-50">
+                    <view class="rcc w-300 h-80 br-80 bTipColor fs-30 fw-400 c-white"  bindtap="operateDialog_confirm" >确定</view>
+                </view>
+                <view class="rcc p-30 fs-25 fw-400 c-3-1 "  bindtap="operateDialog_cancel">知道了</view>
+    
+            </view>
+
+
+        </view>
+        <view class="rcc p-100">
+            <image class="w-60 h-60" mode="aspectFit" src="/images/close1.png" bindtap="operateDialog_cancel"></image>
+        </view>
+    </view>
+    <view catchtouchmove="return" class="coverAll99" hidden="{{labelLoadingDialog.visible!=true}}"></view>
+    <view catchtouchmove="return" class="rcc labelLoadingDialog " hidden="{{labelLoadingDialog.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <image class="labelLoadingDialog_image" mode="aspectFill" src="/images/loading.gif"></image>
+            <view class="labelLoadingDialog_text">加载中</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogSuccess.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadsuccess.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载成功</view>
+        </view>
+    </view>
+    <view class="rcc labelLoadingDialog " hidden="{{labelLoadingDialogError.visible!=true}}">
+        <view class="rcc labelLoadingDialog_view">
+            <view class="rcc">
+                <image class="labelLoadingDialog_image" mode="aspectFit" src="/images/loadfail.png"></image>
+            </view>
+            <view class="labelLoadingDialog_text">加载失败</view>
+        </view>
+    </view>
+
+    <view bindtap="_updatePkDialog_hide" catchtouchmove="return" class="coverAll-1" hidden="{{updatePkDialog.visible!=true}}" ></view>
+    <view class="css b-white editPkDialog" hidden="{{updatePkDialog.visible!=true}}">
+
+        <view class="css pl-4vw pr-4vw">
+            <view class="rbc b-line">
+                <view class="rcc">
+                    <image class="w-40 h-40" mode="aspectFit" src="/images/pk.png"></image>
+                    <view class="fs-30 fw-400">主题内容</view>
+                </view>
+                <view class='rcc' bindtap="_showPkDialog_hide"><image class="w-40 h-40 pt-30 pb-30 " mode="aspectFit" src="/images/down2.png"></image></view>
+            </view>
+            <view class="css pt-20 pb-20">
+                <view class="rcs">
+                    <view class="rcc"><view class='rcc'><image class="w-30 h-30" mode="aspectFit" src="/images/write1.png"></image></view></view>
+                    <view class="w-20"></view>
+                    <view class="rbc" style="flex:1">
+                        <view class="fs-25 fw-400">主题</view>
+                        <view class="fs-25 fw-400">最多40字</view>
+                    </view>
+                </view>
+                <view class="h-20"></view>
+                <view class="rcs">
+                    <view class="w-50"></view>
+                    <view class="css" style="flex:1">
+                      <view class="css">
+                          <input bindinput="_updatePkDialog_input_topic" class="editPkDialog_topic" maxlength="40" placeholder="主题"  value="{{updatePkDialog.topic}}"></input>
+                      </view>
+                    </view>
+                </view>
+            
+            
+            </view>
+            <view class="css pt-20 pb-20">
+                <view class="rcs">
+                    <view class="rcc"><view class='rcc'><image class="w-30 h-30" mode="aspectFit" src="/images/write1.png"></image></view></view>
+                    <view class="w-20"></view>
+                    <view class="rbc" style="flex:1">
+                        <view class="rcs">
+                          <view class="fs-25 fw-400">描述</view>
+                          <view class="fs-25 fw-400">内容</view>
+                        </view>
+                        <view class="fs-25 fw-400">最多120字</view>
+                    </view>
+                </view>
+                <view class="h-20"></view>
+                <view class="rcs">
+                    <view class="w-50"></view>
+                    <view class="css b-48 br-5" style="flex:1">
+                        <view class="h-20 b-48"></view>
+                        <view class="rcs">
+                          <view class="w-20 b-red"></view>
+                          <view class="css" style="flex:1">
+                            <textarea adjustPosition="true" bindinput="_updatePkDialog_input_watchword" class="fs-30 fw-400 b-48"  style="height:20vw" cursorSpacing="50" fixed="true" maxlength="120" placeholder="描述内容" value="{{updatePkDialog.watchWord}}"></textarea>
+                          </view>
+                        </view>
+
+                        <view class="h-20 b-48"></view>
+                    </view>
+                </view>
+         
+            
+            </view>
+          
+        
+            <view class="h-100"></view>
+            <view wx:if="{{updatePkDialog.watchWord && updatePkDialog.topic}}" class="rcc p-30" bindtap="_updatePkDialog_createPk">
+                <view class="rcc fs-30 fw-700 w-400 h-80 br-100 b-upload c-white message">确定</view>
+            </view>
+            <view wx:else class="rcc p-30">
+                <view class="rcc fs-30 fw-700 w-400 h-80 br-100 b-40 c-white message">确定</view>
+            </view>
+        
+        </view>
+
+
+
+
+    </view>
+
+
+
+
+
+
+
+</view>
+
+

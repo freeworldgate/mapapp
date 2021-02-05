@@ -312,18 +312,291 @@ var url = {
         queryPkCode:`${host}/pk/queryPkCode`,
         
         showInfo:`${host}/pk/showInfo`, 
+        activeAgine:`${host}/pk/activeAgine`, 
+        addTip:`${host}/pk/addTip`, 
+        removeTip:`${host}/pk/removeTip`, 
+        queryTips:`${host}/pk/queryTips`, 
 
+
+
+
+        shareMenu: `${host}/pk/shareMenu`, 
+        click: `${host}/pk/click`, 
+        zoneRefresh: `${host}/pk/zoneRefresh`, 
+        addPost: `${host}/pk/addPost`, 
+        createPost: `${host}/pk/createPost`, 
+        queryPk: `${host}/pk/queryPk`, 
+        queryUserPost: `${host}/pk/queryUserPost`, 
+        nextPage: `${host}/pk/nextPage`, 
+        queryPost: `${host}/pk/queryPost`, 
+        uploadFront: `${host}/pk/uploadFront`, 
+        deleteImg: `${host}/pk/deleteImg`, 
+        likeOrDisLike: `${host}/pk/likeOrDisLike`, 
+        deletePostImg: `${host}/pk/deletePostImg`, 
+        uploadPostImgs: `${host}/pk/uploadPostImgs`, 
+        showShareMenu: `${host}/pk/showShareMenu`, 
+        uploadFeeCode: `${host}/pk/uploadFeeCode`, 
+   
         
+        uploadPkBackImg: `${host}/pk/uploadPkBackImg`, 
+
+
+        setFeeCode: `${host}/pk/setFeeCode`, 
+        applyOrder: `${host}/pk/applyOrder`, 
+        setPhone: `${host}/pk/setPhone`, 
+        setOrderCut: `${host}/pk/setOrderCut`, 
+        orderConfirm: `${host}/pk/orderConfirm`, 
+        feeOrder: `${host}/pk/feeOrder`, 
+        cashierOrderConfirm: `${host}/pk/cashierOrderConfirm`, 
+ 
+        approveOrderConfirm1: `${host}/pk/approveOrderConfirm1`, 
+        approveOrderConfirm2: `${host}/pk/approveOrderConfirm2`, 
+        payOrder: `${host}/pk/payOrder`, 
+        queryCreateOrder: `${host}/pk/queryCreateOrder`, 
+        approveUserCode: `${host}/pk/approveUserCode`, 
+        postApprove: `${host}/pk/postApprove`, 
+        postConfirm: `${host}/pk/postConfirm`, 
+        queryPostById: `${host}/pk/queryPostById`, 
+        queryTasks: `${host}/pk/queryTasks`, 
+        userIntegral: `${host}/pk/userIntegral`, 
+        queryPkStatu: `${host}/pk/queryPkStatu`, 
+         
+        rewardOrder: `${host}/pk/rewardOrder`, 
+        verifyOrder: `${host}/pk/verifyOrder`, 
+        orderConfirmOutOfTime: `${host}/pk/orderConfirmOutOfTime`, 
+        queryTaskOrder: `${host}/pk/queryTaskOrder`, 
+        complainOrder: `${host}/pk/complainOrder`, 
+        helpInfo: `${host}/pk/helpInfo`, 
+        nextComplain: `${host}/pk/nextComplain`, 
+        hiddenComplain: `${host}/pk/hiddenComplain`, 
+        approveComplain: `${host}/pk/approveComplain`, 
+        loginManager: `${host}/pk/loginManager`, 
+        
+
+
+
+        approvedComplain: `${host}/pk/approvedComplain`, 
+    
+        queryApproveInfo1: `${host}/pk/queryApproveInfo1`, 
+        queryApproveInfo2: `${host}/pk/queryApproveInfo2`, 
+        queryApproveInfo3: `${host}/pk/queryApproveInfo3`, 
+        queryHomePage: `${host}/pk/queryHomePage`, 
+        
+        nextHomePage: `${host}/pk/nextHomePage`, 
+        queryInvites: `${host}/pk/queryInvites`, 
+        nextInvitePage: `${host}/pk/nextInvitePage`, 
+        addUserInvite: `${host}/pk/addUserInvite`, 
+        
+        userPks: `${host}/pk/userPks`, 
+        nextUserPks: `${host}/pk/nextUserPks`, 
+        viewGroupCode: `${host}/pk/viewGroupCode`, 
+        queryPkApprove: `${host}/pk/queryPkApprove`, 
+        canEditApproveMessage: `${host}/pk/canEditApproveMessage`,
+        selectCashier: `${host}/pk/selectCashier`,
+        viewActiveGroupCode: `${host}/pk/viewActiveGroupCode`,
+        confirmSelectCashier: `${host}/pk/confirmSelectCashier`,
+        queryActiveGroupCode: `${host}/pk/queryActiveGroupCode`,
+        
+        confirmComplain: `${host}/pk/confirmComplain`,
+
+
+        setApprover: `${host}/pk/setApprover`, 
+        setApproveInfo: `${host}/pk/setApproveInfo`, 
+        queryApprovingPost: `${host}/pk/queryApprovingPost`, 
+        doApprove: `${host}/pk/doApprove`, 
+        rejectApprove: `${host}/pk/rejectApprove`, 
+        rejectApprovingPost: `${host}/pk/rejectApprovingPost`, 
+        
+
+        queryApprovedPost: `${host}/pk/queryApprovedPost`, 
+        queryMoreApprovingPost: `${host}/pk/queryMoreApprovingPost`, 
+        queryMoreApprovedPost: `${host}/pk/queryMoreApprovedPost`, 
+        publishApproveMessage: `${host}/pk/publishApproveMessage`, 
+        queryApproveMessage: `${host}/pk/queryApproveMessage`, 
+        replaceImg: `${host}/pk/replaceImg`,      
+        replaceText: `${host}/pk/replaceText`,      
+        complain: `${host}/pk/complain`,     
+        createPk: `${host}/pk/createPk`,  
+        updatePk: `${host}/pk/updatePk`, 
+        
+        setUserCode: `${host}/pk/setUserCode`, 
+
+        updatePrePk: `${host}/pk/updatePrePk`, 
+        publishPk: `${host}/pk/publishPk`,  
+        viewPk: `${host}/pk/viewPk`,  
+        
+        postStatu: `${host}/pk/postStatu`,      
+        isPostApproved: `${host}/pk/isPostApproved`,     
+        goApproving: `${host}/pk/goApproving`,    
+        
+        editSelfComment: `${host}/pk/editSelfComment`, 
+        queryGroupCode: `${host}/pk/queryGroupCode`, 
+        uploadGroupCode: `${host}/pk/uploadGroupCode`, 
+        setApproveUser: `${host}/pk/setApproveUser`, 
+ 
+        removeApproveUser: `${host}/pk/removeApproveUser`, 
+        approve: `${host}/pk/approve`, 
+        setComment: `${host}/pk/setComment`, 
+        querySort: `${host}/pk/querySort`, 
+ 
+        queryMoreSort: `${host}/pk/queryMoreSort`, 
+         
+        updateTime: `${host}/pk/updateTime`, 
+        setCommentVoice:`${host}/pk/setCommentVoice`, 
+        setApproverVoice:`${host}/pk/setApproverVoice`, 
+        approverDetail:`${host}/pk/approverDetail`, 
+ 
+        allCashiers:`${host}/pk/allCashiers`, 
+        nextPageCashiers:`${host}/pk/nextPageCashiers`, 
+        queryPkCreators:`${host}/pk/queryPkCreators`, 
+        morePkCreators:`${host}/pk/morePkCreators`, 
+        
+        switchBit:`${host}/pk/switchBit`, 
+        allCashierGroups:`${host}/pk/allCashierGroups`, 
+        nextPageCashierGroups:`${host}/pk/nextPageCashierGroups`, 
+        
+        createCashier:`${host}/pk/createCashier`, 
+        
+        changeCahierStatu:`${host}/pk/changeCahierStatu`, 
+         
+        uploadCashierGroup:`${host}/pk/uploadCashierGroup`, 
+        
+        changeGroupStatu:`${host}/pk/changeGroupStatu`, 
+        
+        deleteGroup:`${host}/pk/deleteGroup`, 
+        
+        uploadInnerPublicUserImg:`${host}/pk/uploadInnerPublicUserImg`, 
+
+        allFeeCodes:`${host}/pk/allFeeCodes`, 
+        deleteFeeCode:`${host}/pk/deleteFeeCode`, 
+        changeFeeCodeStatu:`${host}/pk/changeFeeCodeStatu`, 
+        uploadFeeCode:`${host}/pk/uploadFeeCode`, 
+        
+        uploadInnerPublicGroupCode:`${host}/pk/uploadInnerPublicGroupCode`, 
+        replaceCashierGroup:`${host}/pk/replaceCashierGroup`, 
+        
+        replaceFeeCode:`${host}/pk/replaceFeeCode`, 
+        systemSetting:`${host}/pk/systemSetting`, 
+        
+        querySystemSetting:`${host}/pk/querySystemSetting`, 
+
+        //管理
+        gennerateCodes:`${host}/pk/gennerateCodes`, 
+        queryActiveCode:`${host}/pk/queryActiveCode`, 
+
+
+
+
+
+
+
+
+
+
+        checkPk:`${host}/pk/checkPk`, 
+        activePk:`${host}/pk/activePk`, 
+        hiddenPk:`${host}/pk/hiddenPk`, 
+        activePks:`${host}/pk/activePks`, 
+        manageApprovingPosts:`${host}/pk/manageApprovingPosts`, 
+        hiddenPost:`${host}/pk/hiddenPost`, 
+        approvePost:`${host}/pk/approvePost`, 
+        querySort:`${host}/pk/querySort`, 
+        nextSortPage:`${host}/pk/nextSortPage`, 
+        
+        morePrePks:`${host}/pk/morePrePks`, 
+        queryPrePks:`${host}/pk/queryPrePks`, 
+        preCreatePk:`${host}/pk/preCreatePk`, 
+        queryPreHomePage:`${host}/pk/queryPreHomePage`, 
+        morePreHomePage:`${host}/pk/morePreHomePage`, 
+        
+        removePk:`${host}/pk/removePk`, 
+        addToGeneticHome:`${host}/pk/addToGeneticHome`, 
+        addToNonGeneticHome:`${host}/pk/addToNonGeneticHome`, 
+        removePkFromHomPage:`${host}/pk/removePkFromHomPage`, 
+        setAlbumType:`${host}/pk/setAlbumType`, 
+        
+        moreBackImgs:`${host}/pk/moreBackImgs`, 
+        queryBackImgs:`${host}/pk/queryBackImgs`, 
+        removeImg:`${host}/pk/removeImg`, 
+        uploadBackImg:`${host}/pk/uploadBackImg`, 
+
+        addPreUser:`${host}/pk/addPreUser`, 
+        morePreUsers:`${host}/pk/morePreUsers`, 
+        queryPreUsers:`${host}/pk/queryPreUsers`, 
+        editUserName:`${host}/pk/editUserName`, 
+        editUserImg:`${host}/pk/editUserImg`, 
+        updateTipBack:`${host}/pk/updateTipBack`, 
+        uploadCashierLink:`${host}/pk/uploadCashierLink`, 
+        
+        deleteCashier:`${host}/pk/deleteCashier`, 
+        deletePk:`${host}/pk/deletePk`, 
+        
+        activeSinglePK:`${host}/pk/activeSinglePK`, 
+                
         activeAgine:`${host}/pk/activeAgine`, 
 
         addTip:`${host}/pk/addTip`, 
         removeTip:`${host}/pk/removeTip`, 
         
         queryTips:`${host}/pk/queryTips`, 
+        setPkUser:`${host}/pk/setPkUser`, 
+        preCreatePost:`${host}/pk/preCreatePost`, 
+        preSetComment:`${host}/pk/preSetComment`, 
+        queryPreInnerPk:`${host}/pk/queryPreInnerPk`, 
+        nextPreInnerPage:`${host}/pk/nextPreInnerPage`, 
+        //卡点
+        queryApprovingFinds:`${host}/pk/queryApprovingFinds`, 
+        nextApprovingFinds:`${host}/pk/nextApprovingFinds`, 
+        passFindUser:`${host}/pk/passFindUser`, 
+        passGroup:`${host}/pk/passGroup`, 
+        passUpdatingGroup:`${host}/pk/passUpdatingGroup`, 
+        
+        queryApprovingGroups:`${host}/pk/queryApprovingGroups`, 
+        nextApprovingGroups:`${host}/pk/nextApprovingGroups`, 
+        
+        queryUpdatingGroups:`${host}/pk/queryUpdatingGroups`, 
+        nextUpdatingGroups:`${host}/pk/nextUpdatingGroups`, 
+        
+        queryBacks:`${host}/pk/queryBacks`, 
+        nextBacks:`${host}/pk/nextBacks`, 
+
+        addTextBack:`${host}/pk/addTextBack`, 
+        removeBack:`${host}/pk/removeBack`, 
+        
+        queryScaleRangs:`${host}/pk/queryScaleRangs`, 
+        setScaleRange:`${host}/pk/setScaleRange`, 
+        
+        queryTipText:`${host}/pk/queryTipText`,
+        removeTextTip:`${host}/pk/removeTextTip`,
+        addTextTip:`${host}/pk/addTextTip`,
+        queryPkList:`${host}/pk/queryPkList`,
+        setPkRange:`${host}/pk/setPkRange`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         oneTimeTask:`${host}/pk/oneTimeTask`, 
         // 登录地址，用于建立会话 
-        loginUrl: `${host}/user/login`, 
+        loginUrl: `${host}/user/managerLogin`, 
         changeUser: `${host}/user/changeUser`, 
         getVCode: `${host}/user/vcode`, 
         getOssUploadUrl: `${host}/oss/getUrl`, 

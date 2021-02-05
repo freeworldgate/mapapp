@@ -40,8 +40,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.9.4",
-  "appid": "wx3a496d6928523d69",
-  "projectname": "miniprogram-demo-center",
+  "appid": "wx824b5474eeb86787",
+  "projectname": "map-manage",
   "debugOptions": {
     "hidedInDevtools": []
   },
