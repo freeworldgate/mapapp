@@ -25,122 +25,33 @@
 <view class="css">
 
 
-
-    <view class="rac pt-30 pb-30 z2">
-        <view class="rcc">
-            <navigator url="/pages/manage/complainPk/complainPk?type=1" class="rcc ">
-                <view class="rcc fs-30 fw-400">普通相册投诉</view>
-            </navigator>
-        </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/complainPk/complainPk?type=2" class="rcc ">
-                <view class="rcc fs-30 fw-400">内置相册投诉</view>
-            </navigator>
-        </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/complainPk/complainPk?type=3" class="rcc ">
-                <view class="rcc fs-30 fw-400">遗传相册投诉</view>
-            </navigator>
-        </view>
-
-
-    </view>
-
     <view class="rac pt-30 pb-30 z2">
 
-        <view class="rcc">
-            <navigator url="/pages/manage/preAlbums/preAlbums" class="rcc">
-                <view class="rcc fs-30 fw-400">内置普通相册</view>
-            </navigator>
-        </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/homeAlbums/homeAlbums" class="rcc">
-                <view class="rcc fs-30 fw-400">主页设置</view>
-            </navigator>
-        </view>
 
         <view class="rcc">
             <navigator url="/pages/manage/preUsers/preUsers" class="rcc">
                 <view class="rcc fs-30 fw-400">InnerUser</view>
             </navigator>
         </view>
-
-
-
-
-
-
-
-
-    </view>
-
-    <view class="rac pt-30 pb-30 z2">
-
         <view class="rcc">
             <navigator url="/pages/manage/activeTips/activeTips" class="rcc">
-                <view class="rcc fs-30 fw-400">审核提示</view>
+                <view class="rcc fs-30 fw-400">常用卡点类型</view>
             </navigator>
         </view>
- 
-
-        <view class="rcc">
-            <navigator url="/pages/manage/prePublicAlbums/prePublicAlbums" class="rcc">
-                <view class="rcc fs-30 fw-400">内置VIP相册</view>
-            </navigator>
-        </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/activePk/activePk" class="rcc ">
-                <view class="rcc fs-30 fw-400">主题激活</view>
-            </navigator>
-        </view>
-
-
 
     </view>
 
-    <view class="rac pt-30 pb-30 z2">
-
-        <view class="rcc">
-            <navigator url="/pages/manage/approvePost/approvePost?type=0" class="rcc">
-                <view class="rcc fs-30 fw-400">普通相册榜帖</view>
-            </navigator>
-        </view>
- 
-
- 
-        <view class="rcc">
-            <navigator url="/pages/manage/approvePost/approvePost?type=1" class="rcc">
-                <view class="rcc fs-30 fw-400">遗传相册榜帖</view>
-            </navigator>
-        </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/approvePost/approvePost?type=2" class="rcc">
-                <view class="rcc fs-30 fw-400">内置相册榜帖</view>
-            </navigator>
-        </view>
-
-
-
-    </view>
 
     <view class="rac pt-30 pb-30 z2">
 
 
-        <view class="rcc">
-            <navigator url="/pages/manage/activeCode/activeCode" class="rcc">
-                <view class="rcc fs-30 fw-400">S-Kuan</view>
-            </navigator>
-        </view>
+   
         <view class="rcc">
             <navigator url="/pages/manage/setting/setting" class="rcc">
                 <view class="rcc fs-30 fw-400">设置</view>
             </navigator>
         </view>
-        <view class="rcc">
-            <navigator url="/pages/manage/pksorts/pksorts" class="rcc ">
-                <view class="rcc fs-30 fw-400">排名</view>
-            </navigator>
-        </view>
+
         <view class="rcc">
             <navigator url="/pages/manage/backImg/backImg" class="rcc ">
                 <view class="rcc fs-30 fw-400">背景图片</view>
@@ -208,6 +119,26 @@
         </view>
 
     </view>
+    <view class="rac pt-30 pb-30 z2">
+
+    <view class="rcc">
+        <navigator url="/pages/manage/tipText/tipText?type=4"  class="rcc ">
+            <view class="rcc fs-30 fw-400">购买群组</view>
+        </navigator>
+    </view>
+    <view class="rcc">
+        <navigator url="/pages/manage/tipText/tipText?type=5"  class="rcc ">
+            <view class="rcc fs-30 fw-400">购买卡点</view>
+        </navigator>
+    </view>
+    <view class="rcc">
+        <navigator url="/pages/manage/tipText/tipText?type=6"   class="rcc ">
+            <view class="rcc fs-30 fw-400">购买时间</view>
+        </navigator>
+    </view>
+
+    </view>
+
 
     <view class="rac pt-30 pb-30 z2">
 

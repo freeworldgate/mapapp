@@ -10,11 +10,11 @@
     "pages/manage/setPkRange/setPkRange",
     "pages/manage/pkset/pkset",
     "pages/manage/tipText/tipText",
-    "pages/manage/activeCode/activeCode",
-    "pages/manage/setting/setting",
-    "pages/manage/activePk/activePk",
 
-    "pages/manage/pksorts/pksorts",
+    "pages/manage/setting/setting",
+ 
+
+
 
     "pages/manage/activeTips/activeTips",
 

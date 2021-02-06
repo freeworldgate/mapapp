@@ -20,7 +20,7 @@
 
     <view class="rac pt-50 pb-50">
         <view class="{{albumType === 9?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="9">用户默认背景</view>
-        <view class="{{albumType === 10?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="10">待定</view>
+        <view class="{{albumType === 10?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="10">支付背景</view>
         <view class="{{albumType === 11?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="11">待定</view>
     </view>
 
@@ -36,13 +36,12 @@
         <view class="{{albumType === 8?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="8">封面</view>
         <view class="{{albumType === 9?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="9">APP二维码</view> -->
     </view>
-    <view class="rac pt-50 pb-50">
-        <!-- <view class="{{albumType === 11?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="11">标题图片</view> -->
+    <!-- <view class="rac pt-50 pb-50">
         <view class="{{albumType === 10?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="10">默认封面</view>
         <view class="{{albumType === 13?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="13">顶部装饰</view>
         <view class="{{albumType === 11?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="11">评论底部图片</view>
         <view class="{{albumType === 12?'fs-25 fw-700 c-red':'fs-25 fw-700 c-name'}}" bindtap="albumType" data-type="12">用户分割线图片</view>
-    </view>
+    </view> -->
 
 
     <view wx:if="{{pks.length > 0}}" class="css z2">

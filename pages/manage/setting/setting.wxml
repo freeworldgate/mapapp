@@ -19,7 +19,7 @@
       <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="topPostMinLength" >
           <view class="rcc fs-30 fw-400">顶置最少时间</view>
           <view class="rcc">
-             <view class="rcc fs-30 fw-400">{{topPostMinLength}}小时</view>
+             <view class="rcc fs-30 fw-400">{{topPostMinLength}}分钟</view>
           </view>
       </view>
       <view class="rbc b-line pt-30 pb-30 br-10 " bindtap="setStr" data-type="maxPkSyncTime" >

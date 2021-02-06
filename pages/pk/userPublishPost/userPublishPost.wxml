@@ -98,26 +98,28 @@
         </view>
         <view class="h-40"></view>
         <view class="b-48 h-10"></view>
-        <view class="rcs p-30">
-            <navigator class="rcc" hover-class="none" url="/pages/pk/invite/invite?userId={{creator.userId}}">
-                <view class="fs-30 fw-700 ">{{userDynamic.collectTimes}}</view>
-                <view class="w-10"></view>
-                <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的收藏</view>
-            </navigator>
-            <view class="w-40"></view>
-            <navigator class="rcc" hover-class="none" url="/pages/pk/userPk/userPk?userId={{creator.userId}}">
-                <view class="fs-30 fw-700 ">{{userDynamic.pkTimes}}</view>
-                <view class="w-10"></view>
-                <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的卡点</view>
-            </navigator>
-            <view class="w-40"></view>
-            <view class="rcc">
-                <view class="fs-30 fw-700 ">{{userDynamic.postTimes}}</view>
-                <view class="w-10"></view>
-                <view class="fs-25 fw-300 c-4">次打卡</view>
+        <view class="rbc">
+            <view class="rcs p-30">
+                <navigator class="rcc" hover-class="none" url="/pages/pk/invite/invite?userId={{creator.userId}}">
+                    <view class="fs-30 fw-700 ">{{userDynamic.collectTimes}}</view>
+                    <view class="w-10"></view>
+                    <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的收藏</view>
+                </navigator>
+                <view class="w-40"></view>
+                <navigator class="rcc" hover-class="none" url="/pages/pk/userPk/userPk?userId={{creator.userId}}">
+                    <view class="fs-30 fw-700 ">{{userDynamic.pkTimes}}</view>
+                    <view class="w-10"></view>
+                    <view class="fs-25 fw-300 c-4">{{user.userId===creator.userId?"我":"Ta"}}的卡点</view>
+                </navigator>
+                <view class="w-40"></view>
+                <view class="rcc">
+                    <view class="fs-30 fw-700 ">{{userDynamic.postTimes}}</view>
+                    <view class="w-10"></view>
+                    <view class="fs-25 fw-300 c-4">次打卡</view>
+                </view>
             </view>
+            <view class="fs-25 fw-300 c-red">封锁用户</view>
         </view>
-
 
 <!-- 
         <view class="h-80 b-line"></view> -->
